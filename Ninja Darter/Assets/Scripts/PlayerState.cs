@@ -10,89 +10,95 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] CharacterController2D _characterController2D;
     [SerializeField] private float _runSpeed;
     private Rigidbody2D _rigidBody2D;
-    private float horizontalMove;
-    private bool jump = false;
-    private bool crouch = false;
+    private float _horizontalMove;
+    private bool _isJumping = false;
+    private bool _isCrouching = false;
 
-    // private State _state;
-    // private enum State { Idle, Running, Rolling, Attacking, Jump_Up, Jump_Down, Ledge_Climb, Wall_Grab, Wall_Climbing, Taking_Damage, Dead }
+    private State _state;
+    private enum State { Idle, Running, Rolling, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Taking_Damage, Dead }
 
+    private void SetState(State _state) { this._state = _state; }
+    private State GetState() { return _state; }
 
     void Start() {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        // _state = State.Idle;
+        _state = State.Idle;
     }
 
     void Update() {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
+         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
         if (Input.GetButtonDown("Jump")) {
-            jump = true;
+            _isJumping = true;
         }
 
-        if (Input.GetButtonDown("Crouch")) {
-            crouch = true;
-        } else if (Input.GetButtonUp("Crouch")) {
-            crouch = false;
-        }
     }
 
     void FixedUpdate() {
-        // Debug.Log(_state);
-         _characterController2D.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump); // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
-        jump = false;
-        // CheckState();
+        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping); // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
+        _isJumping = false;
+        CheckState();
     }
 
-    // private void SetState(State _state) { this._state = _state; }
 
-    // private State GetState(State _state) { return _state; }
 
-    // private void CheckState() {
-    //     Idle();
-    //     Running();
-    // }
+    private void CheckState() {
+        Idle();
+        Running();
+        InAir();
+        Crouching();
+        Debug.Log(_state);
+    }
 
-    // void Idle() {
-    //     /*Play idle animation*/
-    //     // if (_rigidBody2D.velocity.x > -1 && _rigidBody2D.velocity.x < 1 && _rigidBody2D.velocity.y > -1 && _rigidBody2D.velocity.y < 1)
-    //         SetState(State.Idle);
-    // }
+    bool Idle() { 
+        SetState(State.Idle);
+        return true;    
+    }
 
-    // void Running() {
-    //     /*Play running anim
-    //     Move Transform*/
-    //     // if (Input.GetKey(KeyCode.RightArrow)) {
-    //         // _rigidBody2D.velocity = new Vector2(1, 0) * _runSpeed * Time.fixedDeltaTime;
-    //         // _rigidBody2D.AddForce(new Vector2(1, 0) * _runSpeed);
-           
-    //         SetState(State.Running);
-        // }
-            
-        // else if (Input.GetKey(KeyCode.LeftArrow)) {
-            // _rigidBody2D.velocity = new Vector2(-1, 0) * _runSpeed * Time.fixedDeltaTime;
-            // _rigidBody2D.AddForce(new Vector2(-1, 0) * _runSpeed);
-            // SetState(State.Running);
-        // }
-    // }
+    bool Running() {
+        /*Play running anim*/
+       if (_horizontalMove > 0.5f || _horizontalMove < -0.5f) {
+            SetState(State.Running);
+            return true;
+        } else
+            return false;
+    }
 
-    // void Rolling() {}
+    // bool Rolling() {}
 
-    // void Attacking() {}
+    bool Crouching() {
+        if (Input.GetButton("Crouch")) {
+            SetState(State.Crouching);
+            _isCrouching = true;
+            Debug.Log("Crouching: " + _isCrouching);
+            return _isCrouching;
+        } else/* if (Input.GetButtonUp("Crouch"))*/ {
+            // SetState(State.Idle);
+            _isCrouching = false;
+            Debug.Log("Crouching: " + _isCrouching);
+            return _isCrouching;
+        }
+    }
 
-    // void Jump_Up() {}
+    // bool Attacking() {}
 
-    // void Jump_Down() {}
+    bool InAir() {
+        if (!_characterController2D.getGrounded()) {
+            SetState(State.InAir);
+            return true;
+        } else
+            return false;
+    }
 
-    // void Ledge_Climb() {}
+    // bool Ledge_Climb() {}
 
-    // void Wall_Grab() {}
+    // bool Wall_Grab() {}
 
-    // void Wall_Climbing() {}
+    // bool Wall_Climbing() {}
 
-    // void Taking_Damage() {}
+    // bool Taking_Damage() {}
 
-    // void Dead() {}
+    // bool Dead() {}
 
 }
 

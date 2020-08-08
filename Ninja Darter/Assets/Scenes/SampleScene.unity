@@ -597,9 +597,17 @@ PrefabInstance:
       propertyPath: m_CrouchSpeed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3769977381078420572, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
+      propertyPath: m_AirControl
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7393939962690730036, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 47e81ddc78e8b5845921dd6d0cf90b7a, type: 2}
+    - target: {fileID: 7720370857725289578, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
