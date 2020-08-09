@@ -5,22 +5,35 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour {
 
     [SerializeField] CharacterController2D _characterController2D;
-    [Range(20, 60)] [SerializeField] private float _runSpeed;
     [SerializeField] private int _health;
-    private Rigidbody2D _rigidBody2D;
+
+    private float _runSpeed;
+    private const float DEFAULT_RUN_SPEED = 40f;
     private float _horizontalMove;
+
+    [Header("Dashing")]
+    [SerializeField] private bool _canDash = true;
+    [SerializeField] private float _dashSpeed;
+    [SerializeField] private float _dashTime;
+    [SerializeField] private float _timeBtwDashes;
+
+    private Rigidbody2D _rigidBody2D;
+
+    // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
     private bool _isCrouching = false;
-
+    private bool _canMove = true;
+    
     private State _state;
-    private enum State { Idle, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Hurt, Dead }
+    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Hurt, Dead }
 
     private void SetState(State _state) { this._state = _state; }
     private State GetState() { return _state; }
 
     void Start() {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        _state = State.Idle;
+        _state = State.Idling;
+        _runSpeed = DEFAULT_RUN_SPEED;
     }
 
     void Update() {
@@ -33,51 +46,65 @@ public class PlayerState : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping); // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
+        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);  // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
         _isJumping = false;
         CheckCurrentFixedState();
     }
 
     private void CheckCurrentState() { /*Check non-physics related States*/
-        Idle();
+        Idling();
+        Dashing();
         Hurt();
         Dead();
+        RunCodeBasedOnState();
         Debug.Log(_state);
     }
 
     private void CheckCurrentFixedState() { /*Check physics related States*/
-        Running();
         InAir();
         Crouching();
+        RunFixedCodeBasedOnState();
+        Running();
         Debug.Log(_state);
     }
 
-    /*<-------------->-This function will run any code based on the current state-<------------------------------->*/
-    /*<------->-This function serves to hold extra code so as to not crowd the State Functions-<------->*/
+    /*<-------------->-Run extra non-physics related code-<------------------------------->*/
     private void RunCodeBasedOnState() {
         switch(_state) {
-            case State.Idle:
+            case State.Idling:
                 break;
-            case State.Running:
-                break;
-            case State.Crouching:
-                break;
-            case State.InAir:
+            case State.Dashing:
+                DashAbility();
                 break;
             case State.Hurt:
                 break;
             case State.Dead:
                 break;
             default:
-                Debug.Log("Waiting to run code...");
+                Debug.Log("NOT IN A STATE");
+                break;
+        }
+    }
+
+    /*<-------------->-Run extra physics related code-<------------------------------->*/
+    private void RunFixedCodeBasedOnState() {
+        switch(_state) {
+            case State.Running:
+                break;
+            case State.Crouching:
+                break;
+            case State.InAir:
+                break;
+            default:
+                Debug.Log("NOT IN A STATE");
                 break;
         }
     }
 
     /*<------------------------------->-State Functions-<------------------------------->*/
     /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
-    bool Idle() {
-        SetState(State.Idle);
+    bool Idling() {
+        SetState(State.Idling);
         return true;    
     }
 
@@ -90,17 +117,23 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    // bool Dashing() {}
+    bool Dashing() {
+        if (_canMove && _canDash && Idling() || Running() || InAir()) {
+            if (Input.GetKeyDown(KeyCode.RightShift)) {
+                SetState(State.Dashing);
+                return true;
+            }
+        }
+        return false;
+    }
 
     bool Crouching() {
         if (Input.GetButton("Crouch")) {
             SetState(State.Crouching);
             _isCrouching = true;
-            Debug.Log("Crouching: " + _isCrouching);
             return _isCrouching;
         } else  {
             _isCrouching = false;
-            Debug.Log("Crouching: " + _isCrouching);
             return _isCrouching;
         }
     }
@@ -121,8 +154,6 @@ public class PlayerState : MonoBehaviour {
 
     // bool Wall_Climbing() {}
 
-    void TakeDamage(int damage) {  _health -= damage; }
-
     bool Hurt() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             TakeDamage(20);
@@ -141,9 +172,26 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
+    
+    
+    void TakeDamage(int damage) {  _health -= damage; }
+
+    private void DashAbility() {
+        StartCoroutine(Dash());
+    }
+
+    IEnumerator Dash() {
+        _canDash = false;
+        _runSpeed = _dashSpeed;
+        yield return new WaitForSeconds(_dashTime);
+        _runSpeed = DEFAULT_RUN_SPEED;
+        yield return new WaitForSeconds(_timeBtwDashes);
+        _canDash = true;
+    }
 }
 
 /*
 Sources:
 1) B., Brackeys, '2D Movement in Unity, 2018. [Online]. Available: https://www.youtube.com/watch?v=dwcT-Dch0bA [Accessed: Aug-08-2020].
+2) B.B., Bonk, 'Unity Ground Dash and Dash Jump Tutorial', 2019. [Online]. Available: https://www.youtube.com/watch?v=I4Ja5Ar63Pw [Accessed: Aug-09-2020].
 */
