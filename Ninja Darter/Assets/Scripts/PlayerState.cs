@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour {
 
-    /*Use the Rigidbody 2D and the arrow keys to contol the player
-        I don't think I'll need a CharacterController class*/
-
     [SerializeField] CharacterController2D _characterController2D;
-    [SerializeField] private float _runSpeed;
+    [Range(20, 60)] [SerializeField] private float _runSpeed;
+    [SerializeField] private int _health;
     private Rigidbody2D _rigidBody2D;
     private float _horizontalMove;
     private bool _isJumping = false;
     private bool _isCrouching = false;
 
     private State _state;
-    private enum State { Idle, Running, Rolling, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Taking_Damage, Dead }
+    private enum State { Idle, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Hurt, Dead }
 
     private void SetState(State _state) { this._state = _state; }
     private State GetState() { return _state; }
@@ -26,31 +24,59 @@ public class PlayerState : MonoBehaviour {
     }
 
     void Update() {
+        CheckCurrentState();
          _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
         if (Input.GetButtonDown("Jump")) {
             _isJumping = true;
         }
-
     }
 
     void FixedUpdate() {
         _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping); // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
         _isJumping = false;
-        CheckState();
+        CheckCurrentFixedState();
     }
 
-
-
-    private void CheckState() {
+    private void CheckCurrentState() { /*Check non-physics related States*/
         Idle();
+        Hurt();
+        Dead();
+        Debug.Log(_state);
+    }
+
+    private void CheckCurrentFixedState() { /*Check physics related States*/
         Running();
         InAir();
         Crouching();
         Debug.Log(_state);
     }
 
-    bool Idle() { 
+    /*<-------------->-This function will run any code based on the current state-<------------------------------->*/
+    /*<------->-This function serves to hold extra code so as to not crowd the State Functions-<------->*/
+    private void RunCodeBasedOnState() {
+        switch(_state) {
+            case State.Idle:
+                break;
+            case State.Running:
+                break;
+            case State.Crouching:
+                break;
+            case State.InAir:
+                break;
+            case State.Hurt:
+                break;
+            case State.Dead:
+                break;
+            default:
+                Debug.Log("Waiting to run code...");
+                break;
+        }
+    }
+
+    /*<------------------------------->-State Functions-<------------------------------->*/
+    /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
+    bool Idle() {
         SetState(State.Idle);
         return true;    
     }
@@ -64,7 +90,7 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    // bool Rolling() {}
+    // bool Dashing() {}
 
     bool Crouching() {
         if (Input.GetButton("Crouch")) {
@@ -72,8 +98,7 @@ public class PlayerState : MonoBehaviour {
             _isCrouching = true;
             Debug.Log("Crouching: " + _isCrouching);
             return _isCrouching;
-        } else/* if (Input.GetButtonUp("Crouch"))*/ {
-            // SetState(State.Idle);
+        } else  {
             _isCrouching = false;
             Debug.Log("Crouching: " + _isCrouching);
             return _isCrouching;
@@ -96,10 +121,26 @@ public class PlayerState : MonoBehaviour {
 
     // bool Wall_Climbing() {}
 
-    // bool Taking_Damage() {}
+    void TakeDamage(int damage) {  _health -= damage; }
 
-    // bool Dead() {}
+    bool Hurt() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            TakeDamage(20);
+            SetState(State.Hurt);
+            return true;
+        } else
+            return false;
+    }
 
+    bool Dead() {
+        if (_health <= 0) {
+            SetState(State.Dead);
+            Time.timeScale = 0.0f;
+            return true;
+        } else
+            return false;
+    }
+    /*<------------------------------->-End of State Functions-<------------------------------->*/
 }
 
 /*
