@@ -4,36 +4,49 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour {
 
+    private Rigidbody2D _rigidBody2D;
+    
+    private State _state;
+    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Hurt, Dead }
+
     [SerializeField] CharacterController2D _characterController2D;
     [SerializeField] private int _health;
 
-    private float _runSpeed;
-    private const float DEFAULT_RUN_SPEED = 40f;
-    private float _horizontalMove;
+    [Header("Running")]
+    [Range(0, 200)] [SerializeField] private float _runSpeed;
+    
+    private const float DEFAULT_RUN_SPEED = 40f; // modify as needed
+    private float _horizontalMove; // will equal 1 if moving right, -1 if moving left. Multipled with _runSpeed
 
     [Header("Dashing")]
     [SerializeField] private bool _canDash = true;
-    [SerializeField] private float _dashSpeed;
-    [SerializeField] private float _dashTime;
-    [SerializeField] private float _timeBtwDashes;
+    [Range(0, 200)] [SerializeField] private float _dashSpeed;
+    [Range(0, 1)] [SerializeField] private float _dashTime;
+    [Range(0, 1)] [SerializeField] private float _timeBtwDashes;
 
-    private Rigidbody2D _rigidBody2D;
+    [Header("Wall Logic")]
+    [SerializeField] private Transform _wallCheck;
+    [Range(0, 1.2f)] [SerializeField] private float _wallGrabLength;
+    private RaycastHit2D _wallGrabInfo;
 
     // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
     private bool _isCrouching = false;
     private bool _canMove = true;
     
-    private State _state;
-    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Hurt, Dead }
 
     private void SetState(State _state) { this._state = _state; }
     private State GetState() { return _state; }
 
     void Start() {
-        _rigidBody2D = GetComponent<Rigidbody2D>();
         _state = State.Idling;
         _runSpeed = DEFAULT_RUN_SPEED;
+    }
+
+    void Awake() {
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+        _wallGrabInfo = Physics2D.Raycast(_wallCheck.position, Vector2.right * transform.localScale.x, _wallGrabLength);
+        
     }
 
     void Update() {
@@ -63,8 +76,9 @@ public class PlayerState : MonoBehaviour {
     private void CheckCurrentFixedState() { /*Check physics related States*/
         InAir();
         Crouching();
-        RunFixedCodeBasedOnState();
         Running();
+        Wall_Grab();
+        RunFixedCodeBasedOnState();
         Debug.Log(_state);
     }
 
@@ -95,8 +109,10 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.InAir:
                 break;
+            case State.Wall_Grab:
+                break;
             default:
-                Debug.Log("NOT IN A STATE");
+                Debug.Log("FIXED NOT IN A STATE");
                 break;
         }
     }
@@ -118,8 +134,8 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Dashing() {
-        if (_canMove && _canDash && Idling() || Running() || InAir()) {
-            if (Input.GetKeyDown(KeyCode.RightShift)) {
+        if (_canMove && _canDash && Running()) {
+            if (Input.GetKeyDown(KeyCode.F)) {
                 SetState(State.Dashing);
                 return true;
             }
@@ -150,7 +166,13 @@ public class PlayerState : MonoBehaviour {
 
     // bool Ledge_Climb() {}
 
-    // bool Wall_Grab() {}
+    bool Wall_Grab() {
+        if (InAir() && _wallGrabInfo != null) {
+            SetState(State.Wall_Grab);
+            return true;
+        } else
+            return false;
+    }
 
     // bool Wall_Climbing() {}
 
