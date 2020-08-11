@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour {
 
-    /*TODOs:
-    - Write jump function if Wall Sliding or Wall Climbing
-        - remap space key (it's currently mapped to the Hurt State)
-    */
+    /*TODOs:*/
 
     private Rigidbody2D _rigidBody2D;
     
     private State _state;
-    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Sliding, Wall_Climbing, Hurt, Dead }
+    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Hurt, Dead }
 
     [SerializeField] CharacterController2D _characterController2D; // reference to the script that gives our player movement
     [SerializeField] private int _health;
+
+    [Header("Jumping")]
+    // used to contol the behaviour of our jump
+    [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f;
+    [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f;
 
     [Header("Running")]
     [Range(0, 200)] [SerializeField] private float _runSpeed;
@@ -29,8 +31,8 @@ public class PlayerState : MonoBehaviour {
     [Range(0, 1)] [SerializeField] private float _timeBtwDashes;
 
     [Header("Wall Logic")]
-    [Range(0, 1.2f)] [SerializeField] private float _wallCheckRadius; // The radius of the circle that detects walls
-    [SerializeField] private Transform _wallCheckOrigin; // the point our circle is drawn
+    [Range(0.05f, 1.2f)] [SerializeField] private float _wallCheckRadius; // The radius of the circle that detects walls
+    [SerializeField] private Transform _wallCheckOrigin; // we draw a circle here to check for walls
     [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
     [Range(0, 10f)] [SerializeField] private float _wallClimbSpeed;
     [SerializeField] private LayerMask _whatIsWall; // determines what we can wall slide off
@@ -42,22 +44,28 @@ public class PlayerState : MonoBehaviour {
     private bool _isTouchingWall = false;
     private bool _isWallSliding;
     
-    private void SetState(State _state) { this._state = _state; }
-    private State GetState() { return _state; }
+    private void SetState(State _state) => this._state = _state;
+    private State GetState () { return _state; }
 
     void Start() {
         _state = State.Idling;
         _runSpeed = DEFAULT_RUN_SPEED;
     }
 
-    void Awake() { _rigidBody2D = GetComponent<Rigidbody2D>(); }
+    void Awake() => _rigidBody2D = GetComponent<Rigidbody2D>();
 
     void Update() {
         CheckCurrentState();
          _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
+
         if (Input.GetButtonDown("Jump"))
             _isJumping = true;
+        
+        if (_rigidBody2D.velocity.y < 0)
+            _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
+        if (_rigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))
+            _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_lowMultiplier - 1) * Time.deltaTime;
     }
 
     void FixedUpdate() {
@@ -70,7 +78,6 @@ public class PlayerState : MonoBehaviour {
         Idling();
         Dashing();
         Wall_Sliding();
-        // Wall_Climbing();
         Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -92,8 +99,10 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Sliding:
                 Wall_Climbing();
+                WallJump();
                 break;
             case State.Wall_Climbing:
+                WallJump();
                 break;
             case State.Dashing:
                 DashAbility();
@@ -132,7 +141,7 @@ public class PlayerState : MonoBehaviour {
 
     bool Running() {
         /*Play running anim*/
-       if (_horizontalMove > 0.5f || _horizontalMove < -0.5f) {
+       if (_horizontalMove > 0.5f || _horizontalMove < -0.5f && _characterController2D.getGrounded()) {
             SetState(State.Running);
             return true;
         } else
@@ -170,8 +179,6 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    // bool Ledge_Climb() {}
-
     bool Wall_Sliding() {
         if (InAir()) {
             _isTouchingWall = Physics2D.OverlapCircle(_wallCheckOrigin.position, _wallCheckRadius, _whatIsWall);
@@ -195,6 +202,7 @@ public class PlayerState : MonoBehaviour {
         return false;
     }
 
+
     bool Hurt() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             TakeDamage(20);
@@ -214,9 +222,18 @@ public class PlayerState : MonoBehaviour {
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
     
-    void TakeDamage(int damage) {  _health -= damage; }
+    void WallJump() {
+        if (Input.GetKeyDown(KeyCode.E)) 
+            ApplyForce(0, 600);
+    }
 
-    private void DashAbility() { StartCoroutine(Dash()); }
+    // void JumpControl() {
+        
+    // }
+
+    void TakeDamage(int damage) =>  _health -= damage;
+
+    private void DashAbility() => StartCoroutine(Dash());
 
     IEnumerator Dash() {
         _canDash = false;
@@ -227,21 +244,18 @@ public class PlayerState : MonoBehaviour {
         _canDash = true;
     }
 
-    private void WallJump() {
-        if (_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.LeftArrow))
-            ApplyForce(600, 600);
-        else if (!_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.RightArrow))
-            ApplyForce(-600, 600);
-    }
+    void ResetVelocity () => _rigidBody2D.velocity = new Vector2(0, 0);
 
     private void ApplyForce(float x, float y) {
-        _rigidBody2D.velocity = new Vector2(0, 0);
+        ResetVelocity();
         _rigidBody2D.AddForce(new Vector2(x, y));
     }
+
 }
 
 /*
 Sources:
 1) B., Brackeys, '2D Movement in Unity, 2018. [Online]. Available: https://www.youtube.com/watch?v=dwcT-Dch0bA [Accessed: Aug-08-2020].
 2) B.B., Bonk, 'Unity Ground Dash and Dash Jump Tutorial', 2019. [Online]. Available: https://www.youtube.com/watch?v=I4Ja5Ar63Pw [Accessed: Aug-09-2020].
+3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
 */
