@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour {
 
+    /*TODOs:
+    - Write jump function if Wall Sliding or Wall Climbing
+        - remap space key (it's currently mapped to the Hurt State)
+    */
+
     private Rigidbody2D _rigidBody2D;
     
     private State _state;
     private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Sliding, Wall_Climbing, Hurt, Dead }
 
-    [SerializeField] CharacterController2D _characterController2D;
+    [SerializeField] CharacterController2D _characterController2D; // reference to the script that gives our player movement
     [SerializeField] private int _health;
 
     [Header("Running")]
@@ -20,14 +25,15 @@ public class PlayerState : MonoBehaviour {
     [Header("Dashing")]
     [SerializeField] private bool _canDash = true;
     [Range(0, 200)] [SerializeField] private float _dashSpeed;
-    [Range(0, 1)] [SerializeField] private float _dashTime;
+    [Range(0, 1)] [SerializeField] private float _dashTime; // the time you remain in a dash
     [Range(0, 1)] [SerializeField] private float _timeBtwDashes;
 
     [Header("Wall Logic")]
-    [SerializeField] private Transform _wallCheckOrigin;
-    [Range(0, 1.2f)] [SerializeField] private float _wallCheckLength;
-    [Range(0, 10f)] [SerializeField] private float _wallSlidingSpeed;
-    [SerializeField] private LayerMask _whatIsWall; // determined what we can wall slide off of
+    [Range(0, 1.2f)] [SerializeField] private float _wallCheckRadius; // The radius of the circle that detects walls
+    [SerializeField] private Transform _wallCheckOrigin; // the point our circle is drawn
+    [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
+    [Range(0, 10f)] [SerializeField] private float _wallClimbSpeed;
+    [SerializeField] private LayerMask _whatIsWall; // determines what we can wall slide off
 
     // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
@@ -36,7 +42,6 @@ public class PlayerState : MonoBehaviour {
     private bool _isTouchingWall = false;
     private bool _isWallSliding;
     
-
     private void SetState(State _state) { this._state = _state; }
     private State GetState() { return _state; }
 
@@ -45,19 +50,14 @@ public class PlayerState : MonoBehaviour {
         _runSpeed = DEFAULT_RUN_SPEED;
     }
 
-    void Awake() {
-        _rigidBody2D = GetComponent<Rigidbody2D>();
-        // _wallGrabInfoRight = Physics2D.Raycast(_wallCheckOrigin.position, Vector2.right, _wallCheckLength);
-        
-    }
+    void Awake() { _rigidBody2D = GetComponent<Rigidbody2D>(); }
 
     void Update() {
         CheckCurrentState();
          _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetButtonDown("Jump"))
             _isJumping = true;
-        }
     }
 
     void FixedUpdate() {
@@ -70,6 +70,7 @@ public class PlayerState : MonoBehaviour {
         Idling();
         Dashing();
         Wall_Sliding();
+        // Wall_Climbing();
         Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -90,6 +91,9 @@ public class PlayerState : MonoBehaviour {
             case State.Idling:
                 break;
             case State.Wall_Sliding:
+                Wall_Climbing();
+                break;
+            case State.Wall_Climbing:
                 break;
             case State.Dashing:
                 DashAbility();
@@ -112,8 +116,6 @@ public class PlayerState : MonoBehaviour {
             case State.Crouching:
                 break;
             case State.InAir:
-                break;
-            case State.Wall_Climbing:
                 break;
             default:
                 Debug.Log("FIXED NOT IN A STATE (Running, Crouching, InAir or Wall_Sliding)");
@@ -148,7 +150,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetButton("Crouch")) {
+        if (Input.GetButton("Crouch") && !InAir()) {
             SetState(State.Crouching);
             _isCrouching = true;
             return _isCrouching;
@@ -172,10 +174,10 @@ public class PlayerState : MonoBehaviour {
 
     bool Wall_Sliding() {
         if (InAir()) {
-            _isTouchingWall = Physics2D.OverlapCircle(_wallCheckOrigin.position, _wallCheckLength, _whatIsWall);
+            _isTouchingWall = Physics2D.OverlapCircle(_wallCheckOrigin.position, _wallCheckRadius, _whatIsWall);
 
-            if (_isTouchingWall && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) {
-                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlidingSpeed, float.MaxValue));
+            if (_isTouchingWall) {
+                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, 0.5f, float.MaxValue));
                 SetState(State.Wall_Sliding);
                 return true;
             }
@@ -183,7 +185,15 @@ public class PlayerState : MonoBehaviour {
         return false;
     }
 
-    // bool Wall_Climbing() {}
+    bool Wall_Climbing() {
+        
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
+            SetState(State.Wall_Climbing);
+            return true;
+        }
+        return false;
+    }
 
     bool Hurt() {
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -204,12 +214,9 @@ public class PlayerState : MonoBehaviour {
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
     
-    
     void TakeDamage(int damage) {  _health -= damage; }
 
-    private void DashAbility() {
-        StartCoroutine(Dash());
-    }
+    private void DashAbility() { StartCoroutine(Dash()); }
 
     IEnumerator Dash() {
         _canDash = false;
@@ -220,9 +227,12 @@ public class PlayerState : MonoBehaviour {
         _canDash = true;
     }
 
-    private void WallClimb() {
-        
-     }
+    private void WallJump() {
+        if (_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.LeftArrow))
+            ApplyForce(600, 600);
+        else if (!_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.RightArrow))
+            ApplyForce(-600, 600);
+    }
 
     private void ApplyForce(float x, float y) {
         _rigidBody2D.velocity = new Vector2(0, 0);

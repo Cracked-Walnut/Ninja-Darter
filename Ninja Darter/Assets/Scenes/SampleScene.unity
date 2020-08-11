@@ -1652,7 +1652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3769977381078420572, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_MovementSmoothing
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3769977381078420572, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_CrouchSpeed
@@ -1746,6 +1746,18 @@ PrefabInstance:
       propertyPath: _wallCheckOrigin
       value: 
       objectReference: {fileID: 1459049925}
+    - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
+      propertyPath: _wallClimbingSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
+      propertyPath: _wallSlideSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
+      propertyPath: _wallClimbSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7393939962690730036, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_Material
       value: 
