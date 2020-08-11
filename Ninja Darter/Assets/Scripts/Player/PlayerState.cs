@@ -24,12 +24,10 @@ public class PlayerState : MonoBehaviour {
     [Range(0, 1)] [SerializeField] private float _timeBtwDashes;
 
     [Header("Wall Logic")]
-    [SerializeField] private Transform _wallCheckRight;
-    [SerializeField] private Transform _wallCheckLeft;
-    private RaycastHit2D _wallGrabInfoRight, _wallGrabInfoLeft;
+    [SerializeField] private Transform _wallCheckOrigin;
     [Range(0, 1.2f)] [SerializeField] private float _wallCheckLength;
     [Range(0, 10f)] [SerializeField] private float _wallSlidingSpeed;
-    [SerializeField] private LayerMask _whatIsWall;
+    [SerializeField] private LayerMask _whatIsWall; // determined what we can wall slide off of
 
     // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
@@ -49,7 +47,7 @@ public class PlayerState : MonoBehaviour {
 
     void Awake() {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        // _wallGrabInfoRight = Physics2D.Raycast(_wallCheck.position, Vector2.right, _wallCheckLength);
+        // _wallGrabInfoRight = Physics2D.Raycast(_wallCheckOrigin.position, Vector2.right, _wallCheckLength);
         
     }
 
@@ -92,7 +90,6 @@ public class PlayerState : MonoBehaviour {
             case State.Idling:
                 break;
             case State.Wall_Sliding:
-                // WallJump();
                 break;
             case State.Dashing:
                 DashAbility();
@@ -175,24 +172,16 @@ public class PlayerState : MonoBehaviour {
 
     bool Wall_Sliding() {
         if (InAir()) {
-            // _wallGrabInfoRight = Physics2D.Raycast(_wallCheck.position, _wallCheckLength, _whatIsWall);
-            _wallGrabInfoRight = Physics2D.Raycast(_wallCheckRight.position, Vector2.right, _wallCheckLength);
-            _wallGrabInfoLeft = Physics2D.Raycast(_wallCheckLeft.position, Vector2.left, _wallCheckLength);
+            _isTouchingWall = Physics2D.OverlapCircle(_wallCheckOrigin.position, _wallCheckLength, _whatIsWall);
 
-            if (_wallGrabInfoRight.collider == true || _wallGrabInfoLeft.collider == true) {
+            if (_isTouchingWall && Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) {
                 _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlidingSpeed, float.MaxValue));
                 SetState(State.Wall_Sliding);
                 return true;
             }
-                // _isWallSliding = true;
-            // else
-                // _isWallSliding = false;
-
-            // if (_isWallSliding) {
-                // return true;
-            }
-        return false;
         }
+        return false;
+    }
 
     // bool Wall_Climbing() {}
 
@@ -232,15 +221,8 @@ public class PlayerState : MonoBehaviour {
     }
 
     private void WallClimb() {
-
-    }
-
-    private void WallJump() {
-        if (_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.LeftArrow))
-            ApplyForce(600, 600);
-        else if (!_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.RightArrow))
-            ApplyForce(-600, 600);
-    }
+        
+     }
 
     private void ApplyForce(float x, float y) {
         _rigidBody2D.velocity = new Vector2(0, 0);
