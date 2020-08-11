@@ -7,14 +7,13 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     private State _state;
-    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Grab, Wall_Climbing, Hurt, Dead }
+    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Ledge_Climb, Wall_Sliding, Wall_Climbing, Hurt, Dead }
 
     [SerializeField] CharacterController2D _characterController2D;
     [SerializeField] private int _health;
 
     [Header("Running")]
     [Range(0, 200)] [SerializeField] private float _runSpeed;
-    
     private const float DEFAULT_RUN_SPEED = 40f; // modify as needed
     private float _horizontalMove; // will equal 1 if moving right, -1 if moving left. Multipled with _runSpeed
 
@@ -25,14 +24,19 @@ public class PlayerState : MonoBehaviour {
     [Range(0, 1)] [SerializeField] private float _timeBtwDashes;
 
     [Header("Wall Logic")]
-    [SerializeField] private Transform _wallCheck;
-    [Range(0, 1.2f)] [SerializeField] private float _wallGrabLength;
-    private RaycastHit2D _wallGrabInfo;
+    [SerializeField] private Transform _wallCheckRight;
+    [SerializeField] private Transform _wallCheckLeft;
+    private RaycastHit2D _wallGrabInfoRight, _wallGrabInfoLeft;
+    [Range(0, 1.2f)] [SerializeField] private float _wallCheckLength;
+    [Range(0, 10f)] [SerializeField] private float _wallSlidingSpeed;
+    [SerializeField] private LayerMask _whatIsWall;
 
     // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
     private bool _isCrouching = false;
     private bool _canMove = true;
+    private bool _isTouchingWall = false;
+    private bool _isWallSliding;
     
 
     private void SetState(State _state) { this._state = _state; }
@@ -45,7 +49,7 @@ public class PlayerState : MonoBehaviour {
 
     void Awake() {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        _wallGrabInfo = Physics2D.Raycast(_wallCheck.position, Vector2.right * transform.localScale.x, _wallGrabLength);
+        // _wallGrabInfoRight = Physics2D.Raycast(_wallCheck.position, Vector2.right, _wallCheckLength);
         
     }
 
@@ -67,6 +71,7 @@ public class PlayerState : MonoBehaviour {
     private void CheckCurrentState() { /*Check non-physics related States*/
         Idling();
         Dashing();
+        Wall_Sliding();
         Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -77,7 +82,6 @@ public class PlayerState : MonoBehaviour {
         InAir();
         Crouching();
         Running();
-        Wall_Grab();
         RunFixedCodeBasedOnState();
         Debug.Log(_state);
     }
@@ -87,6 +91,9 @@ public class PlayerState : MonoBehaviour {
         switch(_state) {
             case State.Idling:
                 break;
+            case State.Wall_Sliding:
+                // WallJump();
+                break;
             case State.Dashing:
                 DashAbility();
                 break;
@@ -95,7 +102,7 @@ public class PlayerState : MonoBehaviour {
             case State.Dead:
                 break;
             default:
-                Debug.Log("NOT IN A STATE");
+                Debug.Log("NOT IN A STATE (Idling, Dashing, Hurt, Dead)");
                 break;
         }
     }
@@ -109,10 +116,10 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.InAir:
                 break;
-            case State.Wall_Grab:
+            case State.Wall_Climbing:
                 break;
             default:
-                Debug.Log("FIXED NOT IN A STATE");
+                Debug.Log("FIXED NOT IN A STATE (Running, Crouching, InAir or Wall_Sliding)");
                 break;
         }
     }
@@ -166,13 +173,26 @@ public class PlayerState : MonoBehaviour {
 
     // bool Ledge_Climb() {}
 
-    bool Wall_Grab() {
-        if (InAir() && _wallGrabInfo != null) {
-            SetState(State.Wall_Grab);
-            return true;
-        } else
-            return false;
-    }
+    bool Wall_Sliding() {
+        if (InAir()) {
+            // _wallGrabInfoRight = Physics2D.Raycast(_wallCheck.position, _wallCheckLength, _whatIsWall);
+            _wallGrabInfoRight = Physics2D.Raycast(_wallCheckRight.position, Vector2.right, _wallCheckLength);
+            _wallGrabInfoLeft = Physics2D.Raycast(_wallCheckLeft.position, Vector2.left, _wallCheckLength);
+
+            if (_wallGrabInfoRight.collider == true || _wallGrabInfoLeft.collider == true) {
+                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlidingSpeed, float.MaxValue));
+                SetState(State.Wall_Sliding);
+                return true;
+            }
+                // _isWallSliding = true;
+            // else
+                // _isWallSliding = false;
+
+            // if (_isWallSliding) {
+                // return true;
+            }
+        return false;
+        }
 
     // bool Wall_Climbing() {}
 
@@ -209,6 +229,22 @@ public class PlayerState : MonoBehaviour {
         _runSpeed = DEFAULT_RUN_SPEED;
         yield return new WaitForSeconds(_timeBtwDashes);
         _canDash = true;
+    }
+
+    private void WallClimb() {
+
+    }
+
+    private void WallJump() {
+        if (_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.LeftArrow))
+            ApplyForce(600, 600);
+        else if (!_characterController2D.getFacingRight() && Input.GetKeyDown(KeyCode.RightArrow))
+            ApplyForce(-600, 600);
+    }
+
+    private void ApplyForce(float x, float y) {
+        _rigidBody2D.velocity = new Vector2(0, 0);
+        _rigidBody2D.AddForce(new Vector2(x, y));
     }
 }
 

@@ -145,6 +145,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	public bool getGrounded () { return m_Grounded; }
-	
+	public bool getFacingRight() { return m_FacingRight; }
 	public float getJumpForce() { return m_JumpForce; }
+
 }
