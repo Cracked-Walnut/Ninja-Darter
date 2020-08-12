@@ -34,7 +34,7 @@ public class ItemState : MonoBehaviour {
     }
 
     bool Idling() {
-        SetState(State.Idle);
+        SetState(State.Idling);
         return true;
     }
 
