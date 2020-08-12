@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Sources:
+1) B., Blackthornprod, 'ROGUE LIKE RANDOM LEVEL GENERATION - INTERMEDIATE C#/UNITY TUTORIAL - #1', 2018. [Online]. Available: https://www.youtube.com/watch?v=hk6cUanSfXQ
+*/
+
 public class Item : MonoBehaviour {
 
     [SerializeField] private GameObject[] _objects;
@@ -39,8 +44,3 @@ public class Item : MonoBehaviour {
         Debug.Log("Disabled");
     }
 }
-
-/*
-Sources:
-1) B., Blackthornprod, 'ROGUE LIKE RANDOM LEVEL GENERATION - INTERMEDIATE C#/UNITY TUTORIAL - #1', 2018. [Online]. Available: https://www.youtube.com/watch?v=hk6cUanSfXQ
-*/
