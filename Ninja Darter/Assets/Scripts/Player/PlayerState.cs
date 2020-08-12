@@ -8,8 +8,8 @@ public class PlayerState : MonoBehaviour {
 
     private Rigidbody2D _rigidBody2D;
     
-    private State _state;
-    private enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Hurt, Dead }
+    public State _state;
+    public enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Hurt, Dead }
 
     [SerializeField] CharacterController2D _characterController2D; // reference to the script that gives our player movement
     [SerializeField] private int _health;
@@ -44,8 +44,11 @@ public class PlayerState : MonoBehaviour {
     private bool _isTouchingWall = false;
     private bool _isWallSliding;
     
-    private void SetState(State _state) => this._state = _state;
-    private State GetState () { return _state; }
+    public void SetState(State _state) => this._state = _state;
+    public State GetState () { return _state; }
+
+    public void SetHealth(int _health) => this._health = _health;
+    public int GetHealth() { return _health; }
 
     void Start() {
         _state = State.Idling;
