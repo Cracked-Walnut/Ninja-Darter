@@ -4,14 +4,12 @@ using UnityEngine;
 
 /*
 Sources:
-1) B., Brackeys, '2D Movement in Unity, 2018. [Online]. Available: https://www.youtube.com/watch?v=dwcT-Dch0bA [Accessed: Aug-08-2020].
+1) B., Brackeys, '2D Movement in Unity', 2018. [Online]. Available: https://www.youtube.com/watch?v=dwcT-Dch0bA [Accessed: Aug-08-2020].
 2) B.B., Bonk, 'Unity Ground Dash and Dash Jump Tutorial', 2019. [Online]. Available: https://www.youtube.com/watch?v=I4Ja5Ar63Pw [Accessed: Aug-09-2020].
 3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
 */
 
 public class PlayerState : MonoBehaviour {
-
-    /*TODOs:*/
 
     private Rigidbody2D _rigidBody2D;
     
@@ -260,6 +258,5 @@ public class PlayerState : MonoBehaviour {
         ResetVelocity();
         _rigidBody2D.AddForce(new Vector2(x, y));
     }
-
 }
 
