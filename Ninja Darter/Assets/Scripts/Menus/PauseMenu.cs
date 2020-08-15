@@ -4,6 +4,7 @@ public class PauseMenu : MonoBehaviour {
 
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _optionsMenu;
+    [SerializeField] private GameObject _statusMenu;
 
     
     void Update() => CheckPauseKey();
@@ -17,6 +18,7 @@ public class PauseMenu : MonoBehaviour {
     public void SetPauseOn() {
         _pauseMenu.SetActive(true);
         _optionsMenu.SetActive(false);
+        _statusMenu.SetActive(false);
         if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
@@ -25,9 +27,18 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1.0f;
     }
 
-    public void OpenOptionsMenu() {
+    public void SetOptionsOn() {
         _pauseMenu.SetActive(false);
         _optionsMenu.SetActive(true);
+        _statusMenu.SetActive(false);
+        if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
+    }
+
+    public void SetInventoryOn() {
+        _pauseMenu.SetActive(false);
+        _optionsMenu.SetActive(false);
+        _statusMenu.SetActive(true);
+        if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
     public void QuitGame() => Application.Quit();
