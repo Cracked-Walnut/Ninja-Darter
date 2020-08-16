@@ -9,11 +9,6 @@ Sources:
 3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
 */
 
-/*TO DOs:
-    - Detect Xbox input with variable
-    
-*/
-
 public class PlayerState : MonoBehaviour {
 
     private Rigidbody2D _rigidBody2D;
@@ -43,7 +38,7 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Wall Logic")]
     [Range(0.05f, 1.2f)] [SerializeField] private float _wallCheckRadius; // The radius of the circle that detects walls
-    [SerializeField] private Transform _wallCheckOrigin; // we draw a circle here to check for walls
+    [SerializeField] private Transform _wallCheckOriginTop, _wallCheckOriginBottom; // we draw a circle here to check for walls
     [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
     [Range(0, 10f)] [SerializeField] private float _wallClimbSpeed;
     [SerializeField] private LayerMask _whatIsWall; // determines what we can wall slide off
@@ -52,7 +47,7 @@ public class PlayerState : MonoBehaviour {
     private bool _isJumping = false;
     private bool _isCrouching = false;
     private bool _canMove = true;
-    private bool _isTouchingWall = false;
+    private bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
     private bool _isWallSliding;
     
     public void SetState(State _state) => this._state = _state;
@@ -84,7 +79,6 @@ public class PlayerState : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        // Debug.Log(_horizontalXboxMove);
         _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);  // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
         _isJumping = false;
         CheckCurrentFixedState();
@@ -97,7 +91,6 @@ public class PlayerState : MonoBehaviour {
         Hurt();
         Dead();
         RunCodeBasedOnState();
-        // Debug.Log(_state);
     }
 
     private void CheckCurrentFixedState() { /*Check physics related States*/
@@ -105,7 +98,6 @@ public class PlayerState : MonoBehaviour {
         Crouching();
         Running();
         RunFixedCodeBasedOnState();
-        // Debug.Log(_state);
     }
 
     /*<-------------->-Run extra non-physics related code-<------------------------------->*/
@@ -128,7 +120,6 @@ public class PlayerState : MonoBehaviour {
             case State.Dead:
                 break;
             default:
-                // Debug.Log("NOT IN A STATE (Idling, Dashing, Hurt, Dead)");
                 break;
         }
     }
@@ -143,7 +134,6 @@ public class PlayerState : MonoBehaviour {
             case State.InAir:
                 break;
             default:
-                // Debug.Log("FIXED NOT IN A STATE (Running, Crouching, InAir or Wall_Sliding)");
                 break;
         }
     }
@@ -151,11 +141,15 @@ public class PlayerState : MonoBehaviour {
     /*<------------------------------->-State Functions-<------------------------------->*/
     /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
     bool Idling() {
-        SetState(State.Idling);
-        return true;    
+        if (_horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f && _characterController2D.getGrounded()) {
+            SetState(State.Idling);
+            return true;    
+        }
+        return false;
     }
 
     bool Running() {
+        
         /*Play running anim*/
        if (_horizontalXboxMove > 0.5f || _horizontalXboxMove < -0.5f && _characterController2D.getGrounded()) {
             SetState(State.Running);
@@ -175,9 +169,10 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetButton("Crouch") && !InAir()) {
+        if (Input.GetAxis("L-Stick-Vertical") > 0.3 && !InAir()) {
             SetState(State.Crouching);
             _isCrouching = true;
+            Debug.Log(_state);
             return _isCrouching;
         } else  {
             _isCrouching = false;
@@ -197,10 +192,12 @@ public class PlayerState : MonoBehaviour {
 
     bool Wall_Sliding() {
         if (InAir()) {
-            _isTouchingWall = Physics2D.OverlapCircle(_wallCheckOrigin.position, _wallCheckRadius, _whatIsWall);
+            _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
+            _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
-            if (_isTouchingWall) {
-                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, 0.5f, float.MaxValue));
+
+            if (_isTouchingWallTop || _isTouchingWallBottom) {
+                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -1.5f, float.MaxValue));
                 SetState(State.Wall_Sliding);
                 return true;
             }
@@ -210,7 +207,7 @@ public class PlayerState : MonoBehaviour {
 
     bool Wall_Climbing() {
         
-        if (Input.GetKey(KeyCode.UpArrow)) {
+        if (Input.GetAxis("L-Stick-Vertical") < -0.05) {
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
             SetState(State.Wall_Climbing);
             return true;
@@ -239,13 +236,9 @@ public class PlayerState : MonoBehaviour {
     /*<------------------------------->-End of State Functions-<------------------------------->*/
     
     void WallJump() {
-        if (Input.GetKeyDown(KeyCode.E)) 
+        if (Input.GetButtonDown("XboxA"))
             ApplyForce(0, 600);
     }
-
-    // void JumpControl() {
-        
-    // }
 
     void TakeDamage(int damage) =>  _health -= damage;
 

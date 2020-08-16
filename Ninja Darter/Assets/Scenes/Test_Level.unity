@@ -283,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 20875840}
   m_Layer: 8
-  m_Name: WallCheckPoint
+  m_Name: WallCheckPointTop
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20875839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: 0, z: 0}
+  m_LocalPosition: {x: 0.68, y: 0.472, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1728802568}
@@ -622,36 +622,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186184604}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &221582753
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 221582754}
-  m_Layer: 8
-  m_Name: LedgeCheckPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &221582754
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221582753}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: -0.353, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1728802568}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223637194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,8 +2090,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 286236189}
-  _optionsMenu: {fileID: 0}
-  _statusMenu: {fileID: 0}
+  _optionsMenu: {fileID: 1042632941}
+  _statusMenu: {fileID: 1874342704}
+--- !u!114 &617886309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617886307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b4181b851893049b2eb27ff4ba59c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPoint: {fileID: 1240535242}
 --- !u!1 &618418191
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,6 +4474,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237029003}
   m_CullTransparentMesh: 0
+--- !u!1 &1237139521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1237139522}
+  m_Layer: 8
+  m_Name: WallCheckPointBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1237139522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237139521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.68, y: -0.472, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1728802568}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1240535241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1240535242}
+  m_Layer: 8
+  m_Name: WristBladePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1240535242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240535241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.064, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1728802568}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1276160115
 GameObject:
   m_ObjectHideFlags: 0
@@ -6857,7 +6900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: _wallSlideSpeed
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: _wallClimbSpeed
@@ -6866,7 +6909,7 @@ PrefabInstance:
     - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: _ledgeCheckOrigin
       value: 
-      objectReference: {fileID: 221582754}
+      objectReference: {fileID: 0}
     - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: _ledgeCheckRadius
       value: 0.2
@@ -6879,6 +6922,14 @@ PrefabInstance:
       propertyPath: _lowMultiplier
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
+      propertyPath: _wallCheckOriginTop
+      value: 
+      objectReference: {fileID: 20875840}
+    - target: {fileID: 6902913454839820353, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
+      propertyPath: _wallCheckOriginBottom
+      value: 
+      objectReference: {fileID: 1237139522}
     - target: {fileID: 7393939962690730036, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_Material
       value: 
