@@ -9,6 +9,11 @@ Sources:
 3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
 */
 
+/*TO DOs:
+    - Detect Xbox input with variable
+    
+*/
+
 public class PlayerState : MonoBehaviour {
 
     private Rigidbody2D _rigidBody2D;
@@ -25,9 +30,10 @@ public class PlayerState : MonoBehaviour {
     [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f;
 
     [Header("Running")]
-    [Range(0, 200)] [SerializeField] private float _runSpeed;
+    private float _runSpeed;
     private const float DEFAULT_RUN_SPEED = 40f; // modify as needed
     private float _horizontalMove; // will equal 1 if moving right, -1 if moving left. Multipled with _runSpeed
+    private float _horizontalXboxMove;
 
     [Header("Dashing")]
     [SerializeField] private bool _canDash = true;
@@ -57,26 +63,28 @@ public class PlayerState : MonoBehaviour {
 
     void Start() {
         _state = State.Idling;
-        _runSpeed = DEFAULT_RUN_SPEED;
+        _runSpeed = 40;
     }
 
     void Awake() => _rigidBody2D = GetComponent<Rigidbody2D>();
 
     void Update() {
         CheckCurrentState();
-         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
+        _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
+        _horizontalXboxMove = Input.GetAxisRaw("L-Stick-Horizontal") * _runSpeed;
 
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("XboxA"))
             _isJumping = true;
         
         if (_rigidBody2D.velocity.y < 0)
             _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
-        if (_rigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        if (_rigidBody2D.velocity.y > 0 && !Input.GetButton("XboxA"))
             _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_lowMultiplier - 1) * Time.deltaTime;
     }
 
     void FixedUpdate() {
+        // Debug.Log(_horizontalXboxMove);
         _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);  // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
         _isJumping = false;
         CheckCurrentFixedState();
@@ -89,7 +97,7 @@ public class PlayerState : MonoBehaviour {
         Hurt();
         Dead();
         RunCodeBasedOnState();
-        Debug.Log(_state);
+        // Debug.Log(_state);
     }
 
     private void CheckCurrentFixedState() { /*Check physics related States*/
@@ -97,7 +105,7 @@ public class PlayerState : MonoBehaviour {
         Crouching();
         Running();
         RunFixedCodeBasedOnState();
-        Debug.Log(_state);
+        // Debug.Log(_state);
     }
 
     /*<-------------->-Run extra non-physics related code-<------------------------------->*/
@@ -120,7 +128,7 @@ public class PlayerState : MonoBehaviour {
             case State.Dead:
                 break;
             default:
-                Debug.Log("NOT IN A STATE (Idling, Dashing, Hurt, Dead)");
+                // Debug.Log("NOT IN A STATE (Idling, Dashing, Hurt, Dead)");
                 break;
         }
     }
@@ -135,7 +143,7 @@ public class PlayerState : MonoBehaviour {
             case State.InAir:
                 break;
             default:
-                Debug.Log("FIXED NOT IN A STATE (Running, Crouching, InAir or Wall_Sliding)");
+                // Debug.Log("FIXED NOT IN A STATE (Running, Crouching, InAir or Wall_Sliding)");
                 break;
         }
     }
@@ -149,7 +157,7 @@ public class PlayerState : MonoBehaviour {
 
     bool Running() {
         /*Play running anim*/
-       if (_horizontalMove > 0.5f || _horizontalMove < -0.5f && _characterController2D.getGrounded()) {
+       if (_horizontalXboxMove > 0.5f || _horizontalXboxMove < -0.5f && _characterController2D.getGrounded()) {
             SetState(State.Running);
             return true;
         } else
@@ -158,7 +166,7 @@ public class PlayerState : MonoBehaviour {
 
     bool Dashing() {
         if (_canMove && _canDash && Running()) {
-            if (Input.GetKeyDown(KeyCode.F)) {
+            if (Input.GetAxis("RT") > 0.05) {
                 SetState(State.Dashing);
                 return true;
             }
