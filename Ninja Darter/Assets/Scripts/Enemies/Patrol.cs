@@ -10,12 +10,21 @@ public class Patrol : MonoBehaviour {
     [SerializeField] private int _groundCheckDistance;
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private LayerMask _whatIsGround;
+    private bool _isMoving;
     private bool _isTouchingGround;
+    private Sight _sight;
+
+    void Start() => _isMoving = true;
+    void Awake() => _sight = GetComponent<Sight>();
 
     void Update() { 
         
-        // _rigidbody2D.velocity = transform.right * _speed;
-        transform.Translate(Vector2.right * _speed * Time.deltaTime);
+        if (_isMoving)
+            transform.Translate(Vector2.right * _speed * Time.deltaTime);
+        
+        if (_sight.CheckForPlayer())
+            _isMoving = false;
+
         CheckForGround();
     }
 
@@ -23,6 +32,6 @@ public class Patrol : MonoBehaviour {
         _isTouchingGround = Physics2D.OverlapCircle(_groundCheckPosition.position, _groundCheckRadius, _whatIsGround);
 
         if (!_isTouchingGround)
-            transform.Rotate(0f, 180f, 0f);            
+            transform.Rotate(0f, 180f, 0f);
     }
 }
