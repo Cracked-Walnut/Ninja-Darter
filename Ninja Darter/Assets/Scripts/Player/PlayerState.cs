@@ -47,7 +47,7 @@ public class PlayerState : MonoBehaviour {
     // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
     private bool _isCrouching = false;
-    private bool _canMove = true;
+    [SerializeField] private bool _canMove = true;
     private bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
     private bool _isWallSliding;
     
@@ -163,7 +163,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Dashing() {
-        if (_canMove && _canDash && Running()) {
+        if (_canMove && _canDash) {
             if (Input.GetAxis("RT") > 0.05) {
                 SetState(State.Dashing);
                 return true;

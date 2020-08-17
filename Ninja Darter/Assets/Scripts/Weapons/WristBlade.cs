@@ -27,10 +27,18 @@ public class WristBlade : MonoBehaviour {
 
     void Start() => _rigidbody2D.velocity = transform.right * _throwSpeed;
     
+    void KnifeBreakChance(float _min, float _max) {
+        
+        float _randomNum = Random.Range(_min, _max);
+        if (_randomNum >= _min && _randomNum <= _max)
+            Destroy(gameObject);
+    }
+    
     void OnCollisionEnter2D (Collision2D collision) {
         
         switch(collision.gameObject.name) {
             case "Enemy":
+                KnifeBreakChance(0, 30);
                 //damage them
                 break;
             case "Player":
