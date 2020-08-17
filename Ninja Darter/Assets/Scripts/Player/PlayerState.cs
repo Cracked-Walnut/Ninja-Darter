@@ -16,7 +16,8 @@ public class PlayerState : MonoBehaviour {
     public State _state;
     public enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Hurt, Dead }
 
-    [SerializeField] CharacterController2D _characterController2D; // reference to the script that gives our player movement
+    [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
+    private WristBlade _wristBlade;
     [SerializeField] private int _health;
 
     [Header("Jumping")]
@@ -61,7 +62,10 @@ public class PlayerState : MonoBehaviour {
         _runSpeed = 40;
     }
 
-    void Awake() => _rigidBody2D = GetComponent<Rigidbody2D>();
+    void Awake() { 
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+        _wristBlade = FindObjectOfType<WristBlade>();
+    }
 
     void Update() {
         CheckCurrentState();
