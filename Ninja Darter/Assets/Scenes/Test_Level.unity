@@ -211,11 +211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436564951638471772, guid: c7f4cf0bce2c94f47b531474749194cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.95
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 6436564951638471772, guid: c7f4cf0bce2c94f47b531474749194cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.09
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6436564951638471772, guid: c7f4cf0bce2c94f47b531474749194cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -253,6 +253,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6436564951638471773, guid: c7f4cf0bce2c94f47b531474749194cd, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7f4cf0bce2c94f47b531474749194cd, type: 3}
 --- !u!1 &12228872 stripped
@@ -274,14 +278,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 12228872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afdc52cfbab43b5409d6c765762ffb0a, type: 3}
+  m_Script: {fileID: 11500000, guid: cc5ef9f10d14c2a41a5373c333ffc9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sightPosition: {fileID: 196477205}
+  _state: 1
+  _rigidbody2D: {fileID: 12228877}
+  _speed: 5
+  _groundCheckPosition: {fileID: 965842911}
+  _groundCheckRadius: 1
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  _sightPositionRight: {fileID: 196477205}
   _sightDistance: 20
-  _whatisPlayer:
+  _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!50 &12228877 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6436564951638471773, guid: c7f4cf0bce2c94f47b531474749194cd, type: 3}
+  m_PrefabInstance: {fileID: 12228871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &15008548
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 196477205}
   m_Layer: 0
-  m_Name: SightCheck
+  m_Name: SightCheckRight
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3681,6 +3698,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943735118}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &965842911 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6436564953110045588, guid: c7f4cf0bce2c94f47b531474749194cd, type: 3}
+  m_PrefabInstance: {fileID: 12228871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1032913968
 GameObject:
   m_ObjectHideFlags: 0
@@ -6744,11 +6766,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 308110503637148442, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.39
+      value: -7.68
       objectReference: {fileID: 0}
     - target: {fileID: 308110503637148442, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 308110503637148442, guid: 0972ef51580878f43a6b39fb3ab63f98, type: 3}
       propertyPath: m_LocalPosition.z
