@@ -19,6 +19,8 @@ public class WristBlade : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     private GameObject _playerObject;
     private WristBladeWeapon _wristBladeWeapon;
+    private int _randomDropChance = 0;
+    private const int _MIN_DROP_CHANCE = 1, _MAX_DROP_CHANCE = 30;
 
     void Awake() { 
         _playerObject = GameObject.Find("Player");
@@ -27,10 +29,13 @@ public class WristBlade : MonoBehaviour {
 
     void Start() => _rigidbody2D.velocity = transform.right * _throwSpeed;
     
-    void KnifeBreakChance(float _min, float _max) {
-        
-        float _randomNum = Random.Range(_min, _max);
-        if (_randomNum >= _min && _randomNum <= _max)
+    /*A random number between 1 and 100
+    if the number falls between 1 and the break chance, break the knife*/
+
+    void KnifeBreakChance(int _breakChanceNum, int _minValue, int _maxValue) {
+        int _breakChanceRandom = Random.Range(_minValue, _maxValue);
+
+        if (_breakChanceRandom >= 1 && _breakChanceRandom <= _breakChanceNum)
             Destroy(gameObject);
     }
     
@@ -38,7 +43,7 @@ public class WristBlade : MonoBehaviour {
         
         switch(collision.gameObject.name) {
             case "Enemy":
-                KnifeBreakChance(0, 30);
+                KnifeBreakChance(30, 1, 100);
                 //damage them
                 break;
             case "Player":
@@ -51,5 +56,4 @@ public class WristBlade : MonoBehaviour {
         // play sound
         // play spark animation
     }
-    
 }

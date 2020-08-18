@@ -7,7 +7,6 @@ public class Patrol : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _speed;
     [SerializeField] private Transform _groundCheckPosition;
-    [SerializeField] private int _groundCheckDistance;
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private LayerMask _whatIsGround;
     private bool _isMoving;
@@ -17,17 +16,24 @@ public class Patrol : MonoBehaviour {
     [SerializeField] private float _sightDistance;
     [SerializeField] private LayerMask _whatIsPlayer;
     private RaycastHit2D _sightInfo;
+    private Patrol _patrol;
+
+    public bool GetMoving() { return _isMoving; }
+    public void SetMoving(bool _boolMove) => _boolMove = _isMoving;
 
     void Start() => _isMoving = true;
 
-    void Update() { 
+    void Update() {
         
         CheckForGround();
         
-        if (_isMoving)
+        if (!_isMoving)
+            return;
+        else
             transform.Translate(Vector2.right * _speed * Time.deltaTime);
 
-        CheckForPlayer();
+        // SpotPlayer();
+
     }
 
     void CheckForGround() {
@@ -37,18 +43,18 @@ public class Patrol : MonoBehaviour {
             transform.Rotate(0f, 180f, 0f);
     }
 
-    public bool CheckForPlayer() {
+
+    public void SpotPlayer() {
         
         _sightInfo = Physics2D.Raycast(_sightPosition.position, Vector2.right, _sightDistance, _whatIsPlayer);
 
         if (_sightInfo) {
             // fire three bullets after a 0.5 second delay, use a coroutine
             _isMoving = false;
-            return true;
+            
         } else {
             _isMoving = true;
-            return false;
+            
         }
-
     }
 }
