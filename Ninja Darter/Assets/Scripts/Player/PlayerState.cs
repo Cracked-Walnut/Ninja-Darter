@@ -14,7 +14,7 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Hurt, Dead }
+    public enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Ladder_Climbing, Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private WristBlade _wristBlade;
@@ -44,10 +44,18 @@ public class PlayerState : MonoBehaviour {
     [Range(0, 10f)] [SerializeField] private float _wallClimbSpeed;
     [SerializeField] private LayerMask _whatIsWall; // determines what we can wall slide off
 
+    [Header("Ladder Logic")]
+    [SerializeField] private Transform _ladderCheck;
+    [SerializeField] private LayerMask _whatIsLadder;
+    [SerializeField] private float _ladderClimbSpeed;
+    [SerializeField] private float _ladderRadius;
+    private bool _isTouchingLadder;
+   
+    [Header("Misc Booleans")]
+    [SerializeField] private bool _canMove = true;
     // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
     private bool _isCrouching = false;
-    [SerializeField] private bool _canMove = true;
     private bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
     private bool _isWallSliding;
     
@@ -92,6 +100,7 @@ public class PlayerState : MonoBehaviour {
         Idling();
         Dashing();
         Wall_Sliding();
+        Ladder_Climbing();
         Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -115,6 +124,8 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Climbing:
                 WallJump();
+                break;
+            case State.Ladder_Climbing:
                 break;
             case State.Dashing:
                 DashAbility();
@@ -219,6 +230,22 @@ public class PlayerState : MonoBehaviour {
         return false;
     }
 
+    bool Ladder_Climbing() {
+
+        _isTouchingLadder = Physics2D.OverlapCircle(_ladderCheck.position, _ladderRadius, _whatIsLadder);
+
+        if (_isTouchingLadder && Input.GetAxis("L-Stick-Vertical") < -0.05) {
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _ladderClimbSpeed, float.MaxValue));
+            SetState(State.Ladder_Climbing);
+            return true;
+        } 
+        else if (_isTouchingLadder && Input.GetAxis("L-Stick-Vertical") > 0.05) {
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_ladderClimbSpeed, float.MaxValue));
+            SetState(State.Ladder_Climbing);
+            return true;
+        }
+        return false;
+    }
 
     bool Hurt() {
         if (Input.GetKeyDown(KeyCode.Space)) {
