@@ -43,16 +43,10 @@ public class PlayerState : MonoBehaviour {
     [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
     [Range(0, 10f)] [SerializeField] private float _wallClimbSpeed;
     [SerializeField] private LayerMask _whatIsWall; // determines what we can wall slide off
-
-    [Header("Ladder Logic")]
-    [SerializeField] private Transform _ladderCheck;
-    [SerializeField] private LayerMask _whatIsLadder;
-    [SerializeField] private float _ladderClimbSpeed;
-    [SerializeField] private float _ladderRadius;
-    private bool _isTouchingLadder;
    
     [Header("Misc Booleans")]
     [SerializeField] private bool _canMove = true;
+    [SerializeField] private bool _isLateJump = true;
     // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
     private bool _isCrouching = false;
@@ -100,7 +94,6 @@ public class PlayerState : MonoBehaviour {
         Idling();
         Dashing();
         Wall_Sliding();
-        Ladder_Climbing();
         Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -225,23 +218,6 @@ public class PlayerState : MonoBehaviour {
         if (Input.GetAxis("L-Stick-Vertical") < -0.05) {
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
             SetState(State.Wall_Climbing);
-            return true;
-        }
-        return false;
-    }
-
-    bool Ladder_Climbing() {
-
-        _isTouchingLadder = Physics2D.OverlapCircle(_ladderCheck.position, _ladderRadius, _whatIsLadder);
-
-        if (_isTouchingLadder && Input.GetAxis("L-Stick-Vertical") < -0.05) {
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _ladderClimbSpeed, float.MaxValue));
-            SetState(State.Ladder_Climbing);
-            return true;
-        } 
-        else if (_isTouchingLadder && Input.GetAxis("L-Stick-Vertical") > 0.05) {
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_ladderClimbSpeed, float.MaxValue));
-            SetState(State.Ladder_Climbing);
             return true;
         }
         return false;
