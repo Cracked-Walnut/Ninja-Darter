@@ -21,7 +21,7 @@ TagManager:
   - Treasure
   - Foliage
   - Coins
-  - 
+  - Moon
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ladder
+  - name: Grid
     uniqueID: 1193448287
+    locked: 0
+  - name: Spikes
+    uniqueID: 202260605
     locked: 0
