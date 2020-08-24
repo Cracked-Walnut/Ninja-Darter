@@ -14,7 +14,7 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Dashing, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Ladder_Climbing, Hurt, Dead }
+    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Ladder_Climbing, Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private WristBlade _wristBlade;
@@ -26,7 +26,7 @@ public class PlayerState : MonoBehaviour {
     [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f;
 
     [Header("Running")]
-    private float _runSpeed;
+    [SerializeField] private float _runSpeed;
     private const float DEFAULT_RUN_SPEED = 40f; // modify as needed
     private float _horizontalMove; // will equal 1 if moving right, -1 if moving left. Multipled with _runSpeed
     private float _horizontalXboxMove;
@@ -92,7 +92,7 @@ public class PlayerState : MonoBehaviour {
 
     private void CheckCurrentState() { /*Check non-physics related States*/
         Idling();
-        Dashing();
+        DashAbility();
         Wall_Sliding();
         Hurt();
         Dead();
@@ -119,9 +119,6 @@ public class PlayerState : MonoBehaviour {
                 WallJump();
                 break;
             case State.Ladder_Climbing:
-                break;
-            case State.Dashing:
-                DashAbility();
                 break;
             case State.Hurt:
                 break;
@@ -166,15 +163,6 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    bool Dashing() {
-        if (_canMove && _canDash) {
-            if (Input.GetAxis("RT") > 0.05) {
-                SetState(State.Dashing);
-                return true;
-            }
-        }
-        return false;
-    }
 
     bool Crouching() {
         if (Input.GetAxis("L-Stick-Vertical") > 0.3 && !InAir()) {
@@ -241,7 +229,7 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
-    
+
     void WallJump() {
         if (Input.GetButtonDown("XboxA"))
             ApplyForce(0, 600);
@@ -249,11 +237,18 @@ public class PlayerState : MonoBehaviour {
 
     void TakeDamage(int damage) =>  _health -= damage;
 
-    private void DashAbility() => StartCoroutine(Dash());
+    private void DashAbility() { 
+
+        if (Input.GetAxis("RT") > 0.05)
+            StartCoroutine(Dash()); 
+
+    }
 
     IEnumerator Dash() {
         _canDash = false;
+        
         _runSpeed = _dashSpeed;
+
         yield return new WaitForSeconds(_dashTime);
         _runSpeed = DEFAULT_RUN_SPEED;
         yield return new WaitForSeconds(_timeBtwDashes);
