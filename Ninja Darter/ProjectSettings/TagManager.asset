@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Minimap Camera
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Foliage
   - Coins
   - Moon
-  - 
+  - Minimap
   - 
   - 
   - 
@@ -41,9 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 719148793
+    locked: 0
   - name: Grid
     uniqueID: 1193448287
     locked: 0
   - name: Spikes
     uniqueID: 202260605
+    locked: 0
+  - name: Treasure Chests
+    uniqueID: 1150069233
+    locked: 0
+  - name: Player
+    uniqueID: 3972938649
     locked: 0
