@@ -11,7 +11,9 @@ public class PauseMenu : MonoBehaviour {
     
     // check for Pause key or start button
     void CheckPauseKey() {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        //     SetPauseOn();
+        if (Input.GetButtonDown("Menu (Start)"))
             SetPauseOn();
     }
 
