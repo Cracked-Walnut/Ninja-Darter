@@ -14,11 +14,14 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Ladder_Climbing, Hurt, Dead }
+    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private WristBlade _wristBlade;
     [SerializeField] private int _health;
+
+    [Header("Animator")]
+    [SerializeField] private Animator _animator;
 
     [Header("Jumping")]
     // used to contol the behaviour of our jump
@@ -117,8 +120,6 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Climbing:
                 WallJump();
-                break;
-            case State.Ladder_Climbing:
                 break;
             case State.Hurt:
                 break;
