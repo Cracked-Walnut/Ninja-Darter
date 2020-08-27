@@ -113,6 +113,7 @@ public class PlayerState : MonoBehaviour {
     private void RunCodeBasedOnState() {
         switch(_state) {
             case State.Idling:
+                // Debug.Log(State.Idling);
                 break;
             case State.Wall_Sliding:
                 Wall_Climbing();
@@ -134,8 +135,10 @@ public class PlayerState : MonoBehaviour {
     private void RunFixedCodeBasedOnState() {
         switch(_state) {
             case State.Running:
+                Debug.Log(State.Running);
                 break;
             case State.Crouching:
+                Debug.Log(State.Crouching);
                 break;
             case State.InAir:
                 break;
@@ -149,30 +152,38 @@ public class PlayerState : MonoBehaviour {
     bool Idling() {
         if (_horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f && _characterController2D.getGrounded()) {
             SetState(State.Idling);
+            _animator.SetBool("IsIdling", true);
             return true;    
+        } else {
+            _animator.SetBool("IsIdling", false);
+            return false;
         }
-        return false;
     }
 
     bool Running() {
         
         /*Play running anim*/
        if (_horizontalXboxMove > 0.5f || _horizontalXboxMove < -0.5f && _characterController2D.getGrounded()) {
+            _animator.SetBool("IsRunning", true);
             SetState(State.Running);
             return true;
-        } else
+        } else {
+            _animator.SetBool("IsRunning", false);
             return false;
+        }
     }
 
-
     bool Crouching() {
-        if (Input.GetAxis("L-Stick-Vertical") > 0.3 && !InAir()) {
-            SetState(State.Crouching);
+        if (Input.GetButton("XboxB") && !InAir()) {
+            
             _isCrouching = true;
-            Debug.Log(_state);
+            _animator.SetBool("IsCrouching", true);
+            SetState(State.Crouching);
             return _isCrouching;
-        } else  {
+        
+        } else {
             _isCrouching = false;
+            _animator.SetBool("IsCrouching", false);
             return _isCrouching;
         }
     }
@@ -181,10 +192,16 @@ public class PlayerState : MonoBehaviour {
 
     bool InAir() {
         if (!_characterController2D.getGrounded()) {
+            
+            _animator.SetBool("IsJumping", true);
+            _animator.SetFloat("VelocityY", _rigidBody2D.velocity.y);
             SetState(State.InAir);
+            
             return true;
-        } else
+        } else {
+            _animator.SetBool("IsJumping", false);
             return false;
+        }
     }
 
     bool Wall_Sliding() {
@@ -192,13 +209,16 @@ public class PlayerState : MonoBehaviour {
             _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
             _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
-
             if (_isTouchingWallTop || _isTouchingWallBottom) {
+
                 _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -1.5f, float.MaxValue));
+                _animator.SetBool("IsWallSliding", true);
                 SetState(State.Wall_Sliding);
                 return true;
             }
-        }
+        } else
+            _animator.SetBool("IsWallSliding", false);
+        
         return false;
     }
 
