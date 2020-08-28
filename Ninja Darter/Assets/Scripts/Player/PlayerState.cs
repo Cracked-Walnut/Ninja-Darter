@@ -14,7 +14,7 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Hurt, Dead }
+    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Dashing,  Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private WristBlade _wristBlade;
@@ -74,9 +74,11 @@ public class PlayerState : MonoBehaviour {
 
     void Update() {
         CheckCurrentState();
-        _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
-        _horizontalXboxMove = Input.GetAxisRaw("L-Stick-Horizontal") * _runSpeed;
 
+        if (_canMove) {
+            _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
+            _horizontalXboxMove = Input.GetAxisRaw("L-Stick-Horizontal") * _runSpeed;
+        }
 
         if (Input.GetButtonDown("XboxA"))
             _isJumping = true;
@@ -174,7 +176,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetButton("XboxB") && !InAir()) {
+        if (Input.GetAxis("RT") > 0.5 && !InAir()) {
             
             _isCrouching = true;
             _animator.SetBool("IsCrouching", true);
@@ -260,17 +262,24 @@ public class PlayerState : MonoBehaviour {
 
     private void DashAbility() { 
 
-        if (Input.GetAxis("RT") > 0.05)
+        // if (Input.GetAxis("RT") > 0.05)
+        if (Input.GetButtonDown("XboxB"))
             StartCoroutine(Dash()); 
 
     }
 
     IEnumerator Dash() {
         _canDash = false;
-        
+        SetState(State.Dashing);
         _runSpeed = _dashSpeed;
+        _animator.SetBool("IsDashing", true);
+        // _canMove = false;
 
         yield return new WaitForSeconds(_dashTime);
+        
+        // _canMove = true;
+        _animator.SetBool("IsDashing", false);
+        _animator.SetBool("IsIdling", true);
         _runSpeed = DEFAULT_RUN_SPEED;
         yield return new WaitForSeconds(_timeBtwDashes);
         _canDash = true;
