@@ -105,7 +105,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     private void CheckCurrentFixedState() { /*Check physics related States*/
-        InAir();
+        // InAir();
         Crouching();
         Running();
         RunFixedCodeBasedOnState();
@@ -193,7 +193,7 @@ public class PlayerState : MonoBehaviour {
     // bool Attacking() {}
 
     bool InAir() {
-        if (!_characterController2D.getGrounded()) {
+        if (!_characterController2D.getGrounded() && !_isTouchingWallTop && !_isTouchingWallBottom) {
             
             _animator.SetBool("IsJumping", true);
             _animator.SetFloat("VelocityY", _rigidBody2D.velocity.y);
@@ -207,7 +207,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Wall_Sliding() {
-        if (InAir()) {
+        if (!_characterController2D.getGrounded()) {
             _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
             _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
@@ -215,11 +215,13 @@ public class PlayerState : MonoBehaviour {
 
                 _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -1.5f, float.MaxValue));
                 _animator.SetBool("IsWallSliding", true);
+                _animator.SetBool("IsJumping", true);
                 SetState(State.Wall_Sliding);
                 return true;
             }
-        } else
+        } else {
             _animator.SetBool("IsWallSliding", false);
+        }
         
         return false;
     }
