@@ -105,7 +105,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     private void CheckCurrentFixedState() { /*Check physics related States*/
-        // InAir();
+        InAir();
         Crouching();
         Running();
         RunFixedCodeBasedOnState();
@@ -116,17 +116,24 @@ public class PlayerState : MonoBehaviour {
         switch(_state) {
             case State.Idling:
                 // Debug.Log(State.Idling);
+                _animator.SetTrigger("Idling");
                 break;
             case State.Wall_Sliding:
+                Debug.Log(_state);
+                // _animator.SetTrigger("WallSliding");
                 Wall_Climbing();
                 WallJump();
                 break;
             case State.Wall_Climbing:
+                // _animator.SetTrigger("WallClimbing");
+                Debug.Log(_state);
                 WallJump();
                 break;
             case State.Hurt:
+                Debug.Log(_state);
                 break;
             case State.Dead:
+                Debug.Log(_state);
                 break;
             default:
                 break;
@@ -137,12 +144,15 @@ public class PlayerState : MonoBehaviour {
     private void RunFixedCodeBasedOnState() {
         switch(_state) {
             case State.Running:
-                Debug.Log(State.Running);
+                _animator.SetTrigger("Running");
+                Debug.Log(_state);
                 break;
             case State.Crouching:
-                Debug.Log(State.Crouching);
+                Debug.Log(_state);
                 break;
             case State.InAir:
+                _animator.SetTrigger("Jumping");
+                Debug.Log(_state);
                 break;
             default:
                 break;
@@ -152,40 +162,33 @@ public class PlayerState : MonoBehaviour {
     /*<------------------------------->-State Functions-<------------------------------->*/
     /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
     bool Idling() {
-        if (_horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f && _characterController2D.getGrounded()) {
+        if (_characterController2D.getGrounded() && _horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f) {
             SetState(State.Idling);
-            _animator.SetBool("IsIdling", true);
             return true;    
-        } else {
-            _animator.SetBool("IsIdling", false);
+        } else
             return false;
-        }
     }
 
     bool Running() {
         
         /*Play running anim*/
-       if (_horizontalXboxMove > 0.5f || _horizontalXboxMove < -0.5f && _characterController2D.getGrounded()) {
-            _animator.SetBool("IsRunning", true);
+       if (_characterController2D.getGrounded() && !Idling()) {
             SetState(State.Running);
             return true;
-        } else {
-            _animator.SetBool("IsRunning", false);
+        } else
             return false;
-        }
     }
 
     bool Crouching() {
         if (Input.GetAxis("RT") > 0.5 && !InAir()) {
             
             _isCrouching = true;
-            _animator.SetBool("IsCrouching", true);
+            // _animator.SetTrigger("Crouching");
             SetState(State.Crouching);
             return _isCrouching;
         
         } else {
             _isCrouching = false;
-            _animator.SetBool("IsCrouching", false);
             return _isCrouching;
         }
     }
@@ -195,15 +198,12 @@ public class PlayerState : MonoBehaviour {
     bool InAir() {
         if (!_characterController2D.getGrounded() && !_isTouchingWallTop && !_isTouchingWallBottom) {
             
-            _animator.SetBool("IsJumping", true);
             _animator.SetFloat("VelocityY", _rigidBody2D.velocity.y);
             SetState(State.InAir);
             
             return true;
-        } else {
-            _animator.SetBool("IsJumping", false);
+        } else
             return false;
-        }
     }
 
     bool Wall_Sliding() {
@@ -214,13 +214,9 @@ public class PlayerState : MonoBehaviour {
             if (_isTouchingWallTop || _isTouchingWallBottom) {
 
                 _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -1.5f, float.MaxValue));
-                _animator.SetBool("IsWallSliding", true);
-                _animator.SetBool("IsJumping", true);
                 SetState(State.Wall_Sliding);
                 return true;
             }
-        } else {
-            _animator.SetBool("IsWallSliding", false);
         }
         
         return false;
@@ -274,14 +270,13 @@ public class PlayerState : MonoBehaviour {
         _canDash = false;
         SetState(State.Dashing);
         _runSpeed = _dashSpeed;
-        _animator.SetBool("IsDashing", true);
+        // _animator.SetTrigger("Dashing");
         // _canMove = false;
 
         yield return new WaitForSeconds(_dashTime);
         
         // _canMove = true;
-        _animator.SetBool("IsDashing", false);
-        _animator.SetBool("IsIdling", true);
+        // _animator.SetTrigger("Idling");
         _runSpeed = DEFAULT_RUN_SPEED;
         yield return new WaitForSeconds(_timeBtwDashes);
         _canDash = true;
