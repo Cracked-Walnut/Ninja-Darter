@@ -120,7 +120,7 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Sliding:
                 Debug.Log(_state);
-                // _animator.SetTrigger("WallSliding");
+                _animator.SetTrigger("WallSliding");
                 Wall_Climbing();
                 WallJump();
                 break;
@@ -148,6 +148,7 @@ public class PlayerState : MonoBehaviour {
                 Debug.Log(_state);
                 break;
             case State.Crouching:
+                _animator.SetTrigger("Crouching");
                 Debug.Log(_state);
                 break;
             case State.InAir:
@@ -172,7 +173,7 @@ public class PlayerState : MonoBehaviour {
     bool Running() {
         
         /*Play running anim*/
-       if (_characterController2D.getGrounded() && !Idling()) {
+       if (_characterController2D.getGrounded() && !Idling() && !Crouching()) {
             SetState(State.Running);
             return true;
         } else
@@ -180,10 +181,10 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetAxis("RT") > 0.5 && !InAir()) {
-            
+        Debug.Log(_state);
+        // if (Input.GetAxis("RT") > 0.5 && !InAir()) {
+        if (Input.GetButton("XboxX") && !InAir()) {
             _isCrouching = true;
-            // _animator.SetTrigger("Crouching");
             SetState(State.Crouching);
             return _isCrouching;
         
@@ -270,7 +271,7 @@ public class PlayerState : MonoBehaviour {
         _canDash = false;
         SetState(State.Dashing);
         _runSpeed = _dashSpeed;
-        // _animator.SetTrigger("Dashing");
+        _animator.SetTrigger("Dashing");
         // _canMove = false;
 
         yield return new WaitForSeconds(_dashTime);
