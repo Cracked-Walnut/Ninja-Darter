@@ -14,7 +14,7 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Dashing,  Hurt, Dead }
+    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, On_Wall, Dashing,  Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private WristBlade _wristBlade;
@@ -98,7 +98,8 @@ public class PlayerState : MonoBehaviour {
     private void CheckCurrentState() { /*Check non-physics related States*/
         Idling();
         DashAbility();
-        Wall_Sliding();
+        // Wall_Sliding();
+        OnWall();
         Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -115,19 +116,18 @@ public class PlayerState : MonoBehaviour {
     private void RunCodeBasedOnState() {
         switch(_state) {
             case State.Idling:
-                // Debug.Log(State.Idling);
                 _animator.SetTrigger("Idling");
                 break;
             case State.Wall_Sliding:
                 Debug.Log(_state);
                 _animator.SetTrigger("WallSliding");
-                Wall_Climbing();
-                WallJump();
                 break;
             case State.Wall_Climbing:
-                // _animator.SetTrigger("WallClimbing");
+                _animator.SetTrigger("WallClimbing");
                 Debug.Log(_state);
                 WallJump();
+                break;
+            case State.On_Wall:
                 break;
             case State.Hurt:
                 Debug.Log(_state);
@@ -233,6 +233,28 @@ public class PlayerState : MonoBehaviour {
         return false;
     }
 
+    void OnWall() {
+
+        if (!_characterController2D.getGrounded()) {
+
+            _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
+            _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
+
+            if (_isTouchingWallTop || _isTouchingWallBottom) {
+
+                
+
+                if (Input.GetAxis("L-Stick-Vertical") < -0.05) {
+                    _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
+                    SetState(State.Wall_Climbing);
+                } else {
+                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -1.5f, float.MaxValue));
+                SetState(State.Wall_Sliding);
+                }
+            }
+        }
+    }
+
     bool Hurt() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             TakeDamage(20);
@@ -261,10 +283,8 @@ public class PlayerState : MonoBehaviour {
 
     private void DashAbility() { 
 
-        // if (Input.GetAxis("RT") > 0.05)
-        if (Input.GetButtonDown("XboxB"))
+        if (Input.GetButtonDown("XboxB") && Running())
             StartCoroutine(Dash()); 
-
     }
 
     IEnumerator Dash() {
