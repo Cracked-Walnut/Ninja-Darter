@@ -18,10 +18,14 @@ public class PlayerState : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private WristBlade _wristBlade;
+
+    [Header("Health")]
     [SerializeField] private int _health;
+
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
+    [SerializeField] private LayerMask _whatIsEnemy;
 
     [Header("Jumping")]
     // used to contol the behaviour of our jump
@@ -100,7 +104,7 @@ public class PlayerState : MonoBehaviour {
         DashAbility();
         // Wall_Sliding();
         OnWall();
-        Hurt();
+        // Hurt();
         Dead();
         RunCodeBasedOnState();
     }
@@ -119,21 +123,21 @@ public class PlayerState : MonoBehaviour {
                 _animator.SetTrigger("Idling");
                 break;
             case State.Wall_Sliding:
-                Debug.Log(_state);
+                // Debug.Log(_state);
                 _animator.SetTrigger("WallSliding");
                 break;
             case State.Wall_Climbing:
                 _animator.SetTrigger("WallClimbing");
-                Debug.Log(_state);
+                // Debug.Log(_state);
                 WallJump();
                 break;
             case State.On_Wall:
                 break;
             case State.Hurt:
-                Debug.Log(_state);
+                // Debug.Log(_state);
                 break;
             case State.Dead:
-                Debug.Log(_state);
+                // Debug.Log(_state);
                 break;
             default:
                 break;
@@ -145,15 +149,15 @@ public class PlayerState : MonoBehaviour {
         switch(_state) {
             case State.Running:
                 _animator.SetTrigger("Running");
-                Debug.Log(_state);
+                // Debug.Log(_state);
                 break;
             case State.Crouching:
                 _animator.SetTrigger("Crouching");
-                Debug.Log(_state);
+                // Debug.Log(_state);
                 break;
             case State.InAir:
                 _animator.SetTrigger("Jumping");
-                Debug.Log(_state);
+                // Debug.Log(_state);
                 break;
             default:
                 break;
@@ -181,7 +185,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        Debug.Log(_state);
+        // Debug.Log(_state);
         // if (Input.GetAxis("RT") > 0.5 && !InAir()) {
         if (Input.GetButton("XboxX") && !InAir()) {
             _isCrouching = true;
@@ -256,12 +260,9 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Hurt() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            TakeDamage(20);
-            SetState(State.Hurt);
-            return true;
-        } else
-            return false;
+        TakeDamage(20);
+        SetState(State.Hurt);
+        return true;
     }
 
     bool Dead() {
@@ -273,6 +274,12 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
+
+    void OnCollisionEnter2D(Collision2D _collisionInfo) {
+        if (_collisionInfo.collider.name == "Spikes") {
+            Debug.Log("Spikes");
+        }
+    }
 
     void WallJump() {
         if (Input.GetButtonDown("XboxA"))
