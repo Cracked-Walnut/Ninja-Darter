@@ -6,6 +6,7 @@ public class MenuTransition : MonoBehaviour {
     [SerializeField] private GameObject _optionsObject;
     [SerializeField] private GameObject _loadObject;
     [SerializeField] private GameObject _newGameObject;
+    [SerializeField] private GameObject _gameOverObject;
 
     public void NewGameStart() {
         // fade out slowly, then disable all objects
@@ -17,6 +18,7 @@ public class MenuTransition : MonoBehaviour {
         _optionsObject.SetActive(false);
         _loadObject.SetActive(false);
         _newGameObject.SetActive(false);
+        _gameOverObject.SetActive(false);
     }
 
     public void SetMainOptionsActive () {
@@ -24,6 +26,7 @@ public class MenuTransition : MonoBehaviour {
         _optionsObject.SetActive(true);
         _loadObject.SetActive(false);
         _newGameObject.SetActive(false);
+        _gameOverObject.SetActive(false);
     }
 
     public void SetMainLoadActive () {
@@ -31,6 +34,7 @@ public class MenuTransition : MonoBehaviour {
         _optionsObject.SetActive(false);
         _loadObject.SetActive(true);
         _newGameObject.SetActive(false);
+        _gameOverObject.SetActive(false);
     }
 
     public void SetNewGameActive() {
@@ -38,6 +42,15 @@ public class MenuTransition : MonoBehaviour {
         _optionsObject.SetActive(false);
         _loadObject.SetActive(false);
         _newGameObject.SetActive(true);
+        _gameOverObject.SetActive(false);
+    }
+
+    public void SetGameOverActive() {
+        _mainMenuObject.SetActive(false);
+        _optionsObject.SetActive(false);
+        _loadObject.SetActive(false);
+        _newGameObject.SetActive(false);
+        _gameOverObject.SetActive(true);
     }
 
     public void QuitGame() => Application.Quit();

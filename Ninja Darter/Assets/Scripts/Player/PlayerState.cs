@@ -21,11 +21,11 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Health")]
     [SerializeField] private int _health;
+    [SerializeField] private LayerMask _whatIsEnemy;
 
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
-    [SerializeField] private LayerMask _whatIsEnemy;
 
     [Header("Jumping")]
     // used to contol the behaviour of our jump
@@ -95,6 +95,7 @@ public class PlayerState : MonoBehaviour {
 
     void FixedUpdate() {
         _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);  // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
+        _characterController2D.Move(_horizontalXboxMove * Time.fixedDeltaTime, _isCrouching, _isJumping);  // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
         _isJumping = false;
         CheckCurrentFixedState();
     }
@@ -246,8 +247,6 @@ public class PlayerState : MonoBehaviour {
 
             if (_isTouchingWallTop || _isTouchingWallBottom) {
 
-                
-
                 if (Input.GetAxis("L-Stick-Vertical") < -0.05) {
                     _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
                     SetState(State.Wall_Climbing);
@@ -259,16 +258,26 @@ public class PlayerState : MonoBehaviour {
         }
     }
 
-    bool Hurt() {
-        TakeDamage(20);
+    // bool Hurt() {
+    //     TakeDamage(20);
+    //     SetState(State.Hurt);
+    //     return true;
+    // }
+    
+    void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
+        _health -= _damage; 
+        
+        if (_characterController2D.getFacingRight())
+            ApplyForce(-_knocBackX, _knockBackY);
+        else
+            ApplyForce(_knockBackY, _knockBackY);
+        
         SetState(State.Hurt);
-        return true;
-    }
+    }  
 
-    bool Dead() {
+    public bool Dead() {
         if (_health <= 0) {
             SetState(State.Dead);
-            Time.timeScale = 0.0f;
             return true;
         } else
             return false;
@@ -277,7 +286,7 @@ public class PlayerState : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes") {
-            Debug.Log("Spikes");
+            TakeDamage(20, 200, 900);
         }
     }
 
@@ -286,12 +295,10 @@ public class PlayerState : MonoBehaviour {
             ApplyForce(0, 600);
     }
 
-    void TakeDamage(int damage) =>  _health -= damage;
-
     private void DashAbility() { 
 
         if (Input.GetButtonDown("XboxB") && Running())
-            StartCoroutine(Dash()); 
+            StartCoroutine(Dash());
     }
 
     IEnumerator Dash() {
