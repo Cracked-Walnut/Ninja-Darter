@@ -2,11 +2,13 @@
 
 public class MenuTransition : MonoBehaviour {
 
-    [SerializeField] private GameObject _mainMenuObject;
-    [SerializeField] private GameObject _optionsObject;
-    [SerializeField] private GameObject _loadObject;
-    [SerializeField] private GameObject _newGameObject;
-    [SerializeField] private GameObject _gameOverObject;
+    // [SerializeField] private GameObject _mainMenuObject;
+    // [SerializeField] private GameObject _optionsObject;
+    // [SerializeField] private GameObject _loadObject;
+    // [SerializeField] private GameObject _newGameObject;
+    // [SerializeField] private GameObject _gameOverObject;
+
+    [SerializeField] private GameObject[] _menuObjects;
 
     public void NewGameStart() {
         // fade out slowly, then disable all objects
@@ -14,43 +16,38 @@ public class MenuTransition : MonoBehaviour {
     }
 
     public void SetMainMenuActive () {
-        _mainMenuObject.SetActive(true);
-        _optionsObject.SetActive(false);
-        _loadObject.SetActive(false);
-        _newGameObject.SetActive(false);
-        _gameOverObject.SetActive(false);
+        _menuObjects[0].SetActive(true);
+        _menuObjects[1].SetActive(false);
+        _menuObjects[2].SetActive(false);
+        _menuObjects[3].SetActive(false);
     }
 
     public void SetMainOptionsActive () {
-        _mainMenuObject.SetActive(false);
-        _optionsObject.SetActive(true);
-        _loadObject.SetActive(false);
-        _newGameObject.SetActive(false);
-        _gameOverObject.SetActive(false);
+        _menuObjects[0].SetActive(false);
+        _menuObjects[1].SetActive(true);
+        _menuObjects[2].SetActive(false);
+        _menuObjects[3].SetActive(false);
     }
 
     public void SetMainLoadActive () {
-        _mainMenuObject.SetActive(false);
-        _optionsObject.SetActive(false);
-        _loadObject.SetActive(true);
-        _newGameObject.SetActive(false);
-        _gameOverObject.SetActive(false);
+        _menuObjects[0].SetActive(false);
+        _menuObjects[1].SetActive(false);
+        _menuObjects[2].SetActive(true);
+        _menuObjects[3].SetActive(false);
     }
 
     public void SetNewGameActive() {
-        _mainMenuObject.SetActive(false);
-        _optionsObject.SetActive(false);
-        _loadObject.SetActive(false);
-        _newGameObject.SetActive(true);
-        _gameOverObject.SetActive(false);
+        _menuObjects[0].SetActive(false);
+        _menuObjects[1].SetActive(false);
+        _menuObjects[2].SetActive(false);
+        _menuObjects[3].SetActive(true);
     }
 
     public void SetGameOverActive() {
-        _mainMenuObject.SetActive(false);
-        _optionsObject.SetActive(false);
-        _loadObject.SetActive(false);
-        _newGameObject.SetActive(false);
-        _gameOverObject.SetActive(true);
+        _menuObjects[0].SetActive(false);
+        _menuObjects[1].SetActive(false);
+        _menuObjects[2].SetActive(false);
+        _menuObjects[3].SetActive(false);
     }
 
     public void QuitGame() => Application.Quit();

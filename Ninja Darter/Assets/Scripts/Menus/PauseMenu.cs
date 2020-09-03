@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+/*This script is used to navigate the menus when the player is in-game*/
 public class PauseMenu : MonoBehaviour {
 
     [SerializeField] private GameObject _pauseMenu;
@@ -26,7 +27,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void SetPauseOff() {
         _pauseMenu.SetActive(false);
-        Time.timeScale = 1.0f;
+        if (Time.timeScale == 0.0f) Time.timeScale = 1.0f;
     }
 
     public void SetOptionsOn() {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*This script is used to manage the Player State: Dead*/
 public class GameOverMenu : MonoBehaviour {
     
     [SerializeField] private GameObject _gameOverMenu;
@@ -17,6 +18,7 @@ public class GameOverMenu : MonoBehaviour {
         if (_player.Dead()) {
             Time.timeScale = 0.0f;
             _gameOverMenu.SetActive(true);
+
             return true;
         } else
             return false;
