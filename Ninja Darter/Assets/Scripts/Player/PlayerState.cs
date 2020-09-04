@@ -77,6 +77,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     void Update() {
+        Debug.Log(_state);
         CheckCurrentState();
 
         if (_canMove) {
@@ -102,6 +103,7 @@ public class PlayerState : MonoBehaviour {
 
     private void CheckCurrentState() { /*Check non-physics related States*/
         Idling();
+        Crouching();
         DashAbility();
         // Wall_Sliding();
         OnWall();
@@ -112,7 +114,6 @@ public class PlayerState : MonoBehaviour {
 
     private void CheckCurrentFixedState() { /*Check physics related States*/
         InAir();
-        Crouching();
         Running();
         RunFixedCodeBasedOnState();
     }
@@ -123,22 +124,21 @@ public class PlayerState : MonoBehaviour {
             case State.Idling:
                 _animator.SetTrigger("Idling");
                 break;
+            case State.Crouching:
+                _animator.SetTrigger("Crouching");
+                break;
             case State.Wall_Sliding:
-                // Debug.Log(_state);
                 _animator.SetTrigger("WallSliding");
                 break;
             case State.Wall_Climbing:
                 _animator.SetTrigger("WallClimbing");
-                // Debug.Log(_state);
                 WallJump();
                 break;
             case State.On_Wall:
                 break;
             case State.Hurt:
-                // Debug.Log(_state);
                 break;
             case State.Dead:
-                // Debug.Log(_state);
                 break;
             default:
                 break;
@@ -150,15 +150,9 @@ public class PlayerState : MonoBehaviour {
         switch(_state) {
             case State.Running:
                 _animator.SetTrigger("Running");
-                // Debug.Log(_state);
-                break;
-            case State.Crouching:
-                _animator.SetTrigger("Crouching");
-                // Debug.Log(_state);
                 break;
             case State.InAir:
                 _animator.SetTrigger("Jumping");
-                // Debug.Log(_state);
                 break;
             default:
                 break;
@@ -186,15 +180,16 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        // Debug.Log(_state);
-        // if (Input.GetAxis("RT") > 0.5 && !InAir()) {
-        if (Input.GetButton("XboxX") && !InAir()) {
-            _isCrouching = true;
+        if (Input.GetAxis("RT") > 0.5) {
+            
             SetState(State.Crouching);
+            _isCrouching = true;
+            _animator.SetBool("IsCrouching", _isCrouching);
             return _isCrouching;
-        
+            
         } else {
             _isCrouching = false;
+            _animator.SetBool("IsCrouching", _isCrouching);
             return _isCrouching;
         }
     }
