@@ -107,6 +107,7 @@ public class PlayerState : MonoBehaviour {
         DashAbility();
         // Wall_Sliding();
         OnWall();
+        Attacking();
         // Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -132,7 +133,11 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Climbing:
                 _animator.SetTrigger("WallClimbing");
+                _animator.SetFloat("WallClimbSpeed", _wallClimbSpeed);
                 WallJump();
+                break;
+            case State.Attacking:
+                _animator.SetTrigger("GA1"); // You can make this function call a random Trigger to show different animations
                 break;
             case State.On_Wall:
                 break;
@@ -194,7 +199,17 @@ public class PlayerState : MonoBehaviour {
         }
     }
 
-    // bool Attacking() {}
+    bool Attacking() {
+        if (Input.GetButtonDown("XboxX")) {
+            if (Crouching() || InAir() || Wall_Sliding() || Wall_Climbing())
+                return false;
+            else {
+                SetState(State.Attacking);
+                return true;
+            }
+        } else
+            return false;
+    }
 
     bool InAir() {
         if (!_characterController2D.getGrounded() && !_isTouchingWallTop && !_isTouchingWallBottom) {
