@@ -23,6 +23,8 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private int _health;
     [SerializeField] private LayerMask _whatIsEnemy;
 
+    [Header("Attacking")]
+    [SerializeField] private bool _isAttacking;
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
@@ -62,6 +64,11 @@ public class PlayerState : MonoBehaviour {
     
     public void SetState(State _state) => this._state = _state;
     public State GetState () { return _state; }
+
+    public void SetIsAttackingTrue() { _isAttacking = true; }
+    public void SetIsAttackingFalse() { _isAttacking = false; }
+
+    public bool GetIsAttacking() { return _isAttacking; }
 
     public void SetHealth(int _health) => this._health = _health;
     public int GetHealth() { return _health; }
@@ -130,11 +137,12 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Sliding:
                 _animator.SetTrigger("WallSliding");
+                WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
             case State.Wall_Climbing:
                 _animator.SetTrigger("WallClimbing");
                 _animator.SetFloat("WallClimbSpeed", _wallClimbSpeed);
-                WallJump();
+                WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
             case State.Attacking:
                 _animator.SetTrigger("GA1"); // You can make this function call a random Trigger to show different animations
@@ -185,7 +193,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetAxis("RT") > 0.5) {
+        if (Input.GetAxis("RT") > 0.5 || Input.GetAxis("L-Stick-Vertical") > 0.05 && _characterController2D.getGrounded()) {
             
             SetState(State.Crouching);
             _isCrouching = true;
@@ -204,8 +212,11 @@ public class PlayerState : MonoBehaviour {
             if (Crouching() || InAir() || Wall_Sliding() || Wall_Climbing())
                 return false;
             else {
-                SetState(State.Attacking);
-                return true;
+                if (!_isAttacking) {
+                    SetState(State.Attacking);
+                    return true;
+                } else
+                    return false;
             }
         } else
             return false;
@@ -300,9 +311,15 @@ public class PlayerState : MonoBehaviour {
         }
     }
 
-    void WallJump() {
-        if (Input.GetButtonDown("XboxA"))
-            ApplyForce(0, 600);
+    void WallJump(bool _isFacingRight, float x, float y) {
+        if (Input.GetButtonDown("XboxA")) {
+            if (_isFacingRight)
+                // ApplyForce(-x, y);
+                _rigidBody2D.velocity = new Vector2(-x, y);
+            else
+                // ApplyForce(x, y);
+                _rigidBody2D.velocity = new Vector2(x, y);
+        }
     }
 
     private void DashAbility() { 
