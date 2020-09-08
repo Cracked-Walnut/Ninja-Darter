@@ -7,6 +7,8 @@ Sources:
 1) B., Brackeys, '2D Movement in Unity', 2018. [Online]. Available: https://www.youtube.com/watch?v=dwcT-Dch0bA [Accessed: Aug-08-2020].
 2) B.B., Bonk, 'Unity Ground Dash and Dash Jump Tutorial', 2019. [Online]. Available: https://www.youtube.com/watch?v=I4Ja5Ar63Pw [Accessed: Aug-09-2020].
 3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
+4) G., gamesplusjames, 'Wall Jumping in Unity Tutorial', 2020. [Online]. Available:  https://www.youtube.com/watch?v=uNJanDrjMgU [Accessed: Sep-06-2020].
+5) B., Bardent, 'Basic Combat - 2D Platformer Player Controller - Part 9 [Unity 2019.2.0f1]', 2020. [Online]. Available: https://www.youtube.com/watch?v=YaXcwc5Evjk [Accessed: Sep-07-2020].
 */
 
 public class PlayerState : MonoBehaviour {
@@ -14,7 +16,7 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, On_Wall, Dashing,  Hurt, Dead }
+    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing,  Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private WristBlade _wristBlade;
@@ -113,6 +115,7 @@ public class PlayerState : MonoBehaviour {
         Crouching();
         DashAbility();
         // Wall_Sliding();
+        WallJump(_characterController2D.getFacingRight(), 0, 20);
         OnWall();
         Attacking();
         // Hurt();
@@ -137,12 +140,16 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Sliding:
                 _animator.SetTrigger("WallSliding");
-                WallJump(_characterController2D.getFacingRight(), 20, 20);
+                // WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
             case State.Wall_Climbing:
                 _animator.SetTrigger("WallClimbing");
                 _animator.SetFloat("WallClimbSpeed", _wallClimbSpeed);
-                WallJump(_characterController2D.getFacingRight(), 20, 20);
+                // WallJump(_characterController2D.getFacingRight(), 20, 20);
+                break;
+            case State.Wall_Jumping:
+                _animator.SetTrigger("WallJumping");
+                // WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
             case State.Attacking:
                 _animator.SetTrigger("GA1"); // You can make this function call a random Trigger to show different animations
@@ -193,7 +200,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetAxis("RT") > 0.5 || Input.GetAxis("L-Stick-Vertical") > 0.05 && _characterController2D.getGrounded()) {
+        if (Input.GetAxis("RT") > 0.5 || Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.getGrounded()) {
             
             SetState(State.Crouching);
             _isCrouching = true;
@@ -312,13 +319,20 @@ public class PlayerState : MonoBehaviour {
     }
 
     void WallJump(bool _isFacingRight, float x, float y) {
-        if (Input.GetButtonDown("XboxA")) {
-            if (_isFacingRight)
-                // ApplyForce(-x, y);
-                _rigidBody2D.velocity = new Vector2(-x, y);
-            else
-                // ApplyForce(x, y);
-                _rigidBody2D.velocity = new Vector2(x, y);
+        if (GetState() == State.Wall_Sliding || GetState() == State.Wall_Climbing) {
+
+            if (Input.GetButtonDown("XboxA")) {
+                if (_isFacingRight) {
+                    // ApplyForce(-x, y);
+                    SetState(State.Wall_Jumping);
+                    _rigidBody2D.velocity = new Vector2(-x, y);
+                } 
+                else {
+                    // ApplyForce(x, y);
+                    SetState(State.Wall_Jumping);
+                    _rigidBody2D.velocity = new Vector2(x, y);
+                }
+            }
         }
     }
 
