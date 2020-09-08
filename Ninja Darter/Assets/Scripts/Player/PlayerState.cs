@@ -115,7 +115,7 @@ public class PlayerState : MonoBehaviour {
         Crouching();
         DashAbility();
         // Wall_Sliding();
-        WallJump(_characterController2D.getFacingRight(), 0, 20);
+        // WallJump(_characterController2D.getFacingRight(), 0, 20);
         OnWall();
         Attacking();
         // Hurt();
@@ -142,13 +142,14 @@ public class PlayerState : MonoBehaviour {
                 _animator.SetTrigger("WallSliding");
                 // WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
-            case State.Wall_Climbing:
-                _animator.SetTrigger("WallClimbing");
-                _animator.SetFloat("WallClimbSpeed", _wallClimbSpeed);
-                // WallJump(_characterController2D.getFacingRight(), 20, 20);
-                break;
+            // case State.Wall_Climbing:
+            //     _animator.SetTrigger("WallClimbing");
+            //     _animator.SetFloat("WallClimbSpeed", _wallClimbSpeed);
+            //     // WallJump(_characterController2D.getFacingRight(), 20, 20);
+            //     break;
             case State.Wall_Jumping:
                 _animator.SetTrigger("WallJumping");
+                // _animator.SetFloat("VelocityY", 1);
                 // WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
             case State.Attacking:
@@ -183,6 +184,7 @@ public class PlayerState : MonoBehaviour {
     /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
     bool Idling() {
         if (_characterController2D.getGrounded() && _horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f) {
+            _animator.SetFloat("VelocityY", 0f);
             SetState(State.Idling);
             return true;    
         } else
@@ -193,6 +195,7 @@ public class PlayerState : MonoBehaviour {
         
         /*Play running anim*/
        if (_characterController2D.getGrounded() && !Idling() && !Crouching()) {
+            _animator.SetFloat("VelocityY", 0f);
             SetState(State.Running);
             return true;
         } else
@@ -216,7 +219,7 @@ public class PlayerState : MonoBehaviour {
 
     bool Attacking() {
         if (Input.GetButtonDown("XboxX")) {
-            if (Crouching() || InAir() || Wall_Sliding() || Wall_Climbing())
+            if (Crouching() || InAir() || GetState() == State.Wall_Sliding || GetState() == State.Wall_Climbing)
                 return false;
             else {
                 if (!_isAttacking) {
@@ -240,32 +243,6 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    bool Wall_Sliding() {
-        if (!_characterController2D.getGrounded()) {
-            _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
-            _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
-
-            if (_isTouchingWallTop || _isTouchingWallBottom) {
-
-                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -1.5f, float.MaxValue));
-                SetState(State.Wall_Sliding);
-                return true;
-            }
-        }
-        
-        return false;
-    }
-
-    bool Wall_Climbing() {
-        
-        if (Input.GetAxis("L-Stick-Vertical") < -0.05) {
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
-            SetState(State.Wall_Climbing);
-            return true;
-        }
-        return false;
-    }
-
     void OnWall() {
 
         if (!_characterController2D.getGrounded()) {
@@ -275,12 +252,14 @@ public class PlayerState : MonoBehaviour {
 
             if (_isTouchingWallTop || _isTouchingWallBottom) {
 
-                if (Input.GetAxis("L-Stick-Vertical") < -0.05) {
-                    _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
-                    SetState(State.Wall_Climbing);
+                if (Input.GetButtonDown("XboxA")) {
+                    WallJump(_characterController2D.getFacingRight(), 0, 20);
+                    // _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
+                    // SetState(State.Wall_Climbing);
                 } else {
-                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -1.5f, float.MaxValue));
-                SetState(State.Wall_Sliding);
+                    _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
+                    _animator.SetFloat("VelocityY", _wallSlideSpeed);
+                    SetState(State.Wall_Sliding);
                 }
             }
         }
@@ -321,18 +300,18 @@ public class PlayerState : MonoBehaviour {
     void WallJump(bool _isFacingRight, float x, float y) {
         if (GetState() == State.Wall_Sliding || GetState() == State.Wall_Climbing) {
 
-            if (Input.GetButtonDown("XboxA")) {
-                if (_isFacingRight) {
-                    // ApplyForce(-x, y);
-                    SetState(State.Wall_Jumping);
-                    _rigidBody2D.velocity = new Vector2(-x, y);
-                } 
-                else {
-                    // ApplyForce(x, y);
-                    SetState(State.Wall_Jumping);
-                    _rigidBody2D.velocity = new Vector2(x, y);
-                }
+            if (_isFacingRight) {
+                // ApplyForce(-x, y);
+                SetState(State.Wall_Jumping);
+                _animator.SetFloat("VelocityY", 20);
+                _rigidBody2D.velocity = new Vector2(-x, y);
+            } 
+            else {
+                // ApplyForce(x, y);
+                SetState(State.Wall_Jumping);
+                _rigidBody2D.velocity = new Vector2(x, y);
             }
+            
         }
     }
 
