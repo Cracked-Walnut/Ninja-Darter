@@ -19,7 +19,6 @@ public class PlayerState : MonoBehaviour {
     public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing,  Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
-    private WristBlade _wristBlade;
 
     [Header("Health")]
     [SerializeField] private int _health;
@@ -43,7 +42,7 @@ public class PlayerState : MonoBehaviour {
     private float _horizontalXboxMove;
 
     [Header("Dashing")]
-    [SerializeField] private bool _canDash = true;
+    [SerializeField] public bool _canDash = true;
     [Range(0, 200)] [SerializeField] private float _dashSpeed;
     [Range(0, 1)] [SerializeField] private float _dashTime; // the time you remain in a dash
     [Range(0, 1)] [SerializeField] private float _timeBtwDashes;
@@ -55,13 +54,13 @@ public class PlayerState : MonoBehaviour {
     [Range(0, 10f)] [SerializeField] private float _wallClimbSpeed;
     [SerializeField] private LayerMask _whatIsWall; // determines what we can wall slide off
    
-    [Header("Misc Booleans")]
-    [SerializeField] private bool _canMove = true;
+    [Header("Misc")]
+    [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
+    [SerializeField] private float _movementDisableTimer; // used during wall jump to take control away for a small amount of time
     [SerializeField] private bool _isLateJump = true;
-    // ensures we can't move during any potential cutscenes or other instances
     private bool _isJumping = false;
     private bool _isCrouching = false;
-    private bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
+    public bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
     private bool _isWallSliding;
     
     public void SetState(State _state) => this._state = _state;
@@ -75,16 +74,10 @@ public class PlayerState : MonoBehaviour {
     public void SetHealth(int _health) => this._health = _health;
     public int GetHealth() { return _health; }
 
-    void Start() {
-        _state = State.Idling;
-        _runSpeed = 40;
-    }
+    void Start() => _runSpeed = 40;
 
-    void Awake() { 
-        _rigidBody2D = GetComponent<Rigidbody2D>();
-        _wristBlade = FindObjectOfType<WristBlade>();
-    }
-
+    void Awake() => _rigidBody2D = GetComponent<Rigidbody2D>();
+    
     void Update() {
         Debug.Log(_state);
         CheckCurrentState();
@@ -182,7 +175,7 @@ public class PlayerState : MonoBehaviour {
 
     /*<------------------------------->-State Functions-<------------------------------->*/
     /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
-    bool Idling() {
+    public bool Idling() {
         if (_characterController2D.getGrounded() && _horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f) {
             _animator.SetFloat("VelocityY", 0f);
             SetState(State.Idling);
@@ -191,7 +184,7 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    bool Running() {
+    public bool Running() {
         
         /*Play running anim*/
        if (_characterController2D.getGrounded() && !Idling() && !Crouching()) {
@@ -232,6 +225,13 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
+    public bool Wall_Sliding() {
+        if (GetState() == State.Wall_Sliding)
+            return true;
+        else
+            return false;
+    }
+
     bool InAir() {
         if (!_characterController2D.getGrounded() && !_isTouchingWallTop && !_isTouchingWallBottom) {
             
@@ -253,7 +253,7 @@ public class PlayerState : MonoBehaviour {
             if (_isTouchingWallTop || _isTouchingWallBottom) {
 
                 if (Input.GetButtonDown("XboxA")) {
-                    WallJump(_characterController2D.getFacingRight(), 0, 20);
+                    WallJump(_characterController2D.getFacingRight(), 2000, 20);
                     // _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
                     // SetState(State.Wall_Climbing);
                 } else {
@@ -264,12 +264,6 @@ public class PlayerState : MonoBehaviour {
             }
         }
     }
-
-    // bool Hurt() {
-    //     TakeDamage(20);
-    //     SetState(State.Hurt);
-    //     return true;
-    // }
     
     void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
         _health -= _damage; 
@@ -298,24 +292,21 @@ public class PlayerState : MonoBehaviour {
     }
 
     void WallJump(bool _isFacingRight, float x, float y) {
-        if (GetState() == State.Wall_Sliding || GetState() == State.Wall_Climbing) {
 
             if (_isFacingRight) {
                 // ApplyForce(-x, y);
+                _rigidBody2D.velocity = new Vector2(-x, y);
                 SetState(State.Wall_Jumping);
                 _animator.SetFloat("VelocityY", 20);
-                _rigidBody2D.velocity = new Vector2(-x, y);
-            } 
+            }
             else {
                 // ApplyForce(x, y);
                 SetState(State.Wall_Jumping);
                 _rigidBody2D.velocity = new Vector2(x, y);
             }
-            
-        }
     }
 
-    private void DashAbility() { 
+    private void DashAbility() {
 
         if (Input.GetButtonDown("XboxB") && Running())
             StartCoroutine(Dash());
