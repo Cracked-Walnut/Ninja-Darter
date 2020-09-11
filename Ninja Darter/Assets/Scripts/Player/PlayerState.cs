@@ -9,6 +9,7 @@ Sources:
 3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
 4) G., gamesplusjames, 'Wall Jumping in Unity Tutorial', 2020. [Online]. Available:  https://www.youtube.com/watch?v=uNJanDrjMgU [Accessed: Sep-06-2020].
 5) B., Bardent, 'Basic Combat - 2D Platformer Player Controller - Part 9 [Unity 2019.2.0f1]', 2020. [Online]. Available: https://www.youtube.com/watch?v=YaXcwc5Evjk [Accessed: Sep-07-2020].
+6) B., Brackeys, 'MELEE COMBAT in Unity', 2019. [Online]. Available: https://www.youtube.com/watch?v=sPiVz1k-fEs [Accessed: Sep-11-2020].
 */
 
 public class PlayerState : MonoBehaviour {
@@ -26,6 +27,9 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Attacking")]
     [SerializeField] private bool _isAttacking;
+    [SerializeField] private Transform _attackPoint; // The center of the attack circle to be drawn
+    [SerializeField] private float _attackRadius; // The radius of the attack circle
+    [SerializeField] private LayerMask _enemyLayers;
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
@@ -217,6 +221,7 @@ public class PlayerState : MonoBehaviour {
             else {
                 if (!_isAttacking) {
                     SetState(State.Attacking);
+                    RegisterHit();
                     return true;
                 } else
                     return false;
@@ -266,7 +271,8 @@ public class PlayerState : MonoBehaviour {
     }
     
     void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
-        _health -= _damage; 
+        
+        _health -= _damage;
         
         if (_characterController2D.getFacingRight())
             ApplyForce(-_knocBackX, _knockBackY);
@@ -286,8 +292,17 @@ public class PlayerState : MonoBehaviour {
     /*<------------------------------->-End of State Functions-<------------------------------->*/
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        if (_collisionInfo.collider.name == "Spikes") {
+        if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(20, 200, 900);
+    }
+
+    // Draw a circle and check if enemies land in the circle
+    void RegisterHit() {
+        Collider2D[] _enemiesHitColliders = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRadius, _enemyLayers);
+
+        foreach (Collider2D _colliderHit in _enemiesHitColliders) {
+            // _colliderHit.GetComponent<Enemy>().TakeDamage(20, 200, 0);
+            Debug.Log("test");
         }
     }
 

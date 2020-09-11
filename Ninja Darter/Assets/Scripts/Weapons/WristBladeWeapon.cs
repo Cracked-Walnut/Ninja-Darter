@@ -19,7 +19,7 @@ public class WristBladeWeapon : MonoBehaviour {
     void Update () => CheckShuriken();
 
     void Awake() { 
-        _playerState = FindObjectOfType<PlayerState>(); 
+        _playerState = FindObjectOfType<PlayerState>();
         _characterController2D = FindObjectOfType<CharacterController2D>();
     }
 
