@@ -17,19 +17,13 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Crouching, Attacking, InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing,  Hurt, Dead }
+    public enum State { Idling, Running, Crouching,  InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing,  Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
 
     [Header("Health")]
     [SerializeField] private int _health;
     [SerializeField] private LayerMask _whatIsEnemy;
-
-    [Header("Attacking")]
-    [SerializeField] private bool _isAttacking;
-    [SerializeField] private Transform _attackPoint; // The center of the attack circle to be drawn
-    [SerializeField] private float _attackRadius; // The radius of the attack circle
-    [SerializeField] private LayerMask _enemyLayers;
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
@@ -70,11 +64,6 @@ public class PlayerState : MonoBehaviour {
     public void SetState(State _state) => this._state = _state;
     public State GetState () { return _state; }
 
-    public void SetIsAttackingTrue() { _isAttacking = true; }
-    public void SetIsAttackingFalse() { _isAttacking = false; }
-
-    public bool GetIsAttacking() { return _isAttacking; }
-
     public void SetHealth(int _health) => this._health = _health;
     public int GetHealth() { return _health; }
 
@@ -114,7 +103,6 @@ public class PlayerState : MonoBehaviour {
         // Wall_Sliding();
         // WallJump(_characterController2D.getFacingRight(), 0, 20);
         OnWall();
-        Attacking();
         // Hurt();
         Dead();
         RunCodeBasedOnState();
@@ -148,9 +136,6 @@ public class PlayerState : MonoBehaviour {
                 _animator.SetTrigger("WallJumping");
                 // _animator.SetFloat("VelocityY", 1);
                 // WallJump(_characterController2D.getFacingRight(), 20, 20);
-                break;
-            case State.Attacking:
-                _animator.SetTrigger("GA1"); // You can make this function call a random Trigger to show different animations
                 break;
             case State.On_Wall:
                 break;
@@ -212,22 +197,6 @@ public class PlayerState : MonoBehaviour {
             _animator.SetBool("IsCrouching", _isCrouching);
             return _isCrouching;
         }
-    }
-
-    bool Attacking() {
-        if (Input.GetButtonDown("XboxX")) {
-            if (Crouching() || InAir() || GetState() == State.Wall_Sliding || GetState() == State.Wall_Climbing)
-                return false;
-            else {
-                if (!_isAttacking) {
-                    SetState(State.Attacking);
-                    RegisterHit();
-                    return true;
-                } else
-                    return false;
-            }
-        } else
-            return false;
     }
 
     public bool Wall_Sliding() {
@@ -294,16 +263,6 @@ public class PlayerState : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(20, 200, 900);
-    }
-
-    // Draw a circle and check if enemies land in the circle
-    void RegisterHit() {
-        Collider2D[] _enemiesHitColliders = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRadius, _enemyLayers);
-
-        foreach (Collider2D _colliderHit in _enemiesHitColliders) {
-            // _colliderHit.GetComponent<Enemy>().TakeDamage(20, 200, 0);
-            Debug.Log("test");
-        }
     }
 
     void WallJump(bool _isFacingRight, float x, float y) {
