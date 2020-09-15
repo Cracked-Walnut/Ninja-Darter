@@ -282,7 +282,7 @@ public class PlayerState : MonoBehaviour {
 
     private void DashAbility() {
 
-        if (Input.GetButtonDown("XboxB") && Running())
+        if (Input.GetButtonDown("XboxB") && Running() && _canDash)
             StartCoroutine(Dash());
     }
 
