@@ -185,7 +185,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetAxis("RT") > 0.5 || Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.getGrounded()) {
+        if (Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.getGrounded()) {
             
             SetState(State.Crouching);
             _isCrouching = true;
@@ -224,7 +224,7 @@ public class PlayerState : MonoBehaviour {
             _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
             _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
-            if (_isTouchingWallTop || _isTouchingWallBottom) {
+            if (_isTouchingWallTop && _isTouchingWallBottom) {
 
                 if (Input.GetButtonDown("XboxA")) {
                     WallJump(_characterController2D.getFacingRight(), 2000, 20);
