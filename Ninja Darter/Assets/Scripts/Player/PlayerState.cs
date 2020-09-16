@@ -287,16 +287,16 @@ public class PlayerState : MonoBehaviour {
     }
 
     IEnumerator Dash() {
-        _canDash = false;
         SetState(State.Dashing);
         _runSpeed = _dashSpeed;
         _animator.SetTrigger("Dashing");
+        _canDash = false;
         // _canMove = false;
 
         yield return new WaitForSeconds(_dashTime);
         
-        // _canMove = true;
         // _animator.SetTrigger("Idling");
+        // _canMove = true;
         _runSpeed = DEFAULT_RUN_SPEED;
         yield return new WaitForSeconds(_timeBtwDashes);
         _canDash = true;

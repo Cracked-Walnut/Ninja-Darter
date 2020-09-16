@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5869526763765789868}
   - component: {fileID: 2296375465605086810}
   - component: {fileID: 7985835432251852719}
+  - component: {fileID: 1395308320571797608}
   m_Layer: 8
   m_Name: Treasure Chest 1
   m_TagString: Player
@@ -131,3 +132,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1395308320571797608
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475375023574762646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b134c533d1b3ddd4b9ff255d706d6513, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
