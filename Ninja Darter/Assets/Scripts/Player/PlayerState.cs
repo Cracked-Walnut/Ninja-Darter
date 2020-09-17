@@ -33,7 +33,7 @@ public class PlayerState : MonoBehaviour {
     [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f;
 
     [Header("Interaction")] // logic to interact with other objects
-    [SerializeField] private bool _canInteract;
+    // [SerializeField] private bool _canInteract;
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionRadius;
     [SerializeField] private LayerMask _whatIsItem;
@@ -77,8 +77,9 @@ public class PlayerState : MonoBehaviour {
     void Awake() => _rigidBody2D = GetComponent<Rigidbody2D>();
     
     void Update() {
-        Debug.Log(_state);
+        // Debug.Log(_state);
         CheckCurrentState();
+        Interaction();
 
         if (_canMove) {
             _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -271,10 +272,18 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Interaction() {
-         _canInteract = Physics2D.OverlapCircle(_interactionPoint.position, _interactionRadius, _whatIsItem);
+        //  _canInteract = Physics2D.OverlapCircle(_interactionPoint.position, _interactionRadius, _whatIsItem);
 
-         if (_canInteract && Input.GetButtonDown("XboxY")) {
-             return true;
+         if (/*_canInteract && */Input.GetButtonDown("RB")) {
+            Collider2D[] _itemsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsItem);
+            // Grab the animator component of every object within the radius and call the open chest trigger
+
+            foreach(Collider2D _item in _itemsWithinRange) { 
+                
+                _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen");
+            } 
+
+            return true;
          }
          return false;
     }

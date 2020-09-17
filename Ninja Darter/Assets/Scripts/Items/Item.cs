@@ -13,8 +13,7 @@ public class Item : MonoBehaviour {
     private GameObject _instance;
     private int _rand;
 
-    void Awake() {
-        _rand = Random.Range(0, _objects.Length); }
+    void Awake() => _rand = Random.Range(0, _objects.Length);
 
     private void Start() {
         if (_objects == null || _objects.Length == 0)

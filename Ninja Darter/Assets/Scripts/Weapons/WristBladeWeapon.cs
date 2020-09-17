@@ -28,9 +28,13 @@ public class WristBladeWeapon : MonoBehaviour {
         if (Input.GetButtonDown("XboxY") && _playerState._canDash) {
 
             if (_playerState.Idling() || _playerState.Running()) {
-                
-                Instantiate(_wristBladePrefab, _spawnPointRight.position, _spawnPointRight.rotation);
-                return;
+                if (_wristBladeQuantity > 0) {
+
+                    Instantiate(_wristBladePrefab, _spawnPointRight.position, _spawnPointRight.rotation);
+                    _wristBladeQuantity--;
+                    Debug.Log(_wristBladeQuantity);
+                    return;
+                }
             }
             
             if (_playerState.Wall_Sliding() && _characterController2D.getFacingRight() && _wristBladeQuantity > 0) {
@@ -42,6 +46,7 @@ public class WristBladeWeapon : MonoBehaviour {
                 Instantiate(_wristBladePrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
                 _wristBladeQuantity--;
             }
+
         }
     }
     
