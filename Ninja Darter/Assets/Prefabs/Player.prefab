@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 666772202436134515}
   - component: {fileID: 6236582783073725265}
   - component: {fileID: 6236582783073725264}
+  - component: {fileID: 5415778603185312272}
   - component: {fileID: 1132545057595030117}
   - component: {fileID: 1132545057595030116}
   m_Layer: 8
@@ -555,6 +556,11 @@ MonoBehaviour:
   _animator: {fileID: 1132545057595030116}
   _fallMultiplier: 7
   _lowMultiplier: 5
+  _interactionPoint: {fileID: 0}
+  _interactionRadius: 0
+  _whatIsItem:
+    serializedVersion: 2
+    m_Bits: 0
   _runSpeed: 0
   _canDash: 1
   _dashSpeed: 120
@@ -601,10 +607,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wristBladePrefab: {fileID: 7839615169954324626, guid: 1383c7700f3efc4479f59ffceee83d49, type: 3}
-  _wristBladeQuantity: 5
   _maxQuantity: 20
   _spawnPointRight: {fileID: 0}
   _spawnPointLeft: {fileID: 0}
+--- !u!114 &5415778603185312272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439021662402035260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9425840e967388f448236af47e6d25a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: 5
+  _wristBlades: 5
+  _cubeFragments: 5
 --- !u!212 &1132545057595030117
 SpriteRenderer:
   m_ObjectHideFlags: 0

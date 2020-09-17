@@ -11,8 +11,8 @@ public class WristBladeWeapon : MonoBehaviour {
 
     private PlayerState _playerState;
     private CharacterController2D _characterController2D;
+    private Inventory _inventory;
     [SerializeField] private GameObject _wristBladePrefab;
-    [SerializeField] private int _wristBladeQuantity = 5;
     [SerializeField] private int _maxQuantity = 20;
     [SerializeField] private Transform _spawnPointRight, _spawnPointLeft; // spawn point right is used when on the ground, and left is used when wall sliding
 
@@ -21,6 +21,7 @@ public class WristBladeWeapon : MonoBehaviour {
     void Awake() { 
         _playerState = FindObjectOfType<PlayerState>();
         _characterController2D = FindObjectOfType<CharacterController2D>();
+        _inventory = GetComponent<Inventory>();
     }
 
     public void CheckShuriken() {
@@ -28,36 +29,35 @@ public class WristBladeWeapon : MonoBehaviour {
         if (Input.GetButtonDown("XboxY") && _playerState._canDash) {
 
             if (_playerState.Idling() || _playerState.Running()) {
-                if (_wristBladeQuantity > 0) {
+                if (_inventory.GetWristBlades() > 0) {
 
                     Instantiate(_wristBladePrefab, _spawnPointRight.position, _spawnPointRight.rotation);
-                    _wristBladeQuantity--;
-                    Debug.Log(_wristBladeQuantity);
+                    _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
+                    Debug.Log(_inventory.GetWristBlades());
                     return;
                 }
             }
             
-            if (_playerState.Wall_Sliding() && _characterController2D.getFacingRight() && _wristBladeQuantity > 0) {
+            if (_playerState.Wall_Sliding() && _characterController2D.getFacingRight() && _inventory.GetWristBlades() > 0) {
                 
                 Instantiate(_wristBladePrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
-                _wristBladeQuantity--;
+                _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
                
-            } else if (_playerState.Wall_Sliding() && !_characterController2D.getFacingRight() && _wristBladeQuantity > 0) {
+            } else if (_playerState.Wall_Sliding() && !_characterController2D.getFacingRight() && _inventory.GetWristBlades() > 0) {
                 Instantiate(_wristBladePrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
-                _wristBladeQuantity--;
+                _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
             }
-
         }
     }
     
     private void CheckKnifeQuantity() {
-        if (_wristBladeQuantity > _maxQuantity)
-            _wristBladeQuantity = _maxQuantity;
+        if (_inventory.GetWristBlades() > _maxQuantity)
+            _inventory.SetWristBlades(_maxQuantity);
     }
 
     public void AddKnife(int _knifeToAdd) { 
-        _wristBladeQuantity += _knifeToAdd;
-        CheckKnifeQuantity(); 
+        _inventory.SetWristBlades(_inventory.GetWristBlades() + _knifeToAdd);
+        CheckKnifeQuantity();
     } 
 
 }
