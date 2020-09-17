@@ -29,9 +29,14 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private Animator _animator;
 
     [Header("Jumping")]
-    // used to contol the behaviour of our jump
     [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f;
     [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f;
+
+    [Header("Interaction")] // logic to interact with other objects
+    [SerializeField] private bool _canInteract;
+    [SerializeField] private Transform _interactionPoint;
+    [SerializeField] private float _interactionRadius;
+    [SerializeField] private LayerMask _whatIsItem;
 
     [Header("Running")]
     [SerializeField] private float _runSpeed;
@@ -263,6 +268,15 @@ public class PlayerState : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(20, 200, 900);
+    }
+
+    bool Interaction() {
+         _canInteract = Physics2D.OverlapCircle(_interactionPoint.position, _interactionRadius, _whatIsItem);
+
+         if (_canInteract && Input.GetButtonDown("XboxY")) {
+             return true;
+         }
+         return false;
     }
 
     void WallJump(bool _isFacingRight, float x, float y) {
