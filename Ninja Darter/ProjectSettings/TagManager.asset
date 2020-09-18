@@ -25,7 +25,7 @@ TagManager:
   - Moon
   - Minimap
   - Enemy
-  - 
+  - WristBlade
   - 
   - 
   - 
@@ -56,4 +56,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3972938649
+    locked: 0
+  - name: Cube Fragment
+    uniqueID: 1199577811
     locked: 0

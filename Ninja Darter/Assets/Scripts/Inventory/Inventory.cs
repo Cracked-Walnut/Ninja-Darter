@@ -11,4 +11,10 @@ public class Inventory : MonoBehaviour {
     public int GetWristBlades() { return _wristBlades; }
     public void SetWristBlades(int _knives) => _wristBlades = _knives;
 
+    public int GetCubeFragments() {
+        return _cubeFragments;
+    }
+    
+    public int AddFragment(int _num) => _cubeFragments += _num;
+
 }

@@ -20,6 +20,7 @@ public class PlayerState : MonoBehaviour {
     public enum State { Idling, Running, Crouching,  InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing,  Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
+    private Inventory _inventory;
 
     [Header("Health")]
     [SerializeField] private int _health;
@@ -74,7 +75,10 @@ public class PlayerState : MonoBehaviour {
 
     void Start() => _runSpeed = 40;
 
-    void Awake() => _rigidBody2D = GetComponent<Rigidbody2D>();
+    void Awake() { 
+        _rigidBody2D = GetComponent<Rigidbody2D>(); 
+        _inventory = GetComponent<Inventory>();    
+    }
     
     void Update() {
         // Debug.Log(_state);
@@ -230,7 +234,7 @@ public class PlayerState : MonoBehaviour {
             _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
             _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
-            if (_isTouchingWallTop && _isTouchingWallBottom) {
+            if (_isTouchingWallTop || _isTouchingWallBottom) {
 
                 if (Input.GetButtonDown("XboxA")) {
                     WallJump(_characterController2D.getFacingRight(), 2000, 20);
@@ -269,6 +273,7 @@ public class PlayerState : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(20, 200, 900);
+
     }
 
     bool Interaction() {
