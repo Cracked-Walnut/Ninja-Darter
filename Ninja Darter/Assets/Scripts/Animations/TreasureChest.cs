@@ -6,8 +6,12 @@ public class TreasureChest : MonoBehaviour {
 
     [SerializeField] private Animator _animator;
     private Inventory _inventory;
+    private BoxCollider2D _boxCollider2D;
 
-    private void Awake() => _inventory = FindObjectOfType<Inventory>();
+    private void Awake() { 
+        _inventory = FindObjectOfType<Inventory>(); 
+        _boxCollider2D = GetComponent<BoxCollider2D>();
+    }
 
     public void SetTrigger(string _triggerName) => _animator.SetTrigger(_triggerName);
 
@@ -22,6 +26,10 @@ public class TreasureChest : MonoBehaviour {
                 Debug.Log("No Item to Award. Please try a different name.");
                 break;
         }
+
+        DisableCollider();
     }
+
+    private void DisableCollider() => _boxCollider2D.enabled = !_boxCollider2D.enabled;
     
 }
