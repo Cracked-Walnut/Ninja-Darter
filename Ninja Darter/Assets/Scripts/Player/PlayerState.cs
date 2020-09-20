@@ -41,7 +41,7 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Running")]
     [SerializeField] private float _runSpeed;
-    private const float DEFAULT_RUN_SPEED = 40f; // modify as needed
+    private const float DEFAULT_RUN_SPEED = 50f; // modify as needed
     private float _horizontalMove; // will equal 1 if moving right, -1 if moving left. Multipled with _runSpeed
     private float _horizontalXboxMove;
 
@@ -73,7 +73,7 @@ public class PlayerState : MonoBehaviour {
     public void SetHealth(int _health) => this._health = _health;
     public int GetHealth() { return _health; }
 
-    void Start() => _runSpeed = 40;
+    void Start() => _runSpeed = 50;
 
     void Awake() { 
         _rigidBody2D = GetComponent<Rigidbody2D>(); 
@@ -237,13 +237,15 @@ public class PlayerState : MonoBehaviour {
             if (_isTouchingWallTop || _isTouchingWallBottom) {
 
                 if (Input.GetButtonDown("XboxA")) {
-                    WallJump(_characterController2D.getFacingRight(), 2000, 20);
+                    WallJump(_characterController2D.getFacingRight(), 0, 20);
                     // _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
                     // SetState(State.Wall_Climbing);
                 } else {
-                    _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
-                    _animator.SetFloat("VelocityY", _wallSlideSpeed);
-                    SetState(State.Wall_Sliding);
+                    if (_rigidBody2D.velocity.y < 10) {
+                        _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
+                        _animator.SetFloat("VelocityY", _wallSlideSpeed);
+                        SetState(State.Wall_Sliding);
+                    }
                 }
             }
         }

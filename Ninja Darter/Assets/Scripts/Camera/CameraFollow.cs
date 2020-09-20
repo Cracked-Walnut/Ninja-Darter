@@ -29,8 +29,5 @@ public class CameraFollow : MonoBehaviour {
         
         else if (_objectToFollow.position.x < _boundaries[1])
             transform.position = new Vector3(_boundaries[1], _objectToFollow.transform.position.y, -10f);
-        
-        // else
-        //     transform.position = new Vector3(_objectToFollow.transform.position.x, _objectToFollow.transform.position.y, -10f);
     }
 }
