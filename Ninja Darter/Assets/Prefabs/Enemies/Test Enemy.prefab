@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3395190732653598806}
   - component: {fileID: 3395190732653598807}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Test Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,6 +200,11 @@ MonoBehaviour:
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  _sightPosition: {fileID: 0}
+  _sightDistance: 0
+  _whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8524582109499521996
 GameObject:
   m_ObjectHideFlags: 0

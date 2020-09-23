@@ -23,7 +23,7 @@ TagManager:
   - Foliage
   - Coins
   - Moon
-  - Minimap
+  - Minimap Objects
   - Enemy
   - WristBlade
   - 
@@ -54,9 +54,12 @@ TagManager:
   - name: Treasure Chests
     uniqueID: 1150069233
     locked: 0
-  - name: Player
-    uniqueID: 3972938649
+  - name: Enemy
+    uniqueID: 4017123071
     locked: 0
   - name: Cube Fragment
     uniqueID: 1199577811
+    locked: 0
+  - name: Player
+    uniqueID: 3972938649
     locked: 0
