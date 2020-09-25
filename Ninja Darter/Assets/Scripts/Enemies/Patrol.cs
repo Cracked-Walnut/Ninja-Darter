@@ -6,6 +6,8 @@ public class Patrol : MonoBehaviour {
 
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _speed;
+    private const float DEFAULT_SPEED = 2f;
+    [SerializeField] private float _waitTime;
     [SerializeField] private Transform _groundCheckPosition;
     [SerializeField] private float _groundCheckRadius;
     [SerializeField] private LayerMask _whatIsGround;
@@ -27,7 +29,10 @@ public class Patrol : MonoBehaviour {
         
         CheckForGround();
         
-        CheckRotation();
+        if (!_isMoving)
+            return;
+        else
+            transform.Translate(Vector2.left * _speed * Time.deltaTime);
 
         // SpotPlayer();
 
@@ -36,15 +41,9 @@ public class Patrol : MonoBehaviour {
     void CheckForGround() {
         _isTouchingGround = Physics2D.OverlapCircle(_groundCheckPosition.position, _groundCheckRadius, _whatIsGround);
 
-        if (!_isTouchingGround)
-            transform.Translate(0f, 180f, 0f);
-    }
-
-    void CheckRotation() {
-        if (!_isMoving)
-            return;
-        else
-            transform.Translate(Vector2.left * _speed * Time.deltaTime);
+        if (!_isTouchingGround) {
+            transform.Rotate(0f, 180f, 0f);
+        }
     }
 
     public void SpotPlayer() {
