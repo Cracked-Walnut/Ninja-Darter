@@ -27,10 +27,7 @@ public class Patrol : MonoBehaviour {
         
         CheckForGround();
         
-        if (!_isMoving)
-            return;
-        else
-            transform.Translate(Vector2.right * _speed * Time.deltaTime);
+        CheckRotation();
 
         // SpotPlayer();
 
@@ -40,9 +37,15 @@ public class Patrol : MonoBehaviour {
         _isTouchingGround = Physics2D.OverlapCircle(_groundCheckPosition.position, _groundCheckRadius, _whatIsGround);
 
         if (!_isTouchingGround)
-            transform.Rotate(0f, 180f, 0f);
+            transform.Translate(0f, 180f, 0f);
     }
 
+    void CheckRotation() {
+        if (!_isMoving)
+            return;
+        else
+            transform.Translate(Vector2.left * _speed * Time.deltaTime);
+    }
 
     public void SpotPlayer() {
         
