@@ -5,11 +5,13 @@ using UnityEngine;
 public class TreasureChest : MonoBehaviour {
 
     [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _player;
     private Inventory _inventory;
     private BoxCollider2D _boxCollider2D;
 
     private void Awake() { 
-        _inventory = FindObjectOfType<Inventory>(); 
+        // _inventory = FindObjectOfType<Inventory>();
+        _inventory = _player.GetComponent<Inventory>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 

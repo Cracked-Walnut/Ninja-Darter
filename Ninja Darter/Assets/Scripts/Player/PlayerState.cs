@@ -12,6 +12,8 @@ Sources:
 6) B., Brackeys, 'MELEE COMBAT in Unity', 2019. [Online]. Available: https://www.youtube.com/watch?v=sPiVz1k-fEs [Accessed: Sep-11-2020].
 */
 
+/*A class used to control the various states the player object can enter*/
+
 public class PlayerState : MonoBehaviour {
 
     private Rigidbody2D _rigidBody2D;
@@ -24,45 +26,42 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Health")]
     [SerializeField] private int _health;
-    [SerializeField] private LayerMask _whatIsEnemy;
+    [SerializeField] private LayerMask _whatIsEnemy; // determines what can damage the player
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
 
     [Header("Jumping")]
-    [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f;
-    [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f;
+    [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f; // The gravity used to bring the player down after a long jump (long jump button press)
+    [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f; // the gravuty used to bring the player down after a short jump (short jump button press)
     private bool _doubleJump = false;
 
-    [Header("ChestInteraction")] // logic to interact with other objects
-    // [SerializeField] private bool _canInteract;
+    [Header("ChestInteraction")]
     [SerializeField] private Transform _interactionPoint;
-    [SerializeField] private float _interactionRadius;
-    [SerializeField] private LayerMask _whatIsItem;
+    [SerializeField] private float _interactionRadius; // drawn at _interactionPoint, which is positioned at the center of the player
+    [SerializeField] private LayerMask _whatIsItem; // determines what we are interacting with, in this case, treasure chests only
 
     [Header("Running")]
     [SerializeField] private float _runSpeed;
     private const float DEFAULT_RUN_SPEED = 50f; // modify as needed
-    private float _horizontalMove; // will equal 1 if moving right, -1 if moving left. Multipled with _runSpeed
-    private float _horizontalXboxMove;
+
+    private float _horizontalMove; // keyboard movement
+    private float _horizontalXboxMove; // controller movement
 
     [Header("Dashing")]
     [SerializeField] public bool _canDash = true;
     [Range(0, 200)] [SerializeField] private float _dashSpeed;
     [Range(0, 1)] [SerializeField] private float _dashTime; // the time you remain in a dash
-    [Range(0, 1)] [SerializeField] private float _timeBtwDashes;
+    [Range(0, 1)] [SerializeField] private float _timeBtwDashes; // You cannot dash while this is ticking down
 
     [Header("Wall Logic")]
     [Range(0.05f, 1.2f)] [SerializeField] private float _wallCheckRadius; // The radius of the circle that detects walls
     [SerializeField] private Transform _wallCheckOriginTop, _wallCheckOriginBottom; // we draw a circle here to check for walls
     [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
-    [Range(0, 10f)] [SerializeField] private float _wallClimbSpeed;
     [SerializeField] private LayerMask _whatIsWall; // determines what we can wall slide off
    
     [Header("Misc")]
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
-    [SerializeField] private float _movementDisableTimer; // used during wall jump to take control away for a small amount of time
-    [SerializeField] private bool _isLateJump = true;
     private bool _isJumping = false;
     private bool _isCrouching = false;
     public bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
@@ -77,12 +76,11 @@ public class PlayerState : MonoBehaviour {
     void Start() => _runSpeed = 50;
 
     void Awake() { 
-        _rigidBody2D = GetComponent<Rigidbody2D>(); 
-        _inventory = GetComponent<Inventory>();    
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+        _inventory = GetComponent<Inventory>();
     }
     
     void Update() {
-        // Debug.Log(_state);
         CheckCurrentState();
         ChestInteraction();
 
@@ -94,6 +92,8 @@ public class PlayerState : MonoBehaviour {
         if (Input.GetButtonDown("XboxA"))
             _isJumping = true;
         
+
+        // this is used to control how high the player can jump based off how long they hold the jump button
         if (_rigidBody2D.velocity.y < 0)
             _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
         if (_rigidBody2D.velocity.y > 0 && !Input.GetButton("XboxA"))
@@ -101,8 +101,11 @@ public class PlayerState : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);  // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
-        _characterController2D.Move(_horizontalXboxMove * Time.fixedDeltaTime, _isCrouching, _isJumping);  // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
+
+        // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
+        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);
+        _characterController2D.Move(_horizontalXboxMove * Time.fixedDeltaTime, _isCrouching, _isJumping);
+        
         _isJumping = false;
         CheckCurrentFixedState();
     }
@@ -112,7 +115,6 @@ public class PlayerState : MonoBehaviour {
         DoubleJump();
         Crouching();
         DashAbility();
-        // Wall_Sliding();
         OnWall();
         Dead();
         RunCodeBasedOnState();
@@ -226,6 +228,7 @@ public class PlayerState : MonoBehaviour {
             _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
             if (_isTouchingWallTop || _isTouchingWallBottom) {
+                _doubleJump = false;
 
                 if (Input.GetButtonDown("XboxA"))
                     WallJump(_characterController2D.GetFacingRight(), 0, 20);
@@ -286,7 +289,7 @@ public class PlayerState : MonoBehaviour {
 
             foreach(Collider2D _item in _itemsWithinRange) {
                 
-                _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen");
+                _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // grab the TreasureChest.cs script and call the function which will open the chest
             } 
 
             return true;
