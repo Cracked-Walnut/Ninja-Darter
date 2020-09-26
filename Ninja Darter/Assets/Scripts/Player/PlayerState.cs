@@ -32,8 +32,9 @@ public class PlayerState : MonoBehaviour {
     [Header("Jumping")]
     [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f;
     [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f;
+    private bool _doubleJump = false;
 
-    [Header("Interaction")] // logic to interact with other objects
+    [Header("ChestInteraction")] // logic to interact with other objects
     // [SerializeField] private bool _canInteract;
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionRadius;
@@ -83,7 +84,7 @@ public class PlayerState : MonoBehaviour {
     void Update() {
         // Debug.Log(_state);
         CheckCurrentState();
-        Interaction();
+        ChestInteraction();
 
         if (_canMove) {
             _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -108,12 +109,11 @@ public class PlayerState : MonoBehaviour {
 
     private void CheckCurrentState() { /*Check non-physics related States*/
         Idling();
+        DoubleJump();
         Crouching();
         DashAbility();
         // Wall_Sliding();
-        // WallJump(_characterController2D.getFacingRight(), 0, 20);
         OnWall();
-        // Hurt();
         Dead();
         RunCodeBasedOnState();
     }
@@ -135,17 +135,9 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Sliding:
                 _animator.SetTrigger("WallSliding");
-                // WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
-            // case State.Wall_Climbing:
-            //     _animator.SetTrigger("WallClimbing");
-            //     _animator.SetFloat("WallClimbSpeed", _wallClimbSpeed);
-            //     // WallJump(_characterController2D.getFacingRight(), 20, 20);
-            //     break;
             case State.Wall_Jumping:
                 _animator.SetTrigger("WallJumping");
-                // _animator.SetFloat("VelocityY", 1);
-                // WallJump(_characterController2D.getFacingRight(), 20, 20);
                 break;
             case State.On_Wall:
                 break;
@@ -175,7 +167,7 @@ public class PlayerState : MonoBehaviour {
     /*<------------------------------->-State Functions-<------------------------------->*/
     /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
     public bool Idling() {
-        if (_characterController2D.getGrounded() && _horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f) {
+        if (_characterController2D.GetGrounded() && _horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f) {
             _animator.SetFloat("VelocityY", 0f);
             SetState(State.Idling);
             return true;    
@@ -185,8 +177,7 @@ public class PlayerState : MonoBehaviour {
 
     public bool Running() {
         
-        /*Play running anim*/
-       if (_characterController2D.getGrounded() && !Idling() && !Crouching()) {
+       if (_characterController2D.GetGrounded() && !Idling() && !Crouching()) {
             _animator.SetFloat("VelocityY", 0f);
             SetState(State.Running);
             return true;
@@ -195,7 +186,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.getGrounded()) {
+        if (Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.GetGrounded()) {
             
             SetState(State.Crouching);
             _isCrouching = true;
@@ -217,7 +208,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool InAir() {
-        if (!_characterController2D.getGrounded() && !_isTouchingWallTop && !_isTouchingWallBottom) {
+        if (!_characterController2D.GetGrounded() && !_isTouchingWallTop && !_isTouchingWallBottom) {
             
             _animator.SetFloat("VelocityY", _rigidBody2D.velocity.y);
             SetState(State.InAir);
@@ -229,18 +220,16 @@ public class PlayerState : MonoBehaviour {
 
     void OnWall() {
 
-        if (!_characterController2D.getGrounded()) {
+        if (!_characterController2D.GetGrounded()) {
 
             _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
             _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
             if (_isTouchingWallTop || _isTouchingWallBottom) {
 
-                if (Input.GetButtonDown("XboxA")) {
-                    WallJump(_characterController2D.getFacingRight(), 0, 20);
-                    // _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, _wallClimbSpeed, float.MaxValue));
-                    // SetState(State.Wall_Climbing);
-                } else {
+                if (Input.GetButtonDown("XboxA"))
+                    WallJump(_characterController2D.GetFacingRight(), 0, 20);
+                else {
                     if (_rigidBody2D.velocity.y < 10) {
                         _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
                         _animator.SetFloat("VelocityY", _wallSlideSpeed);
@@ -255,7 +244,7 @@ public class PlayerState : MonoBehaviour {
         
         _health -= _damage;
         
-        if (_characterController2D.getFacingRight())
+        if (_characterController2D.GetFacingRight())
             ApplyForce(-_knocBackX, _knockBackY);
         else
             ApplyForce(_knockBackY, _knockBackY);
@@ -272,20 +261,30 @@ public class PlayerState : MonoBehaviour {
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
 
+    void DoubleJump() {
+        if (!_doubleJump && InAir() && Input.GetButtonDown("XboxA")) {
+            ApplyForce(0, _characterController2D.GetJumpForce());
+            _doubleJump = true;
+        }
+
+        if (_characterController2D.GetGrounded()) {
+            ResetVelocity();
+            _doubleJump = false;
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(20, 200, 900);
 
     }
 
-    bool Interaction() {
-        //  _canInteract = Physics2D.OverlapCircle(_interactionPoint.position, _interactionRadius, _whatIsItem);
+    bool ChestInteraction() {
 
-         if (/*_canInteract && */Input.GetButtonDown("RB")) {
+         if (Input.GetButtonDown("RB")) {
             Collider2D[] _itemsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsItem);
-            // Grab the animator component of every object within the radius and call the open chest trigger
 
-            foreach(Collider2D _item in _itemsWithinRange) { 
+            foreach(Collider2D _item in _itemsWithinRange) {
                 
                 _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen");
             } 
@@ -298,13 +297,11 @@ public class PlayerState : MonoBehaviour {
     void WallJump(bool _isFacingRight, float x, float y) {
 
             if (_isFacingRight) {
-                // ApplyForce(-x, y);
                 _rigidBody2D.velocity = new Vector2(-x, y);
                 SetState(State.Wall_Jumping);
                 _animator.SetFloat("VelocityY", 20);
             }
             else {
-                // ApplyForce(x, y);
                 SetState(State.Wall_Jumping);
                 _rigidBody2D.velocity = new Vector2(x, y);
             }
@@ -321,12 +318,7 @@ public class PlayerState : MonoBehaviour {
         _runSpeed = _dashSpeed;
         _animator.SetTrigger("Dashing");
         _canDash = false;
-        // _canMove = false;
-
         yield return new WaitForSeconds(_dashTime);
-        
-        // _animator.SetTrigger("Idling");
-        // _canMove = true;
         _runSpeed = DEFAULT_RUN_SPEED;
         yield return new WaitForSeconds(_timeBtwDashes);
         _canDash = true;
@@ -339,4 +331,3 @@ public class PlayerState : MonoBehaviour {
         _rigidBody2D.AddForce(new Vector2(x, y));
     }
 }
-

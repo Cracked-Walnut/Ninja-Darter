@@ -146,8 +146,8 @@ public class CharacterController2D : MonoBehaviour
 		transform.Rotate(0, 180f, 0);
 	}
 
-	public bool getGrounded () { return m_Grounded; }
-	public bool getFacingRight() { return m_FacingRight; }
-	public float getJumpForce() { return m_JumpForce; }
+	public bool GetGrounded () { return m_Grounded; }
+	public bool GetFacingRight() { return m_FacingRight; }
+	public float GetJumpForce() { return m_JumpForce; }
 
 }

@@ -38,12 +38,12 @@ public class WristBladeWeapon : MonoBehaviour {
                 }
             }
             
-            if (_playerState.Wall_Sliding() && _characterController2D.getFacingRight() && _inventory.GetWristBlades() > 0) {
+            if (_playerState.Wall_Sliding() && _characterController2D.GetFacingRight() && _inventory.GetWristBlades() > 0) {
                 
                 Instantiate(_wristBladePrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
                 _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
                
-            } else if (_playerState.Wall_Sliding() && !_characterController2D.getFacingRight() && _inventory.GetWristBlades() > 0) {
+            } else if (_playerState.Wall_Sliding() && !_characterController2D.GetFacingRight() && _inventory.GetWristBlades() > 0) {
                 Instantiate(_wristBladePrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
                 _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
             }
