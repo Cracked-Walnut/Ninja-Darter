@@ -81,6 +81,7 @@ public class PlayerState : MonoBehaviour {
     }
     
     void Update() {
+        CheckNonStateFunctions();
         CheckCurrentState();
         ChestInteraction();
 
@@ -110,9 +111,13 @@ public class PlayerState : MonoBehaviour {
         CheckCurrentFixedState();
     }
 
+    private void CheckNonStateFunctions() {
+        DoubleJump();
+        // AirborneGroundAttack();
+    }
+
     private void CheckCurrentState() { /*Check non-physics related States*/
         Idling();
-        DoubleJump();
         Crouching();
         DashAbility();
         OnWall();
@@ -263,6 +268,12 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
+
+    void AirborneGroundAttack() {
+        if (InAir() && Input.GetAxis("L-Stick-Vertical") > 0.75 && Input.GetButtonDown("XboxA")) {
+            ApplyForce(0, -1000);
+        }
+    }
 
     void DoubleJump() {
         if (!_doubleJump && InAir() && Input.GetButtonDown("XboxA")) {
