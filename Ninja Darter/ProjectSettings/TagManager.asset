@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Minimap Camera
   - Coin
+  - WristBlade
   layers:
   - Default
   - TransparentFX
@@ -69,4 +70,7 @@ TagManager:
     locked: 0
   - name: Coin
     uniqueID: 376541979
+    locked: 0
+  - name: WristBlade
+    uniqueID: 2117485347
     locked: 0
