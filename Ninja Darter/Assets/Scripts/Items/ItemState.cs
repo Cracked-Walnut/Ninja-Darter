@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class ItemState : MonoBehaviour {
 
-    public State _state;
-    public enum State { Idling, Picked_Up, Destroyed }
+    [SerializeField] private State _state;
+    [SerializeField] private enum State { Idling, Picked_Up, Destroyed }
 
-    public void SetState(State _state) => this._state = _state;
-    public State GetState () { return _state; }
+    private void SetState(State _state) => this._state = _state;
+    private State GetState () { return _state; }
 
     void Start() => _state = State.Idling;
-    void Update() => CheckCurrentState();
+    
+    void Update() { 
+        
+        CheckCurrentState(); 
+        RunCodeBasedOnState();
+    }
     
     private void RunCodeBasedOnState() {
         switch(_state) {
             case State.Idling:
                 break;
             case State.Picked_Up:
+                Destroy(gameObject);
                 break;
             case State.Destroyed:
+                Destroy(gameObject);
                 break;
             default:
                 Debug.Log("NOT IN A STATE (Idling, Picked_Up, Destroyed)");
@@ -29,7 +36,7 @@ public class ItemState : MonoBehaviour {
 
     void CheckCurrentState() {
         Idling();
-        Picked_Up();
+        // Picked_Up();
         Destroyed();
     }
 
@@ -38,10 +45,15 @@ public class ItemState : MonoBehaviour {
         return true;
     }
 
-    bool Picked_Up() {
-        SetState(State.Picked_Up);
-        return true;
-    }
+    // bool Picked_Up() {
+    //     void OnCollisionEnter2D(Collision2D collider) {
+    //         if (collider.gameObject.name == "Player") {
+    //             SetState(State.Picked_Up);
+    //             return true;
+    //         }
+    //     return false;
+    //     }
+    // }
 
     bool Destroyed() {
         SetState(State.Destroyed);
