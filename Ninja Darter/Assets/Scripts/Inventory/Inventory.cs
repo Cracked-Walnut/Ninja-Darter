@@ -15,10 +15,7 @@ public class Inventory : MonoBehaviour {
     
     public int AddFragment(int _num) => _cubeFragments += _num;
     
-    public void AddCoin(int _coin) { 
-        _coins += _coin; 
-        Debug.Log(_coins);    
-    }
+    public void AddCoin(int _coin) => _coins += _coin;
 
     public int GetCoins() { return _coins; }
     public void SetCoins(int _thisCoin) => _thisCoin = _coins;
