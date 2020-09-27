@@ -62,6 +62,7 @@ public class PlayerState : MonoBehaviour {
    
     [Header("Misc")]
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
+    [SerializeField] private Timer _timer;
     private bool _isJumping = false;
     private bool _isCrouching = false;
     public bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
@@ -78,6 +79,7 @@ public class PlayerState : MonoBehaviour {
     void Awake() { 
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
+        _timer = GetComponent<Timer>();
     }
     
     void Update() {
