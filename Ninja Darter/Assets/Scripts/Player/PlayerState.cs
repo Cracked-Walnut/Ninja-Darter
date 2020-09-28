@@ -284,7 +284,7 @@ public class PlayerState : MonoBehaviour {
         }
 
         if (_characterController2D.GetGrounded()) {
-            ResetVelocity();
+            // ResetVelocity();
             _doubleJump = false;
         }
     }
