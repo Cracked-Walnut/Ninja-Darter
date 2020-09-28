@@ -31,6 +31,13 @@ public class PlayerState : MonoBehaviour {
     [Header("Animator")]
     [SerializeField] private Animator _animator;
 
+    [Header("Attacking")]
+    [SerializeField] private bool _canAttack = true;
+    [SerializeField] private float _timeBtwAttacks; // a small delay between each attack
+    [SerializeField] private float _attackRange; // a circle used to detect enemies
+    [SerializeField] private Transform _swordPoint; // the point at which the circle is drawn
+    [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
+
     [Header("Jumping")]
     [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f; // The gravity used to bring the player down after a long jump (long jump button press)
     [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f; // the gravuty used to bring the player down after a short jump (short jump button press)
@@ -115,6 +122,7 @@ public class PlayerState : MonoBehaviour {
 
     private void CheckNonStateFunctions() {
         DoubleJump();
+        ExecuteGroundAttack();
         // AirborneGroundAttack();
     }
 
@@ -287,6 +295,30 @@ public class PlayerState : MonoBehaviour {
             // ResetVelocity();
             _doubleJump = false;
         }
+    }
+
+    void ExecuteGroundAttack() {
+        if (Input.GetButtonDown("XboxX") && _characterController2D.GetGrounded() && _canAttack)
+            StartCoroutine(GroundAttack());
+    }
+
+    IEnumerator GroundAttack() {
+        _canAttack = false;
+        _animator.SetTrigger("GroundAttack1");
+        yield return new WaitForSeconds(_timeBtwAttacks);
+        _canAttack = true;
+
+    }
+
+    public void ScanForEnemies() {
+        Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_swordPoint.position, _attackRange, _enemyLayers);
+
+          foreach(Collider2D _enemiesHit in _hitEnemies) {
+
+              _enemiesHit.GetComponent<Enemy>().TakeDamage(50); // damage the enemy
+            //    StartCoroutine(cameraFollow.Shake(.15f, .15f)); // shake the camera for effect
+            //    playArrSound(swordDamageList); // play a damage sound
+          }
     }
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {

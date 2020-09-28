@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4871099333439680839}
   - component: {fileID: 1359043103450463}
   - component: {fileID: 4190097772945361948}
+  - component: {fileID: 1877355292614022905}
   m_Layer: 18
   m_Name: Looping Earth Wisp Attack
   m_TagString: Untagged
@@ -197,3 +198,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 7254301260396380068, guid: 0c7908cd7fef15540a3ec5c2fc2f522b, type: 3}
   _projectilePosition: {fileID: 6691081696874397690}
+--- !u!114 &1877355292614022905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917415298915005379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a13f6c00746bb849a54e55c99f1a70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
