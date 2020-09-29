@@ -37,6 +37,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private float _attackRange; // a circle used to detect enemies
     [SerializeField] private Transform _swordPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
+    private string[] _groundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
 
     [Header("Jumping")]
     [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f; // The gravity used to bring the player down after a long jump (long jump button press)
@@ -303,8 +304,9 @@ public class PlayerState : MonoBehaviour {
     }
 
     IEnumerator GroundAttack() {
+        int _randomGroundAttack = Random.Range(0, _groundAttacks.Length);
         _canAttack = false;
-        _animator.SetTrigger("GroundAttack1");
+        _animator.SetTrigger(_groundAttacks[_randomGroundAttack]);
         yield return new WaitForSeconds(_timeBtwAttacks);
         _canAttack = true;
 
