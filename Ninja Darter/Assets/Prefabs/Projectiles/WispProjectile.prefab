@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3546293037803920662}
   - component: {fileID: 6496724764394241859}
   - component: {fileID: 2771669025582085814}
-  m_Layer: 0
-  m_Name: EarthWispProjectile
-  m_TagString: Untagged
+  m_Layer: 20
+  m_Name: WispProjectile
+  m_TagString: Wisp Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

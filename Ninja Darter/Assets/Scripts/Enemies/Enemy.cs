@@ -6,6 +6,10 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] private int _health = 100;
     private bool _facingRight;
+    [SerializeField] private GameObject _player;
+    private Points _points;
+
+    private void Awake() => _points = _player.GetComponent<Points>();
 
     private void SetFacingRight(bool _facingRight) => this._facingRight = _facingRight;
 
@@ -17,7 +21,10 @@ public class Enemy : MonoBehaviour {
             Die();
     }
 
-    void Die() => Destroy(gameObject);
+    void Die() {
+        Destroy(gameObject);
+        _points.AddPoints(50);
+    }
     
     bool isFacingRight() {
 

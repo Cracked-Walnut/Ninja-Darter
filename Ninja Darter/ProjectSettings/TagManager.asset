@@ -7,6 +7,8 @@ TagManager:
   - Minimap Camera
   - Coin
   - WristBlade
+  - Enemy
+  - Wisp Projectile
   layers:
   - Default
   - TransparentFX
@@ -28,7 +30,7 @@ TagManager:
   - Minimap Objects
   - Enemy
   - WristBlade
-  - 
+  - Wisp Projectile
   - 
   - 
   - 

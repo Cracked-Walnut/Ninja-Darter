@@ -76,6 +76,7 @@ public class PlayerState : MonoBehaviour {
     [Header("Misc")]
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
     [SerializeField] private Timer _timer;
+    [SerializeField] private Points _points;
     private bool _isJumping = false;
     private bool _isCrouching = false;
     public bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
@@ -93,6 +94,7 @@ public class PlayerState : MonoBehaviour {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
         _timer = GetComponent<Timer>();
+        _points = GetComponent<Points>();
     }
     
     void Update() {
@@ -273,6 +275,7 @@ public class PlayerState : MonoBehaviour {
     void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
         
         _health -= _damage;
+        _points.AddPoints(-5);
         
         if (_characterController2D.GetFacingRight())
             ApplyForce(-_knocBackX, _knockBackY);
@@ -354,7 +357,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        if (_collisionInfo.collider.name == "Spikes")
+        if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "WispProjectile" || _collisionInfo.collider.name == "Enemy")
             TakeDamage(20, 200, 900);
     }
 

@@ -9,10 +9,11 @@ public class Points : MonoBehaviour {
     [SerializeField] private int _totalBonusPoints;
     [SerializeField] private int _stageBonusPoints;
 
-    private int AddPoints(int _points) => _stagePoints += _points;
-    private int AddBonusPoints(int _bonusPoints) => _stageBonusPoints += _bonusPoints;
+    public int AddPoints(int _points) => _stagePoints += _points;
+    public int AddBonusPoints(int _bonusPoints) => _stageBonusPoints += _bonusPoints;
 
-    private int TallyPoints() => _totalPoints += _stagePoints;
-    private int TallyBonusPoints() => _totalBonusPoints += _stageBonusPoints;
+    // tallied at the end of each level
+    public int TallyPoints() => _totalPoints += _stagePoints;
+    public int TallyBonusPoints() => _totalBonusPoints += _stageBonusPoints;
 
 }
