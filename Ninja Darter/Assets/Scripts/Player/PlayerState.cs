@@ -35,13 +35,14 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private int _attackDamage = 50;
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
+    [SerializeField] private bool _airAttacked = false;
     [SerializeField] private float _timeBtwAttacks; // a small delay between each attack
     [SerializeField] private float _timeBtwAirAttacks;
     [SerializeField] private float _attackRange; // a circle used to detect enemies
     [SerializeField] private Transform _swordPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
     private string[] _groundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
-    private string[] _airAttacks = {"AirAttack1"/*, "AirAttack2", "AirAttack3"*/};
+    private string[] _airAttacks = {"AirAttack1", "AirAttack2"};
 
     [Header("Jumping")]
     [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f; // The gravity used to bring the player down after a long jump (long jump button press)
@@ -96,7 +97,7 @@ public class PlayerState : MonoBehaviour {
     
     void Update() {
 
-        if (!_characterController2D.GetGrounded())
+        if (!_characterController2D.GetGrounded() && !_airAttacked)
             _canAirAttack = true;
         else
             _canAirAttack = false;
@@ -330,10 +331,14 @@ public class PlayerState : MonoBehaviour {
     IEnumerator AirAttack() {
         int _randomAirAttack = Random.Range(0, _airAttacks.Length);
         _canAirAttack = false;
+        _airAttacked = true;
         _animator.SetBool("IsAirAttacking", true);
         _animator.SetTrigger(_airAttacks[_randomAirAttack]);
+        
         yield return new WaitForSeconds(_timeBtwAirAttacks);
+        
         _canAirAttack = true;
+        _airAttacked = false;
         _animator.SetBool("IsAirAttacking", false);
     }
 
@@ -404,4 +409,10 @@ public class PlayerState : MonoBehaviour {
         ResetVelocity();
         _rigidBody2D.AddForce(new Vector2(x, y));
     }
+
+    public void AirAttackForce() {
+        ResetVelocity();
+        _rigidBody2D.AddForce(new Vector2(0, 500));
+    }
+    
 }
