@@ -14,7 +14,7 @@ public class Coin : MonoBehaviour {
         _points = _player.GetComponent<Points>();
     }
 
-    void OnCollisionEnter2D(Collision2D collider) {
+    void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name == "Player") {
             _points.AddPoints(_coinValue * 2);
             _inventory.AddCoin(_coinValue);
