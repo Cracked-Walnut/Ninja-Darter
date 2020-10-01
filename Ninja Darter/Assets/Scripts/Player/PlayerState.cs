@@ -59,7 +59,10 @@ public class PlayerState : MonoBehaviour {
     private const float DEFAULT_RUN_SPEED = 50f; // modify as needed
 
     private float _horizontalMove; // keyboard movement
-    private float _horizontalXboxMove; // controller movement
+
+    // controller movement
+    private float _horizontalXboxMove;
+    private float _verticalXboxMove;
 
     [Header("Dashing")]
     [SerializeField] public bool _canDash = true;

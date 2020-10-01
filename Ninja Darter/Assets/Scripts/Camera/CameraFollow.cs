@@ -14,8 +14,16 @@ public class CameraFollow : MonoBehaviour {
     [SerializeField] private int[] _boundaries;
     [SerializeField] private float _smoothSpeed = 0.125f;
     [SerializeField] private Vector3 _offset;
+    [SerializeField] private float _lookUpValue;
+    [SerializeField] private float _lookDownValue;
+    [SerializeField] private float _lookUpAxis;
+    [SerializeField] private float _lookDownAxis;
 
-    void Update() => FollowPlayer();
+
+    void Update() {
+        FollowPlayer(); 
+        LookYAxis();
+    }
 
     void FixedUpdate() {
         Vector3 _desiredPosition = _objectToFollow.position + _offset;
@@ -29,5 +37,18 @@ public class CameraFollow : MonoBehaviour {
         
         else if (_objectToFollow.position.x < _boundaries[1])
             transform.position = new Vector3(_boundaries[1], _objectToFollow.transform.position.y, -10f);
+    }
+
+    void LookYAxis() {
+        if (Input.GetAxis("R-Stick-Vertical") > _lookUpAxis) {
+            transform.position = new Vector3(_objectToFollow.position.x, _objectToFollow.position.y + _lookDownValue, -10f);
+            // transform.position = Vector3.Lerp(_objectToFollow.position.y, _objectToFollow.position.y - 1f, 1f);
+        }
+        else if (Input.GetAxis("R-Stick-Vertical") < _lookDownAxis) {
+            transform.position = new Vector3(_objectToFollow.position.x, _objectToFollow.position.y + _lookUpValue, -10f);
+        }
+        else
+            transform.position = new Vector3(_objectToFollow.position.x, _objectToFollow.position.y, -10f);
+
     }
 }
