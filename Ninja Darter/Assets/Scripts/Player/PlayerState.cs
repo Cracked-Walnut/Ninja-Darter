@@ -42,7 +42,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private Transform _swordPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
     private string[] _groundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
-    private string[] _airAttacks = {"AirAttack1", "AirAttack2"};
+    private string[] _airAttacks = {"AirAttack1"};
 
     [Header("Jumping")]
     [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f; // The gravity used to bring the player down after a long jump (long jump button press)
@@ -77,6 +77,8 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
     [SerializeField] private Timer _timer;
     [SerializeField] private Points _points;
+    [SerializeField] private GameObject _mainCamera;
+    private CameraShake _cameraShake;
     private bool _isJumping = false;
     private bool _isCrouching = false;
     public bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
@@ -95,6 +97,7 @@ public class PlayerState : MonoBehaviour {
         _inventory = GetComponent<Inventory>();
         _timer = GetComponent<Timer>();
         _points = GetComponent<Points>();
+        _cameraShake = _mainCamera.GetComponent<CameraShake>();
     }
     
     void Update() {
@@ -349,15 +352,14 @@ public class PlayerState : MonoBehaviour {
         Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_swordPoint.position, _attackRange, _enemyLayers);
 
           foreach(Collider2D _enemiesHit in _hitEnemies) {
-
-              _enemiesHit.GetComponent<Enemy>().TakeDamage(_attackDamage); // damage the enemy
-            //    StartCoroutine(cameraFollow.Shake(.15f, .15f)); // shake the camera for effect
+            StartCoroutine(_cameraShake.Shake(.1f, .15f));
+            _enemiesHit.GetComponent<Enemy>().TakeDamage(_attackDamage); // damage the enemy
             //    playArrSound(swordDamageList); // play a damage sound
           }
     }
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "WispProjectile" || _collisionInfo.collider.name == "Enemy")
+        if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "WispProjectile(Clone)")
             TakeDamage(20, 200, 900);
     }
 

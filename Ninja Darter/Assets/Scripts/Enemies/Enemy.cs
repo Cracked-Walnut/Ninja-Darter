@@ -5,11 +5,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     [SerializeField] private int _health = 100;
-    private bool _facingRight;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Animator _animator;
+    private BoxCollider2D _boxCollider2D;
+    private bool _facingRight;
     private Points _points;
 
-    private void Awake() => _points = _player.GetComponent<Points>();
+    private void Awake() { 
+        _points = _player.GetComponent<Points>(); 
+        _boxCollider2D = GetComponent<BoxCollider2D>();
+    }
 
     private void SetFacingRight(bool _facingRight) => this._facingRight = _facingRight;
 
@@ -18,13 +23,10 @@ public class Enemy : MonoBehaviour {
         _health -= _damage;
 
         if (_health <= 0)
-            Die();
+            Dead();
     }
 
-    void Die() {
-        Destroy(gameObject);
-        _points.AddPoints(50);
-    }
+    void Die() => Destroy(gameObject);
     
     bool isFacingRight() {
 
@@ -39,4 +41,11 @@ public class Enemy : MonoBehaviour {
             return true;
         }        
     }
+
+    public void Dead() { 
+        _animator.SetTrigger("Dead");
+        _boxCollider2D.enabled = !_boxCollider2D.enabled;
+        _points.AddPoints(50);
+    }
+    
 }
