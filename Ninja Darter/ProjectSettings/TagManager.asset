@@ -9,6 +9,7 @@ TagManager:
   - WristBlade
   - Enemy
   - Wisp Projectile
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Enemy
   - WristBlade
   - Wisp Projectile
-  - 
+  - Shield
   - 
   - 
   - 

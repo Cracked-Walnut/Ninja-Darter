@@ -19,7 +19,7 @@ public class PlayerState : MonoBehaviour {
     private Rigidbody2D _rigidBody2D;
     
     public State _state;
-    public enum State { Idling, Running, Crouching,  InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing,  Hurt, Dead }
+    public enum State { Idling, Running, Crouching, InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing, Blocking, Hurt, Dead }
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private Inventory _inventory;
@@ -144,6 +144,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     private void CheckCurrentState() { /*Check non-physics related States*/
+        // Blocking();
         Idling();
         Crouching();
         DashAbility();
@@ -275,7 +276,7 @@ public class PlayerState : MonoBehaviour {
         }
     }
     
-    void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
+    public void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
         
         _health -= _damage;
         _points.AddPoints(-5);
@@ -376,6 +377,27 @@ public class PlayerState : MonoBehaviour {
             return true;
          }
          return false;
+    }
+
+    bool Blocking() {
+        if (Input.GetButton("LB") && Idling()) {
+        // if (Input.GetAxis("LT") > 0.5 && Idling()) {
+            SetState(State.Blocking);
+            _animator.SetTrigger("Blocking");
+            _animator.SetBool("IsBlocking", true);
+            _canMove = false;
+            _canAttack = false;
+            _canDash = false;
+
+            return true;
+        }
+        else {
+            _animator.SetBool("IsBlocking", false);
+            _canMove = true;
+            _canAttack = true;
+            _canDash = true;
+            return false;
+        }
     }
 
     void WallJump(bool _isFacingRight, float x, float y) {

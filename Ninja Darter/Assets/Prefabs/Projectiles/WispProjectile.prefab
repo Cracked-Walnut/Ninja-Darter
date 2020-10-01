@@ -220,6 +220,7 @@ MonoBehaviour:
   _speed: 10
   _damage: 5
   _rigidbody2D: {fileID: 6738218179010420842}
+  _player: {fileID: 3547302568472844998, guid: 8aba42a93cfaedf44a846fd1d9792e7a, type: 3}
 --- !u!61 &2771669025582085814
 BoxCollider2D:
   m_ObjectHideFlags: 0
