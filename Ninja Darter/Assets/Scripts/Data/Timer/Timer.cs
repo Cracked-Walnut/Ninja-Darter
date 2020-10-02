@@ -5,24 +5,14 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-    [SerializeField] private Text _timerDisplay;
     [SerializeField] private float _stageTime;
     [SerializeField] private float _bestStageTime;
     [SerializeField] private float _totalGameTime;
     [SerializeField] private bool _isTimerRunning;
 
-
     void Start() {
         _stageTime = 0.0f;
         _isTimerRunning = true;
-    }
-
-    void Update() {
-        if (_isTimerRunning) {
-            _stageTime += Time.deltaTime;
-            string _roundedTotalTime = _stageTime.ToString("#.00");
-            _timerDisplay.text = _roundedTotalTime;
-        }
     }
 
     // this will be called at the end of each stage
@@ -38,10 +28,18 @@ public class Timer : MonoBehaviour {
             Debug.Log("No New Best Time");
     }
 
+
     public void AddToTotalTime() { 
         _isTimerRunning = false;
         _totalGameTime += _stageTime;
         Debug.Log("New Total Time: " + _totalGameTime); 
     }
+    
+    public void StartTimer() => _stageTime += Time.deltaTime;
+
+    public bool GetTimerRunning() { return _isTimerRunning; }
+    public void SetTimerRunning(bool _timer) => _isTimerRunning = _timer;
+
+    public float GetStageTime() { return _stageTime; }
 
 }

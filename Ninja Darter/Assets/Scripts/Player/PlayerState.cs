@@ -12,7 +12,7 @@ Sources:
 6) B., Brackeys, 'MELEE COMBAT in Unity', 2019. [Online]. Available: https://www.youtube.com/watch?v=sPiVz1k-fEs [Accessed: Sep-11-2020].
 */
 
-/*A class used to control the various states the player object can enter*/
+/*A class used to control the various states the player can enter*/
 
 public class PlayerState : MonoBehaviour {
 
@@ -78,7 +78,6 @@ public class PlayerState : MonoBehaviour {
    
     [Header("Misc")]
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
-    [SerializeField] private Timer _timer;
     [SerializeField] private GameObject _mainCamera;
     private CameraShake _cameraShake;
     private bool _isJumping = false;
@@ -97,7 +96,6 @@ public class PlayerState : MonoBehaviour {
     void Awake() { 
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
-        _timer = GetComponent<Timer>();
         _cameraShake = _mainCamera.GetComponent<CameraShake>();
     }
     

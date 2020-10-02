@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameOverMenu : MonoBehaviour {
     
     [SerializeField] private GameObject _gameOverMenu;
+    [SerializeField] private GameObject _ui;
     private PlayerState _player;
 
     void Update() => CheckGameOver();
@@ -17,6 +18,7 @@ public class GameOverMenu : MonoBehaviour {
 
         if (_player.Dead()) {
             Time.timeScale = 0.0f;
+            _ui.SetActive(false);
             _gameOverMenu.SetActive(true);
 
             return true;

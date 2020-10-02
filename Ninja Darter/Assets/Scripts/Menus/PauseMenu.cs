@@ -6,6 +6,8 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _statusMenu;
+    [SerializeField] private GameObject _ui;
+    [SerializeField] private GameObject _theMinimap;
 
     
     void Update() => CheckPauseKey();
@@ -14,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
     void CheckPauseKey() {
         // if (Input.GetKeyDown(KeyCode.Escape))
         //     SetPauseOn();
-        if (Input.GetButtonDown("Menu (Start)"))
+        if (Input.GetButtonDown("Menu (Start)") || Input.GetKeyDown(KeyCode.Escape))
             SetPauseOn();
     }
 
@@ -22,11 +24,15 @@ public class PauseMenu : MonoBehaviour {
         _pauseMenu.SetActive(true);
         _optionsMenu.SetActive(false);
         _statusMenu.SetActive(false);
+        _ui.SetActive(false);
+        _theMinimap.SetActive(false);
         if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
     public void SetPauseOff() {
         _pauseMenu.SetActive(false);
+        _ui.SetActive(true);
+        _theMinimap.SetActive(true);
         if (Time.timeScale == 0.0f) Time.timeScale = 1.0f;
     }
 
@@ -34,6 +40,8 @@ public class PauseMenu : MonoBehaviour {
         _pauseMenu.SetActive(false);
         _optionsMenu.SetActive(true);
         _statusMenu.SetActive(false);
+        _ui.SetActive(false);
+        _theMinimap.SetActive(false);
         if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
@@ -41,6 +49,8 @@ public class PauseMenu : MonoBehaviour {
         _pauseMenu.SetActive(false);
         _optionsMenu.SetActive(false);
         _statusMenu.SetActive(true);
+        _ui.SetActive(false);
+        _theMinimap.SetActive(false);
         if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
