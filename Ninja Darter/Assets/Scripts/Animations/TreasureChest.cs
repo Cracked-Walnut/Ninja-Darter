@@ -6,13 +6,12 @@ public class TreasureChest : MonoBehaviour {
 
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _player;
-    private Inventory _inventory;
-    private Points _points;    
+    private Inventory _inventory;    
     private BoxCollider2D _boxCollider2D;
 
     private void Awake() { 
         _inventory = _player.GetComponent<Inventory>();
-        _points = _player.GetComponent<Points>();
+        _inventory = _player.GetComponent<Inventory>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
@@ -23,7 +22,7 @@ public class TreasureChest : MonoBehaviour {
         switch(_item) {
             case "Fragment":
                 _inventory.AddFragment(1);
-                _points.AddPoints(20);
+                _inventory.AddPoints(20);
                 Debug.Log(_inventory.GetCubeFragments());
                 break;
             default:

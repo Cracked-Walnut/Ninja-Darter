@@ -79,7 +79,6 @@ public class PlayerState : MonoBehaviour {
     [Header("Misc")]
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
     [SerializeField] private Timer _timer;
-    [SerializeField] private Points _points;
     [SerializeField] private GameObject _mainCamera;
     private CameraShake _cameraShake;
     private bool _isJumping = false;
@@ -99,7 +98,6 @@ public class PlayerState : MonoBehaviour {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
         _timer = GetComponent<Timer>();
-        _points = GetComponent<Points>();
         _cameraShake = _mainCamera.GetComponent<CameraShake>();
     }
     
@@ -282,7 +280,7 @@ public class PlayerState : MonoBehaviour {
     public void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
         
         _health -= _damage;
-        _points.AddPoints(-5);
+        _inventory.AddPoints(-5);
         
         if (_characterController2D.GetFacingRight())
             ApplyForce(-_knocBackX, _knockBackY);
