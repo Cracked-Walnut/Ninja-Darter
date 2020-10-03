@@ -62,7 +62,6 @@ public class PlayerState : MonoBehaviour {
 
     // controller movement
     private float _horizontalXboxMove;
-    private float _verticalXboxMove;
 
     [Header("Dashing")]
     [SerializeField] public bool _canDash = true;
@@ -111,7 +110,7 @@ public class PlayerState : MonoBehaviour {
         ChestInteraction();
 
         if (_canMove) {
-            _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
+            // _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
             _horizontalXboxMove = Input.GetAxisRaw("L-Stick-Horizontal") * _runSpeed;
         }
 
@@ -128,7 +127,7 @@ public class PlayerState : MonoBehaviour {
     void FixedUpdate() {
 
         // fixedDeltaTime ensures we move the same amount no matter how many times Move() is called
-        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);
+        // _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _isCrouching, _isJumping);
         _characterController2D.Move(_horizontalXboxMove * Time.fixedDeltaTime, _isCrouching, _isJumping);
         
         _isJumping = false;
