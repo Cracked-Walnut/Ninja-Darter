@@ -20,6 +20,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[1].SetActive(false);
         _menuObjects[2].SetActive(false);
         _menuObjects[3].SetActive(false);
+        _menuObjects[4].SetActive(false);
     }
 
     public void SetMainOptionsActive () {
@@ -27,6 +28,15 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[1].SetActive(true);
         _menuObjects[2].SetActive(false);
         _menuObjects[3].SetActive(false);
+        _menuObjects[4].SetActive(false);
+    }
+
+    public void SetControlsActive () {
+        _menuObjects[0].SetActive(false);
+        _menuObjects[1].SetActive(false);
+        _menuObjects[2].SetActive(false);
+        _menuObjects[3].SetActive(false);
+        _menuObjects[4].SetActive(true);
     }
 
     public void SetMainLoadActive () {
@@ -34,6 +44,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[1].SetActive(false);
         _menuObjects[2].SetActive(true);
         _menuObjects[3].SetActive(false);
+        _menuObjects[4].SetActive(false);
     }
 
     public void SetNewGameActive() {
@@ -41,6 +52,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[1].SetActive(false);
         _menuObjects[2].SetActive(false);
         _menuObjects[3].SetActive(true);
+        _menuObjects[4].SetActive(false);
     }
 
     public void SetGameOverActive() {
@@ -48,6 +60,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[1].SetActive(false);
         _menuObjects[2].SetActive(false);
         _menuObjects[3].SetActive(false);
+        _menuObjects[4].SetActive(false);
     }
 
     public void QuitGame() => Application.Quit();
