@@ -53,6 +53,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[2].SetActive(false);
         _menuObjects[3].SetActive(true);
         _menuObjects[4].SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     public void SetGameOverActive() {
