@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Wisp Projectile
   - Shield
+  - HealthPotion
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - WristBlade
   - Wisp Projectile
   - Shield
-  - 
+  - HealthPotion
   - 
   - 
   - 
@@ -76,4 +77,7 @@ TagManager:
     locked: 0
   - name: WristBlade
     uniqueID: 2117485347
+    locked: 0
+  - name: HealthPotion
+    uniqueID: 1160660969
     locked: 0

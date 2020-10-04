@@ -28,6 +28,6 @@ public class Projectile : MonoBehaviour {
             DestroyProjectile();
     }
 
-    void DestroyProjectile() => Destroy(gameObject);
+    public void DestroyProjectile() => Destroy(gameObject);
 
 }

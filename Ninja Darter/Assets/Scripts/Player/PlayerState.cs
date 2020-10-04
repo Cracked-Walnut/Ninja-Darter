@@ -26,6 +26,7 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Health")]
     [SerializeField] private int _health;
+    [SerializeField] public int _maxHealth;
     [SerializeField] private LayerMask _enemies; // determines what can damage the player
 
     [Header("Animator")]
@@ -41,6 +42,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private float _attackRange; // a circle used to detect enemies
     [SerializeField] private Transform _swordPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
+    [SerializeField] private LayerMask _projectileLayers; // projectiles we can hit within that circle
     private string[] _groundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
     private string[] _airAttacks = {"AirAttack1"};
 
@@ -87,8 +89,9 @@ public class PlayerState : MonoBehaviour {
     public void SetState(State _state) => this._state = _state;
     public State GetState () { return _state; }
 
-    public void SetHealth(int _health) => this._health = _health;
     public int GetHealth() { return _health; }
+    public void SetHealth(int _hp) => _health = _hp;
+    public void AddHealth(int _hp) => _health += _hp;
 
     void Start() => _runSpeed = 50;
 
@@ -353,6 +356,16 @@ public class PlayerState : MonoBehaviour {
           foreach(Collider2D _enemiesHit in _hitEnemies) {
             StartCoroutine(_cameraShake.Shake(.1f, .15f));
             _enemiesHit.GetComponent<Enemy>().TakeDamage(_attackDamage); // damage the enemy
+            //    playArrSound(swordDamageList); // play a damage sound
+          }
+    }
+
+    public void ScanForProjectiles() {
+        Collider2D[] _hitProjectiles = Physics2D.OverlapCircleAll(_swordPoint.position, _attackRange, _projectileLayers);
+
+          foreach(Collider2D _projectilesHit in _hitProjectiles) {
+            StartCoroutine(_cameraShake.Shake(.1f, .1f));
+            _projectilesHit.GetComponent<Projectile>().DestroyProjectile();
             //    playArrSound(swordDamageList); // play a damage sound
           }
     }
