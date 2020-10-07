@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
     [SerializeField] private float _speed;
-    [SerializeField] private float _damage;
+    [SerializeField] private int _damage;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private GameObject _player;
     private float _selfDestructTimer;
@@ -20,7 +20,11 @@ public class Projectile : MonoBehaviour {
         CheckSelfDestructTime();
     }
 
-    void OnCollisionEnter2D(Collision2D _collisionInfo) => DestroyProjectile();
+    void OnCollisionEnter2D(Collision2D _collisionInfo) {
+        // if (_collisionInfo.collider.name == "Player")
+        //     _playerState.TakeDamage(_damage, 200, 900);
+        DestroyProjectile();
+    }
     
     void CheckSelfDestructTime() {
         _selfDestructTimer -= Time.deltaTime;

@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour {
     [SerializeField] private Transform _projectilePosition;
 
 
-    void FireBullet() => Instantiate(_projectilePrefab, _projectilePosition.position, Quaternion.identity);
+    void FireBullet() { 
+        Instantiate(_projectilePrefab, _projectilePosition.position, Quaternion.identity); }
 
 }
