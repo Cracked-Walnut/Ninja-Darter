@@ -288,7 +288,7 @@ public class PlayerState : MonoBehaviour {
             ApplyForce(_knockBackY, _knockBackY);
         
         SetState(State.Hurt);
-    }  
+    }
 
     public bool Dead() {
         if (_health <= 0) {
@@ -371,7 +371,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "WispProjectile(Clone)")
+        if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
             TakeDamage(20, 200, 900);
     }
 

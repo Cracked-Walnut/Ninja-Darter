@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3865f53bf3343de418aff9bb9a2f8ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 7.5
   _damage: 10
   _rigidbody2D: {fileID: 6738218179010420842}
   _player: {fileID: 3547302568472844998, guid: 8aba42a93cfaedf44a846fd1d9792e7a, type: 3}

@@ -21,8 +21,6 @@ public class Projectile : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        // if (_collisionInfo.collider.name == "Player")
-        //     _playerState.TakeDamage(_damage, 200, 900);
         DestroyProjectile();
     }
     
