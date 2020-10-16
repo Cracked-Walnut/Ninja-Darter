@@ -46,6 +46,6 @@ public class Enemy : MonoBehaviour {
         _animator.SetTrigger("Dead");
         _boxCollider2D.enabled = !_boxCollider2D.enabled;
         _inventory.AddPoints(50);
+        _inventory.AddKill(1);
     }
-    
 }

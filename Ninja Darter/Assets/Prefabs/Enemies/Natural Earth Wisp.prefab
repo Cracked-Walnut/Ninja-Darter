@@ -254,3 +254,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _player: {fileID: 0}
+  _animator: {fileID: 0}
+  _enemyTypes: []
