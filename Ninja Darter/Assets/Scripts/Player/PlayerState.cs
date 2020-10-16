@@ -65,6 +65,10 @@ public class PlayerState : MonoBehaviour {
     // controller movement
     private float _horizontalXboxMove;
 
+    // directional pad control
+    private float _dpadHorizontal;
+    private float _dpadVertical;
+
     [Header("Dashing")]
     [SerializeField] public bool _canDash = true;
     [Range(0, 200)] [SerializeField] private float _dashSpeed;
@@ -116,6 +120,9 @@ public class PlayerState : MonoBehaviour {
             // _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
             _horizontalXboxMove = Input.GetAxisRaw("L-Stick-Horizontal") * _runSpeed;
         }
+
+        _dpadHorizontal = Input.GetAxis("DPADHorizontal") * 1;
+        _dpadVertical = Input.GetAxis("DPADVertical") * 1;
 
         if (Input.GetButtonDown("XboxA"))
             _isJumping = true;
@@ -318,7 +325,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     void ExecuteGroundAttack() {
-        if (Input.GetButtonDown("XboxX") && _characterController2D.GetGrounded() && _canAttack)
+        if (Input.GetButtonDown("XboxX") && _characterController2D.GetGrounded() && _canAttack && !Crouching())
             StartCoroutine(GroundAttack());
     }
 
