@@ -11,6 +11,7 @@ TagManager:
   - Wisp Projectile
   - Shield
   - HealthPotion
+  - NodeRoom
   layers:
   - Default
   - TransparentFX
