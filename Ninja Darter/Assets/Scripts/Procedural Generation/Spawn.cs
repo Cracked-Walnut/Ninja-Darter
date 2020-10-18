@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnRoom : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class Spawn : MonoBehaviour {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField] private GameObject[] _rooms;
+    private GameObject _roomInstance;
+
+    void Start() {
+        if (_rooms == null || _rooms.Length == 0)
+            return;
+        else
+            SpawnRoom();
+    }
+    
+    private void SpawnRoom() {
+        int _roomToSpawn = Random.Range(0, _rooms.Length);
+
+        _roomInstance = (GameObject) Instantiate(_rooms[_roomToSpawn], transform.position, transform.rotation);
     }
 }
