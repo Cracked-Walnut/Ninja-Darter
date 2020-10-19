@@ -18382,6 +18382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Regular Coin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7169741728938938902, guid: 2f7b1d0a1c1955b4f8bd36884b3bb96e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169741728938938903, guid: 2f7b1d0a1c1955b4f8bd36884b3bb96e, type: 3}
       propertyPath: _player
       value: 
@@ -18407,7 +18411,7 @@ PrefabInstance:
     - target: {fileID: 2025903840138255342, guid: 604242ddd77819c42b4ad7e7af1858d7, type: 3}
       propertyPath: _player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 611333969447945918, guid: 1652f799f95f36042b70060217f18fc0, type: 3}
     - target: {fileID: 5325959386498485392, guid: 604242ddd77819c42b4ad7e7af1858d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.79
@@ -18542,6 +18546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WindWisp
       objectReference: {fileID: 0}
+    - target: {fileID: 2414393973207652863, guid: 06b2224285c656c4abf63e9c214c66c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4941430562034242182, guid: 06b2224285c656c4abf63e9c214c66c4, type: 3}
       propertyPath: _player
       value: 
@@ -18635,6 +18643,10 @@ PrefabInstance:
     - target: {fileID: 3917415298915005379, guid: 3a663c52ce50d17419d1bbd9e4f9f3f8, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917415298915005379, guid: 3a663c52ce50d17419d1bbd9e4f9f3f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4871099333439680839, guid: 3a663c52ce50d17419d1bbd9e4f9f3f8, type: 3}
       propertyPath: m_BodyType
