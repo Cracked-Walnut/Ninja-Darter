@@ -12,6 +12,7 @@ TagManager:
   - Shield
   - HealthPotion
   - NodeRoom
+  - Canvas Camera
   layers:
   - Default
   - TransparentFX
