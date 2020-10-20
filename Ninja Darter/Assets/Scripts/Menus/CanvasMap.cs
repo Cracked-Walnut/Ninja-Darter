@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class CanvasMap : MonoBehaviour {
 
+    // private bool _canOpenCanvasMap = true;
     [SerializeField] private GameObject _canvasMapCamera;
-    
+    [SerializeField] private GameObject _minimapCamera;
+
     void Start() {
         _canvasMapCamera.SetActive(false);
+        _minimapCamera.SetActive(true);
     }
     
     void Update() => CheckMapStatus();
 
     void CheckMapStatus() {
-        if (Input.GetButtonDown("View (Back)"))
+        if (Input.GetButtonDown("View (Back)")) {
             OpenCanvasMap();
+            CloseMinimap();
+        }
 
-        if (OpenCanvasMap() && Input.GetButtonDown("XboxB"))
+        if (Input.GetButtonDown("XboxB")) {
+            OpenMinimap();
             CloseCanvasMap();
+        }
     }
 
-    bool OpenCanvasMap() {
-        _canvasMapCamera.SetActive(true);
-        return true;
-    }
+    void OpenCanvasMap() => _canvasMapCamera.SetActive(true);
+    void OpenMinimap() => _minimapCamera.SetActive(true);
 
     void CloseCanvasMap() => _canvasMapCamera.SetActive(false);
+    void CloseMinimap() => _minimapCamera.SetActive(false);
 }
