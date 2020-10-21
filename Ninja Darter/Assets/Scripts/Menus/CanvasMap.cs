@@ -12,24 +12,20 @@ public class CanvasMap : MonoBehaviour {
         _canvasMapCamera.SetActive(false);
         _minimapCamera.SetActive(true);
     }
-    
+
     void Update() => CheckMapStatus();
 
     void CheckMapStatus() {
-        if (Input.GetButtonDown("View (Back)")) {
+        if (Input.GetButton("LB"))
             OpenCanvasMap();
-            CloseMinimap();
-        }
-
-        if (Input.GetButtonDown("XboxB")) {
-            OpenMinimap();
+        else
             CloseCanvasMap();
-        }
+
+        // if (Input.GetButtonDown("LB"))
+        //     CloseCanvasMap();
     }
 
     void OpenCanvasMap() => _canvasMapCamera.SetActive(true);
-    void OpenMinimap() => _minimapCamera.SetActive(true);
 
     void CloseCanvasMap() => _canvasMapCamera.SetActive(false);
-    void CloseMinimap() => _minimapCamera.SetActive(false);
 }

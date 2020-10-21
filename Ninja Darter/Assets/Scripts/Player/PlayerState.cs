@@ -459,5 +459,4 @@ public class PlayerState : MonoBehaviour {
         ResetVelocity();
         _rigidBody2D.AddForce(new Vector2(0, 500));
     }
-    
 }
