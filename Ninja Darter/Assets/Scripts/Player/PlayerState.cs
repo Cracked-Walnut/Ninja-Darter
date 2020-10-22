@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-Sources:
-1) B., Brackeys, '2D Movement in Unity', 2018. [Online]. Available: https://www.youtube.com/watch?v=dwcT-Dch0bA [Accessed: Aug-08-2020].
-2) B.B., Bonk, 'Unity Ground Dash and Dash Jump Tutorial', 2019. [Online]. Available: https://www.youtube.com/watch?v=I4Ja5Ar63Pw [Accessed: Aug-09-2020].
-3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
-4) G., gamesplusjames, 'Wall Jumping in Unity Tutorial', 2020. [Online]. Available:  https://www.youtube.com/watch?v=uNJanDrjMgU [Accessed: Sep-06-2020].
-5) B., Bardent, 'Basic Combat - 2D Platformer Player Controller - Part 9 [Unity 2019.2.0f1]', 2020. [Online]. Available: https://www.youtube.com/watch?v=YaXcwc5Evjk [Accessed: Sep-07-2020].
-6) B., Brackeys, 'MELEE COMBAT in Unity', 2019. [Online]. Available: https://www.youtube.com/watch?v=sPiVz1k-fEs [Accessed: Sep-11-2020].
+    Sources:
+    1) B., Brackeys, '2D Movement in Unity', 2018. [Online]. Available: https://www.youtube.com/watch?v=dwcT-Dch0bA [Accessed: Aug-08-2020].
+    2) B.B., Bonk, 'Unity Ground Dash and Dash Jump Tutorial', 2019. [Online]. Available: https://www.youtube.com/watch?v=I4Ja5Ar63Pw [Accessed: Aug-09-2020].
+    3) B., Blackthornprod, 'How to make a 2D Wall Jump & Wall Slide using Unity & C#!', 2020. [Online]. Available: https://www.youtube.com/watch?v=KCzEnKLaaPc [Accessed: Aug-10-2020].
+    4) G., gamesplusjames, 'Wall Jumping in Unity Tutorial', 2020. [Online]. Available:  https://www.youtube.com/watch?v=uNJanDrjMgU [Accessed: Sep-06-2020].
+    5) B., Bardent, 'Basic Combat - 2D Platformer Player Controller - Part 9 [Unity 2019.2.0f1]', 2020. [Online]. Available: https://www.youtube.com/watch?v=YaXcwc5Evjk [Accessed: Sep-07-2020].
+    6) B., Brackeys, 'MELEE COMBAT in Unity', 2019. [Online]. Available: https://www.youtube.com/watch?v=sPiVz1k-fEs [Accessed: Sep-11-2020].
+    7) S.P.G., Stuart's Pixel Games, 'How To Change Sprites Colour Or Transparency – Unity C#', 2019. [Online]. Available: https://stuartspixelgames.com/2019/02/19/how-to-change-sprites-colour-or-transparency-unity-c/ [Accessed: Oct-22-2020].
 */
 
 /*A class used to control the various states the player can enter*/
@@ -28,6 +29,11 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private int _health;
     [SerializeField] public int _maxHealth;
     [SerializeField] private LayerMask _enemies; // determines what can damage the player
+
+    [Header("Invincibility")]
+    [SerializeField] private bool _isInvincible;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    private float _invincibilityTime = 0.5f;
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
@@ -98,7 +104,10 @@ public class PlayerState : MonoBehaviour {
     public void SetHealth(int _hp) => _health = _hp;
     public void AddHealth(int _hp) => _health += _hp;
 
-    void Start() => _runSpeed = 50;
+    void Start() { 
+        _runSpeed = 50;
+        _isInvincible = false;
+    }
 
     void Awake() { 
         _rigidBody2D = GetComponent<Rigidbody2D>();
@@ -107,6 +116,7 @@ public class PlayerState : MonoBehaviour {
     }
     
     void Update() {
+        Debug.Log(_state);
 
         if (!_characterController2D.GetGrounded() && !_airAttacked)
             _canAirAttack = true;
@@ -286,16 +296,29 @@ public class PlayerState : MonoBehaviour {
     }
     
     public void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
+
+        if (!_isInvincible) {
+
+            _health -= _damage;
+            _inventory.AddPoints(-5);
+            
+            if (_characterController2D.GetFacingRight())
+                ApplyForce(-_knocBackX, _knockBackY);
+            else
+                ApplyForce(_knockBackY, _knockBackY);
+        }
         
-        _health -= _damage;
-        _inventory.AddPoints(-5);
-        
-        if (_characterController2D.GetFacingRight())
-            ApplyForce(-_knocBackX, _knockBackY);
-        else
-            ApplyForce(_knockBackY, _knockBackY);
-        
+        StartCoroutine(PostHitInvincibility());
+    }
+
+    IEnumerator PostHitInvincibility() {
+        _isInvincible = true;
+        _spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+        // Debug.Log("Invincibile");
         SetState(State.Hurt);
+        yield return new WaitForSeconds(_invincibilityTime);
+        _isInvincible = false;
+        _spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     public bool Dead() {
