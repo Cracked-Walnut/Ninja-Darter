@@ -403,7 +403,7 @@ public class PlayerState : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
-            TakeDamage(20, 200, 900);
+            TakeDamage(20, 200, 1400);
     }
 
     bool ChestInteraction() {
@@ -423,7 +423,6 @@ public class PlayerState : MonoBehaviour {
 
     bool Blocking() {
         if (Input.GetButton("LB") && Idling()) {
-        // if (Input.GetAxis("LT") > 0.5 && Idling()) {
             SetState(State.Blocking);
             _animator.SetTrigger("Blocking");
             _animator.SetBool("IsBlocking", true);
