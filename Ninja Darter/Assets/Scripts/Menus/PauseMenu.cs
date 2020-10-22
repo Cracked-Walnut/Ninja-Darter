@@ -20,6 +20,18 @@ public class PauseMenu : MonoBehaviour {
             SetPauseOn();
     }
 
+    void HandleMenu(bool _isPauseMenuOn, bool _isOptionsMenuOn, bool _isStatusMenuOn, bool _isUIOn, bool _isMinimapOn) {
+        
+        _pauseMenu.SetActive(_isPauseMenuOn);
+        _optionsMenu.SetActive(_isOptionsMenuOn);
+        _statusMenu.SetActive(_isStatusMenuOn);
+        _ui.SetActive(_isUIOn);
+        _theMinimap.SetActive(_isMinimapOn);
+
+        if (Time.timeScale == 1.0f) 
+            Time.timeScale = 0.0f;
+    }
+
     public void SetPauseOn() {
         _pauseMenu.SetActive(true);
         _optionsMenu.SetActive(false);
