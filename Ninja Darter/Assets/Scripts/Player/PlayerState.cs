@@ -94,6 +94,7 @@ public class PlayerState : MonoBehaviour {
     public State GetState () { return _state; }
 
     public int GetHealth() { return _health; }
+    public int GetMaxHealth() { return _maxHealth; }
     public void SetHealth(int _hp) => _health = _hp;
     public void AddHealth(int _hp) => _health += _hp;
 
