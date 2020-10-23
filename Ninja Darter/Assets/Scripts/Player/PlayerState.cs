@@ -28,7 +28,13 @@ public class PlayerState : MonoBehaviour {
     [Header("Health")]
     [SerializeField] private int _health;
     [SerializeField] public int _maxHealth;
-    [SerializeField] private LayerMask _enemies; // determines what can damage the player
+    // [SerializeField] private LayerMask _enemiesH; // determines what can damage the player's health
+
+    [Header("Armour")]
+    [SerializeField] private int _armour;
+    [SerializeField] public int _maxArmour;
+    [SerializeField] private bool _isArmourDepleted = false;
+    // [SerializeField] private LayerMask _enemiesA; // determines what can damage the player's armour
 
     [Header("Invincibility")]
     [SerializeField] private bool _isInvincible;
@@ -103,6 +109,11 @@ public class PlayerState : MonoBehaviour {
     public int GetMaxHealth() { return _maxHealth; }
     public void SetHealth(int _hp) => _health = _hp;
     public void AddHealth(int _hp) => _health += _hp;
+
+    public int GetArmour() { return _armour; }
+    public int GetMaxArmour() { return _maxArmour; }
+    public void SetArmour(int _a) => _armour = _a;
+    public void AddArmour(int _ma) => _maxArmour += _ma;
 
     void Start() { 
         _runSpeed = 50;
@@ -297,15 +308,26 @@ public class PlayerState : MonoBehaviour {
     
     public void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
 
-        if (!_isInvincible) {
 
-            _health -= _damage;
-            _inventory.AddPoints(-5);
-            
-            if (_characterController2D.GetFacingRight())
-                ApplyForce(-_knocBackX, _knockBackY);
-            else
-                ApplyForce(_knockBackY, _knockBackY);
+        if (!_isInvincible) {
+            if (_isArmourDepleted) {
+
+                _health -= _damage;
+                _inventory.AddPoints(-5);
+            } else {
+                _armour -= _damage;
+            }
+        
+        if (_armour <= 0) {
+            if (_armour < 0) _armour = 0;
+            _isArmourDepleted = true;
+        } else
+            _isArmourDepleted = false;
+        
+        if (_characterController2D.GetFacingRight())
+            ApplyForce(-_knocBackX, _knockBackY);
+        else
+            ApplyForce(_knockBackY, _knockBackY);
         }
         
         StartCoroutine(PostHitInvincibility());
@@ -314,7 +336,6 @@ public class PlayerState : MonoBehaviour {
     IEnumerator PostHitInvincibility() {
         _isInvincible = true;
         _spriteRenderer.color = new Color(1, 1, 1, 0.5f);
-        // Debug.Log("Invincibile");
         SetState(State.Hurt);
         yield return new WaitForSeconds(_invincibilityTime);
         _isInvincible = false;
