@@ -6,20 +6,34 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
+    [Header("Items")]
+    [SerializeField] private int _arrows;
+    [SerializeField] private int _maxArrows;
     [SerializeField] private int _coins;
-    [SerializeField] private int _wristBlades;
     [SerializeField] private int _cubeFragments;
+    [SerializeField] private int _wristBlades;
+    
+    [Header("Upgrades")]
+    [SerializeField] private int _skillPoints;
 
+    [Header("Points")]
     [SerializeField] private int _totalPoints;
     [SerializeField] private int _stagePoints;
     [SerializeField] private int _totalBonusPoints;
     [SerializeField] private int _stageBonusPoints;
 
+    [Header("Kills")]
     [SerializeField] private int _enemyKills;
     [SerializeField] private int _totalEnemyKills;
 
     public int GetWristBlades() { return _wristBlades; }
     public void SetWristBlades(int _knives) => _wristBlades = _knives;
+
+    public int GetArrows() { return _arrows; }
+    public void SetArrows(int _arrow) => _arrows = _arrow;
+
+    public int GetMaxArrows() { return _maxArrows; }
+    public void SetMaxArrows(int _maxArrow) => _maxArrows = _maxArrow;
 
     public int GetCubeFragments() { return _cubeFragments; }
     public int AddFragment(int _num) => _cubeFragments += _num;

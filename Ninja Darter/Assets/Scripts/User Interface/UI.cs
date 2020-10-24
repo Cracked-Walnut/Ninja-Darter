@@ -14,6 +14,8 @@ public class UI : MonoBehaviour {
     [SerializeField] private Text _cubeFragmentsCurrentValue;
     [SerializeField] private Text _timerCurrentValue;
     [SerializeField] private Text _wristBladesCurrentValue;
+    [SerializeField] private Text _arrowsCurrentValue;
+    [SerializeField] private Text _arrowsMaxValue;
     [SerializeField] private GameObject _player;
     private Inventory _inventory;
     private PlayerState _playerState;
@@ -36,6 +38,8 @@ public class UI : MonoBehaviour {
         _pointsCurrentValue.text = _inventory.GetPoints().ToString();
         _cubeFragmentsCurrentValue.text = _inventory.GetCubeFragments().ToString();
         _wristBladesCurrentValue.text = _inventory.GetWristBlades().ToString();
+        _arrowsCurrentValue.text = _inventory.GetArrows().ToString();
+        _arrowsMaxValue.text = _inventory.GetMaxArrows().ToString();
 
         if (_timer.GetTimerRunning()) {
             _timer.StartTimer();

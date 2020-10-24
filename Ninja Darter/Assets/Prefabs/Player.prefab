@@ -160,9 +160,11 @@ MonoBehaviour:
   _characterController2D: {fileID: 2286672985521783532}
   _health: 100
   _maxHealth: 100
-  _enemies:
-    serializedVersion: 2
-    m_Bits: 1050624
+  _armour: 0
+  _maxArmour: 0
+  _isArmourDepleted: 0
+  _isInvincible: 0
+  _spriteRenderer: {fileID: 0}
   _animator: {fileID: 8273415733011858150}
   _attackDamage: 50
   _canAttack: 1
@@ -250,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coins: 0
   _wristBlades: 5
+  _arrows: 0
   _cubeFragments: 0
   _totalPoints: 0
   _stagePoints: 0
@@ -270,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasMapCamera: {fileID: 0}
+  _minimapCamera: {fileID: 0}
 --- !u!212 &8273415733011858151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -366,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3164414818976772477}
   m_Layer: 8
-  m_Name: WristBladePointRight
+  m_Name: SpawnPointRight
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -546,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8273415732040684546}
   m_Layer: 8
-  m_Name: WristBladePointLeft
+  m_Name: SpawnPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

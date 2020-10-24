@@ -10,7 +10,6 @@ Sources:
 public class WristBladeWeapon : MonoBehaviour {
 
     private PlayerState _playerState;
-    private CharacterController2D _characterController2D;
     private Inventory _inventory;
     private Animator _animator;
     private bool _canThrow = true;
@@ -24,7 +23,6 @@ public class WristBladeWeapon : MonoBehaviour {
 
     void Awake() { 
         _playerState = FindObjectOfType<PlayerState>();
-        _characterController2D = FindObjectOfType<CharacterController2D>();
         _inventory = GetComponent<Inventory>();
         _animator = _player.GetComponent<Animator>();
     }

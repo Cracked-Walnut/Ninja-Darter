@@ -13,6 +13,7 @@ TagManager:
   - HealthPotion
   - NodeRoom
   - Canvas Camera
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -40,7 +41,7 @@ TagManager:
   - Minimap
   - Background
   - DPAD
-  - 
+  - Arrow
   - 
   - 
   - 
@@ -82,4 +83,7 @@ TagManager:
     locked: 0
   - name: HealthPotion
     uniqueID: 1160660969
+    locked: 0
+  - name: Arrow
+    uniqueID: 2171027165
     locked: 0

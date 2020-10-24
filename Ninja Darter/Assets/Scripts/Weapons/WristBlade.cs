@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*- Shuriken
-	- Call its function in a coroutine so you can wait for the animation to finish and let the state play out normally
-		- while in the wrist blade state, decrease the player's movement speed by half
-*/
-
 /*
 Sources:
 1) B., Brackeys, '2D Shooting in Unity (Tutorial)', 2018. [Online]. Available: https://www.youtube.com/watch?v=wkKsl1Mfp5M [Accessed: Aug-16-2020].
@@ -19,8 +14,6 @@ public class WristBlade : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     private GameObject _playerObject;
     private WristBladeWeapon _wristBladeWeapon;
-    private int _randomDropChance = 0;
-    private const int _MIN_DROP_CHANCE = 1, _MAX_DROP_CHANCE = 30;
 
     void Awake() { 
         _playerObject = GameObject.Find("Player");
