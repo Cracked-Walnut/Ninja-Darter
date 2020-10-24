@@ -13,8 +13,6 @@ public class Arrow : MonoBehaviour {
     [SerializeField] private float _arrowShootDelay = 0.8f;
     [SerializeField] private Transform _spawnPointRight, _spawnPointLeft; // spawn point right is used when on the ground, and left is used when wall sliding
 
-    void Update () => CheckArrow();
-
     void Awake() { 
         _playerState = FindObjectOfType<PlayerState>();
         _inventory = GetComponent<Inventory>();

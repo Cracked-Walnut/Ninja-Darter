@@ -30,6 +30,9 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] public int _maxHealth;
     // [SerializeField] private LayerMask _enemiesH; // determines what can damage the player's health
 
+    [Header("Weapons")]
+    [SerializeField] private Arrow _arrow;
+
     [Header("Armour")]
     [SerializeField] private int _armour;
     [SerializeField] public int _maxArmour;
@@ -40,6 +43,9 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private bool _isInvincible;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     private float _invincibilityTime = 0.5f;
+
+    [Header("Weapon Switching")]
+    [SerializeField] private DirectionalPad _directionalPad;
 
     [Header("Animator")]
     [SerializeField] private Animator _animator;
@@ -55,7 +61,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private Transform _swordPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
     [SerializeField] private LayerMask _projectileLayers; // projectiles we can hit within that circle
-    private string[] _groundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
+    private string[] _swordGroundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
     private string[] _airAttacks = {"AirAttack1"};
 
     [Header("Jumping")]
@@ -145,6 +151,9 @@ public class PlayerState : MonoBehaviour {
 
         _dpadHorizontal = Input.GetAxis("DPADHorizontal") * 1;
         _dpadVertical = Input.GetAxis("DPADVertical") * 1;
+
+        Debug.Log(_dpadHorizontal);
+        Debug.Log(_dpadVertical);
 
         if (Input.GetButtonDown("XboxA"))
             _isJumping = true;
@@ -370,14 +379,25 @@ public class PlayerState : MonoBehaviour {
     }
 
     void ExecuteGroundAttack() {
-        if (Input.GetButtonDown("XboxX") && _characterController2D.GetGrounded() && _canAttack && !Crouching())
-            StartCoroutine(GroundAttack());
+        if (Input.GetButtonDown("XboxX") && _characterController2D.GetGrounded() && _canAttack && !Crouching()) {
+            if (_directionalPad._swordEquipped)
+                StartCoroutine(SwordGroundAttack());
+            
+            else if (_directionalPad._bowEquipped) {
+                _arrow.CheckArrow();
+            }
+
+            else if (_directionalPad._fistsEquipped) {
+                Debug.Log("Nothing yet :))");
+            }
+
+        }
     }
 
-    IEnumerator GroundAttack() {
-        int _randomGroundAttack = Random.Range(0, _groundAttacks.Length);
+    IEnumerator SwordGroundAttack() {
+        int _randomGroundAttack = Random.Range(0, _swordGroundAttacks.Length);
         _canAttack = false;
-        _animator.SetTrigger(_groundAttacks[_randomGroundAttack]);
+        _animator.SetTrigger(_swordGroundAttacks[_randomGroundAttack]);
         yield return new WaitForSeconds(_timeBtwAttacks);
         _canAttack = true;
     }
