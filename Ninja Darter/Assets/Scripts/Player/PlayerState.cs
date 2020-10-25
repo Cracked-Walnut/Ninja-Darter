@@ -281,7 +281,7 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    bool InAir() {
+    public bool InAir() {
         if (!_characterController2D.GetGrounded() && !_isTouchingWallTop && !_isTouchingWallBottom) {
             
             _animator.SetFloat("VelocityY", _rigidBody2D.velocity.y);
@@ -380,17 +380,15 @@ public class PlayerState : MonoBehaviour {
 
     void ExecuteGroundAttack() {
         if (Input.GetButtonDown("XboxX") && _characterController2D.GetGrounded() && _canAttack && !Crouching()) {
+
             if (_directionalPad._swordEquipped)
                 StartCoroutine(SwordGroundAttack());
             
-            else if (_directionalPad._bowEquipped) {
-                _arrow.CheckArrow();
-            }
+            else if (_directionalPad._bowEquipped)
+                _arrow.CheckArrowGroundAttack();
 
-            else if (_directionalPad._fistsEquipped) {
+            else if (_directionalPad._fistsEquipped)
                 Debug.Log("Nothing yet :))");
-            }
-
         }
     }
 
@@ -403,12 +401,22 @@ public class PlayerState : MonoBehaviour {
     }
 
     void ExecuteAirAttack() {
-        if (Input.GetButtonDown("XboxX") && !_characterController2D.GetGrounded() && _canAirAttack)
-            StartCoroutine(AirAttack());
+        if (Input.GetButtonDown("XboxX") && !_characterController2D.GetGrounded() && _canAirAttack) {
+            // StartCoroutine(SwordAirAttack());
+
+            if (_directionalPad._swordEquipped)
+                StartCoroutine(SwordAirAttack());
+            
+            else if (_directionalPad._bowEquipped)
+                _arrow.CheckArrowAirAttack();
+
+            else if (_directionalPad._fistsEquipped)
+                Debug.Log("Nothing yet :))");
+        }
 
     }
 
-    IEnumerator AirAttack() {
+    IEnumerator SwordAirAttack() {
         int _randomAirAttack = Random.Range(0, _airAttacks.Length);
         _canAirAttack = false;
         _airAttacked = true;

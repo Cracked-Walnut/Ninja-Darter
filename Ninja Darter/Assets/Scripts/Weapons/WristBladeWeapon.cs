@@ -47,13 +47,15 @@ public class WristBladeWeapon : MonoBehaviour {
     // this function is called when "WristBladeThrow" trigger is called
     public void CueBladeDelay() => StartCoroutine(BladeDelay());
 
-    public void FireBlade() => Instantiate(_wristBladePrefab, _spawnPointRight.position, _spawnPointRight.rotation);
+    public void FireBlade() { 
+        Instantiate(_wristBladePrefab, _spawnPointRight.position, _spawnPointRight.rotation); 
+        DecrementBlade(); 
+    }
     
     void DecrementBlade() => _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
 
     IEnumerator BladeDelay() {
         _canThrow = false;
-        DecrementBlade(); 
         // _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
         yield return new WaitForSeconds(_knifeThrowDelay);
         _canThrow = true;

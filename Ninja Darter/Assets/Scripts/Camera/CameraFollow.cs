@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour {
 
     void Update() {
         FollowPlayer(); 
-        LookYAxis();
+        // LookYAxis();
     }
 
     void FixedUpdate() {

@@ -19,32 +19,43 @@ public class Arrow : MonoBehaviour {
         _animator = _player.GetComponent<Animator>();
     }
 
-    public void CheckArrow() {
+    public void CheckArrowGroundAttack() {
 
-        if (Input.GetButtonDown("RB")) {
+        if (_playerState._canDash && _playerState.Idling() && _inventory.GetArrows() > 0 && _canShoot) 
+            _animator.SetTrigger("ArrowShoot");
 
-            if (_playerState._canDash && _playerState.Idling() && _inventory.GetArrows() > 0 && _canShoot) 
-                _animator.SetTrigger("ArrowShoot");
+        if (_playerState.Wall_Sliding() && _inventory.GetArrows() > 0) {
+            Instantiate(_arrowPrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
+            _inventory.SetArrows(_inventory.GetArrows() - 1);
+        }
+    }
 
-            if (_playerState.Wall_Sliding() && _inventory.GetArrows() > 0) {
-                Instantiate(_arrowPrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
-                _inventory.SetArrows(_inventory.GetArrows() - 1);
-            }
+    public void CheckArrowAirAttack() {
+
+        if (_playerState._canDash && _playerState.InAir() && _inventory.GetArrows() > 0 && _canShoot)
+            _animator.SetTrigger("ArrowAirShoot");
+            _animator.SetBool("IsAirAttacking", true);
+
+        if (_playerState.Wall_Sliding() && _inventory.GetArrows() > 0) {
+            Instantiate(_arrowPrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
+            _inventory.SetArrows(_inventory.GetArrows() - 1);
         }
     }
 
     // this function is called when "WristBladeThrow" trigger is called
     public void CueArrowDelay() => StartCoroutine(ArrowDelay());
 
-    public void FireArrow() => Instantiate(_arrowPrefab, _spawnPointRight.position, _spawnPointRight.rotation);
+    public void FireArrow() { 
+            DecrementArrow(); 
+            Instantiate(_arrowPrefab, _spawnPointRight.position, _spawnPointRight.rotation); 
+        }
     
-    void DecrementArrows() => _inventory.SetArrows(_inventory.GetArrows() - 1);
+    void DecrementArrow() => _inventory.SetArrows(_inventory.GetArrows() - 1);
 
     IEnumerator ArrowDelay() {
         _canShoot = false;
-        DecrementArrows(); 
-        // _inventory.SetArrows(_inventory.GetArrows() - 1);
         yield return new WaitForSeconds(_arrowShootDelay);
+        _animator.SetBool("IsAirAttacking", false);
         _canShoot = true;
     }
 
