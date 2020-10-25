@@ -11,44 +11,21 @@ public class CameraFollow : MonoBehaviour {
 
     // Change the camera's coordinates to the player's every frame
     [SerializeField] private Transform _objectToFollow;
-    [SerializeField] private int[] _boundaries;
-    [SerializeField] private float _smoothSpeed = 0.125f;
-    [SerializeField] private Vector3 _offset;
-    [SerializeField] private float _lookUpValue;
-    [SerializeField] private float _lookDownValue;
+    [SerializeField] private float _lookSensitivityX;
+    [SerializeField] private float _lookSensitivityY;
     [SerializeField] private float _lookUpAxis;
     [SerializeField] private float _lookDownAxis;
 
 
-    void Update() {
-        FollowPlayer(); 
-        // LookYAxis();
-    }
-
     void FixedUpdate() {
-        Vector3 _desiredPosition = _objectToFollow.position + _offset;
-        Vector3 _smoothedPosition = Vector3.Lerp(transform.position, _desiredPosition, _smoothSpeed);
-        transform.position = _smoothedPosition;
-    }
+        if (Input.GetAxis("R-Stick-Horizontal") != 0.0 || Input.GetAxis("R-Stick-Vertical") != 0.0) {
 
-    void FollowPlayer() {
-        if (_objectToFollow.position.x > _boundaries[0])
-            transform.position = new Vector3(_boundaries[0], _objectToFollow.transform.position.y, -10f);
-        
-        else if (_objectToFollow.position.x < _boundaries[1])
-            transform.position = new Vector3(_boundaries[1], _objectToFollow.transform.position.y, -10f);
-    }
-
-    void LookYAxis() {
-        if (Input.GetAxis("R-Stick-Vertical") > _lookUpAxis) {
-            transform.position = new Vector3(_objectToFollow.position.x, _objectToFollow.position.y + _lookDownValue, -10f);
-            // transform.position = Vector3.Lerp(_objectToFollow.position.y, _objectToFollow.position.y - 1f, 1f);
-        }
-        else if (Input.GetAxis("R-Stick-Vertical") < _lookDownAxis) {
-            transform.position = new Vector3(_objectToFollow.position.x, _objectToFollow.position.y + _lookUpValue, -10f);
-        }
-        else
-            transform.position = new Vector3(_objectToFollow.position.x, _objectToFollow.position.y, -10f);
-
+            transform.position = new Vector3 (
+                Input.GetAxis("R-Stick-Horizontal") * _lookSensitivityX + _objectToFollow.transform.position.x,
+                Input.GetAxis("R-Stick-Vertical") * _lookSensitivityY + _objectToFollow.transform.position.y,
+                -10f
+            );
+        } else
+            transform.position = new Vector3(_objectToFollow.transform.position.x, _objectToFollow.transform.position.y, -10f);
     }
 }

@@ -13,16 +13,16 @@ public class CameraShake : MonoBehaviour {
             
             Vector3 originalPos = transform.position;
         
-            float elapsed = 0.0f;
+            float _elapsed = 0.0f;
 
-            while (elapsed < duration) {
+            while (_elapsed < duration) {
                 // Generate a random x & y value, then add it to the current camera x & y coordinate, creating a shake effect
                 float x = (Random.Range(-1f, 1f) * magnitude) + transform.position.x; 
                 float y = (Random.Range(-1, 1f) * magnitude) + transform.position.y;
 
                 transform.position = new Vector3(x ,y, originalPos.z); // apply the shake to the current frame
 
-                elapsed += Time.deltaTime;
+                _elapsed += Time.deltaTime;
 
                 yield return null;
             }

@@ -522,11 +522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToFollow: {fileID: 584972715}
-  _boundaries: a000000075ffffff
-  _smoothSpeed: 0.5
-  _offset: {x: 0, y: 0, z: -5}
-  _lookUpValue: 6
-  _lookDownValue: -6
+  _lookSensitivityX: 0
+  _lookSensitivityY: 0
   _lookUpAxis: 0.75
   _lookDownAxis: -0.75
 --- !u!20 &73152013
@@ -2278,6 +2275,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303376591}
   m_CullTransparentMesh: 0
+--- !u!1 &342862590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342862591}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342862591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342862590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &342983732
 GameObject:
   m_ObjectHideFlags: 0
@@ -96746,12 +96773,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1688165475}
-  - component: {fileID: 1688165474}
-  - component: {fileID: 1688165473}
   - component: {fileID: 1688165472}
   - component: {fileID: 1688165471}
+  - component: {fileID: 1688165474}
+  - component: {fileID: 1688165473}
   - component: {fileID: 1688165470}
-  - component: {fileID: 1688165476}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -96815,13 +96841,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToFollow: {fileID: 584972715}
-  _boundaries: a000000075ffffff
-  _smoothSpeed: 0.5
-  _offset: {x: 0, y: 0, z: -5}
-  _lookUpValue: 6
-  _lookDownValue: -6
+  _lookSensitivityX: 5
+  _lookSensitivityY: 5
   _lookUpAxis: 0.75
-  _lookDownAxis: -0.75
+  _lookDownAxis: 0.75
 --- !u!81 &1688165473
 AudioListener:
   m_ObjectHideFlags: 0
@@ -96891,19 +96914,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1688165476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688165469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68f9431c5a659544adb49c6f1d8f046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 1688165469}
 --- !u!1 &1689258961
 GameObject:
   m_ObjectHideFlags: 0
