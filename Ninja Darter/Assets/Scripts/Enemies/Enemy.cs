@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private int _health = 100;
     [SerializeField] private GameObject _player;
     [SerializeField] private Animator _animator;
+    [SerializeField] private int _xpUponDeath;
     private BoxCollider2D _boxCollider2D;
     private bool _facingRight;
     private XP _xp;
@@ -47,7 +48,7 @@ public class Enemy : MonoBehaviour {
     public void Dead() { 
         _animator.SetTrigger("Dead");
         _boxCollider2D.enabled = !_boxCollider2D.enabled;
-        _xp.AddPoints(50);
+        _xp.AddPoints(_xpUponDeath);
         _inventory.AddKill(1);
     }
 }

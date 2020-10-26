@@ -9,6 +9,8 @@ public class UI : MonoBehaviour {
     [SerializeField] private Text _hpMaxValue;
     [SerializeField] private Text _armourCurrentValue;
     [SerializeField] private Text _armourMaxValue;
+    [SerializeField] private Text _currentLevelValue;
+    [SerializeField] private Text _skillPointsValue;
     [SerializeField] private Text _coinsCurrentValue;
     [SerializeField] private Text _pointsCurrentValue;
     [SerializeField] private Text _cubeFragmentsCurrentValue;
@@ -36,6 +38,8 @@ public class UI : MonoBehaviour {
         _hpMaxValue.text = _playerState.GetMaxHealth().ToString();
         _armourCurrentValue.text = _playerState.GetArmour().ToString();
         _armourMaxValue.text = _playerState.GetMaxArmour().ToString();
+        _currentLevelValue.text = _xp._currentLevel.ToString();
+        _skillPointsValue.text = _xp._skillPoints.ToString();
         _coinsCurrentValue.text = _inventory.GetCoins().ToString();
         _pointsCurrentValue.text = _xp.GetPoints().ToString();
         _cubeFragmentsCurrentValue.text = _inventory.GetCubeFragments().ToString();

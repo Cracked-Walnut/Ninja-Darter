@@ -9,25 +9,32 @@ public class XP : MonoBehaviour {
 
     [Header("Points")]
     [SerializeField] private int _currentPoints; // the amount of points in the player's current level
+    private int _tempPoints;
     [SerializeField] private int _stagePoints; // the amount of points earned in a stage
     [SerializeField] private int _totalPoints; // the amount of points earned across all stages
 
     [Header("Upgrades")]
-    [SerializeField] private int _skillPoints = 0;
+    [SerializeField] public int _skillPoints = 0;
     
     [Header("Levelling")]
-    [SerializeField] private int _currentLevel = 0;
+    [SerializeField] public int _currentLevel = 0;
     [SerializeField] private const int MAX_POINTS_AMOUNT = 100;
 
     void Awake() => _xpBar = _xp.GetComponent<XPBar>();
 
-    void LevelUp() {
+    void Update() {
         if (_currentPoints >= MAX_POINTS_AMOUNT) {
-            _currentPoints = 0;
-            _xpBar.SetXP(0);    
+            _tempPoints = _currentPoints - MAX_POINTS_AMOUNT; // trim the excess XP and store it in a variable
+            LevelUp();
+            _currentPoints = _tempPoints; // the trimmed XP, after levelling up, is now the current xp
+            _tempPoints = 0; // reset this. I don't want its value messing anything up
+            _xpBar.SetXP(_currentPoints);
+        }
+    }
+
+    void LevelUp() {
             _currentLevel++;
             _skillPoints++;
-        }
     }
 
     // tallied at the end of each level

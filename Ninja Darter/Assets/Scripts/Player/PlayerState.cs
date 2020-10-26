@@ -135,7 +135,6 @@ public class PlayerState : MonoBehaviour {
     }
     
     void Update() {
-        Debug.Log(_state);
 
         if (!_characterController2D.GetGrounded() && !_airAttacked)
             _canAirAttack = true;
@@ -153,9 +152,6 @@ public class PlayerState : MonoBehaviour {
 
         _dpadHorizontal = Input.GetAxis("DPADHorizontal") * 1;
         _dpadVertical = Input.GetAxis("DPADVertical") * 1;
-
-        Debug.Log(_dpadHorizontal);
-        Debug.Log(_dpadVertical);
 
         if (Input.GetButtonDown("XboxA"))
             _isJumping = true;
