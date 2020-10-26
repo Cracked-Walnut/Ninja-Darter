@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private Animator _animator;
     private BoxCollider2D _boxCollider2D;
     private bool _facingRight;
+    private XP _xp;
     private Inventory _inventory;
 
     private void Awake() { 
-        _inventory = _player.GetComponent<Inventory>(); 
+        _xp = _player.GetComponent<XP>();
+        _inventory = _player.GetComponent<Inventory>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
@@ -45,7 +47,7 @@ public class Enemy : MonoBehaviour {
     public void Dead() { 
         _animator.SetTrigger("Dead");
         _boxCollider2D.enabled = !_boxCollider2D.enabled;
-        _inventory.AddPoints(50);
+        _xp.AddPoints(50);
         _inventory.AddKill(1);
     }
 }

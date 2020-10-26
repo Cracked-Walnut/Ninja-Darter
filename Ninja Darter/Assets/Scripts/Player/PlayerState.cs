@@ -24,6 +24,7 @@ public class PlayerState : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private Inventory _inventory;
+    private XP _xp;
 
     [Header("Health")]
     [SerializeField] private int _health;
@@ -129,6 +130,7 @@ public class PlayerState : MonoBehaviour {
     void Awake() { 
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
+        _xp = GetComponent<XP>();
         _cameraShake = _mainCamera.GetComponent<CameraShake>();
     }
     
@@ -322,7 +324,7 @@ public class PlayerState : MonoBehaviour {
             if (_isArmourDepleted) {
 
                 _health -= _damage;
-                _inventory.AddPoints(-5);
+                _xp.AddPoints(-5);
             } else {
                 _armour -= _damage;
             }
