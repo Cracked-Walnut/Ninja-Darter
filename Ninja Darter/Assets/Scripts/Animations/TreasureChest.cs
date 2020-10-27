@@ -23,7 +23,6 @@ public class TreasureChest : MonoBehaviour {
         switch(_item) {
             case "Fragment":
                 _inventory.AddFragment(1);
-                _xp.AddPoints(20);
                 Debug.Log(_inventory.GetCubeFragments());
                 break;
             default:

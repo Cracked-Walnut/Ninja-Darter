@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7573410555457639290}
   - component: {fileID: 2025903840138255342}
   m_Layer: 13
-  m_Name: Treasure Chest 1 1
+  m_Name: Treasure Chest
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7573410555457639290}
-  _player: {fileID: 0}
+  _player: {fileID: 611333969447945918, guid: 1652f799f95f36042b70060217f18fc0, type: 3}
 --- !u!1 &8811021366696379477
 GameObject:
   m_ObjectHideFlags: 0

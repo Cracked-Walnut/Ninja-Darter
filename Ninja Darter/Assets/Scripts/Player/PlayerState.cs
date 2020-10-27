@@ -56,13 +56,15 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
     [SerializeField] private bool _airAttacked = false;
-    [SerializeField] private float _timeBtwAttacks; // a small delay between each attack
+    [SerializeField] private float _swordSwingDelay; // a small delay between each attack for the sword
+    [SerializeField] private float _unarmedSwingDelay; // a small delay between each attack for the punches/kicks
     [SerializeField] private float _timeBtwAirAttacks;
     [SerializeField] private float _attackRange; // a circle used to detect enemies
-    [SerializeField] private Transform _swordPoint; // the point at which the circle is drawn
+    [SerializeField] private Transform _attackPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
     [SerializeField] private LayerMask _projectileLayers; // projectiles we can hit within that circle
     private string[] _swordGroundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
+    private string[] _unarmedGroundAttacks = {"Fists1", "Fists2", "Fists3", "Kick1", "Kick2"};
     private string[] _airAttacks = {"AirAttack1"};
 
     [Header("Jumping")]
@@ -386,15 +388,23 @@ public class PlayerState : MonoBehaviour {
                 _arrow.CheckArrowGroundAttack();
 
             else if (_directionalPad._fistsEquipped)
-                Debug.Log("Nothing yet :))");
+                StartCoroutine(UnarmedGroundAttack());
         }
+    }
+
+    IEnumerator UnarmedGroundAttack() {
+        int _randomGroundAttack = Random.Range(0, _unarmedGroundAttacks.Length);
+        _canAttack = false;
+        _animator.SetTrigger(_unarmedGroundAttacks[_randomGroundAttack]);
+        yield return new WaitForSeconds(_unarmedSwingDelay);
+        _canAttack = true;
     }
 
     IEnumerator SwordGroundAttack() {
         int _randomGroundAttack = Random.Range(0, _swordGroundAttacks.Length);
         _canAttack = false;
         _animator.SetTrigger(_swordGroundAttacks[_randomGroundAttack]);
-        yield return new WaitForSeconds(_timeBtwAttacks);
+        yield return new WaitForSeconds(_swordSwingDelay);
         _canAttack = true;
     }
 
@@ -409,7 +419,7 @@ public class PlayerState : MonoBehaviour {
                 _arrow.CheckArrowAirAttack();
 
             else if (_directionalPad._fistsEquipped)
-                Debug.Log("Nothing yet :))");
+                UnarmedGroundAttack();
         }
 
     }
@@ -429,7 +439,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     public void ScanForEnemies() {
-        Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_swordPoint.position, _attackRange, _enemyLayers);
+        Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
 
           foreach(Collider2D _enemiesHit in _hitEnemies) {
             StartCoroutine(_cameraShake.Shake(.1f, .15f));
@@ -439,7 +449,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     public void ScanForProjectiles() {
-        Collider2D[] _hitProjectiles = Physics2D.OverlapCircleAll(_swordPoint.position, _attackRange, _projectileLayers);
+        Collider2D[] _hitProjectiles = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _projectileLayers);
 
           foreach(Collider2D _projectilesHit in _hitProjectiles) {
             StartCoroutine(_cameraShake.Shake(.1f, .1f));
