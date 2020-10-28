@@ -87,3 +87,6 @@ TagManager:
   - name: Arrow
     uniqueID: 2171027165
     locked: 0
+  - name: Light
+    uniqueID: 2833477135
+    locked: 0

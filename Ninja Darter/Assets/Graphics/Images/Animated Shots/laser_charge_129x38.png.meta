@@ -1,0 +1,1138 @@
+fileFormatVersion: 2
+guid: 6fc4105dbda46f044b5146c67d08720a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3079868381067952367
+    second: laser_charge_129x38_0
+  - first:
+      213: 8922948931127796008
+    second: laser_charge_129x38_1
+  - first:
+      213: 4059591713948700305
+    second: laser_charge_129x38_2
+  - first:
+      213: -555515063076291450
+    second: laser_charge_129x38_3
+  - first:
+      213: -6665155486937237062
+    second: laser_charge_129x38_4
+  - first:
+      213: 4711546681558889010
+    second: laser_charge_129x38_5
+  - first:
+      213: -5131654614268374104
+    second: laser_charge_129x38_6
+  - first:
+      213: 6274213329355914705
+    second: laser_charge_129x38_7
+  - first:
+      213: 6883021532159501651
+    second: laser_charge_129x38_8
+  - first:
+      213: -3732112150187252518
+    second: laser_charge_129x38_9
+  - first:
+      213: 4267661185212158394
+    second: laser_charge_129x38_10
+  - first:
+      213: -7313348336091799687
+    second: laser_charge_129x38_11
+  - first:
+      213: 5475834176796959616
+    second: laser_charge_129x38_12
+  - first:
+      213: -6270927161183296525
+    second: laser_charge_129x38_13
+  - first:
+      213: 6971209715291870183
+    second: laser_charge_129x38_14
+  - first:
+      213: 4284620729280174005
+    second: laser_charge_129x38_15
+  - first:
+      213: -6098360846170660322
+    second: laser_charge_129x38_16
+  - first:
+      213: -1020682660805617664
+    second: laser_charge_129x38_17
+  - first:
+      213: -4611910409728682671
+    second: laser_charge_129x38_18
+  - first:
+      213: 5867086112291923360
+    second: laser_charge_129x38_19
+  - first:
+      213: -3037587335195484565
+    second: laser_charge_129x38_20
+  - first:
+      213: 4945412171639258108
+    second: laser_charge_129x38_21
+  - first:
+      213: 2267379687967467249
+    second: laser_charge_129x38_22
+  - first:
+      213: 8975675347008531978
+    second: laser_charge_129x38_23
+  - first:
+      213: 6322761584757291202
+    second: laser_charge_129x38_24
+  - first:
+      213: -1804610335299761128
+    second: laser_charge_129x38_25
+  - first:
+      213: -5543663696511172677
+    second: laser_charge_129x38_26
+  - first:
+      213: -4294381323309673096
+    second: laser_charge_129x38_27
+  - first:
+      213: 3208201722607942165
+    second: laser_charge_129x38_28
+  - first:
+      213: 5695830231562852284
+    second: laser_charge_129x38_29
+  - first:
+      213: -1108191012359647648
+    second: laser_charge_129x38_30
+  - first:
+      213: -4515469904872425485
+    second: laser_charge_129x38_31
+  - first:
+      213: -5737461452257489694
+    second: laser_charge_129x38_32
+  - first:
+      213: 6264088864153161450
+    second: laser_charge_129x38_33
+  - first:
+      213: 7752573219770156540
+    second: laser_charge_129x38_34
+  - first:
+      213: -3289870131621129202
+    second: laser_charge_129x38_35
+  - first:
+      213: 3720347333932204286
+    second: laser_charge_129x38_36
+  - first:
+      213: 3325187300895647
+    second: laser_charge_129x38_37
+  - first:
+      213: -1718859078922407361
+    second: laser_charge_129x38_38
+  - first:
+      213: -6917154068034627499
+    second: laser_charge_129x38_39
+  - first:
+      213: 716148233453351750
+    second: laser_charge_129x38_40
+  - first:
+      213: -851927552146676074
+    second: laser_charge_129x38_41
+  - first:
+      213: 6639571956133417116
+    second: laser_charge_129x38_42
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: laser_charge_129x38_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 532
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11fbc77760c1245d0800000000000000
+      internalID: -3079868381067952367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 532
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821e2dce6cea4db70800000000000000
+      internalID: 8922948931127796008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 532
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e080bb721965830800000000000000
+      internalID: 4059591713948700305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 494
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c75fd4ef96a48f0800000000000000
+      internalID: -555515063076291450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 494
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab93c5ce56c9083a0800000000000000
+      internalID: -6665155486937237062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 494
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 232fcf87eb6c26140800000000000000
+      internalID: 4711546681558889010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 456
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a31a862153b8c8b0800000000000000
+      internalID: -5131654614268374104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_7
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 456
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddb745e7cb721750800000000000000
+      internalID: 6274213329355914705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_8
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 456
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3556bbd9d97658f50800000000000000
+      internalID: 6883021532159501651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 418
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad46b22e5cfd43cc0800000000000000
+      internalID: -3732112150187252518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_10
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 418
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab11b46ac37c93b30800000000000000
+      internalID: 4267661185212158394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_11
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 418
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97fdd84af64c18a90800000000000000
+      internalID: -7313348336091799687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 380
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0832deceb221efb40800000000000000
+      internalID: 5475834176796959616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_13
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 380
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f32251c8f039f8a0800000000000000
+      internalID: -6270927161183296525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_14
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 380
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e359be0d46beb060800000000000000
+      internalID: 6971209715291870183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 342
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b715063ad7067b30800000000000000
+      internalID: 4284620729280174005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_16
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 342
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12e8d3fe154e5ba0800000000000000
+      internalID: -6098360846170660322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_17
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 342
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008d74e178ec5d1f0800000000000000
+      internalID: -1020682660805617664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1551234dae33fffb0800000000000000
+      internalID: -4611910409728682671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_19
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 304
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5a9c5ebb31c6150800000000000000
+      internalID: 5867086112291923360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_20
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 304
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6e9277996258d5d0800000000000000
+      internalID: -3037587335195484565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 266
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb737e0b22a1a440800000000000000
+      internalID: 4945412171639258108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_22
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 266
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6ac3820d9577f10800000000000000
+      internalID: 2267379687967467249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_23
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 266
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0eaca54c21009c70800000000000000
+      internalID: 8975675347008531978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 228
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8b1f27926feb750800000000000000
+      internalID: 6322761584757291202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_25
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 228
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c8576167cb4f6e0800000000000000
+      internalID: -1804610335299761128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_26
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 228
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbff8375d33f013b0800000000000000
+      internalID: -5543663696511172677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 190
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8751e0660fa4764c0800000000000000
+      internalID: -4294381323309673096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_28
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 190
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ab7db0872d58c20800000000000000
+      internalID: 3208201722607942165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_29
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 190
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb71c35fa67ab0f40800000000000000
+      internalID: 5695830231562852284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ec50d452aee90f0800000000000000
+      internalID: -1108191012359647648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_31
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 152
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7bc16ab04d551c0800000000000000
+      internalID: -4515469904872425485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_32
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 152
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec02b125317060b0800000000000000
+      internalID: -5737461452257489694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee445522a38ee650800000000000000
+      internalID: 6264088864153161450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_34
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 114
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf54b9bb44ca69b60800000000000000
+      internalID: 7752573219770156540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_35
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 114
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e041e87bb880852d0800000000000000
+      internalID: -3289870131621129202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0c910603451a330800000000000000
+      internalID: 3720347333932204286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_37
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 76
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ba1ef7d30db0000800000000000000
+      internalID: 3325187300895647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_38
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 76
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32ffdd46c26528e0800000000000000
+      internalID: -1718859078922407361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558d52616055100a0800000000000000
+      internalID: -6917154068034627499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_40
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 38
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643b285260540f900800000000000000
+      internalID: 716148233453351750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_41
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 38
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696edefa7685d24f0800000000000000
+      internalID: -851927552146676074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_charge_129x38_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 129
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c905af1248f742c50800000000000000
+      internalID: 6639571956133417116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
