@@ -26,6 +26,10 @@ public class PlayerState : MonoBehaviour {
     private Inventory _inventory;
     private XP _xp;
 
+    private int _hpLevel;
+    private int _armourLevel;
+    private int _attackLevel;
+
     [Header("Health")]
     [SerializeField] private int _health;
     [SerializeField] public int _maxHealth;
@@ -122,11 +126,22 @@ public class PlayerState : MonoBehaviour {
     public int GetArmour() { return _armour; }
     public int GetMaxArmour() { return _maxArmour; }
     public void SetArmour(int _a) => _armour = _a;
-    public void AddArmour(int _ma) => _maxArmour += _ma;
+    public void UpgradeMaxArmour(int _ma) => _maxArmour += _ma;
+
+    public int GetMaxAttackDamage() { return _attackDamage; }
+    public void SetAttackDamage(int _attack) => _attackDamage = _attack;
+    public void UpgradeMaxAttackDamage(int _a) => _attackDamage += _a;
+
+    public int GetHPLevel() { return _hpLevel; }
+    public int GetArmourLevel() { return _armourLevel; }
+    public int GetAttackLevel() { return _attackLevel; }
 
     void Start() { 
         _runSpeed = 50;
         _isInvincible = false;
+        _hpLevel = 1;
+        _armourLevel = 1;
+        _attackLevel = 1;
     }
 
     void Awake() { 

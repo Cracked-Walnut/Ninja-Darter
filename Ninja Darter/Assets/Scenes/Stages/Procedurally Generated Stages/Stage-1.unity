@@ -6095,7 +6095,7 @@ GameObject:
   - component: {fileID: 676298276}
   - component: {fileID: 676298275}
   m_Layer: 5
-  m_Name: Lv_Value
+  m_Name: HP_Lv_Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9539,6 +9539,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1307267629}
   - {fileID: 1556602503}
   - {fileID: 1850972228}
   - {fileID: 2142256338}
@@ -47250,6 +47251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca80aaa4e208e344a4c282560c4a833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 584972703}
   _hpCurrentValue: {fileID: 708705890}
   _hpMaxValue: {fileID: 616630710}
   _armourCurrentValue: {fileID: 432549961}
@@ -47263,7 +47265,13 @@ MonoBehaviour:
   _wristBladesCurrentValue: {fileID: 1516665978}
   _arrowsCurrentValue: {fileID: 2120169213}
   _arrowsMaxValue: {fileID: 1220126211}
-  _player: {fileID: 584972703}
+  _upgradeMaxHealth: {fileID: 2142256339}
+  _upgradeMaxArmour: {fileID: 23310557}
+  _upgradeMaxAttack: {fileID: 1971252902}
+  _hpLevel: {fileID: 676298275}
+  _armourLevel: {fileID: 1770007193}
+  _attackLevel: {fileID: 1396078528}
+  _spValue: {fileID: 235920254}
 --- !u!114 &1038642062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48966,7 +48974,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -21.938004, y: 1.0822144}
   m_SizeDelta: {x: -126.62262, y: -0.9038696}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -49007,6 +49015,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304117605}
+  m_CullTransparentMesh: 0
+--- !u!1 &1307267628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1307267629}
+  - component: {fileID: 1307267631}
+  - component: {fileID: 1307267630}
+  m_Layer: 5
+  m_Name: Name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1307267629
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307267628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 904399936}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.6534, y: 235.3}
+  m_SizeDelta: {x: 219.31879, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1307267630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307267628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8117648, g: 0.09019608, b: 0.09411766, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 6d4be6e742c2f40488a389d74f5ccf65, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 48
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: HEALTH
+--- !u!222 &1307267631
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307267628}
   m_CullTransparentMesh: 0
 --- !u!1 &1310802985
 GameObject:
@@ -98371,7 +98458,7 @@ GameObject:
   - component: {fileID: 1396078529}
   - component: {fileID: 1396078528}
   m_Layer: 5
-  m_Name: Lv_Value
+  m_Name: Attack_Lv_Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99576,7 +99663,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 904399936}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -99852,8 +99939,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -149.67}
-  m_SizeDelta: {x: 346.5006, y: 194.87854}
+  m_AnchoredPosition: {x: 0, y: -79.8}
+  m_SizeDelta: {x: 731.57556, y: 159.62524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631786982
 MonoBehaviour:
@@ -99888,10 +99975,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'LEVEL UP !
-
-
-    CHOOSE ONE'
+  m_Text: LEVEL UP ! CHOOSE ONE
 --- !u!222 &1631786983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -100001,7 +100085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1640086793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -100757,7 +100841,7 @@ GameObject:
   - component: {fileID: 1770007194}
   - component: {fileID: 1770007193}
   m_Layer: 5
-  m_Name: Lv_Value
+  m_Name: Armour_Lv_Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101407,7 +101491,7 @@ RectTransform:
   - {fileID: 1317978625}
   - {fileID: 676298274}
   m_Father: {fileID: 904399936}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -108280,7 +108364,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 904399936}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
