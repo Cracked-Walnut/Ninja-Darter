@@ -16,17 +16,21 @@ public class Upgrade : MonoBehaviour {
         _xp = _player.GetComponent<XP>();
     }
 
-    void Start() { 
-        EventSystem.current.SetSelectedGameObject(null);
-        // EventSystem.current.SetSelectedGameObject(_hpButton);
-        _playerState.EnablePlayer(false);
-        _ui.SetActive(false);
-
-    }
-    
     void Update() {
         if (Input.GetButtonDown("XboxB"))
             gameObject.SetActive(false);
+    }
+
+    void OnEnable() {
+        _playerState.EnablePlayer(false);
+        _ui.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_hpButton);
+    }
+
+    void OnDisable() {
+        _playerState.EnablePlayer(true);
+        _ui.SetActive(true);
     }
 
     void InvestSP(string _category) {
@@ -34,15 +38,16 @@ public class Upgrade : MonoBehaviour {
         if (_xp.GetSkillPoints() > 0) {
             switch(_category) {
                 case "HP":
+                    _playerState.UpgradeMaxHealthBy(2);
                     break;
                 case "Armour":
+                    _playerState.UpgradeMaxArmourBy(1);
                     break;
                 case "Attack":
+                    _playerState.UpgradeMaxAttackDamageBy(1);
                     break;
             }
         } else { /* play error sound*/ }
             
     }
-
-    void OnDisable() => _playerState.EnablePlayer(true);
 }

@@ -125,18 +125,21 @@ public class PlayerState : MonoBehaviour {
     public State GetState () { return _state; }
 
     public int GetHealth() { return _health; }
-    public int GetMaxHealth() { return _maxHealth; }
     public void SetHealth(int _hp) => _health = _hp;
     public void AddHealth(int _hp) => _health += _hp;
+    
+    public int GetMaxHealth() { return _maxHealth; }
+    public void UpgradeMaxHealthBy(int _mhp) => _maxHealth += _mhp;
+
 
     public int GetArmour() { return _armour; }
     public int GetMaxArmour() { return _maxArmour; }
     public void SetArmour(int _a) => _armour = _a;
-    public void UpgradeMaxArmour(int _ma) => _maxArmour += _ma;
+    public void UpgradeMaxArmourBy(int _ma) => _maxArmour += _ma;
 
     public int GetMaxAttackDamage() { return _attackDamage; }
     public void SetAttackDamage(int _attack) => _attackDamage = _attack;
-    public void UpgradeMaxAttackDamage(int _a) => _attackDamage += _a;
+    public void UpgradeMaxAttackDamageBy(int _a) => _attackDamage += _a;
 
     public int GetHPLevel() { return _hpLevel; }
     public int GetArmourLevel() { return _armourLevel; }
@@ -407,8 +410,9 @@ public class PlayerState : MonoBehaviour {
     /*<------------------------------->-End of State Functions-<------------------------------->*/
 
     void OpenUpgradeScreen() {
-        if (Input.GetButtonDown("View (Back)")) {
+        if (Input.GetButtonDown("View (Back)") && Idling()) {
             _upgradesScreen.SetActive(true);
+            
         }
     }
 
