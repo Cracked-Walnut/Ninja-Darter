@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 /*This script is used to navigate the menus when the player is in-game*/
 public class PauseMenu : MonoBehaviour {
@@ -9,13 +10,17 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] private GameObject _ui;
     [SerializeField] private GameObject _theMinimap;
 
+    [SerializeField] private GameObject _resumeButton;
+    [SerializeField] private GameObject _statusBackButton;
+    [SerializeField] private GameObject _optionsBackButton;
+    [SerializeField] private GameObject _player;
+    private PlayerState _playerState;
     
     void Update() => CheckPauseKey();
+
+    void Awake() => _playerState = _player.GetComponent<PlayerState>();
     
-    // check for Pause key or start button
     void CheckPauseKey() {
-        // if (Input.GetKeyDown(KeyCode.Escape))
-        //     SetPauseOn();
         if (Input.GetButtonDown("Menu (Start)") || Input.GetKeyDown(KeyCode.Escape))
             SetPauseOn();
     }
@@ -28,42 +33,44 @@ public class PauseMenu : MonoBehaviour {
         _ui.SetActive(_isUIOn);
         _theMinimap.SetActive(_isMinimapOn);
 
-        if (Time.timeScale == 1.0f) 
+        if (Time.timeScale == 1.0f)
             Time.timeScale = 0.0f;
     }
 
     public void SetPauseOn() {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_resumeButton);
         _pauseMenu.SetActive(true);
         _optionsMenu.SetActive(false);
         _statusMenu.SetActive(false);
         _ui.SetActive(false);
         _theMinimap.SetActive(false);
-        if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
     public void SetPauseOff() {
         _pauseMenu.SetActive(false);
         _ui.SetActive(true);
         _theMinimap.SetActive(true);
-        if (Time.timeScale == 0.0f) Time.timeScale = 1.0f;
     }
 
     public void SetOptionsOn() {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_optionsBackButton);
         _pauseMenu.SetActive(false);
         _optionsMenu.SetActive(true);
         _statusMenu.SetActive(false);
         _ui.SetActive(false);
         _theMinimap.SetActive(false);
-        if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
     public void SetInventoryOn() {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_statusBackButton);
         _pauseMenu.SetActive(false);
         _optionsMenu.SetActive(false);
         _statusMenu.SetActive(true);
         _ui.SetActive(false);
         _theMinimap.SetActive(false);
-        if (Time.timeScale == 1.0f) Time.timeScale = 0.0f;
     }
 
     public void QuitGame() => Application.Quit();
