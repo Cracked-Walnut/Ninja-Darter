@@ -13,8 +13,7 @@ public class XP : MonoBehaviour {
     [SerializeField] private int _stagePoints; // the amount of points earned in a stage
     [SerializeField] private int _totalPoints; // the amount of points earned across all stages
 
-    [Header("Upgrades")]
-    [SerializeField] public int _skillPoints = 0;
+    private int _skillPoints = 0;
     
     [Header("Levelling")]
     [SerializeField] public int _currentLevel = 0;
@@ -41,6 +40,7 @@ public class XP : MonoBehaviour {
     public int TallyPoints() => _totalPoints += _stagePoints;
 
     public int GetPoints() { return _stagePoints; }
+    public int GetSkillPoints() { return _skillPoints; }
 
     public void AddPoints(int _points) { 
         _currentPoints += _points;

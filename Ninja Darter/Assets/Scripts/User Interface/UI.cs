@@ -51,7 +51,7 @@ public class UI : MonoBehaviour {
         _armourCurrentValue.text = _playerState.GetArmour().ToString();
         _armourMaxValue.text = _playerState.GetMaxArmour().ToString();
         _currentLevelValue.text = _xp._currentLevel.ToString();
-        _skillPointsValue.text = _xp._skillPoints.ToString();
+        _skillPointsValue.text = _xp.GetSkillPoints().ToString();
         _coinsCurrentValue.text = _inventory.GetCoins().ToString();
         _pointsCurrentValue.text = _xp.GetPoints().ToString();
         _cubeFragmentsCurrentValue.text = _inventory.GetCubeFragments().ToString();
@@ -64,7 +64,7 @@ public class UI : MonoBehaviour {
         _hpLevel.text = _playerState.GetHPLevel().ToString();
         _armourLevel.text = _playerState.GetArmourLevel().ToString();
         _attackLevel.text = _playerState.GetAttackLevel().ToString();
-        _spValue.text = _xp._skillPoints.ToString();
+        _spValue.text = _xp.GetSkillPoints().ToString();
 
         if (_timer.GetTimerRunning()) {
             _timer.StartTimer();

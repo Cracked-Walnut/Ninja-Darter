@@ -25,6 +25,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private Inventory _inventory;
     private XP _xp;
+    private CanvasMap _canvasMap;
 
     private int _hpLevel;
     private int _armourLevel;
@@ -49,6 +50,9 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     private float _invincibilityTime = 0.5f;
 
+    [Header("Upgrades Screen")]
+    [SerializeField] private GameObject _upgradesScreen;
+
     [Header("Weapon Switching")]
     [SerializeField] private DirectionalPad _directionalPad;
 
@@ -59,6 +63,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private int _attackDamage = 50;
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
+    [SerializeField] private bool _canCrouch = true;
     [SerializeField] private bool _airAttacked = false;
     [SerializeField] private float _swordSwingDelay; // a small delay between each attack for the sword
     [SerializeField] private float _unarmedSwingDelay; // a small delay between each attack for the punches/kicks
@@ -74,7 +79,8 @@ public class PlayerState : MonoBehaviour {
     [Header("Jumping")]
     [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f; // The gravity used to bring the player down after a long jump (long jump button press)
     [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f; // the gravuty used to bring the player down after a short jump (short jump button press)
-    private bool _doubleJump = false;
+    private bool _doubleJump;
+    private bool _canJump;
 
     [Header("ChestInteraction")]
     [SerializeField] private Transform _interactionPoint;
@@ -136,7 +142,27 @@ public class PlayerState : MonoBehaviour {
     public int GetArmourLevel() { return _armourLevel; }
     public int GetAttackLevel() { return _attackLevel; }
 
-    void Start() { 
+    public bool GetInvincibility() { return _isInvincible; }
+    public void SetInvincibility(bool _invincibile) => _isInvincible = _invincibile;
+
+    public bool GetCanJump() { return _canJump; }
+    public void SetCanJump(bool _jump) => _canJump = _jump;
+
+    public void EnablePlayer(bool _isPlayerEnabled) {
+        _isInvincible = _isPlayerEnabled;
+        _canAttack = _isPlayerEnabled;
+        _canAirAttack = _isPlayerEnabled;
+        _canJump = _isPlayerEnabled;
+        _doubleJump = _isPlayerEnabled;
+        _canDash = _isPlayerEnabled;
+        _canMove = _isPlayerEnabled;
+        _canCrouch = _isPlayerEnabled;
+        _canvasMap.SetCanOpenMap(_isPlayerEnabled);
+    }
+
+    void Start() {
+        _doubleJump = true;
+        _canJump = true;
         _runSpeed = 50;
         _isInvincible = false;
         _hpLevel = 1;
@@ -148,6 +174,7 @@ public class PlayerState : MonoBehaviour {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
         _xp = GetComponent<XP>();
+        _canvasMap = GetComponent<CanvasMap>();
         _cameraShake = _mainCamera.GetComponent<CameraShake>();
     }
     
@@ -170,8 +197,11 @@ public class PlayerState : MonoBehaviour {
         _dpadHorizontal = Input.GetAxis("DPADHorizontal") * 1;
         _dpadVertical = Input.GetAxis("DPADVertical") * 1;
 
-        if (Input.GetButtonDown("XboxA"))
-            _isJumping = true;
+        if (_canJump) {
+
+            if (Input.GetButtonDown("XboxA"))
+                _isJumping = true;
+        }
         
         // this is used to control how high the player can jump based off how long they hold the jump button
         if (_rigidBody2D.velocity.y < 0)
@@ -194,6 +224,7 @@ public class PlayerState : MonoBehaviour {
         DoubleJump();
         ExecuteGroundAttack();
         ExecuteAirAttack();
+        OpenUpgradeScreen();
         // AirborneGroundAttack();
     }
 
@@ -275,7 +306,7 @@ public class PlayerState : MonoBehaviour {
     }
 
     bool Crouching() {
-        if (Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.GetGrounded()) {
+        if (Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.GetGrounded() && _canCrouch) {
             
             SetState(State.Crouching);
             _isCrouching = true;
@@ -374,6 +405,12 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
     /*<------------------------------->-End of State Functions-<------------------------------->*/
+
+    void OpenUpgradeScreen() {
+        if (Input.GetButtonDown("View (Back)")) {
+            _upgradesScreen.SetActive(true);
+        }
+    }
 
     void AirborneGroundAttack() {
         if (InAir() && Input.GetAxis("L-Stick-Vertical") > 0.75 && Input.GetButtonDown("XboxA")) {

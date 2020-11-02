@@ -7,16 +7,21 @@ public class CanvasMap : MonoBehaviour {
     // private bool _canOpenCanvasMap = true;
     [SerializeField] private GameObject _canvasMapCamera;
     [SerializeField] private GameObject _minimapCamera;
+    private bool _canOpenMap;
+
+    public bool GetCanOpenMap() { return _canOpenMap; }
+    public void SetCanOpenMap(bool _map) => _canOpenMap = _map;
 
     void Start() {
         _canvasMapCamera.SetActive(false);
         _minimapCamera.SetActive(true);
+        _canOpenMap = true;
     }
 
     void Update() => CheckMapStatus();
 
     void CheckMapStatus() {
-        if (Input.GetButton("LB"))
+        if (Input.GetButton("LB") && _canOpenMap)
             OpenCanvasMap();
         else
             CloseCanvasMap();
