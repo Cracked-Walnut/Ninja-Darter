@@ -29,7 +29,9 @@ public class PlayerState : MonoBehaviour {
 
     private int _hpLevel;
     private int _armourLevel;
-    private int _attackLevel;
+    private int _swordAttackLevel;
+    private int _bowAttackLevel;
+    private int _fistsAttackLevel;
 
     [Header("Health")]
     [SerializeField] private int _health;
@@ -60,7 +62,9 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private Animator _animator;
 
     [Header("Attacking")]
-    [SerializeField] private int _attackDamage = 50;
+    private int _swordAttackDamage = 35;
+     private int _bowAttackDamage = 25;
+     private int _fistsAttackDamage = 15;
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
     [SerializeField] private bool _canCrouch = true;
@@ -137,9 +141,17 @@ public class PlayerState : MonoBehaviour {
     public void SetArmour(int _a) => _armour = _a;
     public void UpgradeMaxArmourBy(int _ma) => _maxArmour += _ma;
 
-    public int GetMaxAttackDamage() { return _attackDamage; }
-    public void SetAttackDamage(int _attack) => _attackDamage = _attack;
-    public void UpgradeMaxAttackDamageBy(int _a) => _attackDamage += _a;
+    public int GetMaxSwordAttackDamage() { return _swordAttackDamage; }
+    public void SetMaxSwordAttackDamage(int _attack) => _swordAttackDamage = _attack;
+    public void UpgradeMaxSwordAttackDamageBy(int _a) => _swordAttackDamage += _a;
+
+    public int GetMaxBowAttackDamage() { return _bowAttackDamage; }
+    public void SetMaxBowAttackDamage(int _attack) => _bowAttackDamage = _attack;
+    public void UpgradeMaxBowAttackDamageBy(int _a) => _bowAttackDamage += _a;
+
+    public int GetMaxFistsAttackDamage() { return _fistsAttackDamage; }
+    public void SetMaxFistsAttackDamage(int _attack) => _fistsAttackDamage = _attack;
+    public void UpgradeMaxFistsAttackDamageBy(int _a) => _fistsAttackDamage += _a;
 
     public int GetHPLevel() { return _hpLevel; }
     public int IncrementHPLevel(int _hp) => _hpLevel += _hp;
@@ -147,8 +159,14 @@ public class PlayerState : MonoBehaviour {
     public int GetArmourLevel() { return _armourLevel; }
     public int IncrementArmourLevel(int _ar) => _armourLevel += _ar;
     
-    public int GetAttackLevel() { return _attackLevel; }
-    public int IncrementAttackLevel(int _at) => _attackLevel += _at;
+    public int GetSwordAttackLevel() { return _swordAttackLevel; }
+    public int IncrementSwordAttackLevel(int _sat) => _swordAttackLevel += _sat;
+
+    public int GetBowAttackLevel() { return _bowAttackLevel; }
+    public int IncrementBowAttackLevel(int _bat) => _bowAttackLevel += _bat;
+    
+    public int GetFistsAttackLevel() { return _fistsAttackLevel; }
+    public int IncrementFistsAttackLevel(int _fat) => _fistsAttackLevel += _fat;
 
     public bool GetInvincibility() { return _isInvincible; }
     public void SetInvincibility(bool _invincibile) => _isInvincible = _invincibile;
@@ -175,7 +193,9 @@ public class PlayerState : MonoBehaviour {
         _isInvincible = false;
         _hpLevel = 1;
         _armourLevel = 1;
-        _attackLevel = 1;
+        _swordAttackLevel = 1;
+        _bowAttackLevel = 1;
+        _fistsAttackLevel = 1;
     }
 
     void Awake() { 
@@ -499,13 +519,23 @@ public class PlayerState : MonoBehaviour {
         _animator.SetBool("IsAirAttacking", false);
     }
 
-    public void ScanForEnemies() {
+    public void ScanForEnemies() { // this function is executed during sword, bow and martial arts attack animations
         Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
 
           foreach(Collider2D _enemiesHit in _hitEnemies) {
             StartCoroutine(_cameraShake.Shake(.1f, .15f));
-            _enemiesHit.GetComponent<Enemy>().TakeDamage(_attackDamage); // damage the enemy
-            //    playArrSound(swordDamageList); // play a damage sound
+
+            if (_directionalPad._swordEquipped) {
+                _enemiesHit.GetComponent<Enemy>().TakeDamage(_swordAttackDamage); // damage the enemy
+                //    playArrSound(swordDamageList); // play a damage sound
+            }
+            // else if (_directionalPad._bowEquipped) {
+            //     _enemiesHit.GetComponent<Enemy>().TakeDamage(_bowAttackDamage);
+            // }
+            else if (_directionalPad._fistsEquipped) {
+                _enemiesHit.GetComponent<Enemy>().TakeDamage(_fistsAttackDamage);
+            }
+          
           }
     }
 

@@ -24,11 +24,15 @@ public class UI : MonoBehaviour {
     /*-----------------------------------------------*/
     [SerializeField] private Text _upgradeMaxHealth;
     [SerializeField] private Text _upgradeMaxArmour;
-    [SerializeField] private Text _upgradeMaxAttack;
+    [SerializeField] private Text _upgradeMaxSwordAttack;
+    [SerializeField] private Text _upgradeMaxBowAttack;
+    [SerializeField] private Text _upgradeMaxFistsAttack;
     /*-----------------------------------------------*/
     [SerializeField] private Text _hpLevel;
     [SerializeField] private Text _armourLevel;
-    [SerializeField] private Text _attackLevel;
+    [SerializeField] private Text _swordAttackLevel;
+    [SerializeField] private Text _bowAttackLevel;
+    [SerializeField] private Text _fistsAttackLevel;
     [SerializeField] private Text _spValue;
 
     private Inventory _inventory;
@@ -60,10 +64,14 @@ public class UI : MonoBehaviour {
         _arrowsMaxValue.text = _inventory.GetMaxArrows().ToString();
         _upgradeMaxHealth.text = _playerState.GetMaxHealth().ToString();
         _upgradeMaxArmour.text = _playerState.GetMaxArmour().ToString();
-        _upgradeMaxAttack.text = _playerState.GetMaxAttackDamage().ToString();
+        _upgradeMaxSwordAttack.text = _playerState.GetMaxSwordAttackDamage().ToString();
+        _upgradeMaxBowAttack.text = _playerState.GetMaxBowAttackDamage().ToString();
+        _upgradeMaxFistsAttack.text = _playerState.GetMaxFistsAttackDamage().ToString();
         _hpLevel.text = _playerState.GetHPLevel().ToString();
         _armourLevel.text = _playerState.GetArmourLevel().ToString();
-        _attackLevel.text = _playerState.GetAttackLevel().ToString();
+        _swordAttackLevel.text = _playerState.GetSwordAttackLevel().ToString();
+        _bowAttackLevel.text = _playerState.GetBowAttackLevel().ToString();
+        _fistsAttackLevel.text = _playerState.GetFistsAttackLevel().ToString();
         _spValue.text = _xp.GetSkillPoints().ToString();
 
         if (_timer.GetTimerRunning()) {
