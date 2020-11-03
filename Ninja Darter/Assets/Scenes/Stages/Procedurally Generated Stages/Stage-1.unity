@@ -1248,7 +1248,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 128573719}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1038642070}
+        m_TargetAssemblyTypeName: InvestSP, Assembly-CSharp
+        m_MethodName: AllocateSP
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Attack
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &128573719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9785,16 +9797,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1038642069}
-        m_TargetAssemblyTypeName: UIDebugTest, Assembly-CSharp
-        m_MethodName: RunCode
-        m_Mode: 1
+      - m_Target: {fileID: 1038642070}
+        m_TargetAssemblyTypeName: InvestSP, Assembly-CSharp
+        m_MethodName: AllocateSP
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: HP
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &904399938
@@ -47580,6 +47592,7 @@ GameObject:
   - component: {fileID: 1038642061}
   - component: {fileID: 1038642060}
   - component: {fileID: 1038642069}
+  - component: {fileID: 1038642070}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -47778,6 +47791,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27599d69bbe2fa45985aec9a9de9e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1038642070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038642059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283c053e0f93a5d429dd1b63e6b8fb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 584972703}
+  _upgradePanelObject: {fileID: 817860903}
 --- !u!1 &1046008111
 GameObject:
   m_ObjectHideFlags: 0
@@ -50048,7 +50075,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1326899122}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1038642070}
+        m_TargetAssemblyTypeName: InvestSP, Assembly-CSharp
+        m_MethodName: AllocateSP
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Armour
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1326899122
 MonoBehaviour:
   m_ObjectHideFlags: 0

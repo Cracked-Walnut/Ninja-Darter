@@ -41,6 +41,7 @@ public class XP : MonoBehaviour {
 
     public int GetPoints() { return _stagePoints; }
     public int GetSkillPoints() { return _skillPoints; }
+    public void DecrementSkillPoints(int _sp) => _skillPoints += _sp;
 
     public void AddPoints(int _points) { 
         _currentPoints += _points;

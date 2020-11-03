@@ -1,53 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Upgrade : MonoBehaviour {
+public class InvestSP : MonoBehaviour {
 
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _hpButton;
-    [SerializeField] private GameObject _ui;
+    [SerializeField] private GameObject _upgradePanelObject;
     private PlayerState _playerState;
+    private UpgradePanel _upgradePanel;
     private XP _xp;
 
-    void Awake() { 
+    void Awake() {
         _playerState = _player.GetComponent<PlayerState>();
+        _upgradePanel = _upgradePanelObject.GetComponent<UpgradePanel>();
         _xp = _player.GetComponent<XP>();
     }
 
-    void Update() {
-        if (Input.GetButtonDown("XboxB"))
-            gameObject.SetActive(false);
-    }
-
-    void OnEnable() {
-        _playerState.EnablePlayer(false);
-        _ui.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_hpButton);
-    }
-
-    void OnDisable() {
-        _playerState.EnablePlayer(true);
-        _ui.SetActive(true);
-    }
-
-    void InvestSP(string _category) {
+    public void AllocateSP(string _category) {
 
         if (_xp.GetSkillPoints() > 0) {
             switch(_category) {
                 case "HP":
+                    _xp.DecrementSkillPoints(-1);
                     _playerState.UpgradeMaxHealthBy(2);
+                    _playerState.IncrementHPLevel(1);
                     break;
                 case "Armour":
+                    _xp.DecrementSkillPoints(-1);
                     _playerState.UpgradeMaxArmourBy(1);
+                    _playerState.IncrementArmourLevel(1);
                     break;
                 case "Attack":
+                    _xp.DecrementSkillPoints(-1);
                     _playerState.UpgradeMaxAttackDamageBy(1);
+                    _playerState.IncrementAttackLevel(1);
                     break;
             }
         } else { /* play error sound*/ }
             
     }
+
 }

@@ -142,8 +142,13 @@ public class PlayerState : MonoBehaviour {
     public void UpgradeMaxAttackDamageBy(int _a) => _attackDamage += _a;
 
     public int GetHPLevel() { return _hpLevel; }
+    public int IncrementHPLevel(int _hp) => _hpLevel += _hp;
+
     public int GetArmourLevel() { return _armourLevel; }
+    public int IncrementArmourLevel(int _ar) => _armourLevel += _ar;
+    
     public int GetAttackLevel() { return _attackLevel; }
+    public int IncrementAttackLevel(int _at) => _attackLevel += _at;
 
     public bool GetInvincibility() { return _isInvincible; }
     public void SetInvincibility(bool _invincibile) => _isInvincible = _invincibile;
