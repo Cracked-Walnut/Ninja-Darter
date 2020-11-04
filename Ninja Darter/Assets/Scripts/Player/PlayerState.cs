@@ -33,9 +33,8 @@ public class PlayerState : MonoBehaviour {
     private int _bowAttackLevel;
     private int _fistsAttackLevel;
 
-    [Header("Health")]
-    [SerializeField] private int _health;
-    [SerializeField] public int _maxHealth;
+    public int _health = 10;
+    public int _maxHealth = 10;
     // [SerializeField] private LayerMask _enemiesH; // determines what can damage the player's health
 
     [Header("Weapons")]
@@ -63,8 +62,8 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Attacking")]
     private int _swordAttackDamage = 35;
-     private int _bowAttackDamage = 25;
-     private int _fistsAttackDamage = 15;
+    private int _bowAttackDamage = 25;
+    private int _fistsAttackDamage = 15;
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
     [SerializeField] private bool _canCrouch = true;
@@ -389,7 +388,7 @@ public class PlayerState : MonoBehaviour {
         }
     }
     
-    public void TakeDamage(int _damage, float _knocBackX, float _knockBackY) {
+    public void TakeDamage(int _damage, float _knockBackX, float _knockBackY) {
 
 
         if (!_isInvincible) {
@@ -408,7 +407,7 @@ public class PlayerState : MonoBehaviour {
             _isArmourDepleted = false;
         
         if (_characterController2D.GetFacingRight())
-            ApplyForce(-_knocBackX, _knockBackY);
+            ApplyForce(-_knockBackX, _knockBackY);
         else
             ApplyForce(_knockBackY, _knockBackY);
         }
@@ -551,7 +550,7 @@ public class PlayerState : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
-            TakeDamage(20, 200, 1400);
+            TakeDamage(2, 200, 1400);
     }
 
     bool ChestInteraction() {
@@ -562,7 +561,7 @@ public class PlayerState : MonoBehaviour {
             foreach(Collider2D _item in _itemsWithinRange) {
                 
                 _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // grab the TreasureChest.cs script and call the function which will open the chest
-            } 
+            }
 
             return true;
          }

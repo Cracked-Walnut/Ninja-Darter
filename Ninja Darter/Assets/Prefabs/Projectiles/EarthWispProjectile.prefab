@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7.5
-  _damage: 10
+  _damage: 2
   _rigidbody2D: {fileID: 6738218179010420842}
   _player: {fileID: 611333969447945918, guid: 1652f799f95f36042b70060217f18fc0, type: 3}
 --- !u!61 &2771669025582085814
