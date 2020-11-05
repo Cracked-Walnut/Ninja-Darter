@@ -15,6 +15,7 @@ TagManager:
   - Canvas Camera
   - Arrow
   - UI
+  - Armour
   layers:
   - Default
   - TransparentFX
@@ -43,7 +44,7 @@ TagManager:
   - Background
   - DPAD
   - Arrow
-  - 
+  - Armour
   - 
   - 
   - 
@@ -90,4 +91,7 @@ TagManager:
     locked: 0
   - name: Light
     uniqueID: 2833477135
+    locked: 0
+  - name: Armour
+    uniqueID: 3519919983
     locked: 0

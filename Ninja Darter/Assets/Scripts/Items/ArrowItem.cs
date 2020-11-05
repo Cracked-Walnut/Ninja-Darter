@@ -2,39 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPotion : MonoBehaviour {
+public class ArrowItem : MonoBehaviour {
 
     [SerializeField] private bool _isShopItem; // you cannot collect an item if it's in a shop. You'll have to buy it
-    [SerializeField] private int _replenishValue;
+    [SerializeField] private int _replenishValue; // this is the value of the arrow that is restored upon contact/purchase
     [SerializeField] private GameObject _player;
+    private Inventory _inventory;
     private bool _isPickedUp;
-    private PlayerState _playerState;
 
-    // void Awake() => _playerState = _player.GetComponent<PlayerState>();
-    
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject == _player) {
 
             if (_isShopItem)
-            return;
+                return;
 
-            _playerState = _player.GetComponent<PlayerState>();
+            _inventory = _player.GetComponent<Inventory>();
 
             if (!_isPickedUp) {
-                if (_playerState.GetHealth() == _playerState.GetMaxHealth()) {
-                    Debug.Log("Health is Full");
+                if (_inventory.GetArrows() == _inventory.GetMaxArrows()) {
+                    Debug.Log("No room for more Arrows");
                     return;
                 }
                 else {
 
-                    if (_playerState.GetHealth() < _playerState.GetMaxHealth()) {
-                        _playerState.AddHealth(_replenishValue);
+                    if (_inventory.GetArrows() < _inventory.GetMaxArrows()) {
+                        _inventory.AddArrow(_replenishValue);
                         _isPickedUp = true;
                         Destroy(gameObject);
                     }
 
-                    if (_playerState.GetHealth() > _playerState.GetMaxHealth()) {
-                        _playerState.SetHealth(_playerState.GetMaxHealth());
+                    if (_inventory.GetArrows() > _inventory.GetMaxArrows()) {
+                        _inventory.SetArrows(_inventory.GetMaxArrows());
                         _isPickedUp = true;
                         Destroy(gameObject);
                     }

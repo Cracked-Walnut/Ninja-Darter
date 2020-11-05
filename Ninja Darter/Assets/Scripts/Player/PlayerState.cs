@@ -138,6 +138,7 @@ public class PlayerState : MonoBehaviour {
     public int GetArmour() { return _armour; }
     public int GetMaxArmour() { return _maxArmour; }
     public void SetArmour(int _a) => _armour = _a;
+    public void AddArmour(int _a) => _armour += _a;
     public void UpgradeMaxArmourBy(int _ma) => _maxArmour += _ma;
 
     public int GetMaxSwordAttackDamage() { return _swordAttackDamage; }

@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour {
 
     public int GetArrows() { return _arrows; }
     public void SetArrows(int _arrow) => _arrows = _arrow;
+    public void AddArrow(int _a) => _arrows += _a;
 
     public int GetMaxArrows() { return _maxArrows; }
     public void SetMaxArrows(int _maxArrow) => _maxArrows = _maxArrow;
