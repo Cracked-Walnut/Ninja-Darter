@@ -41,7 +41,7 @@ public class UI : MonoBehaviour {
     private Timer _timer;
 
     void Awake() { 
-        _inventory = _player.GetComponent<Inventory>(); 
+        _inventory = _player.GetComponent<Inventory>();
         _xp = _player.GetComponent<XP>();
         _playerState = _player.GetComponent<PlayerState>();
         _timer = _player.GetComponent<Timer>();

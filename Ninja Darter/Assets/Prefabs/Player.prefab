@@ -50,6 +50,7 @@ Transform:
   - {fileID: 8273415733650839211}
   - {fileID: 6451758990654992285}
   - {fileID: 8273415732084248349}
+  - {fileID: 7715996528055043587}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,20 +161,24 @@ MonoBehaviour:
   _characterController2D: {fileID: 2286672985521783532}
   _health: 100
   _maxHealth: 100
+  _arrow: {fileID: 0}
   _armour: 0
   _maxArmour: 0
   _isArmourDepleted: 0
   _isInvincible: 0
   _spriteRenderer: {fileID: 0}
+  _upgradesScreen: {fileID: 0}
+  _directionalPad: {fileID: 0}
   _animator: {fileID: 8273415733011858150}
-  _attackDamage: 50
   _canAttack: 1
   _canAirAttack: 0
+  _canCrouch: 1
   _airAttacked: 0
-  _timeBtwAttacks: 0.2
+  _swordSwingDelay: 0
+  _unarmedSwingDelay: 0
   _timeBtwAirAttacks: 0.5
   _attackRange: 2
-  _swordPoint: {fileID: 6451758990654992285}
+  _attackPoint: {fileID: 0}
   _enemyLayers:
     serializedVersion: 2
     m_Bits: 262144
@@ -220,6 +225,10 @@ MonoBehaviour:
   _statusMenu: {fileID: 0}
   _ui: {fileID: 0}
   _theMinimap: {fileID: 0}
+  _resumeButton: {fileID: 0}
+  _statusBackButton: {fileID: 0}
+  _optionsBackButton: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!114 &3164414820639478738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,14 +259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9425840e967388f448236af47e6d25a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 0
-  _wristBlades: 5
   _arrows: 0
+  _maxArrows: 0
+  _coins: 0
   _cubeFragments: 0
-  _totalPoints: 0
-  _stagePoints: 0
-  _totalBonusPoints: 0
-  _stageBonusPoints: 0
+  _wristBlades: 5
   _enemyKills: 0
   _totalEnemyKills: 0
 --- !u!114 &8397472716693002702
@@ -274,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvasMapCamera: {fileID: 0}
   _minimapCamera: {fileID: 0}
+  _ui: {fileID: 0}
 --- !u!212 &8273415733011858151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -479,6 +486,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3435369508480888234}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6631107686777787133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7715996528055043587}
+  m_Layer: 8
+  m_Name: ArrowEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7715996528055043587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6631107686777787133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3435369508480888234}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7597737495529448489
 GameObject:
