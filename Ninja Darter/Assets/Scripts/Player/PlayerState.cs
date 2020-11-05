@@ -85,7 +85,7 @@ public class PlayerState : MonoBehaviour {
     private bool _doubleJump;
     private bool _canJump;
 
-    [Header("ChestInteraction")]
+    [Header("ItemInteraction")]
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionRadius; // drawn at _interactionPoint, which is positioned at the center of the player
     [SerializeField] private LayerMask _whatIsItem; // determines what we are interacting with, in this case, treasure chests only
@@ -215,7 +215,7 @@ public class PlayerState : MonoBehaviour {
 
         CheckNonStateFunctions();
         CheckCurrentState();
-        ChestInteraction();
+        ItemInteraction();
 
         if (_canMove) {
             // _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -554,14 +554,23 @@ public class PlayerState : MonoBehaviour {
             TakeDamage(2, 200, 1400);
     }
 
-    bool ChestInteraction() {
+    bool ItemInteraction() {
 
          if (Input.GetButtonDown("RB")) {
             Collider2D[] _itemsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsItem);
 
             foreach(Collider2D _item in _itemsWithinRange) {
                 
-                _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // grab the TreasureChest.cs script and call the function which will open the chest
+                switch(_item.name) {
+
+                    case "TreasureChest":
+                        _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // grab the TreasureChest.cs script and call the function which will open the chest
+                        break;
+                    default:
+                        Debug.Log("Nothing");
+                        break;
+                
+                }
             }
 
             return true;

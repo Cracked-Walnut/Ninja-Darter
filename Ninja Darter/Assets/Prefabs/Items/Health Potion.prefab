@@ -125,3 +125,4 @@ MonoBehaviour:
   _isShopItem: 0
   _replenishValue: 5
   _player: {fileID: 0}
+  _shopPrice: 5

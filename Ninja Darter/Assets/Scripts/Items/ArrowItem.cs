@@ -7,6 +7,7 @@ public class ArrowItem : MonoBehaviour {
     [SerializeField] private bool _isShopItem; // you cannot collect an item if it's in a shop. You'll have to buy it
     [SerializeField] private int _replenishValue; // this is the value of the arrow that is restored upon contact/purchase
     [SerializeField] private GameObject _player;
+    [SerializeField] private int _shopPrice;
     private Inventory _inventory;
     private bool _isPickedUp;
 

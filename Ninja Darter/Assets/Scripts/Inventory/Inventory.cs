@@ -7,9 +7,9 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
 
     [Header("Items")]
+    [SerializeField] private int _coins;
     [SerializeField] private int _arrows;
     [SerializeField] private int _maxArrows;
-    [SerializeField] private int _coins;
     [SerializeField] private int _cubeFragments;
     [SerializeField] private int _wristBlades;
 

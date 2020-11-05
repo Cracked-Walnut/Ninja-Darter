@@ -20641,7 +20641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7943958884706903940, guid: 604242ddd77819c42b4ad7e7af1858d7, type: 3}
       propertyPath: m_Name
-      value: Treasure Chest 1
+      value: TreasureChest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604242ddd77819c42b4ad7e7af1858d7, type: 3}
