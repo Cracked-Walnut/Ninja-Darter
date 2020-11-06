@@ -90,12 +90,12 @@ TagManager:
   - name: Arrow
     uniqueID: 2171027165
     locked: 0
-  - name: Light
-    uniqueID: 2833477135
-    locked: 0
   - name: Armour
     uniqueID: 3519919983
     locked: 0
   - name: Merchant
     uniqueID: 3330047613
+    locked: 0
+  - name: Light
+    uniqueID: 2833477135
     locked: 0

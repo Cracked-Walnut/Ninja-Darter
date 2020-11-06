@@ -127,7 +127,7 @@ AnimationClip:
     - time: 0.7
       value: {fileID: 6639571956133417116, guid: 6fc4105dbda46f044b5146c67d08720a, type: 3}
     attribute: m_Sprite
-    path: ArrowEffect
+    path: ArrowAirEffect
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -145,7 +145,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
-      path: 1889706208
+      path: 3050904906
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -229,7 +229,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: AirAttackForce
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
     functionName: CueArrowDelay
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.36666667
+    functionName: AirAttackForce
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
