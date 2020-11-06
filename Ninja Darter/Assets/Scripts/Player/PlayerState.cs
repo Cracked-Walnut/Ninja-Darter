@@ -85,7 +85,7 @@ public class PlayerState : MonoBehaviour {
     private bool _doubleJump;
     private bool _canJump;
 
-    [Header("ItemInteraction")]
+    [Header("CheckForInteraction")]
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionRadius; // drawn at _interactionPoint, which is positioned at the center of the player
     [SerializeField] private LayerMask _whatIsItem; // determines what we are interacting with, in this case, treasure chests only
@@ -118,6 +118,7 @@ public class PlayerState : MonoBehaviour {
     [Header("Misc")]
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
     [SerializeField] private GameObject _mainCamera;
+    [SerializeField] private GameObject _shopPanel;
     private CameraShake _cameraShake;
     private bool _isJumping = false;
     private bool _isCrouching = false;
@@ -215,7 +216,7 @@ public class PlayerState : MonoBehaviour {
 
         CheckNonStateFunctions();
         CheckCurrentState();
-        ItemInteraction();
+        CheckForInteraction();
 
         if (_canMove) {
             // _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -554,22 +555,25 @@ public class PlayerState : MonoBehaviour {
             TakeDamage(2, 200, 1400);
     }
 
-    bool ItemInteraction() {
+    bool CheckForInteraction() {
+            
+        Collider2D[] _objectsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsItem);
 
-         if (Input.GetButtonDown("RB")) {
-            Collider2D[] _itemsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsItem);
+        if (Input.GetButtonDown("RB")) {
 
-            foreach(Collider2D _item in _itemsWithinRange) {
+            foreach(Collider2D _object in _objectsWithinRange) {
                 
-                switch(_item.name) {
+                switch(_object.name) {
 
                     case "TreasureChest":
-                        _item.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // grab the TreasureChest.cs script and call the function which will open the chest
+                        _object.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // grab the TreasureChest.cs script and call the function which will open the chest
+                        break;
+                    case "Merchant":
+                        _shopPanel.SetActive(true);
                         break;
                     default:
                         Debug.Log("Nothing");
                         break;
-                
                 }
             }
 

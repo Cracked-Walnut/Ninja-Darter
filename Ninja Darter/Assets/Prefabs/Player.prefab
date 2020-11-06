@@ -206,6 +206,8 @@ MonoBehaviour:
     m_Bits: 512
   _canMove: 1
   _mainCamera: {fileID: 0}
+  _shopPanel: {fileID: 0}
+  _interactionPrompt: {fileID: 0}
   _isTouchingWallTop: 0
   _isTouchingWallBottom: 0
 --- !u!114 &3164414820639478739
@@ -259,9 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9425840e967388f448236af47e6d25a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coins: 0
   _arrows: 0
   _maxArrows: 0
-  _coins: 0
   _cubeFragments: 0
   _wristBlades: 5
   _enemyKills: 0

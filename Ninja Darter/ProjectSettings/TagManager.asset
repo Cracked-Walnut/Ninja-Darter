@@ -16,6 +16,7 @@ TagManager:
   - Arrow
   - UI
   - Armour
+  - Merchant
   layers:
   - Default
   - TransparentFX
@@ -46,7 +47,7 @@ TagManager:
   - Arrow
   - Armour
   - Quiver
-  - 
+  - Merchant
   - 
   - 
   m_SortingLayers:
@@ -94,4 +95,7 @@ TagManager:
     locked: 0
   - name: Armour
     uniqueID: 3519919983
+    locked: 0
+  - name: Merchant
+    uniqueID: 3330047613
     locked: 0
