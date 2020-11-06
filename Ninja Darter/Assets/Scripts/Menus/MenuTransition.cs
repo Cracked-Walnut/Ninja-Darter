@@ -15,7 +15,7 @@ public class MenuTransition : MonoBehaviour {
         // load the next scene that starts the game
     }
 
-    public void SetMainMenuActive () {
+    public void SetMainMenuActive() {
         _menuObjects[0].SetActive(true);
         _menuObjects[1].SetActive(false);
         _menuObjects[2].SetActive(false);
@@ -23,7 +23,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[4].SetActive(false);
     }
 
-    public void SetMainOptionsActive () {
+    public void SetMainOptionsActive() {
         _menuObjects[0].SetActive(false);
         _menuObjects[1].SetActive(true);
         _menuObjects[2].SetActive(false);
@@ -31,7 +31,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[4].SetActive(false);
     }
 
-    public void SetControlsActive () {
+    public void SetControlsActive() {
         _menuObjects[0].SetActive(false);
         _menuObjects[1].SetActive(false);
         _menuObjects[2].SetActive(false);
@@ -39,7 +39,7 @@ public class MenuTransition : MonoBehaviour {
         _menuObjects[4].SetActive(true);
     }
 
-    public void SetMainLoadActive () {
+    public void SetMainLoadActive() {
         _menuObjects[0].SetActive(false);
         _menuObjects[1].SetActive(false);
         _menuObjects[2].SetActive(true);

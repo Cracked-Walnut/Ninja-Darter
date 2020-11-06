@@ -51560,6 +51560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameOverMenu: {fileID: 1837922660}
   _ui: {fileID: 1640086792}
+  _player: {fileID: 1844942591}
 --- !u!114 &1038642063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51594,7 +51595,7 @@ MonoBehaviour:
   _resumeButton: {fileID: 995975579}
   _statusBackButton: {fileID: 283869547}
   _optionsBackButton: {fileID: 74678668}
-  _player: {fileID: 0}
+  _player: {fileID: 1844942591}
 --- !u!114 &1038642065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54566,7 +54567,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 1.0822144, y: -21.938004}
   m_SizeDelta: {x: -0.9038696, y: -126.62262}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -106851,7 +106852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1640086793
 RectTransform:
   m_ObjectHideFlags: 0

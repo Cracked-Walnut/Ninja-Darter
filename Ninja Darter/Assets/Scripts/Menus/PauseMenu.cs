@@ -25,18 +25,6 @@ public class PauseMenu : MonoBehaviour {
             SetPauseOn();
     }
 
-    void HandleMenu(bool _isPauseMenuOn, bool _isOptionsMenuOn, bool _isStatusMenuOn, bool _isUIOn, bool _isMinimapOn) {
-        
-        _pauseMenu.SetActive(_isPauseMenuOn);
-        _optionsMenu.SetActive(_isOptionsMenuOn);
-        _statusMenu.SetActive(_isStatusMenuOn);
-        _ui.SetActive(_isUIOn);
-        _theMinimap.SetActive(_isMinimapOn);
-
-        if (Time.timeScale == 1.0f)
-            Time.timeScale = 0.0f;
-    }
-
     public void SetPauseOn() {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_resumeButton);
@@ -47,6 +35,9 @@ public class PauseMenu : MonoBehaviour {
         _theMinimap.SetActive(false);
     }
 
+    // the functions below are called during button presses
+    // I've tried using one function instead of four. I would need five boolean parameters but Unity's inspector only allows for one boolean maximum
+
     public void SetPauseOff() {
         _pauseMenu.SetActive(false);
         _ui.SetActive(true);
@@ -56,6 +47,7 @@ public class PauseMenu : MonoBehaviour {
     public void SetOptionsOn() {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_optionsBackButton);
+
         _pauseMenu.SetActive(false);
         _optionsMenu.SetActive(true);
         _statusMenu.SetActive(false);
@@ -66,6 +58,7 @@ public class PauseMenu : MonoBehaviour {
     public void SetInventoryOn() {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_statusBackButton);
+        
         _pauseMenu.SetActive(false);
         _optionsMenu.SetActive(false);
         _statusMenu.SetActive(true);

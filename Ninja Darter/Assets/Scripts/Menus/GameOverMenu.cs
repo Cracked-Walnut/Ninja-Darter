@@ -7,16 +7,17 @@ public class GameOverMenu : MonoBehaviour {
     
     [SerializeField] private GameObject _gameOverMenu;
     [SerializeField] private GameObject _ui;
-    private PlayerState _player;
+    [SerializeField] private GameObject _player;
+    private PlayerState _playerState;
 
     void Update() => CheckGameOver();
 
     void Start() => _gameOverMenu.SetActive(false);
-    void Awake() => _player = FindObjectOfType<PlayerState>();
+    void Awake() => _playerState = _player.GetComponent<PlayerState>();
 
     public bool CheckGameOver() {
 
-        if (_player.Dead()) {
+        if (_playerState.Dead()) {
             Time.timeScale = 0.0f;
             _ui.SetActive(false);
             _gameOverMenu.SetActive(true);

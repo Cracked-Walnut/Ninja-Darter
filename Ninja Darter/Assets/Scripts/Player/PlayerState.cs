@@ -35,7 +35,6 @@ public class PlayerState : MonoBehaviour {
 
     public int _health = 10;
     public int _maxHealth = 10;
-    // [SerializeField] private LayerMask _enemiesH; // determines what can damage the player's health
 
     [Header("Weapons")]
     [SerializeField] private Arrow _arrow;
@@ -44,7 +43,6 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private int _armour;
     [SerializeField] public int _maxArmour;
     [SerializeField] private bool _isArmourDepleted = false;
-    // [SerializeField] private LayerMask _enemiesA; // determines what can damage the player's armour
 
     [Header("Invincibility")]
     [SerializeField] private bool _isInvincible;
@@ -64,6 +62,7 @@ public class PlayerState : MonoBehaviour {
     private int _swordAttackDamage = 35;
     private int _bowAttackDamage = 25;
     private int _fistsAttackDamage = 15;
+
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
     [SerializeField] private bool _canCrouch = true;
@@ -75,6 +74,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private Transform _attackPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
     [SerializeField] private LayerMask _projectileLayers; // projectiles we can hit within that circle
+    
     private string[] _swordGroundAttacks = {"GroundAttack1", "GroundAttack2", "GroundAttack3"};
     private string[] _unarmedGroundAttacks = {"Fists1", "Fists2", "Fists3", "Kick1", "Kick2"};
     private string[] _airAttacks = {"AirAttack1"};
@@ -99,10 +99,6 @@ public class PlayerState : MonoBehaviour {
     // controller movement
     private float _horizontalXboxMove;
 
-    // directional pad control
-    private float _dpadHorizontal;
-    private float _dpadVertical;
-
     [Header("Dashing")]
     [SerializeField] public bool _canDash = true;
     [Range(0, 200)] [SerializeField] private float _dashSpeed;
@@ -124,6 +120,8 @@ public class PlayerState : MonoBehaviour {
     private bool _isCrouching = false;
     public bool _isTouchingWallTop = false, _isTouchingWallBottom = false;
     private bool _isWallSliding;
+
+    /*--------------------------------------------Getters/ Setters---------------------------------------------------------------------------------*/
     
     public void SetState(State _state) => this._state = _state;
     public State GetState () { return _state; }
@@ -175,6 +173,9 @@ public class PlayerState : MonoBehaviour {
     public bool GetCanJump() { return _canJump; }
     public void SetCanJump(bool _jump) => _canJump = _jump;
 
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+
+    // used to disable the player when control is meant to be taken away (during pause menu, shop or upgrade menu)
     public void EnablePlayer(bool _isPlayerEnabled) {
         _isInvincible = _isPlayerEnabled;
         _canAttack = _isPlayerEnabled;
@@ -223,9 +224,6 @@ public class PlayerState : MonoBehaviour {
             _horizontalXboxMove = Input.GetAxisRaw("L-Stick-Horizontal") * _runSpeed;
         }
 
-        _dpadHorizontal = Input.GetAxis("DPADHorizontal") * 1;
-        _dpadVertical = Input.GetAxis("DPADVertical") * 1;
-
         if (_canJump) {
 
             if (Input.GetButtonDown("XboxA"))
@@ -235,6 +233,7 @@ public class PlayerState : MonoBehaviour {
         // this is used to control how high the player can jump based off how long they hold the jump button
         if (_rigidBody2D.velocity.y < 0)
             _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
+        
         if (_rigidBody2D.velocity.y > 0 && !Input.GetButton("XboxA"))
             _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_lowMultiplier - 1) * Time.deltaTime;
     }
@@ -274,6 +273,9 @@ public class PlayerState : MonoBehaviour {
     }
 
     /*<-------------->-Run extra non-physics related code-<------------------------------->*/
+
+    // this will run the appropriate animation for the current state the player is in,
+    // as well as other things when needed
     private void RunCodeBasedOnState() {
         switch(_state) {
             case State.Idling:
@@ -317,9 +319,9 @@ public class PlayerState : MonoBehaviour {
     /*<--------->-These functions hold the bare minimum to achieve the desired state-<--------->*/
     public bool Idling() {
         if (_characterController2D.GetGrounded() && _horizontalXboxMove < 0.5f && _horizontalXboxMove > -0.5f) {
-            _animator.SetFloat("VelocityY", 0f);
+            _animator.SetFloat("VelocityY", 0f); // I need to explicitly reset the Y Velocity as Unity doesn't seem to do it
             SetState(State.Idling);
-            return true;    
+            return true;
         } else
             return false;
     }
@@ -327,7 +329,7 @@ public class PlayerState : MonoBehaviour {
     public bool Running() {
         
        if (_characterController2D.GetGrounded() && !Idling() && !Crouching()) {
-            _animator.SetFloat("VelocityY", 0f);
+            _animator.SetFloat("VelocityY", 0f); // I need to explicitly reset the Y Velocity as Unity doesn't seem to do it
             SetState(State.Running);
             return true;
         } else
@@ -339,7 +341,7 @@ public class PlayerState : MonoBehaviour {
             
             SetState(State.Crouching);
             _isCrouching = true;
-            _animator.SetBool("IsCrouching", _isCrouching);
+            _animator.SetBool("IsCrouching", _isCrouching); // an extra condition for crouching
             return _isCrouching;
             
         } else {
@@ -371,16 +373,17 @@ public class PlayerState : MonoBehaviour {
 
         if (!_characterController2D.GetGrounded()) {
 
+            // used to detect walls
             _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckOriginTop.position, _wallCheckRadius, _whatIsWall);
             _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckOriginBottom.position, _wallCheckRadius, _whatIsWall);
 
             if (_isTouchingWallTop || _isTouchingWallBottom) {
-                _doubleJump = false;
+                _doubleJump = false; // if you've double jumped already before touching a wall, you'll be able to double jump again after touching a wall
 
                 if (Input.GetButtonDown("XboxA"))
-                    WallJump(_characterController2D.GetFacingRight(), 0, 20);
+                    WallJump(_characterController2D.GetFacingRight(), 0, 20); // this will make the character jump up the wall they're touching, and only up
                 else {
-                    if (_rigidBody2D.velocity.y < 10) {
+                    if (_rigidBody2D.velocity.y < 10) { // I use the value 10 to control which animation plays when wall sliding. The higher the value, the sooner the wall sliding animation plays
                         _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
                         _animator.SetFloat("VelocityY", _wallSlideSpeed);
                         SetState(State.Wall_Sliding);
@@ -392,22 +395,25 @@ public class PlayerState : MonoBehaviour {
     
     public void TakeDamage(int _damage, float _knockBackX, float _knockBackY) {
 
-
+        /*First I check if the player isn't invincible (if they weren't hit). 
+            Invincibility is used to run a post-hit invincibility mechanic to prevent the player from taking too much damage is a short time
+            Search for "PostHitInvincibility()" to examine the function*/
         if (!_isInvincible) {
             if (_isArmourDepleted) {
 
                 _health -= _damage;
                 _xp.AddPoints(-5);
-            } else {
+            } else
                 _armour -= _damage;
-            }
         
         if (_armour <= 0) {
-            if (_armour < 0) _armour = 0;
+            if (_armour < 0) // make sure armour value isn't negative
+                _armour = 0;
             _isArmourDepleted = true;
         } else
             _isArmourDepleted = false;
         
+        // the player is knocked back depending on the direction they are facing
         if (_characterController2D.GetFacingRight())
             ApplyForce(-_knockBackX, _knockBackY);
         else
@@ -419,15 +425,17 @@ public class PlayerState : MonoBehaviour {
 
     IEnumerator PostHitInvincibility() {
         _isInvincible = true;
-        _spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+        _spriteRenderer.color = new Color(1, 1, 1, 0.5f); // I fade out the player's sprite by a little to indicate the PH Invincibility (Alpha 50%)
         SetState(State.Hurt);
-        yield return new WaitForSeconds(_invincibilityTime);
+        yield return new WaitForSeconds(_invincibilityTime); // after this time is up, the player is no longer invincibile. This value is 0.5
         _isInvincible = false;
-        _spriteRenderer.color = new Color(1, 1, 1, 1);
+        _spriteRenderer.color = new Color(1, 1, 1, 1); // Alpha is back to 100% to indicate normal, undamaged state
     }
 
     public bool Dead() {
         if (_health <= 0) {
+            if (_health < 0)
+                _health = 0;
             SetState(State.Dead);
             return true;
         } else
@@ -436,12 +444,11 @@ public class PlayerState : MonoBehaviour {
     /*<------------------------------->-End of State Functions-<------------------------------->*/
 
     void OpenUpgradeScreen() {
-        if (Input.GetButtonDown("View (Back)") && Idling()) {
+        if (Input.GetButtonDown("View (Back)") && Idling())
             _upgradesScreen.SetActive(true);
-            
-        }
     }
 
+    // NOT being used at the moment. This is meant to be an airborne strike to the ground, dealing massive damage
     void AirborneGroundAttack() {
         if (InAir() && Input.GetAxis("L-Stick-Vertical") > 0.75 && Input.GetButtonDown("XboxA")) {
             ApplyForce(0, -1000);
@@ -454,15 +461,16 @@ public class PlayerState : MonoBehaviour {
             _doubleJump = true;
         }
 
-        if (_characterController2D.GetGrounded()) {
-            // ResetVelocity();
+        // the player can now double jump since they've touched the ground
+        if (_characterController2D.GetGrounded())
             _doubleJump = false;
-        }
     }
 
     void ExecuteGroundAttack() {
+        // After some simple checks to make sure the player is on the ground when attacking...
         if (Input.GetButtonDown("XboxX") && _characterController2D.GetGrounded() && _canAttack && !Crouching()) {
 
+            // ... check which weapon they have equipped, and then display the correct animation
             if (_directionalPad._swordEquipped)
                 StartCoroutine(SwordGroundAttack());
             
@@ -492,7 +500,6 @@ public class PlayerState : MonoBehaviour {
 
     void ExecuteAirAttack() {
         if (Input.GetButtonDown("XboxX") && !_characterController2D.GetGrounded() && _canAirAttack) {
-            // StartCoroutine(SwordAirAttack());
 
             if (_directionalPad._swordEquipped)
                 StartCoroutine(SwordAirAttack());
@@ -523,38 +530,39 @@ public class PlayerState : MonoBehaviour {
     public void ScanForEnemies() { // this function is executed during sword, bow and martial arts attack animations
         Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
 
-          foreach(Collider2D _enemiesHit in _hitEnemies) {
+        foreach(Collider2D _enemiesHit in _hitEnemies) {
             StartCoroutine(_cameraShake.Shake(.1f, .15f));
 
+            // bow is not included in this list as it is a projectile based weapon
             if (_directionalPad._swordEquipped) {
                 _enemiesHit.GetComponent<Enemy>().TakeDamage(_swordAttackDamage); // damage the enemy
                 //    playArrSound(swordDamageList); // play a damage sound
             }
-            // else if (_directionalPad._bowEquipped) {
-            //     _enemiesHit.GetComponent<Enemy>().TakeDamage(_bowAttackDamage);
-            // }
             else if (_directionalPad._fistsEquipped) {
                 _enemiesHit.GetComponent<Enemy>().TakeDamage(_fistsAttackDamage);
             }
           
-          }
+        }
     }
 
+    // if the player swings sword while a projectile is in the way, the projectile will be destroyed
     public void ScanForProjectiles() {
         Collider2D[] _hitProjectiles = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _projectileLayers);
 
-          foreach(Collider2D _projectilesHit in _hitProjectiles) {
+        foreach(Collider2D _projectilesHit in _hitProjectiles) {
             StartCoroutine(_cameraShake.Shake(.1f, .1f));
             _projectilesHit.GetComponent<Projectile>().DestroyProjectile();
             //    playArrSound(swordDamageList); // play a damage sound
           }
     }
 
+    // a quick contact damage function for the player
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
             TakeDamage(2, 200, 1400);
     }
 
+    // this is used to interact with the world
     bool CheckForInteraction() {
             
         Collider2D[] _objectsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsItem);
@@ -566,7 +574,7 @@ public class PlayerState : MonoBehaviour {
                 switch(_object.name) {
 
                     case "TreasureChest":
-                        _object.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // grab the TreasureChest.cs script and call the function which will open the chest
+                        _object.GetComponent<TreasureChest>().SetTrigger("ChestOpen");
                         break;
                     case "Merchant":
                         _shopPanel.SetActive(true);
@@ -582,6 +590,7 @@ public class PlayerState : MonoBehaviour {
          return false;
     }
 
+    // NOT being used at the moment
     bool Blocking() {
         if (Input.GetButton("LB") && Idling()) {
             SetState(State.Blocking);
@@ -604,19 +613,12 @@ public class PlayerState : MonoBehaviour {
 
     void WallJump(bool _isFacingRight, float x, float y) {
 
-            if (_isFacingRight) {
-                _rigidBody2D.velocity = new Vector2(-x, y);
-                SetState(State.Wall_Jumping);
-                _animator.SetFloat("VelocityY", 20);
-            }
-            else {
-                SetState(State.Wall_Jumping);
-                _rigidBody2D.velocity = new Vector2(x, y);
-            }
+        _rigidBody2D.velocity = new Vector2(-x, y);
+        SetState(State.Wall_Jumping);
+        _animator.SetFloat("VelocityY", 20);
     }
 
     private void DashAbility() {
-
         if (Input.GetButtonDown("XboxB") && Running() && _canDash)
             StartCoroutine(Dash());
     }
@@ -639,6 +641,7 @@ public class PlayerState : MonoBehaviour {
         _rigidBody2D.AddForce(new Vector2(x, y));
     }
 
+    // this provides a small jump to the player when air attacking
     public void AirAttackForce() {
         ResetVelocity();
         _rigidBody2D.AddForce(new Vector2(0, 500));

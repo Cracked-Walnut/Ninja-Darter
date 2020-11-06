@@ -29,13 +29,10 @@ public class CanvasMap : MonoBehaviour {
             CloseCanvasMap();
     }
 
-    void OpenCanvasMap() { 
-        _canvasMapCamera.SetActive(true); 
+    void OpenCanvasMap() => _canvasMapCamera.SetActive(true); 
         // _ui.SetActive(false);
-    }
+    
 
-    void CloseCanvasMap() { 
-        _canvasMapCamera.SetActive(false);
+    void CloseCanvasMap() => _canvasMapCamera.SetActive(false);
         // _ui.SetActive(true);
-    }
 }
