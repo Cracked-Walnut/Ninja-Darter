@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour {
 
+    [SerializeField] private GameObject _ui;
+
     [SerializeField] private GameObject _player;
     [SerializeField] private Text _hpCurrentValue;
     [SerializeField] private Text _hpMaxValue;
@@ -39,6 +41,11 @@ public class UI : MonoBehaviour {
     private XP _xp;
     private PlayerState _playerState;
     private Timer _timer;
+
+    void Start() {
+        if (!_ui.activeInHierarchy)
+            _ui.SetActive(true);
+    }
 
     void Awake() { 
         _inventory = _player.GetComponent<Inventory>();

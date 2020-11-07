@@ -8,12 +8,20 @@ public class Projectile : MonoBehaviour {
     [SerializeField] private int _damage;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private GameObject _player;
+    private Animator _animator;
     private float _selfDestructTimer;
     private PlayerState _playerState;
 
-    void Start() => _selfDestructTimer = 2.0f;
+    void Start() {
+        _selfDestructTimer = 2.0f;
+        _animator.SetTrigger("Idling");
+        
+    } 
 
-    void Awake() => _playerState = _player.GetComponent<PlayerState>();
+    void Awake() { 
+        _playerState = _player.GetComponent<PlayerState>();
+        _animator = GetComponent<Animator>();
+    }
 
     void Update() {
         _rigidbody2D.velocity = transform.right * _speed;
@@ -21,13 +29,14 @@ public class Projectile : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        DestroyProjectile();
+        _animator.SetTrigger("Destroyed");
     }
     
     void CheckSelfDestructTime() {
         _selfDestructTimer -= Time.deltaTime;
-        if (_selfDestructTimer <= 0.0f)
-            DestroyProjectile();
+        if (_selfDestructTimer <= 0.0f) {;
+            _animator.SetTrigger("Destroyed");
+        }
     }
 
     public void DestroyProjectile() => Destroy(gameObject);

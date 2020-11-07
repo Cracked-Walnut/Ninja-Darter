@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 6738218179010420842}
   - component: {fileID: 6496724764394241859}
   - component: {fileID: 2771669025582085814}
+  - component: {fileID: 941967905785591050}
   m_Layer: 20
-  m_Name: EarthWispProjectile
+  m_Name: FireBall
   m_TagString: Wisp Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -2117422125
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b0cd40d9b026c9d4cbae555a9a9fc1ca, type: 3}
+  m_Sprite: {fileID: 6751714252925439555, guid: 220be856bae8c7245a7701033bc0ca06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -135,11 +136,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.031381488, y: -0.031380624}
+  m_Offset: {x: 1.35, y: -0.031380624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
+    oldSize: {x: 4.25, y: 0.5625}
     newSize: {x: 2, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,3 +149,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4483602, y: 0.6894457}
   m_EdgeRadius: 0
+--- !u!95 &941967905785591050
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254301260396380068}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f69d902cd33234c48a5846ac4f9540d6, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
