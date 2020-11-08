@@ -133,6 +133,7 @@ public class PlayerState : MonoBehaviour {
     public int GetMaxHealth() { return _maxHealth; }
     public void UpgradeMaxHealthBy(int _mhp) => _maxHealth += _mhp;
 
+    public void SetRunSpeed(float _r) => _runSpeed = _r;
 
     public int GetArmour() { return _armour; }
     public int GetMaxArmour() { return _maxArmour; }
@@ -558,8 +559,10 @@ public class PlayerState : MonoBehaviour {
 
     // a quick contact damage function for the player
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        if (_collisionInfo.collider.name == "Spikes" || _collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
-            TakeDamage(2, 200, 1400);
+        if (_collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
+            TakeDamage(2, 600, 0);
+        else if (_collisionInfo.collider.name == "Spikes")
+            TakeDamage(1, 0, 1400);
     }
 
     // this is used to interact with the world

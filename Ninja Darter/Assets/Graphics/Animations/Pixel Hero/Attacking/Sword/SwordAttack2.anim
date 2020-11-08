@@ -89,10 +89,24 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.016666668
+    functionName: SetRunSpeed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 25
+    intParameter: 0
+    messageOptions: 0
   - time: 0.06666667
     functionName: ScanForProjectiles
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.18333334
+    functionName: SetRunSpeed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 50
     intParameter: 0
     messageOptions: 0

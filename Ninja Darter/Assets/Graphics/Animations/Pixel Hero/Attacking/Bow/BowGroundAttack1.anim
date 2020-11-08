@@ -244,10 +244,24 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: SetRunSpeed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 15
+    intParameter: 0
+    messageOptions: 0
   - time: 0.46666667
     functionName: FireArrow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.7
+    functionName: SetRunSpeed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 50
     intParameter: 0
     messageOptions: 0
