@@ -32,6 +32,7 @@ public class PlayerState : MonoBehaviour {
     private int _swordAttackLevel;
     private int _bowAttackLevel;
     private int _fistsAttackLevel;
+    private int _fireBallAttackLevel;
 
     public int _health = 10;
     public int _maxHealth = 10;
@@ -62,6 +63,7 @@ public class PlayerState : MonoBehaviour {
     private int _swordAttackDamage = 35;
     private int _bowAttackDamage = 25;
     private int _fistsAttackDamage = 15;
+    private int _fireBallAttackDamage = 5;
 
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
@@ -164,6 +166,11 @@ public class PlayerState : MonoBehaviour {
 
     public int GetBowAttackLevel() { return _bowAttackLevel; }
     public int IncrementBowAttackLevel(int _bat) => _bowAttackLevel += _bat;
+
+    public int GetMaxFireBallAttackDamage() { return _fireBallAttackDamage; }
+    public int GetFireBallAttackLevel() { return _fireBallAttackLevel; }
+    public void UpgradeMaxFireBallAttackDamageBy(int _fb) => _fireBallAttackDamage += _fb;
+    public int IncrementFireBallAttackLevel(int _fbat) => _fireBallAttackLevel += _fbat;
     
     public int GetFistsAttackLevel() { return _fistsAttackLevel; }
     public int IncrementFistsAttackLevel(int _fat) => _fistsAttackLevel += _fat;
@@ -199,6 +206,7 @@ public class PlayerState : MonoBehaviour {
         _swordAttackLevel = 1;
         _bowAttackLevel = 1;
         _fistsAttackLevel = 1;
+        _fireBallAttackLevel = 1;
     }
 
     void Awake() { 

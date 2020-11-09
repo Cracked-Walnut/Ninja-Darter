@@ -45,6 +45,11 @@ public class InvestSP : MonoBehaviour {
                     _playerState.UpgradeMaxFistsAttackDamageBy(1);
                     _playerState.IncrementFistsAttackLevel(1);
                     break;
+                case "FireBall":
+                    _xp.DecrementSkillPoints(-1);
+                    _playerState.UpgradeMaxFireBallAttackDamageBy(1);
+                    _playerState.IncrementFireBallAttackLevel(1);
+                    break;
             }
         } else { /* play error sound*/ }
             
