@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Enemy projectile to damage the player
+
 public class Projectile : MonoBehaviour {
 
     [SerializeField] private float _speed;
@@ -15,7 +17,6 @@ public class Projectile : MonoBehaviour {
     void Start() {
         _selfDestructTimer = 2.0f;
         _animator.SetTrigger("Idling");
-        
     } 
 
     void Awake() { 

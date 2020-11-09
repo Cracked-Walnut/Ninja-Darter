@@ -27,6 +27,8 @@ public class WristBladeWeapon : MonoBehaviour {
         _animator = _player.GetComponent<Animator>();
     }
 
+    public int GetMaxQuantity() { return _maxQuantity; }
+
     public void CheckShuriken() {
 
         if (Input.GetButtonDown("XboxY")) {

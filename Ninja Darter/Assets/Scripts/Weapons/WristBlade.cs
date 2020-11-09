@@ -12,6 +12,7 @@ public class WristBlade : MonoBehaviour {
     [SerializeField] private float _throwSpeed;
     [SerializeField] private int _damage;
     [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] private Animator _animator;
     private GameObject _playerObject;
     private WristBladeWeapon _wristBladeWeapon;
 
@@ -20,7 +21,10 @@ public class WristBlade : MonoBehaviour {
         _wristBladeWeapon = _playerObject.GetComponent<WristBladeWeapon>();
     }
 
-    void Start() => _rigidbody2D.velocity = transform.right * _throwSpeed;
+    void Start() { 
+        _rigidbody2D.velocity = transform.right * _throwSpeed;
+        _animator.SetTrigger("Idling");
+    }
     
     /*A random number between 1 and 100
     if the number falls between 1 and the break chance, break the knife*/
@@ -32,21 +36,23 @@ public class WristBlade : MonoBehaviour {
             Destroy(gameObject);
     }
     
-    void OnCollisionEnter2D (Collision2D collision) {
+    void OnCollisionEnter2D (Collision2D _collision) {
         
-        switch(collision.gameObject.name) {
+        switch(_collision.gameObject.tag) {
             case "Enemy":
-                KnifeBreakChance(30, 1, 100);
-                //damage them
+                _collision.gameObject.GetComponent<Enemy>().TakeDamage(50);
+                _animator.SetTrigger("Destroyed");
                 break;
             case "Player":
-                _wristBladeWeapon.AddKnife(1);
                 Destroy(gameObject);
                 break;
             default:
+                _animator.SetTrigger("Destroyed");
                 break;
         }
-        // play sound
-        // play spark animation
+
+        // play sound in Destroyed Trigger
     }
+
+    public void DestroyProjectile() => Destroy(gameObject);
 }

@@ -21,6 +21,7 @@ public class UI : MonoBehaviour {
     [SerializeField] private Text _timerCurrentValue;
     /*-----------------------------------------------*/
     [SerializeField] private Text _wristBladesCurrentValue;
+    [SerializeField] private Text _wristBladesMaxValue;
     [SerializeField] private Text _arrowsCurrentValue;
     [SerializeField] private Text _arrowsMaxValue;
     /*-----------------------------------------------*/
@@ -40,6 +41,7 @@ public class UI : MonoBehaviour {
     private Inventory _inventory;
     private XP _xp;
     private PlayerState _playerState;
+    private WristBladeWeapon _wristBladeWeapon;
     private Timer _timer;
 
     void Start() {
@@ -51,6 +53,7 @@ public class UI : MonoBehaviour {
         _inventory = _player.GetComponent<Inventory>();
         _xp = _player.GetComponent<XP>();
         _playerState = _player.GetComponent<PlayerState>();
+        _wristBladeWeapon = _player.GetComponent<WristBladeWeapon>();
         _timer = _player.GetComponent<Timer>();
     }
 
@@ -67,6 +70,7 @@ public class UI : MonoBehaviour {
         _pointsCurrentValue.text = _xp.GetPoints().ToString();
         _cubeFragmentsCurrentValue.text = _inventory.GetCubeFragments().ToString();
         _wristBladesCurrentValue.text = _inventory.GetWristBlades().ToString();
+        _wristBladesMaxValue.text = _wristBladeWeapon.GetMaxQuantity().ToString();
         _arrowsCurrentValue.text = _inventory.GetArrows().ToString();
         _arrowsMaxValue.text = _inventory.GetMaxArrows().ToString();
         _upgradeMaxHealth.text = _playerState.GetMaxHealth().ToString();
