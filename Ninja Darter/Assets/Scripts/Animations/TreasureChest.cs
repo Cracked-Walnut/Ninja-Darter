@@ -20,15 +20,15 @@ public class TreasureChest : MonoBehaviour {
 
     public void AwardItem(string _item) {
 
-        switch(_item) {
-            case "Fragment":
-                _inventory.AddFragment(1);
-                Debug.Log(_inventory.GetCubeFragments());
-                break;
-            default:
-                Debug.Log("No Item to Award. Please try a different name.");
-                break;
-        }
+        // switch(_item) {
+        //     case "Fragment":
+        //         _inventory.AddFragment(1);
+        //         Debug.Log(_inventory.GetCubeFragments());
+        //         break;
+        //     default:
+        //         Debug.Log("No Item to Award. Please try a different name.");
+        //         break;
+        // }
 
         DisableCollider();
     }

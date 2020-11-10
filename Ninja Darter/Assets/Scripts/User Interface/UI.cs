@@ -17,7 +17,7 @@ public class UI : MonoBehaviour {
     [SerializeField] private Text _skillPointsValue;
     [SerializeField] private Text _coinsCurrentValue;
     [SerializeField] private Text _pointsCurrentValue;
-    [SerializeField] private Text _cubeFragmentsCurrentValue;
+    [SerializeField] private Text _emeraldsCurrentValue;
     [SerializeField] private Text _timerCurrentValue;
     /*-----------------------------------------------*/
     [SerializeField] private Text _fireBallCurrentValue;
@@ -72,8 +72,8 @@ public class UI : MonoBehaviour {
         
         _skillPointsValue.text = _xp.GetSkillPoints().ToString();
         _coinsCurrentValue.text = _inventory.GetCoins().ToString();
+        _emeraldsCurrentValue.text = _inventory.GetEmeralds().ToString();
         _pointsCurrentValue.text = _xp.GetPoints().ToString();
-        _cubeFragmentsCurrentValue.text = _inventory.GetCubeFragments().ToString();
         _fireBallCurrentValue.text = _inventory.GetWristBlades().ToString();
         _fireBallMaxValue.text = _wristBladeWeapon.GetMaxQuantity().ToString();
         _arrowsCurrentValue.text = _inventory.GetArrows().ToString();

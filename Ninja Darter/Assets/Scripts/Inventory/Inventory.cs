@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour {
     [SerializeField] private int _coins;
     [SerializeField] private int _arrows;
     [SerializeField] private int _maxArrows;
-    [SerializeField] private int _cubeFragments;
+    [SerializeField] private int _emeralds;
     [SerializeField] private int _wristBlades;
 
     [Header("Kills")]
@@ -27,8 +27,8 @@ public class Inventory : MonoBehaviour {
     public int GetMaxArrows() { return _maxArrows; }
     public void SetMaxArrows(int _maxArrow) => _maxArrows = _maxArrow;
 
-    public int GetCubeFragments() { return _cubeFragments; }
-    public int AddFragment(int _num) => _cubeFragments += _num;
+    public int GetEmeralds() { return _emeralds; }
+    public int AddEmerald(int _num) => _emeralds += _num;
     
     public void AddCoin(int _coin) {
         _coins += _coin;

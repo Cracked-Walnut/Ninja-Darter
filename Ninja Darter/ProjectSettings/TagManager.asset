@@ -17,6 +17,7 @@ TagManager:
   - UI
   - Armour
   - Merchant
+  - Emerald
   layers:
   - Default
   - TransparentFX
@@ -48,7 +49,7 @@ TagManager:
   - Armour
   - Quiver
   - Merchant
-  - 
+  - Emerald
   - 
   m_SortingLayers:
   - name: Default
@@ -80,6 +81,12 @@ TagManager:
     locked: 0
   - name: Coin
     uniqueID: 376541979
+    locked: 0
+  - name: Emerald
+    uniqueID: 3531349699
+    locked: 0
+  - name: SparkleEffect
+    uniqueID: 2954423091
     locked: 0
   - name: WristBlade
     uniqueID: 2117485347
