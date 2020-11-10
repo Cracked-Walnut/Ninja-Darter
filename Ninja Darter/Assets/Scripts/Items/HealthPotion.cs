@@ -14,6 +14,8 @@ public class HealthPotion : MonoBehaviour {
 
     public int GetShopPrice() { return _shopPrice; }
     public int GetReplenishValue() { return _replenishValue; }
+
+    void Awake() => _playerState = _player.GetComponent<PlayerState>();
     
     // this logic is for making contact with the item in the game.
     // there will be other logic when buying the item in a shop.
@@ -21,7 +23,6 @@ public class HealthPotion : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject == _player) {
 
-            _playerState = _player.GetComponent<PlayerState>();
 
             if (!_isPickedUp) {
                 if (_playerState.GetHealth() == _playerState.GetMaxHealth()) {
@@ -47,14 +48,15 @@ public class HealthPotion : MonoBehaviour {
     public void BuyHPInShop() {
         _inventory = _player.GetComponent<Inventory>();
 
-        if (_inventory.GetCoins() > _shopPrice) {
-            if (_playerState.GetHealth() >= _playerState.GetMaxHealth()) {
+        if (_inventory.GetCoins() >= _shopPrice) {
+            if (_playerState.GetHealth() == _playerState.GetMaxHealth()) {
                 // play error sound
                 Debug.Log("Health Full");
-                return;
             } else {
                 // play Healing sound
                 _playerState.AddHealth(_replenishValue);
+                _inventory.AddCoin(-_shopPrice);
+                Debug.Log(_inventory.GetCoins());
 
                 if (_playerState.GetHealth() > _playerState.GetMaxHealth())
                     _playerState.SetHealth(_playerState.GetMaxHealth());

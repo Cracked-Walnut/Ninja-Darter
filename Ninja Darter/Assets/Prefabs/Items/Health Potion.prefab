@@ -8,10 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1142413879289588260}
+  - component: {fileID: 6924909463428063947}
   - component: {fileID: 8797007463302388045}
   - component: {fileID: 2249013850838647035}
   - component: {fileID: 6920468461417527894}
+  - component: {fileID: 3450324512431251345}
   m_Layer: 22
   m_Name: Health Potion
   m_TagString: HealthPotion
@@ -19,20 +20,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1142413879289588260
-Transform:
+--- !u!224 &6924909463428063947
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145609081916228176}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.598703, y: -12.171885, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -17.598703, y: -12.171885}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8797007463302388045
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40,7 +46,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145609081916228176}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -73,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 1160660969
   m_SortingLayer: 11
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 09e58f418a6e2064eb8a701f40d3a5a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddd2b8653b8d84c47b759ab0c0177114, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,3 +132,11 @@ MonoBehaviour:
   _replenishValue: 5
   _player: {fileID: 0}
   _shopPrice: 5
+--- !u!222 &3450324512431251345
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145609081916228176}
+  m_CullTransparentMesh: 0

@@ -30,7 +30,10 @@ public class Inventory : MonoBehaviour {
     public int GetCubeFragments() { return _cubeFragments; }
     public int AddFragment(int _num) => _cubeFragments += _num;
     
-    public void AddCoin(int _coin) => _coins += _coin;
+    public void AddCoin(int _coin) {
+        _coins += _coin;
+        if (_coins < 0) _coin = 0;
+    }
     public int GetCoins() { return _coins; }
     public void SetCoins(int _thisCoin) => _thisCoin = _coins;
 
