@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-    [SerializeField] private float _stageTime;
+    [SerializeField] private float _stageTimeSeconds;
+    private int _stageTimeMinutes;
     [SerializeField] private float _bestStageTime;
     [SerializeField] private float _totalGameTime;
     [SerializeField] private bool _isTimerRunning;
 
     void Start() {
-        _stageTime = 0.0f;
+        _stageTimeSeconds = 0.0f;
         _isTimerRunning = true;
     }
 
@@ -20,8 +21,8 @@ public class Timer : MonoBehaviour {
         
         _isTimerRunning = false;
 
-        if (_stageTime < _bestStageTime) {
-            _bestStageTime = _stageTime;
+        if (_stageTimeSeconds < _bestStageTime) {
+            _bestStageTime = _stageTimeSeconds;
             Debug.Log("New Best Time: " + _bestStageTime);
         }
         else
@@ -31,15 +32,19 @@ public class Timer : MonoBehaviour {
 
     public void AddToTotalTime() { 
         _isTimerRunning = false;
-        _totalGameTime += _stageTime;
+        _totalGameTime += _stageTimeSeconds;
         Debug.Log("New Total Time: " + _totalGameTime); 
     }
     
-    public void StartTimer() => _stageTime += Time.deltaTime;
+    public void StartTimer() => _stageTimeSeconds += Time.deltaTime;
 
     public bool GetTimerRunning() { return _isTimerRunning; }
     public void SetTimerRunning(bool _timer) => _isTimerRunning = _timer;
 
-    public float GetStageTime() { return _stageTime; }
+    public float GetStageTimeSeconds() { return _stageTimeSeconds; }
+    public void SetStageTimeSeconds(float _sTime) => _stageTimeSeconds = _sTime;
+
+    public float GetStageTimeMinutes() { return _stageTimeMinutes; }
+    public void AddStageTimeMinutes(int _mTime) => _stageTimeMinutes += _mTime;
 
 }

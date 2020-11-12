@@ -25,34 +25,33 @@ public class InvestSP : MonoBehaviour {
                     _playerState.UpgradeMaxHealthBy(2);
                     _playerState.IncrementHPLevel(1);
                     break;
+                
                 case "Armour":
                     _xp.DecrementSkillPoints(-1);
                     _playerState.UpgradeMaxArmourBy(1);
                     _playerState.IncrementArmourLevel(1);
                     break;
-                case "Sword":
+                
+                case "Sword&MMA":
                     _xp.DecrementSkillPoints(-1);
                     _playerState.UpgradeMaxSwordAttackDamageBy(1);
                     _playerState.IncrementSwordAttackLevel(1);
-                    break;
-                case "Bow":
-                    _xp.DecrementSkillPoints(-1);
-                    _playerState.UpgradeMaxBowAttackDamageBy(1);
-                    _playerState.IncrementBowAttackLevel(1);
-                    break;
-                case "MartialArts":
+                    
                     _xp.DecrementSkillPoints(-1);
                     _playerState.UpgradeMaxFistsAttackDamageBy(1);
                     _playerState.IncrementFistsAttackLevel(1);
                     break;
-                case "FireBall":
+                
+                case "Bow&FireBall":
+                    _xp.DecrementSkillPoints(-1);
+                    _playerState.UpgradeMaxBowAttackDamageBy(1);
+                    _playerState.IncrementBowAttackLevel(1);
+
                     _xp.DecrementSkillPoints(-1);
                     _playerState.UpgradeMaxFireBallAttackDamageBy(1);
                     _playerState.IncrementFireBallAttackLevel(1);
                     break;
             }
         } else { /* play error sound*/ }
-            
     }
-
 }

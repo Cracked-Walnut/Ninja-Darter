@@ -60,10 +60,10 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private Animator _animator;
 
     [Header("Attacking")]
-    private int _swordAttackDamage = 35;
-    private int _bowAttackDamage = 25;
-    private int _fistsAttackDamage = 15;
-    private int _fireBallAttackDamage = 5;
+    private int _swordAttackDamage = 5;
+    private int _bowAttackDamage = 3;
+    private int _fistsAttackDamage = 3;
+    private int _fireBallAttackDamage = 2;
 
     [SerializeField] private bool _canAttack = true;
     [SerializeField] private bool _canAirAttack = false;
@@ -585,7 +585,7 @@ public class PlayerState : MonoBehaviour {
                 switch(_object.name) {
 
                     case "TreasureChest":
-                        _object.GetComponent<TreasureChest>().SetTrigger("ChestOpen");
+                        _object.GetComponent<TreasureChest>().SetTrigger("ChestOpen"); // Chest Item is awarded in the ChestOpen animation
                         break;
                     case "Merchant":
                         _shopPanel.SetActive(true);

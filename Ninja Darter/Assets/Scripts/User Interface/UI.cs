@@ -7,6 +7,8 @@ public class UI : MonoBehaviour {
 
     [SerializeField] private GameObject _ui;
 
+    [SerializeField] private GameObject _minutes;
+
     [SerializeField] private GameObject _player;
     [SerializeField] private Text _hpCurrentValue;
     [SerializeField] private Text _hpMaxValue;
@@ -18,7 +20,9 @@ public class UI : MonoBehaviour {
     [SerializeField] private Text _coinsCurrentValue;
     [SerializeField] private Text _pointsCurrentValue;
     [SerializeField] private Text _emeraldsCurrentValue;
-    [SerializeField] private Text _timerCurrentValue;
+    [SerializeField] private Text _timerSeconds;
+    [SerializeField] private Text _timerMinutes;
+
     /*-----------------------------------------------*/
     [SerializeField] private Text _fireBallCurrentValue;
     [SerializeField] private Text _fireBallMaxValue;
@@ -95,10 +99,17 @@ public class UI : MonoBehaviour {
         
         _spValue.text = _xp.GetSkillPoints().ToString();
 
+        _timerMinutes.text = _timer.GetStageTimeMinutes().ToString();
+
         if (_timer.GetTimerRunning()) {
             _timer.StartTimer();
-            string _roundedTotalTime = _timer.GetStageTime().ToString("#.00");
-            _timerCurrentValue.text = _roundedTotalTime;
+            string _roundedTotalTime = _timer.GetStageTimeSeconds().ToString("0");
+            _timerSeconds.text = _roundedTotalTime;
+        }
+
+        if (_timer.GetStageTimeSeconds() >= 60) {
+            _timer.SetStageTimeSeconds(0f);
+            _timer.AddStageTimeMinutes(1);
         }
     }
 }
