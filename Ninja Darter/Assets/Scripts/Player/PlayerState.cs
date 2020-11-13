@@ -48,7 +48,7 @@ public class PlayerState : MonoBehaviour {
     [Header("Invincibility")]
     [SerializeField] private bool _isInvincible;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    private float _invincibilityTime = 0.5f;
+    [SerializeField] private float _invincibilityTime;
 
     [Header("Upgrades Screen")]
     [SerializeField] private GameObject _upgradesScreen;
@@ -302,6 +302,8 @@ public class PlayerState : MonoBehaviour {
             case State.On_Wall:
                 break;
             case State.Hurt:
+                // _animator.SetTrigger("Hurt");
+                // _animator.SetBool("IsHurt", true);
                 break;
             case State.Dead:
                 break;
@@ -435,8 +437,12 @@ public class PlayerState : MonoBehaviour {
     IEnumerator PostHitInvincibility() {
         _isInvincible = true;
         _spriteRenderer.color = new Color(1, 1, 1, 0.5f); // I fade out the player's sprite by a little to indicate the PH Invincibility (Alpha 50%)
-        SetState(State.Hurt);
+        _canMove = false;
+        // SetState(State.Hurt);
+        ResetVelocity();
         yield return new WaitForSeconds(_invincibilityTime); // after this time is up, the player is no longer invincibile. This value is 0.5
+        // _animator.SetBool("IsHurt", false);
+        _canMove = true;
         _isInvincible = false;
         _spriteRenderer.color = new Color(1, 1, 1, 1); // Alpha is back to 100% to indicate normal, undamaged state
     }
@@ -568,7 +574,7 @@ public class PlayerState : MonoBehaviour {
     // a quick contact damage function for the player
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
         if (_collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
-            TakeDamage(2, 600, 0);
+            TakeDamage(2, 900, 600);
         else if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(1, 0, 1400);
     }

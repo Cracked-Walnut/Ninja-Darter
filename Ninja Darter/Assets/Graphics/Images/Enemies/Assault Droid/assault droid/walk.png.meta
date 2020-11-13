@@ -1,7 +1,151 @@
 fileFormatVersion: 2
 guid: 12abbdd930130254a8ac086c56ff1459
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8296385383580801948
+    second: walk_0
+  - first:
+      213: 3218353051568008401
+    second: walk_1
+  - first:
+      213: 6971375644381031630
+    second: walk_2
+  - first:
+      213: -3714987382563562326
+    second: walk_3
+  - first:
+      213: -2044624726750869082
+    second: walk_4
+  - first:
+      213: -1800561202758830752
+    second: walk_5
+  - first:
+      213: -7072565547094396234
+    second: walk_6
+  - first:
+      213: -6780060589664581786
+    second: walk_7
+  - first:
+      213: 2251703588619409307
+    second: walk_8
+  - first:
+      213: -5224373444711448209
+    second: walk_9
+  - first:
+      213: 8428286525173097495
+    second: walk_10
+  - first:
+      213: -2787140197056013511
+    second: walk_11
+  - first:
+      213: -8260419473583676578
+    second: walk_12
+  - first:
+      213: 6000581766031926614
+    second: walk_13
+  - first:
+      213: -6959915571989194883
+    second: walk_14
+  - first:
+      213: 960921020097805623
+    second: walk_15
+  - first:
+      213: -3336701548478254045
+    second: walk_16
+  - first:
+      213: -5400053455435091454
+    second: walk_17
+  - first:
+      213: 4408406346810168619
+    second: walk_18
+  - first:
+      213: -485737157877676475
+    second: walk_19
+  - first:
+      213: -5106187503225981072
+    second: walk_20
+  - first:
+      213: 4312765686203540801
+    second: walk_21
+  - first:
+      213: 5251978615751408329
+    second: walk_22
+  - first:
+      213: 2965599932687856292
+    second: walk_23
+  - first:
+      213: 2365076705713957727
+    second: walk_24
+  - first:
+      213: 6256131582671704638
+    second: walk_25
+  - first:
+      213: 7208522903439339441
+    second: walk_26
+  - first:
+      213: -8803371887732516606
+    second: walk_27
+  - first:
+      213: 5930265372572760309
+    second: walk_28
+  - first:
+      213: -5586679451514871875
+    second: walk_29
+  - first:
+      213: 992266644526108889
+    second: walk_30
+  - first:
+      213: 366874253998779255
+    second: walk_31
+  - first:
+      213: -2032002718665332778
+    second: walk_32
+  - first:
+      213: -4104740983185036373
+    second: walk_33
+  - first:
+      213: -4977435019415729165
+    second: walk_34
+  - first:
+      213: 8487346413091855888
+    second: walk_35
+  - first:
+      213: 7867316869532096298
+    second: walk_36
+  - first:
+      213: -3487098778599783534
+    second: walk_37
+  - first:
+      213: -7982619964074437202
+    second: walk_38
+  - first:
+      213: -8747296145255524082
+    second: walk_39
+  - first:
+      213: 882540889661740531
+    second: walk_40
+  - first:
+      213: 4762964406250004357
+    second: walk_41
+  - first:
+      213: -1065718184345265914
+    second: walk_42
+  - first:
+      213: -4013227829622527288
+    second: walk_43
+  - first:
+      213: -4626063701832423283
+    second: walk_44
+  - first:
+      213: 84545799614747898
+    second: walk_45
+  - first:
+      213: 4430353799650508464
+    second: walk_46
+  - first:
+      213: -8727532508587781172
+    second: walk_47
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +176,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +185,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,7 +210,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -75,7 +231,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 190
+        width: 151
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4646ce323715ddc80800000000000000
+      internalID: -8296385383580801948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 151
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc61808c03e9ac20800000000000000
+      internalID: 3218353051568008401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 151
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc242f663d4fb060800000000000000
+      internalID: 6971375644381031630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 151
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac9d3d88a6b17cc0800000000000000
+      internalID: -3714987382563562326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 151
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9c807d4a800a3e0800000000000000
+      internalID: -2044624726750869082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 151
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065b539302f1307e0800000000000000
+      internalID: -1800561202758830752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
