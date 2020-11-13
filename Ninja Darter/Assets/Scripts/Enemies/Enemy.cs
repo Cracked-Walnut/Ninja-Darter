@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    [SerializeField] private int _health = 100;
     [SerializeField] private GameObject _player;
-    [SerializeField] private Animator _animator;
-    [SerializeField] private int _xpUponDeath;
+    [SerializeField] private int _health = 100;
+    [SerializeField] private int _xpUponDeath = 2;
+    public bool _isDead;
+    [SerializeField] private string _startAnimation;
+    private float _hurtTime = 0.2f;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider2D;
     private bool _facingRight;
     private XP _xp;
     private Inventory _inventory;
 
-    private void Awake() { 
+    void Start() { 
+        _isDead = false;
+        _animator.SetTrigger(_startAnimation);
+    }
+    
+    void Awake() { 
         _xp = _player.GetComponent<XP>();
         _inventory = _player.GetComponent<Inventory>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void SetFacingRight(bool _facingRight) => this._facingRight = _facingRight;
@@ -24,9 +35,10 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(int _damage) {
         
         _health -= _damage;
+        StartCoroutine(Hurt());
 
         if (_health <= 0)
-            Dead();
+            _animator.SetTrigger("Dead");
     }
 
     void Die() => Destroy(gameObject);
@@ -45,8 +57,16 @@ public class Enemy : MonoBehaviour {
         }        
     }
 
-    public void Dead() { 
-        _animator.SetTrigger("Dead");
+    public IEnumerator Hurt() {
+        _spriteRenderer.color = new Color(1, 0, 0, 0.5f);
+        yield return new WaitForSeconds(_hurtTime);
+        _spriteRenderer.color = new Color(1, 1, 1, 1);
+    }
+
+    public void Dead() {
+        _isDead = true;
+        _animator.SetBool("IsDead", _isDead);
+        // _animator.SetTrigger("Dead");
         _boxCollider2D.enabled = !_boxCollider2D.enabled;
         _xp.AddPoints(_xpUponDeath);
         _inventory.AddKill(1);

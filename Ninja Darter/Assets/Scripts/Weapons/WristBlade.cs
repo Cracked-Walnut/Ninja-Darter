@@ -14,10 +14,12 @@ public class WristBlade : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Animator _animator;
     private GameObject _playerObject;
+    private PlayerState _playerState;
     private WristBladeWeapon _wristBladeWeapon;
 
     void Awake() { 
         _playerObject = GameObject.Find("Player");
+        _playerState = _playerObject.GetComponent<PlayerState>();
         _wristBladeWeapon = _playerObject.GetComponent<WristBladeWeapon>();
     }
 
@@ -40,7 +42,7 @@ public class WristBlade : MonoBehaviour {
         
         switch(_collision.gameObject.tag) {
             case "Enemy":
-                _collision.gameObject.GetComponent<Enemy>().TakeDamage(50);
+                _collision.gameObject.GetComponent<Enemy>().TakeDamage(_playerState.GetMaxFireBallAttackDamage());
                 _animator.SetTrigger("Destroyed");
                 break;
             case "Player":
