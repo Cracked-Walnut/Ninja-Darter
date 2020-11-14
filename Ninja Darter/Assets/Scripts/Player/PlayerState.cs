@@ -392,7 +392,7 @@ public class PlayerState : MonoBehaviour {
                 _doubleJump = false; // if you've double jumped already before touching a wall, you'll be able to double jump again after touching a wall
 
                 if (Input.GetButtonDown("XboxA"))
-                    WallJump(_characterController2D.GetFacingRight(), 0, 20); // this will make the character jump up the wall they're touching, and only up
+                    WallJump(0, 20); // this will make the character jump up the wall they're touching, and only up
                 else {
                     if (_rigidBody2D.velocity.y < 10) { // I use the value 10 to control which animation plays when wall sliding. The higher the value, the sooner the wall sliding animation plays
                         _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
@@ -628,9 +628,15 @@ public class PlayerState : MonoBehaviour {
         }
     }
 
-    void WallJump(bool _isFacingRight, float x, float y) {
+    void WallJump(float x, float y) {
 
-        _rigidBody2D.velocity = new Vector2(-x, y);
+        if (_characterController2D.GetFacingRight()) {
+            _rigidBody2D.velocity = new Vector2(x, y);
+
+        }
+        else
+            _rigidBody2D.velocity = new Vector2(-x, y);
+            
         SetState(State.Wall_Jumping);
         _animator.SetFloat("VelocityY", 20);
     }

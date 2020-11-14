@@ -195,6 +195,11 @@ MonoBehaviour:
   _player: {fileID: 0}
   _health: 100
   _xpUponDeath: 0
+  _startAnimation: 
+  _emeraldDropAmount: 0
+  _coinDropAmount: 0
+  _dropPercentage: 0
+  _isDead: 0
 --- !u!1 &7610247037413230770
 GameObject:
   m_ObjectHideFlags: 0
