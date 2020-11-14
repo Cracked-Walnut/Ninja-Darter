@@ -7,8 +7,12 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private GameObject _player;
     [SerializeField] private int _health = 100;
     [SerializeField] private int _xpUponDeath = 2;
-    public bool _isDead;
     [SerializeField] private string _startAnimation;
+    [SerializeField] private int _emeraldDropAmount;
+    [SerializeField] private int _coinDropAmount;
+    [SerializeField] private int _dropPercentage;
+    
+    public bool _isDead;
     private float _hurtTime = 0.2f;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -63,6 +67,18 @@ public class Enemy : MonoBehaviour {
         _spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
+    public void RollDrops() {
+        float _chanceDrop = Random.Range(1f, 100f);
+        if (_chanceDrop  <= _dropPercentage) {
+            float _coinOrEmerald = Random.Range(1, 8);
+
+            if (_coinOrEmerald <= 2)
+                _inventory.AddEmerald(_emeraldDropAmount);
+            else
+                _inventory.AddCoin(_coinDropAmount);
+        }
+    }
+
     public void Dead() {
         _isDead = true;
         _animator.SetBool("IsDead", _isDead);
@@ -70,5 +86,6 @@ public class Enemy : MonoBehaviour {
         _boxCollider2D.enabled = !_boxCollider2D.enabled;
         _xp.AddPoints(_xpUponDeath);
         _inventory.AddKill(1);
+        RollDrops();
     }
 }
