@@ -18,6 +18,7 @@ TagManager:
   - Armour
   - Merchant
   - Emerald
+  - Line
   layers:
   - Default
   - TransparentFX
@@ -50,7 +51,7 @@ TagManager:
   - Quiver
   - Merchant
   - Emerald
-  - 
+  - Line
   m_SortingLayers:
   - name: Default
     uniqueID: 0

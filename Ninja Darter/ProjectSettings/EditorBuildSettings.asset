@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Stages/Procedurally Generated Stages/Stage-1.unity
-    guid: 56107e65a664af64497dc1f41e4a6332
+    path: Assets/Scenes/Press_Start.unity
+    guid: 23cbfdcbfcecb5a4ba526df0cf8b283d
   - enabled: 1
     path: Assets/Scenes/Main_Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Stages/Stage-1.unity
-    guid: 1953c354bf9fed145892b744fbe1a87a
+    path: Assets/Scenes/Biomes/1-Ruins/Ruins-Biome.unity
+    guid: 9b145aa243791f64ab21ceae1514cef4
+  - enabled: 1
+    path: Assets/Scenes/Test_Stages/Procedurally Generated Stages/Stage-1.unity
+    guid: 56107e65a664af64497dc1f41e4a6332
   m_configObjects: {}
