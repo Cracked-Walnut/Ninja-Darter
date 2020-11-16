@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour {
     private PlayerState _playerState;
 
     void Start() {
-        _selfDestructTimer = 2.0f;
+        _selfDestructTimer = 6.0f;
         _animator.SetTrigger("Idling");
     } 
 

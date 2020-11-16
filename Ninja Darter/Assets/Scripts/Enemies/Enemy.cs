@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     [SerializeField] private GameObject _player;
-    [SerializeField] private int _health = 100;
+    [SerializeField] private int _health = 10;
     [SerializeField] private int _xpUponDeath = 2;
     [SerializeField] private string _startAnimation;
     [SerializeField] private int _emeraldDropAmount;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CanvasMap : MonoBehaviour {
 
     [SerializeField] private GameObject _canvasMapCamera;
-    [SerializeField] private GameObject _minimapCamera;
+    // [SerializeField] private GameObject _minimapCamera;
     [SerializeField] private GameObject _ui;
     private bool _canOpenMap;
 
@@ -14,7 +14,7 @@ public class CanvasMap : MonoBehaviour {
 
     void Start() {
         _canvasMapCamera.SetActive(false);
-        _minimapCamera.SetActive(true);
+        // _minimapCamera.SetActive(true);
         _canOpenMap = true;
     }
     

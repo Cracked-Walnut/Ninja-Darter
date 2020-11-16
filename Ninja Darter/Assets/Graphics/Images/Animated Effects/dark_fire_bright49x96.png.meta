@@ -1,7 +1,550 @@
 fileFormatVersion: 2
 guid: c6d82a16a2e85d64f94649177e332816
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3551928114666077876
+    second: dark_fire_bright49x96_0
+  - first:
+      213: -2804539188316513650
+    second: dark_fire_bright49x96_1
+  - first:
+      213: -4800953920135032585
+    second: dark_fire_bright49x96_2
+  - first:
+      213: 8099437300274037229
+    second: dark_fire_bright49x96_3
+  - first:
+      213: 3709194131635181689
+    second: dark_fire_bright49x96_4
+  - first:
+      213: -6459892957263025259
+    second: dark_fire_bright49x96_5
+  - first:
+      213: 2959725768042027272
+    second: dark_fire_bright49x96_6
+  - first:
+      213: 6965212065979442478
+    second: dark_fire_bright49x96_7
+  - first:
+      213: 8286827036664556733
+    second: dark_fire_bright49x96_8
+  - first:
+      213: -4017575090940801889
+    second: dark_fire_bright49x96_9
+  - first:
+      213: -8927183484498649399
+    second: dark_fire_bright49x96_10
+  - first:
+      213: -5830221590201670497
+    second: dark_fire_bright49x96_11
+  - first:
+      213: -875973614702557400
+    second: dark_fire_bright49x96_12
+  - first:
+      213: 1851906278861152541
+    second: dark_fire_bright49x96_13
+  - first:
+      213: -6269593243953846951
+    second: dark_fire_bright49x96_14
+  - first:
+      213: 8011877014425318131
+    second: dark_fire_bright49x96_15
+  - first:
+      213: 1436468207158402869
+    second: dark_fire_bright49x96_16
+  - first:
+      213: 7720977032602208363
+    second: dark_fire_bright49x96_17
+  - first:
+      213: 800933322991267923
+    second: dark_fire_bright49x96_18
+  - first:
+      213: 4372235341758993594
+    second: dark_fire_bright49x96_19
+  - first:
+      213: -4907997569200711765
+    second: dark_fire_bright49x96_20
+  - first:
+      213: 2260250244317974561
+    second: dark_fire_bright49x96_21
+  - first:
+      213: 8550022331998470953
+    second: dark_fire_bright49x96_22
+  - first:
+      213: 4780957914531539527
+    second: dark_fire_bright49x96_23
+  - first:
+      213: 7140036341978982710
+    second: dark_fire_bright49x96_24
+  - first:
+      213: -2527327520286177673
+    second: dark_fire_bright49x96_25
+  - first:
+      213: 1819110483362069010
+    second: dark_fire_bright49x96_26
+  - first:
+      213: -6452642008785106235
+    second: dark_fire_bright49x96_27
+  - first:
+      213: -3514378802735979979
+    second: dark_fire_bright49x96_28
+  - first:
+      213: -8876461400642087153
+    second: dark_fire_bright49x96_29
+  - first:
+      213: 5583823310256105921
+    second: dark_fire_bright49x96_30
+  - first:
+      213: -5172355242498857687
+    second: dark_fire_bright49x96_31
+  - first:
+      213: 9220235229594369237
+    second: dark_fire_bright49x96_32
+  - first:
+      213: 1067854725643468627
+    second: dark_fire_bright49x96_33
+  - first:
+      213: 7343327919006800587
+    second: dark_fire_bright49x96_34
+  - first:
+      213: 4552370975161436098
+    second: dark_fire_bright49x96_35
+  - first:
+      213: 8369310515164946058
+    second: dark_fire_bright49x96_36
+  - first:
+      213: 2871764344903711442
+    second: dark_fire_bright49x96_37
+  - first:
+      213: 2068799449249544889
+    second: dark_fire_bright49x96_38
+  - first:
+      213: -9093810262329586699
+    second: dark_fire_bright49x96_39
+  - first:
+      213: 7858054659726692899
+    second: dark_fire_bright49x96_40
+  - first:
+      213: 6555100353893904029
+    second: dark_fire_bright49x96_41
+  - first:
+      213: 3009138185054499555
+    second: dark_fire_bright49x96_42
+  - first:
+      213: 4453752787324624843
+    second: dark_fire_bright49x96_43
+  - first:
+      213: -649055952116012187
+    second: dark_fire_bright49x96_44
+  - first:
+      213: 374686306545078976
+    second: dark_fire_bright49x96_45
+  - first:
+      213: 2193365028498529333
+    second: dark_fire_bright49x96_46
+  - first:
+      213: 5445313144236291907
+    second: dark_fire_bright49x96_47
+  - first:
+      213: -5844906298619706937
+    second: dark_fire_bright49x96_48
+  - first:
+      213: -4200751828666950300
+    second: dark_fire_bright49x96_49
+  - first:
+      213: 8880558464819297648
+    second: dark_fire_bright49x96_50
+  - first:
+      213: -8366441649973740654
+    second: dark_fire_bright49x96_51
+  - first:
+      213: 2580690689931317573
+    second: dark_fire_bright49x96_52
+  - first:
+      213: 2111756007114733153
+    second: dark_fire_bright49x96_53
+  - first:
+      213: -328783640201511408
+    second: dark_fire_bright49x96_54
+  - first:
+      213: -3975923985723811955
+    second: dark_fire_bright49x96_55
+  - first:
+      213: 4928620903351234424
+    second: dark_fire_bright49x96_56
+  - first:
+      213: -6101058046352153298
+    second: dark_fire_bright49x96_57
+  - first:
+      213: -6981419134823006241
+    second: dark_fire_bright49x96_58
+  - first:
+      213: -5297033839944123828
+    second: dark_fire_bright49x96_59
+  - first:
+      213: -423042137253960043
+    second: dark_fire_bright49x96_60
+  - first:
+      213: -6022567839763696059
+    second: dark_fire_bright49x96_61
+  - first:
+      213: -4757678851796202622
+    second: dark_fire_bright49x96_62
+  - first:
+      213: -2703599540635237201
+    second: dark_fire_bright49x96_63
+  - first:
+      213: -7745098074878699929
+    second: dark_fire_bright49x96_64
+  - first:
+      213: 1264037428093151816
+    second: dark_fire_bright49x96_65
+  - first:
+      213: 1922457111720765810
+    second: dark_fire_bright49x96_66
+  - first:
+      213: 5427777898549209522
+    second: dark_fire_bright49x96_67
+  - first:
+      213: 8759341136184579847
+    second: dark_fire_bright49x96_68
+  - first:
+      213: -4427275303193445706
+    second: dark_fire_bright49x96_69
+  - first:
+      213: -7370008312844548014
+    second: dark_fire_bright49x96_70
+  - first:
+      213: 6529561346753140057
+    second: dark_fire_bright49x96_71
+  - first:
+      213: -3060020872024022073
+    second: dark_fire_bright49x96_72
+  - first:
+      213: 8677001543704832328
+    second: dark_fire_bright49x96_73
+  - first:
+      213: -7586279988612758989
+    second: dark_fire_bright49x96_74
+  - first:
+      213: 6241323938177143858
+    second: dark_fire_bright49x96_75
+  - first:
+      213: -5084796529611441435
+    second: dark_fire_bright49x96_76
+  - first:
+      213: -1886101116983992001
+    second: dark_fire_bright49x96_77
+  - first:
+      213: -3647396463901035747
+    second: dark_fire_bright49x96_78
+  - first:
+      213: 2492952506415587557
+    second: dark_fire_bright49x96_79
+  - first:
+      213: -2801923611600999537
+    second: dark_fire_bright49x96_80
+  - first:
+      213: -2481474553451709959
+    second: dark_fire_bright49x96_81
+  - first:
+      213: 4451316956309830318
+    second: dark_fire_bright49x96_82
+  - first:
+      213: 3410447150024904206
+    second: dark_fire_bright49x96_83
+  - first:
+      213: 60434534658219077
+    second: dark_fire_bright49x96_84
+  - first:
+      213: 982191481139186023
+    second: dark_fire_bright49x96_85
+  - first:
+      213: -270385753955910886
+    second: dark_fire_bright49x96_86
+  - first:
+      213: -4289465283660775072
+    second: dark_fire_bright49x96_87
+  - first:
+      213: -900905668203188738
+    second: dark_fire_bright49x96_88
+  - first:
+      213: -4733382057785148996
+    second: dark_fire_bright49x96_89
+  - first:
+      213: -6964448412943238765
+    second: dark_fire_bright49x96_90
+  - first:
+      213: 6208740882215156683
+    second: dark_fire_bright49x96_91
+  - first:
+      213: 350290093757267159
+    second: dark_fire_bright49x96_92
+  - first:
+      213: 8611446671025604592
+    second: dark_fire_bright49x96_93
+  - first:
+      213: -1820637214349359508
+    second: dark_fire_bright49x96_94
+  - first:
+      213: -2356560825138257796
+    second: dark_fire_bright49x96_95
+  - first:
+      213: 1399182209573213030
+    second: dark_fire_bright49x96_96
+  - first:
+      213: 7445519726407192310
+    second: dark_fire_bright49x96_97
+  - first:
+      213: 1759413098134751793
+    second: dark_fire_bright49x96_98
+  - first:
+      213: 1626934906395019368
+    second: dark_fire_bright49x96_99
+  - first:
+      213: 7209510907664032187
+    second: dark_fire_bright49x96_100
+  - first:
+      213: 2050058239376377014
+    second: dark_fire_bright49x96_101
+  - first:
+      213: 8604529552211274174
+    second: dark_fire_bright49x96_102
+  - first:
+      213: 7281949208272246149
+    second: dark_fire_bright49x96_103
+  - first:
+      213: 952589445265987836
+    second: dark_fire_bright49x96_104
+  - first:
+      213: 1141156827066639127
+    second: dark_fire_bright49x96_105
+  - first:
+      213: -281018149126756885
+    second: dark_fire_bright49x96_106
+  - first:
+      213: -4399914675783328235
+    second: dark_fire_bright49x96_107
+  - first:
+      213: -2553630823624503173
+    second: dark_fire_bright49x96_108
+  - first:
+      213: 9193611870595570609
+    second: dark_fire_bright49x96_109
+  - first:
+      213: -8600356158577342200
+    second: dark_fire_bright49x96_110
+  - first:
+      213: 3567555645202883778
+    second: dark_fire_bright49x96_111
+  - first:
+      213: -4247799880057469547
+    second: dark_fire_bright49x96_112
+  - first:
+      213: -2923317984832544016
+    second: dark_fire_bright49x96_113
+  - first:
+      213: -3825754085621745312
+    second: dark_fire_bright49x96_114
+  - first:
+      213: -7821623029128152811
+    second: dark_fire_bright49x96_115
+  - first:
+      213: -8141184886642571308
+    second: dark_fire_bright49x96_116
+  - first:
+      213: -8337261015929829791
+    second: dark_fire_bright49x96_117
+  - first:
+      213: 2026226081939676193
+    second: dark_fire_bright49x96_118
+  - first:
+      213: 8511678472850482490
+    second: dark_fire_bright49x96_119
+  - first:
+      213: 2212555179196008158
+    second: dark_fire_bright49x96_120
+  - first:
+      213: 5148066574373540778
+    second: dark_fire_bright49x96_121
+  - first:
+      213: -8174108729870564778
+    second: dark_fire_bright49x96_122
+  - first:
+      213: -1882103380653287720
+    second: dark_fire_bright49x96_123
+  - first:
+      213: 6959057954820008199
+    second: dark_fire_bright49x96_124
+  - first:
+      213: -4623545327203305698
+    second: dark_fire_bright49x96_125
+  - first:
+      213: -3692675384700414711
+    second: dark_fire_bright49x96_126
+  - first:
+      213: -564651279504441360
+    second: dark_fire_bright49x96_127
+  - first:
+      213: 803073305399842876
+    second: dark_fire_bright49x96_128
+  - first:
+      213: 2790259983591173011
+    second: dark_fire_bright49x96_129
+  - first:
+      213: 1719724830196645942
+    second: dark_fire_bright49x96_130
+  - first:
+      213: -4630428864404099009
+    second: dark_fire_bright49x96_131
+  - first:
+      213: 5496187154020667472
+    second: dark_fire_bright49x96_132
+  - first:
+      213: -809419324407450689
+    second: dark_fire_bright49x96_133
+  - first:
+      213: 5853533262983171041
+    second: dark_fire_bright49x96_134
+  - first:
+      213: -7114175548604704615
+    second: dark_fire_bright49x96_135
+  - first:
+      213: 3155796946198176430
+    second: dark_fire_bright49x96_136
+  - first:
+      213: -8580939638399873258
+    second: dark_fire_bright49x96_137
+  - first:
+      213: 3854140869698800306
+    second: dark_fire_bright49x96_138
+  - first:
+      213: -2742957569099582357
+    second: dark_fire_bright49x96_139
+  - first:
+      213: 7748101503747867021
+    second: dark_fire_bright49x96_140
+  - first:
+      213: -1151808458969398283
+    second: dark_fire_bright49x96_141
+  - first:
+      213: -5341533815827029626
+    second: dark_fire_bright49x96_142
+  - first:
+      213: 3432547803461497453
+    second: dark_fire_bright49x96_143
+  - first:
+      213: 1715720184515145277
+    second: dark_fire_bright49x96_144
+  - first:
+      213: -2406626715022198544
+    second: dark_fire_bright49x96_145
+  - first:
+      213: -8057267562208725353
+    second: dark_fire_bright49x96_146
+  - first:
+      213: 4211500737623112110
+    second: dark_fire_bright49x96_147
+  - first:
+      213: 6018895304012911720
+    second: dark_fire_bright49x96_148
+  - first:
+      213: 6403104535307785622
+    second: dark_fire_bright49x96_149
+  - first:
+      213: -4390901823101297388
+    second: dark_fire_bright49x96_150
+  - first:
+      213: 8139033732516375549
+    second: dark_fire_bright49x96_151
+  - first:
+      213: 5315437787457427133
+    second: dark_fire_bright49x96_152
+  - first:
+      213: 6906525189204795175
+    second: dark_fire_bright49x96_153
+  - first:
+      213: 6026872491388973421
+    second: dark_fire_bright49x96_154
+  - first:
+      213: -2655114241625097358
+    second: dark_fire_bright49x96_155
+  - first:
+      213: -6837040505964526764
+    second: dark_fire_bright49x96_156
+  - first:
+      213: -6086813192708633678
+    second: dark_fire_bright49x96_157
+  - first:
+      213: -6176760069854407318
+    second: dark_fire_bright49x96_158
+  - first:
+      213: -1678585506246851930
+    second: dark_fire_bright49x96_159
+  - first:
+      213: -6424381609623705786
+    second: dark_fire_bright49x96_160
+  - first:
+      213: 4182779668522464029
+    second: dark_fire_bright49x96_161
+  - first:
+      213: -4975714284547305101
+    second: dark_fire_bright49x96_162
+  - first:
+      213: -8222163950803029530
+    second: dark_fire_bright49x96_163
+  - first:
+      213: 691111467034746603
+    second: dark_fire_bright49x96_164
+  - first:
+      213: -8862220889483529934
+    second: dark_fire_bright49x96_165
+  - first:
+      213: 5039686104875659154
+    second: dark_fire_bright49x96_166
+  - first:
+      213: -7585438815136878623
+    second: dark_fire_bright49x96_167
+  - first:
+      213: 5038816167891722737
+    second: dark_fire_bright49x96_168
+  - first:
+      213: 468549308208373051
+    second: dark_fire_bright49x96_169
+  - first:
+      213: 481153487266714270
+    second: dark_fire_bright49x96_170
+  - first:
+      213: -7275118168819500265
+    second: dark_fire_bright49x96_171
+  - first:
+      213: -5765209909801994648
+    second: dark_fire_bright49x96_172
+  - first:
+      213: 143438658374001894
+    second: dark_fire_bright49x96_173
+  - first:
+      213: 2558048414856373649
+    second: dark_fire_bright49x96_174
+  - first:
+      213: 4856943378208649092
+    second: dark_fire_bright49x96_175
+  - first:
+      213: 3326288576315093389
+    second: dark_fire_bright49x96_176
+  - first:
+      213: -1985332824137595424
+    second: dark_fire_bright49x96_177
+  - first:
+      213: 7357439875250192711
+    second: dark_fire_bright49x96_178
+  - first:
+      213: 3013652615822536151
+    second: dark_fire_bright49x96_179
+  - first:
+      213: -8248928003867725463
+    second: dark_fire_bright49x96_180
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +575,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,7 +584,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -66,7 +609,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -75,7 +630,3808 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c410b99d23405bec0800000000000000
+      internalID: -3551928114666077876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a5bb1a7764419d0800000000000000
+      internalID: -2804539188316513650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0155f98d59f5db0800000000000000
+      internalID: -4800953920135032585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_3
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1026bdf4bf66070800000000000000
+      internalID: 8099437300274037229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_4
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978141b1964b97330800000000000000
+      internalID: 3709194131635181689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_5
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b2a43d499d956a0800000000000000
+      internalID: -6459892957263025259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_6
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80917bc97ee031920800000000000000
+      internalID: 2959725768042027272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_7
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2528f1887769a060800000000000000
+      internalID: 6965212065979442478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_8
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc6e7bc849b00370800000000000000
+      internalID: 8286827036664556733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_9
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1728
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c0406adb4be38c0800000000000000
+      internalID: -4017575090940801889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce59b94be54c1480800000000000000
+      internalID: -8927183484498649399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_11
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9467328a54e61fa0800000000000000
+      internalID: -5830221590201670497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8270a0773aae7d3f0800000000000000
+      internalID: -875973614702557400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_13
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11a5d4e2fa43b910800000000000000
+      internalID: 1851906278861152541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_14
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95521ff892eedf8a0800000000000000
+      internalID: -6269593243953846951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_15
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f230f422b7ef2f60800000000000000
+      internalID: 8011877014425318131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_16
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f91d2493c5fe310800000000000000
+      internalID: 1436468207158402869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_17
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68443324bb662b60800000000000000
+      internalID: 7720977032602208363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_18
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350faad1d9c7d1b00800000000000000
+      internalID: 800933322991267923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_19
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1632
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab414f3d0ec4dac30800000000000000
+      internalID: 4372235341758993594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba79f49e63a43ebb0800000000000000
+      internalID: -4907997569200711765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_21
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12010143f950e5f10800000000000000
+      internalID: 2260250244317974561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_22
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9230d60d208c7a670800000000000000
+      internalID: 8550022331998470953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_23
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74aaeb584ef595240800000000000000
+      internalID: 4780957914531539527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_24
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63969073931861360800000000000000
+      internalID: 7140036341978982710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_25
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776064ab2012decd0800000000000000
+      internalID: -2527327520286177673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_26
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a3cf7b857ce3910800000000000000
+      internalID: 1819110483362069010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_27
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cac993d74c9376a0800000000000000
+      internalID: -6452642008785106235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_28
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53262c0591b6a3fc0800000000000000
+      internalID: -3514378802735979979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_29
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1536
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f071348b26970d480800000000000000
+      internalID: -8876461400642087153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c96c5067b9bd7d40800000000000000
+      internalID: 5583823310256105921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_31
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925e9beaf4a1838b0800000000000000
+      internalID: -5172355242498857687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_32
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dcb385271bd4ff70800000000000000
+      internalID: 9220235229594369237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_33
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f73b91738c1de00800000000000000
+      internalID: 1067854725643468627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_34
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcadb91f5ddb8e560800000000000000
+      internalID: 7343327919006800587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_35
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7cb4c48454d2f30800000000000000
+      internalID: 4552370975161436098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_36
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e195f2293c52470800000000000000
+      internalID: 8369310515164946058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_37
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da3e98d47e8ad720800000000000000
+      internalID: 2871764344903711442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_38
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bafa0c532ad5bc10800000000000000
+      internalID: 2068799449249544889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_39
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1440
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb0b0b5fbb4cc180800000000000000
+      internalID: -9093810262329586699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322dc9a441b6d0d60800000000000000
+      internalID: 7858054659726692899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_41
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e22ec9a0568fa50800000000000000
+      internalID: 6555100353893904029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_42
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2bc387c3b92c920800000000000000
+      internalID: 3009138185054499555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_43
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfd3e52098eecd30800000000000000
+      internalID: 4453752787324624843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_44
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ba5c6ec071ef6f0800000000000000
+      internalID: -649055952116012187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_45
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c292dbe537233500800000000000000
+      internalID: 374686306545078976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_46
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c5b6a5fd5607e10800000000000000
+      internalID: 2193365028498529333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_47
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34738f44473a19b40800000000000000
+      internalID: 5445313144236291907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_48
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1445560b8b2eea0800000000000000
+      internalID: -5844906298619706937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_49
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1344
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ddbb6e77ee3b5c0800000000000000
+      internalID: -4200751828666950300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d74ae5fd41e3b70800000000000000
+      internalID: 8880558464819297648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_51
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b384b85ad64eb80800000000000000
+      internalID: -8366441649973740654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_52
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5419388628470d320800000000000000
+      internalID: 2580690689931317573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_53
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166fe5066e67e4d10800000000000000
+      internalID: 2111756007114733153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_54
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e34dd650def6bf0800000000000000
+      internalID: -328783640201511408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_55
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d871af8433ea2d8c0800000000000000
+      internalID: -3975923985723811955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_56
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87fa0d0499af56440800000000000000
+      internalID: 4928620903351234424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_57
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2524291800b45ba0800000000000000
+      internalID: -6101058046352153298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_58
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf72c839440d1f90800000000000000
+      internalID: -6981419134823006241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_59
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1248
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4a38e699c72d76b0800000000000000
+      internalID: -5297033839944123828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 596a4f3ea6d012af0800000000000000
+      internalID: -423042137253960043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_61
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546713b657a8b6ca0800000000000000
+      internalID: -6022567839763696059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_62
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b8c43aa4459fdb0800000000000000
+      internalID: -4757678851796202622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_63
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa40785ca82ea7ad0800000000000000
+      internalID: -2703599540635237201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_64
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7661b401652e38490800000000000000
+      internalID: -7745098074878699929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_65
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a6a4cf753ca8110800000000000000
+      internalID: 1264037428093151816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_66
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2792a08be80fdaa10800000000000000
+      internalID: 1922457111720765810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_67
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9edbabd37535b40800000000000000
+      internalID: 5427777898549209522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_68
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7079fb8ba5e6f8970800000000000000
+      internalID: 8759341136184579847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_69
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1152
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba7b4681982f82c0800000000000000
+      internalID: -4427275303193445706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2588939cc7878b990800000000000000
+      internalID: -7370008312844548014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_71
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95597542379ad9a50800000000000000
+      internalID: 6529561346753140057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_72
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c32ab5ca3f9885d0800000000000000
+      internalID: -3060020872024022073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_73
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849ea086ee6ea6870800000000000000
+      internalID: 8677001543704832328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_74
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33205105b8e18b690800000000000000
+      internalID: -7586279988612758989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_75
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234d037cd03ad9650800000000000000
+      internalID: 6241323938177143858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_76
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eafe592f7c2f69b0800000000000000
+      internalID: -5084796529611441435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_77
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31a3bfe60933d5e0800000000000000
+      internalID: -1886101116983992001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_78
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13b926ad38d16dc0800000000000000
+      internalID: -3647396463901035747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_79
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1056
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e022daa81fb89220800000000000000
+      internalID: 2492952506415587557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b2eba02519d19d0800000000000000
+      internalID: -2801923611600999537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_81
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9f6528a08009dd0800000000000000
+      internalID: -2481474553451709959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_82
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa358b003146cd30800000000000000
+      internalID: 4451316956309830318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_83
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e4a761d97545f20800000000000000
+      internalID: 3410447150024904206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_84
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c187a93e4b6d000800000000000000
+      internalID: 60434534658219077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_85
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76947beb2f171ad00800000000000000
+      internalID: 982191481139186023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_86
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1bb12fd6956f3cf0800000000000000
+      internalID: -270385753955910886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_87
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06187031d02c874c0800000000000000
+      internalID: -4289465283660775072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_88
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdec9661175f73f0800000000000000
+      internalID: -900905668203188738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_89
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 960
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb93283d816af4eb0800000000000000
+      internalID: -4733382057785148996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3993cf1511f495f90800000000000000
+      internalID: -6964448412943238765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_91
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb31e2efe0e92650800000000000000
+      internalID: 6208740882215156683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_92
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc7dbefbfa7cd400800000000000000
+      internalID: 350290093757267159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_93
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f783b43f11028770800000000000000
+      internalID: 8611446671025604592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_94
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6689d5891ccbb6e0800000000000000
+      internalID: -1820637214349359508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_95
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7068064a60db4fd0800000000000000
+      internalID: -2356560825138257796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_96
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66358a17ec4ea6310800000000000000
+      internalID: 1399182209573213030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_97
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe0aac3ebcc35760800000000000000
+      internalID: 7445519726407192310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_98
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13acd7714e0ba6810800000000000000
+      internalID: 1759413098134751793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_99
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 864
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868cb507da8049610800000000000000
+      internalID: 1626934906395019368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb16e9f09f35d0460800000000000000
+      internalID: 7209510907664032187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_101
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b444e66b15437c10800000000000000
+      internalID: 2050058239376377014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_102
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb967eaf90e696770800000000000000
+      internalID: 8604529552211274174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_103
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5851187393eae0560800000000000000
+      internalID: 7281949208272246149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_104
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf89dddad07483d00800000000000000
+      internalID: 952589445265987836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_105
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713a15e861436df00800000000000000
+      internalID: 1141156827066639127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_106
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5acd57b7f991cf0800000000000000
+      internalID: -281018149126756885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_107
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e18e30aec50f2c0800000000000000
+      internalID: -4399914675783328235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_108
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b709f5eab4eaf8cd0800000000000000
+      internalID: -2553630823624503173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_109
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 768
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bbd9a55945469f70800000000000000
+      internalID: 9193611870595570609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8098722f3a565a880800000000000000
+      internalID: -8600356158577342200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_111
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4e1c425f0828130800000000000000
+      internalID: 3567555645202883778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_112
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5954a30d388cc05c0800000000000000
+      internalID: -4247799880057469547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_113
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2ab8cf7c94e67d0800000000000000
+      internalID: -2923317984832544016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_114
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0693488cde038eac0800000000000000
+      internalID: -3825754085621745312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_115
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5193dc5bb43047390800000000000000
+      internalID: -7821623029128152811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_116
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d704ecba73b40f80800000000000000
+      internalID: -8141184886642571308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_117
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1664ac957491c4c80800000000000000
+      internalID: -8337261015929829791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_118
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c55a8d2e99e1c10800000000000000
+      internalID: 2026226081939676193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_119
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 672
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35a798697e8f1670800000000000000
+      internalID: 8511678472850482490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6cded763394be10800000000000000
+      internalID: 2212555179196008158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_121
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3d895164b917740800000000000000
+      internalID: 5148066574373540778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_122
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65245a02b6bbf8e80800000000000000
+      internalID: -8174108729870564778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_123
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6599572fc61e5e0800000000000000
+      internalID: -1882103380653287720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_124
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7092768d65a839060800000000000000
+      internalID: 6959057954820008199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_125
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e173121850ed5dfb0800000000000000
+      internalID: -4623545327203305698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_126
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9055a106d4bf0ccc0800000000000000
+      internalID: -3692675384700414711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_127
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fffa2727a4f928f0800000000000000
+      internalID: -564651279504441360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_128
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38d4f89ae6152b00800000000000000
+      internalID: 803073305399842876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_129
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 576
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b60f0fbaef8b620800000000000000
+      internalID: 2790259983591173011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6304a4f1f90bdd710800000000000000
+      internalID: 1719724830196645942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_131
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f307a7b1b796dbfb0800000000000000
+      internalID: -4630428864404099009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_132
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0509776b811664c40800000000000000
+      internalID: 5496187154020667472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_133
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb37b56b96d54c4f0800000000000000
+      internalID: -809419324407450689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_134
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb8b054d7deb3150800000000000000
+      internalID: 5853533262983171041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_135
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99895a3f70f554d90800000000000000
+      internalID: -7114175548604704615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_136
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2a7693a94abcb20800000000000000
+      internalID: 3155796946198176430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_137
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f4b16dcd06ae880800000000000000
+      internalID: -8580939638399873258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_138
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba46bc63b8ac7530800000000000000
+      internalID: 3854140869698800306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_139
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 480
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64b9dbaf9e0fe9d0800000000000000
+      internalID: -2742957569099582357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d81cf863449c68b60800000000000000
+      internalID: 7748101503747867021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_141
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3c6d12f44f300f0800000000000000
+      internalID: -1151808458969398283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_142
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681a4ef8b4f0fd5b0800000000000000
+      internalID: -5341533815827029626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_143
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62bed37a0cd2af20800000000000000
+      internalID: 3432547803461497453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_144
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e2ef3ea667fc710800000000000000
+      internalID: 1715720184515145277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_145
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f8f228e0c1f99ed0800000000000000
+      internalID: -2406626715022198544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_146
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796754667d5de2090800000000000000
+      internalID: -8057267562208725353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_147
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9325d7b91427a30800000000000000
+      internalID: 4211500737623112110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_148
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864d4f7b369678350800000000000000
+      internalID: 6018895304012911720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_149
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 384
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69596b656a56cd850800000000000000
+      internalID: 6403104535307785622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_150
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d9e6e4e026013c0800000000000000
+      internalID: -4390901823101297388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_151
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb6f89ae08a3f070800000000000000
+      internalID: 8139033732516375549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_152
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6961b518a34c940800000000000000
+      internalID: 5315437787457427133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_153
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72fd6d63118e8df50800000000000000
+      internalID: 6906525189204795175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_154
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6130d36990c3a350800000000000000
+      internalID: 6026872491388973421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_155
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bfad52aa3272bd0800000000000000
+      internalID: -2655114241625097358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_156
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453070f42e3fd11a0800000000000000
+      internalID: -6837040505964526764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_157
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbc07a86ab478ba0800000000000000
+      internalID: -6086813192708633678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_158
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65d28d317db74aa0800000000000000
+      internalID: -6176760069854407318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_159
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 288
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a28907206774b8e0800000000000000
+      internalID: -1678585506246851930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 647a3d0c6f208d6a0800000000000000
+      internalID: -6424381609623705786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_161
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13f10c72f73c0a30800000000000000
+      internalID: 4182779668522464029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_162
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37198bd7836b2fab0800000000000000
+      internalID: -4975714284547305101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_163
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1fc5b137105ed80800000000000000
+      internalID: -8222163950803029530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_164
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee1ec4b732579900800000000000000
+      internalID: 691111467034746603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_165
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 231b9491e01130580800000000000000
+      internalID: -8862220889483529934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_166
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29fe59c9fcf80f540800000000000000
+      internalID: 5039686104875659154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_167
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef6e46469b1bb690800000000000000
+      internalID: -7585438815136878623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_168
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f16eaf9b987de540800000000000000
+      internalID: 5038816167891722737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_169
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 192
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3dd3830d1f908600800000000000000
+      internalID: 468549308208373051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_170
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9219f22c866da600800000000000000
+      internalID: 481153487266714270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_171
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71bf5881296990b90800000000000000
+      internalID: -7275118168819500265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_172
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866b0b6e12cddffa0800000000000000
+      internalID: -5765209909801994648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_173
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e4e07723b89df100800000000000000
+      internalID: 143438658374001894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_174
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 195e3cdea73008320800000000000000
+      internalID: 2558048414856373649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_175
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fef40f444576340800000000000000
+      internalID: 4856943378208649092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_176
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8173b336d9592e20800000000000000
+      internalID: 3326288576315093389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_177
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e50b50b05ea274e0800000000000000
+      internalID: -1985332824137595424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_178
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741059cc590ea1660800000000000000
+      internalID: 7357439875250192711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_179
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 96
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd678a4615a2d920800000000000000
+      internalID: 3013652615822536151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_fire_bright49x96_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96131b76fabe58d80800000000000000
+      internalID: -8248928003867725463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

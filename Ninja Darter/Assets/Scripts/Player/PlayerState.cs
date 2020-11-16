@@ -34,21 +34,21 @@ public class PlayerState : MonoBehaviour {
     private int _fistsAttackLevel;
     private int _fireBallAttackLevel;
 
-    public int _health = 10;
-    public int _maxHealth = 10;
+    private int _health = 10;
+    private int _maxHealth = 10;
 
     [Header("Weapons")]
     [SerializeField] private Arrow _arrow;
 
     [Header("Armour")]
-    [SerializeField] private int _armour;
-    [SerializeField] public int _maxArmour;
-    [SerializeField] private bool _isArmourDepleted = false;
+    private int _armour = 6;
+    private int _maxArmour = 6;
+    private bool _isArmourDepleted = false;
 
     [Header("Invincibility")]
-    [SerializeField] private bool _isInvincible;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private float _invincibilityTime;
+    private bool _isInvincible;
+    private SpriteRenderer _spriteRenderer;
+    private float _invincibilityTime = 0.5f;
 
     [Header("Upgrades Screen")]
     [SerializeField] private GameObject _upgradesScreen;
@@ -65,14 +65,16 @@ public class PlayerState : MonoBehaviour {
     private int _fistsAttackDamage = 3;
     private int _fireBallAttackDamage = 2;
 
-    [SerializeField] private bool _canAttack = true;
-    [SerializeField] private bool _canAirAttack = false;
-    [SerializeField] private bool _canCrouch = true;
-    [SerializeField] private bool _airAttacked = false;
-    [SerializeField] private float _swordSwingDelay; // a small delay between each attack for the sword
-    [SerializeField] private float _unarmedSwingDelay; // a small delay between each attack for the punches/kicks
-    [SerializeField] private float _timeBtwAirAttacks;
-    [SerializeField] private float _attackRange; // a circle used to detect enemies
+    private bool _canAttack = true;
+    private bool _canAirAttack = false;
+    private bool _canCrouch = true;
+    private bool _airAttacked = false;
+
+    private float _swordSwingDelay = 0.25f; // a small delay between each attack for the sword
+    private float _unarmedSwingDelay = 0.25f; // a small delay between each attack for the punches/kicks
+    private float _timeBtwAirAttacks = 0.5f;
+    private float _attackRange = 2f; // a circle used to detect enemies
+    
     [SerializeField] private Transform _attackPoint; // the point at which the circle is drawn
     [SerializeField] private LayerMask _enemyLayers; // enemies we can hit within that circle
     [SerializeField] private LayerMask _projectileLayers; // projectiles we can hit within that circle
@@ -82,8 +84,8 @@ public class PlayerState : MonoBehaviour {
     private string[] _airAttacks = {"AirAttack1"};
 
     [Header("Jumping")]
-    [Range(2f, 10f)] [SerializeField] private float _fallMultiplier = 2.5f; // The gravity used to bring the player down after a long jump (long jump button press)
-    [Range(1f, 5f)] [SerializeField] private float _lowMultiplier = 1.5f; // the gravuty used to bring the player down after a short jump (short jump button press)
+    private float _fallMultiplier = 7.0f; // The gravity used to bring the player down after a long jump (long jump button press)
+    private float _lowMultiplier = 5.0f; // the gravuty used to bring the player down after a short jump (short jump button press)
     private bool _doubleJump;
     private bool _canJump;
 
@@ -102,10 +104,10 @@ public class PlayerState : MonoBehaviour {
     private float _horizontalXboxMove;
 
     [Header("Dashing")]
-    [SerializeField] public bool _canDash = true;
-    [Range(0, 200)] [SerializeField] private float _dashSpeed;
-    [Range(0, 1)] [SerializeField] private float _dashTime; // the time you remain in a dash
-    [Range(0, 1)] [SerializeField] private float _timeBtwDashes; // You cannot dash while this is ticking down
+    public bool _canDash = true;
+    private float _dashSpeed = 140f;
+    private float _dashTime = 0.25f; // the time you remain in a dash
+    private float _timeBtwDashes = 0.35f; // You cannot dash while this is ticking down
 
     [Header("Wall Logic")]
     [Range(0.05f, 1.2f)] [SerializeField] private float _wallCheckRadius; // The radius of the circle that detects walls
@@ -215,6 +217,7 @@ public class PlayerState : MonoBehaviour {
         _xp = GetComponent<XP>();
         _canvasMap = GetComponent<CanvasMap>();
         _cameraShake = _mainCamera.GetComponent<CameraShake>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     void Update() {
