@@ -10,5 +10,12 @@ public class SceneLoader : MonoBehaviour {
       SceneManager.LoadScene(_loadIndex);
       if (Time.timeScale == 0)
         Time.timeScale = 1;  
-    } 
+    }
+
+    public void LoadLevel(string _levelName) {
+
+      SceneManager.LoadScene(_levelName);
+      if (Time.timeScale == 0)
+        Time.timeScale = 1;
+    }
 }

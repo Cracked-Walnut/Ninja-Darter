@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour {
 
-    [SerializeField] private GameObject _player;
     [SerializeField] private int _coinValue;
+    private GameObject _player;
     private Inventory _inventory;
 
     private void Awake() { 
+        _player = GameObject.FindWithTag("Player");
         _inventory = _player.GetComponent<Inventory>();
     }
 
