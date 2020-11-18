@@ -74,9 +74,6 @@ TagManager:
   - name: Cube Fragment
     uniqueID: 1199577811
     locked: 0
-  - name: Player
-    uniqueID: 3972938649
-    locked: 0
   - name: Projectile
     uniqueID: 2177545171
     locked: 0
@@ -106,4 +103,7 @@ TagManager:
     locked: 0
   - name: Light
     uniqueID: 2833477135
+    locked: 0
+  - name: Player
+    uniqueID: 3972938649
     locked: 0

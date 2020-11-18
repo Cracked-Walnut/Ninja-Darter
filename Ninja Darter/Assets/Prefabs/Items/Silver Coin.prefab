@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 376541979
-  m_SortingLayer: 9
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 5909241921579369574, guid: 46b747963084b874a8ea411417bdad9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f689cfd24790b45943052c6a6b8539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _coinValue: 3
 --- !u!1 &8388436346873847537
 GameObject:
@@ -156,7 +155,7 @@ GameObject:
   - component: {fileID: 1423899364999744714}
   - component: {fileID: 2294017262828583446}
   - component: {fileID: 6728756450256035757}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: Silver Coin_Child
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -215,7 +214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 376541979
-  m_SortingLayer: 9
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 5909241921579369574, guid: 46b747963084b874a8ea411417bdad9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

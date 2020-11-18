@@ -92,7 +92,7 @@ public class PlayerState : MonoBehaviour {
     [Header("CheckForInteraction")]
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionRadius; // drawn at _interactionPoint, which is positioned at the center of the player
-    [SerializeField] private LayerMask _whatIsItem; // determines what we are interacting with, in this case, treasure chests only
+    [SerializeField] private LayerMask _whatIsInteractable; // determines what we are interacting with, in this case, treasure chests only
 
     [Header("Running")]
     [SerializeField] private float _runSpeed;
@@ -585,7 +585,7 @@ public class PlayerState : MonoBehaviour {
     // this is used to interact with the world
     bool CheckForInteraction() {
             
-        Collider2D[] _objectsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsItem);
+        Collider2D[] _objectsWithinRange = Physics2D.OverlapCircleAll(_interactionPoint.position, _interactionRadius, _whatIsInteractable);
 
         if (Input.GetButtonDown("RB")) {
 
