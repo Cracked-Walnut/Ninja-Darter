@@ -6,8 +6,8 @@ public class HealthPotion : MonoBehaviour {
 
     [SerializeField] private bool _isShopItem; // you cannot collect an item if it's in a shop. You'll have to buy it
     [SerializeField] private int _replenishValue;
-    [SerializeField] private GameObject _player;
     [SerializeField] private int _shopPrice;
+    private GameObject _player;
     private bool _isPickedUp;
     private PlayerState _playerState;
     private Inventory _inventory;
@@ -15,7 +15,10 @@ public class HealthPotion : MonoBehaviour {
     public int GetShopPrice() { return _shopPrice; }
     public int GetReplenishValue() { return _replenishValue; }
 
-    void Awake() => _playerState = _player.GetComponent<PlayerState>();
+    void Awake() { 
+        _player = GameObject.FindWithTag("Player");
+        _playerState = _player.GetComponent<PlayerState>();
+    }
     
     // this logic is for making contact with the item in the game.
     // there will be other logic when buying the item in a shop.

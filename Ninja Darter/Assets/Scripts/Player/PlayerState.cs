@@ -580,6 +580,10 @@ public class PlayerState : MonoBehaviour {
             TakeDamage(2, 900, 600);
         else if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(1, 0, 1400);
+        else if (_collisionInfo.collider.name == "Earth Wisp")
+            TakeDamage(1, 900, 600);
+        else if (_collisionInfo.collider.name == "Assault Droid")
+            TakeDamage(1, 900, 600);
     }
 
     // this is used to interact with the world

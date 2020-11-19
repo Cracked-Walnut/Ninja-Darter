@@ -5,13 +5,16 @@ using UnityEngine.EventSystems;
 
 public class ShopHealing : MonoBehaviour {
 
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
     [SerializeField] private GameObject _hpButton;
     [SerializeField] private GameObject _ui;
     [SerializeField] private GameObject _weaponsPage;
     private PlayerState _playerState;
 
-    void Awake() => _playerState = _player.GetComponent<PlayerState>();
+    void Awake() { 
+        _player = GameObject.FindWithTag("Player");
+        _playerState = _player.GetComponent<PlayerState>();
+    }
 
     void Update() {
         if (Input.GetButtonDown("XboxX"))

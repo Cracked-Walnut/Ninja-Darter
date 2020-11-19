@@ -6,13 +6,16 @@ public class Armour : MonoBehaviour {
 
     [SerializeField] private bool _isShopItem; // you cannot collect an item if it's in a shop. You'll have to buy it
     [SerializeField] private int _replenishValue; // this is the value of armour that is restored upon contact/purchase
-    [SerializeField] private GameObject _player;
     [SerializeField] private int _shopPrice;
+    private GameObject _player;
     private bool _isPickedUp;
     private PlayerState _playerState;
     private Inventory _inventory;
 
-    void Awake() => _playerState = _player.GetComponent<PlayerState>();
+    void Awake() { 
+        _player = GameObject.FindWithTag("Player");
+        _playerState = _player.GetComponent<PlayerState>();
+    }
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject == _player) {

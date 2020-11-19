@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
     [SerializeField] private int _health = 10;
     [SerializeField] private int _xpUponDeath = 2;
     [SerializeField] private string _startAnimation;
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour {
     
     public bool _isDead;
     private float _hurtTime = 0.2f;
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider2D;
     private bool _facingRight;
@@ -27,10 +27,11 @@ public class Enemy : MonoBehaviour {
     }
     
     void Awake() { 
+        _player = GameObject.FindWithTag("Player");
         _xp = _player.GetComponent<XP>();
         _inventory = _player.GetComponent<Inventory>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
-        _animator = GetComponent<Animator>();
+        // _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
