@@ -119,6 +119,7 @@ public class PlayerState : MonoBehaviour {
     [SerializeField] private bool _canMove = true; // ensures we can't move during any potential cutscenes or other instances
     [SerializeField] private GameObject _mainCamera;
     [SerializeField] private GameObject _shopPanel;
+    [SerializeField] private GameObject _endLevelMenu;
     private CameraShake _cameraShake;
     private bool _isJumping = false;
     private bool _isCrouching = false;
@@ -576,13 +577,11 @@ public class PlayerState : MonoBehaviour {
 
     // a quick contact damage function for the player
     void OnCollisionEnter2D(Collision2D _collisionInfo) {
-        if (_collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)")
+        if (_collisionInfo.collider.name == "EarthWispProjectile(Clone)" || _collisionInfo.collider.name == "WindWispProjectile(Clone)" || _collisionInfo.collider.name == "AssaultDroidProjectile(Clone)")
             TakeDamage(2, 900, 600);
         else if (_collisionInfo.collider.name == "Spikes")
             TakeDamage(1, 0, 1400);
-        else if (_collisionInfo.collider.name == "Earth Wisp")
-            TakeDamage(1, 900, 600);
-        else if (_collisionInfo.collider.name == "Assault Droid")
+        else if (_collisionInfo.collider.name == "Earth Wisp" || _collisionInfo.collider.name == "Assault Droid")
             TakeDamage(1, 900, 600);
     }
 
@@ -602,6 +601,9 @@ public class PlayerState : MonoBehaviour {
                         break;
                     case "Merchant":
                         _shopPanel.SetActive(true);
+                        break;
+                    case "End_Level":
+                        _endLevelMenu.SetActive(true);
                         break;
                     default:
                         Debug.Log("Nothing");

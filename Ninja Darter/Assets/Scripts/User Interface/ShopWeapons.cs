@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class ShopWeapons : MonoBehaviour {
 
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _wristbladeButton;
+    [SerializeField] private GameObject _button;
     [SerializeField] private GameObject _ui;
     [SerializeField] private GameObject _healingItemsPage;
     private PlayerState _playerState;
@@ -25,7 +25,7 @@ public class ShopWeapons : MonoBehaviour {
         _playerState.EnablePlayer(false);
         _ui.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_wristbladeButton);
+        EventSystem.current.SetSelectedGameObject(_button);
     }
 
     void OnDisable() {

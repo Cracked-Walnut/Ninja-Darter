@@ -17,8 +17,8 @@ public class CameraShake : MonoBehaviour {
 
             while (_elapsed < duration) {
                 // Generate a random x & y value, then add it to the current camera x & y coordinate, creating a shake effect
-                float x = (Random.Range(-1f, 1f) * magnitude) + transform.position.x; 
-                float y = (Random.Range(-1, 1f) * magnitude) + transform.position.y;
+                float x = (Random.Range(-0.5f, 0.5f) * magnitude) + transform.position.x; 
+                float y = (Random.Range(-0.5f, 0.5f) * magnitude) + transform.position.y;
 
                 transform.position = new Vector3(x ,y, originalPos.z); // apply the shake to the current frame
 
