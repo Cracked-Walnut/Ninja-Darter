@@ -78,7 +78,7 @@ public class UI : MonoBehaviour {
         _coinsCurrentValue.text = _inventory.GetCoins().ToString();
         _emeraldsCurrentValue.text = _inventory.GetEmeralds().ToString();
         _pointsCurrentValue.text = _xp.GetPoints().ToString();
-        _fireBallCurrentValue.text = _inventory.GetWristBlades().ToString();
+        _fireBallCurrentValue.text = _inventory.GetFireBalls().ToString();
         _fireBallMaxValue.text = _wristBladeWeapon.GetMaxQuantity().ToString();
         _arrowsCurrentValue.text = _inventory.GetArrows().ToString();
         _arrowsMaxValue.text = _inventory.GetMaxArrows().ToString();

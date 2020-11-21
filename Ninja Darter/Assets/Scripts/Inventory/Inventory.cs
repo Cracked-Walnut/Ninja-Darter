@@ -11,14 +11,15 @@ public class Inventory : MonoBehaviour {
     [SerializeField] private int _arrows;
     [SerializeField] private int _maxArrows;
     [SerializeField] private int _emeralds;
-    [SerializeField] private int _wristBlades;
+    [SerializeField] private int _fireBall;
 
     [Header("Kills")]
     [SerializeField] private int _enemyKills;
     [SerializeField] private int _totalEnemyKills;
 
-    public int GetWristBlades() { return _wristBlades; }
-    public void SetWristBlades(int _knives) => _wristBlades = _knives;
+    public int GetFireBalls() { return _fireBall; }
+    public void SetFireBalls(int _fb) => _fireBall = _fb;
+    public void AddFireBalls(int _fb) => _fireBall += _fb;
 
     public int GetArrows() { return _arrows; }
     public void SetArrows(int _arrow) => _arrows = _arrow;

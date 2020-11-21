@@ -33,15 +33,15 @@ public class WristBladeWeapon : MonoBehaviour {
 
         if (Input.GetButtonDown("XboxY")) {
 
-            if (_playerState._canDash && _playerState.Idling() && _inventory.GetWristBlades() > 0 && _canThrow) {
+            if (_playerState._canDash && _playerState.Idling() && _inventory.GetFireBalls() > 0 && _canThrow) {
         
                 _animator.SetTrigger("WristBladeThrow");
                 // Instantiate(_wristBladePrefab, _spawnPointRight.position, _spawnPointRight.rotation);
-                // _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
+                // _inventory.SetFireBalls(_inventory.GetFireBalls() - 1);
             }
-            if (_playerState.Wall_Sliding() && _inventory.GetWristBlades() > 0) {
+            if (_playerState.Wall_Sliding() && _inventory.GetFireBalls() > 0) {
                 Instantiate(_wristBladePrefab, _spawnPointLeft.position, _spawnPointLeft.rotation);
-                _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
+                _inventory.SetFireBalls(_inventory.GetFireBalls() - 1);
             }
         }
     }
@@ -54,22 +54,22 @@ public class WristBladeWeapon : MonoBehaviour {
         DecrementBlade(); 
     }
     
-    void DecrementBlade() => _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
+    void DecrementBlade() => _inventory.SetFireBalls(_inventory.GetFireBalls() - 1);
 
     IEnumerator BladeDelay() {
         _canThrow = false;
-        // _inventory.SetWristBlades(_inventory.GetWristBlades() - 1);
+        // _inventory.SetFireBalls(_inventory.GetFireBalls() - 1);
         yield return new WaitForSeconds(_knifeThrowDelay);
         _canThrow = true;
     }
 
     private void CheckKnifeQuantity() {
-        if (_inventory.GetWristBlades() > _maxQuantity)
-            _inventory.SetWristBlades(_maxQuantity);
+        if (_inventory.GetFireBalls() > _maxQuantity)
+            _inventory.SetFireBalls(_maxQuantity);
     }
 
     public void AddKnife(int _knifeToAdd) {
-        _inventory.SetWristBlades(_inventory.GetWristBlades() + _knifeToAdd);
+        _inventory.SetFireBalls(_inventory.GetFireBalls() + _knifeToAdd);
         CheckKnifeQuantity();
     } 
 }
