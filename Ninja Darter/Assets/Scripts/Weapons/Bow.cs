@@ -13,11 +13,13 @@ public class Bow : MonoBehaviour {
     [SerializeField] private int _damage;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     private GameObject _player;
+    private PlayerState _playerState;
     private Arrow _arrow;
 
     void Awake() {
         _player = GameObject.Find("Player");
         _arrow = _player.GetComponent<Arrow>();
+        _playerState = _player.GetComponent<PlayerState>();
     }
 
     void Start() => _rigidbody2D.velocity = transform.right * _arrowSpeed;
@@ -29,18 +31,23 @@ public class Bow : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D (Collision2D collision) {
-        
-        switch(collision.gameObject.name) {
-            case "Enemy":
+    void OnCollisionEnter2D (Collision2D _collision) {
+
+        switch(_collision.gameObject.name) {
+            
+            case "Earth Wisp":
+                _collision.gameObject.GetComponent<Enemy>().TakeDamage(_playerState.GetMaxBowAttackDamage());
                 ArrowBreakChance(30, 1, 100);
-                //damage them
                 break;
+
+            case "Assault Droid":
+                _collision.gameObject.GetComponent<Enemy>().TakeDamage(_playerState.GetMaxBowAttackDamage());
+                ArrowBreakChance(30, 1, 100);
+                break;
+
             case "Player":
                 _arrow.AddArrow(1);
                 Destroy(gameObject);
-                break;
-            default:
                 break;
         }
         // play sound

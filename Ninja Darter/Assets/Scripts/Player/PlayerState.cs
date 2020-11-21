@@ -61,9 +61,9 @@ public class PlayerState : MonoBehaviour {
 
     [Header("Attacking")]
     private int _swordAttackDamage = 5;
-    private int _bowAttackDamage = 3;
+    private int _bowAttackDamage = 5;
     private int _fistsAttackDamage = 3;
-    private int _fireBallAttackDamage = 2;
+    private int _fireBallAttackDamage = 3;
 
     private bool _canAttack = true;
     private bool _canAirAttack = false;
@@ -184,6 +184,9 @@ public class PlayerState : MonoBehaviour {
     public bool GetCanJump() { return _canJump; }
     public void SetCanJump(bool _jump) => _canJump = _jump;
 
+    public bool SetCanJumpFalse() { return _canJump = false; }
+    public bool SetCanJumpTrue() { return _canJump = true; }
+
     /*-----------------------------------------------------------------------------------------------------------------------------*/
 
     // used to disable the player when control is meant to be taken away (during pause menu, shop or upgrade menu)
@@ -222,6 +225,9 @@ public class PlayerState : MonoBehaviour {
     }
     
     void Update() {
+
+        // if (_health < _health * 0.3)
+        //     StartCoroutine(LowHealth());
 
         if (!_characterController2D.GetGrounded() && !_airAttacked)
             _canAirAttack = true;
@@ -293,6 +299,7 @@ public class PlayerState : MonoBehaviour {
         switch(_state) {
             case State.Idling:
                 _animator.SetTrigger("Idling");
+                _runSpeed = 50;
                 break;
             case State.Crouching:
                 _animator.SetTrigger("Crouching");
@@ -429,27 +436,39 @@ public class PlayerState : MonoBehaviour {
             _isArmourDepleted = false;
         
         // the player is knocked back depending on the direction they are facing
-        if (_characterController2D.GetFacingRight())
-            ApplyForce(-_knockBackX, _knockBackY);
-        else
-            ApplyForce(_knockBackY, _knockBackY);
+        // if (_characterController2D.GetFacingRight())
+        //     ApplyForce(-_knockBackX, _knockBackY);
+        // else
+        //     ApplyForce(_knockBackY, _knockBackY);
         }
         
         StartCoroutine(PostHitInvincibility());
     }
 
     IEnumerator PostHitInvincibility() {
+        
+        _spriteRenderer.color = new Color(1, 0f, 0f, 1f);
+        yield return new WaitForSeconds(0.05f);
+        
         _isInvincible = true;
+
         _spriteRenderer.color = new Color(1, 1, 1, 0.5f); // I fade out the player's sprite by a little to indicate the PH Invincibility (Alpha 50%)
-        _canMove = false;
+        // _canMove = false;
         // SetState(State.Hurt);
-        ResetVelocity();
+        // ResetVelocity();
         yield return new WaitForSeconds(_invincibilityTime); // after this time is up, the player is no longer invincibile. This value is 0.5
         // _animator.SetBool("IsHurt", false);
-        _canMove = true;
+        // _canMove = true;
         _isInvincible = false;
         _spriteRenderer.color = new Color(1, 1, 1, 1); // Alpha is back to 100% to indicate normal, undamaged state
     }
+
+    // IEnumerator LowHealth() {
+    //     _spriteRenderer.color = new Color(1, 0f, 0f, 1f);
+    //     yield return new WaitForSeconds(0.5f);
+    //     _spriteRenderer.color = new Color(1, 1f, 1f, 1f);
+    //     yield return new WaitForSeconds(0.5f);
+    // }
 
     public bool Dead() {
         if (_health <= 0) {
@@ -550,7 +569,7 @@ public class PlayerState : MonoBehaviour {
         Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
 
         foreach(Collider2D _enemiesHit in _hitEnemies) {
-            StartCoroutine(_cameraShake.Shake(.1f, .15f));
+            StartCoroutine(_cameraShake.Shake(.1f, .05f));
 
             // bow is not included in this list as it is a projectile based weapon
             if (_directionalPad._swordEquipped) {

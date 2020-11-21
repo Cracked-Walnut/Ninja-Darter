@@ -39,19 +39,23 @@ public class WristBlade : MonoBehaviour {
     }
     
     void OnCollisionEnter2D (Collision2D _collision) {
+
         
-        switch(_collision.gameObject.tag) {
-            case "Enemy":
+        switch(_collision.gameObject.name) {
+            
+            case "Earth Wisp":
                 _collision.gameObject.GetComponent<Enemy>().TakeDamage(_playerState.GetMaxFireBallAttackDamage());
-                _animator.SetTrigger("Destroyed");
+                // Destroy(gameObject);
                 break;
-            case "Player":
-                Destroy(gameObject);
-                break;
-            default:
-                _animator.SetTrigger("Destroyed");
+
+            case "Assault Droid":
+                _collision.gameObject.GetComponent<Enemy>().TakeDamage(_playerState.GetMaxFireBallAttackDamage());
+                // Destroy(gameObject);
                 break;
         }
+
+        _animator.SetTrigger("Destroyed");
+        // Destroy(gameObject);
 
         // play sound in Destroyed Trigger
     }
