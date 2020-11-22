@@ -34,6 +34,19 @@ MonoBehaviour:
   _arrowShootDelay: 0.5
   _spawnPointRight: {fileID: 5536582879976165020}
   _spawnPointLeft: {fileID: 1580400143327521763}
+--- !u!114 &4727550761160938842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8017607217865406815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22993c88cd1170643ade78e0001dc0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waitTime: 0.5
 --- !u!212 &1844942596
 SpriteRenderer:
   m_ObjectHideFlags: 0

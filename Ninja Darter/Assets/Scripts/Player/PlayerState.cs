@@ -102,6 +102,7 @@ public class PlayerState : MonoBehaviour {
 
     // controller movement
     private float _horizontalXboxMove;
+    public float _verticalXboxMove;
 
     [Header("Dashing")]
     public bool _canDash = true;
@@ -226,8 +227,11 @@ public class PlayerState : MonoBehaviour {
     
     void Update() {
 
-        // if (_health < _health * 0.3)
-        //     StartCoroutine(LowHealth());
+        _verticalXboxMove = Input.GetAxisRaw("L-Stick-Vertical");
+        // Debug.Log(_verticalXboxMove);
+
+        if (_health < _maxHealth * 0.3)
+            StartCoroutine(LowHealth());
 
         if (!_characterController2D.GetGrounded() && !_airAttacked)
             _canAirAttack = true;
@@ -245,7 +249,7 @@ public class PlayerState : MonoBehaviour {
 
         if (_canJump) {
 
-            if (Input.GetButtonDown("XboxA"))
+            if (Input.GetButtonDown("XboxA") && _verticalXboxMove != 1)
                 _isJumping = true;
         }
         
@@ -358,7 +362,7 @@ public class PlayerState : MonoBehaviour {
             return false;
     }
 
-    bool Crouching() {
+    public bool Crouching() {
         if (Input.GetAxis("L-Stick-Vertical") > 0.75 && _characterController2D.GetGrounded() && _canCrouch) {
             
             SetState(State.Crouching);
@@ -463,12 +467,12 @@ public class PlayerState : MonoBehaviour {
         _spriteRenderer.color = new Color(1, 1, 1, 1); // Alpha is back to 100% to indicate normal, undamaged state
     }
 
-    // IEnumerator LowHealth() {
-    //     _spriteRenderer.color = new Color(1, 0f, 0f, 1f);
-    //     yield return new WaitForSeconds(0.5f);
-    //     _spriteRenderer.color = new Color(1, 1f, 1f, 1f);
-    //     yield return new WaitForSeconds(0.5f);
-    // }
+    IEnumerator LowHealth() {
+        _spriteRenderer.color = new Color(1, 0f, 0f, 1f);
+        yield return new WaitForSeconds(0.5f);
+        _spriteRenderer.color = new Color(1, 1f, 1f, 1f);
+        yield return new WaitForSeconds(0.5f);
+    }
 
     public bool Dead() {
         if (_health <= 0) {
