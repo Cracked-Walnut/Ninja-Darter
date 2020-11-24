@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2673131465826336942}
   - component: {fileID: 7470480277137810709}
   m_Layer: 15
-  m_Name: Silver Coin_Child
+  m_Name: Gold_Coin_Child
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 5666816984589362249}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9b423f0cf909424eb9ae2872265c615, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8cc00e9034cf6f4ca7b09277e39609f, type: 2}
   m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -112,7 +112,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5895464383931231110}
   - component: {fileID: 2602923818769012975}
-  - component: {fileID: 505842632770460798}
   - component: {fileID: 4700725498850034009}
   - component: {fileID: 7458638003233620979}
   m_Layer: 17
@@ -188,25 +187,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &505842632770460798
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7458638003233620978}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8cc00e9034cf6f4ca7b09277e39609f, type: 2}
-  m_CullingMode: 2
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &4700725498850034009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,4 +225,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f689cfd24790b45943052c6a6b8539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinValue: 3
+  _coinValue: 1
