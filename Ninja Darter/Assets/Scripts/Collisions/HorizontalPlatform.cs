@@ -16,32 +16,22 @@ public class HorizontalPlatform : MonoBehaviour {
 
     void Awake() { 
 
-        if (_foregroundEffector2DLayer == null) { 
-            return;
-        } else {
-            _foregroundEffector2DLayer = GameObject.FindWithTag("ForegroundEffector2D");
-            _platformEffector2D = _foregroundEffector2DLayer.GetComponent<PlatformEffector2D>();
-        }
-        
+        _foregroundEffector2DLayer = GameObject.FindWithTag("ForegroundEffector2D");
+        _platformEffector2D = _foregroundEffector2DLayer.GetComponent<PlatformEffector2D>();
+    
         _playerState = GetComponent<PlayerState>();
         _rigidbody2D = _playerState.GetComponent<Rigidbody2D>();
     }
 
     void Update() {
 
-    if (_foregroundEffector2DLayer != null) {
-
-        if (_playerState.Crouching()) {
-            if (Input.GetButton("XboxA"))
-                _platformEffector2D.rotationalOffset = 180f;
-            else
-                _platformEffector2D.rotationalOffset = 0f;
+        if (_playerState.Crouching() && (Input.GetButton("XboxA")))
+            _platformEffector2D.rotationalOffset = 180f;
+        else
+            _platformEffector2D.rotationalOffset = 0f;
             
-        }
-
         if (!_playerState.Crouching() && Input.GetButtonUp("XboxA") && _rigidbody2D.velocity.y > 0.5f)
             _platformEffector2D.rotationalOffset = 0f;
     }
 
-    }
 }
