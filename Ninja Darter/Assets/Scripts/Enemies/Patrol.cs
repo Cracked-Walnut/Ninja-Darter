@@ -5,7 +5,8 @@ using UnityEngine;
 public class Patrol : MonoBehaviour {
 
     [SerializeField] private Rigidbody2D _rigidbody2D;
-    [SerializeField] private float _speed;
+    private float _maxSpeed = 4;
+    private float _minSpeed = 2;
     private const float DEFAULT_SPEED = 2f;
     [SerializeField] private float _waitTime;
     [SerializeField] private Transform _groundCheckPosition;
@@ -23,7 +24,7 @@ public class Patrol : MonoBehaviour {
     public bool GetMoving() { return _isMoving; }
     public void SetMoving(bool _boolMove) => _boolMove = _isMoving;
 
-    void Start() => _isMoving = true;
+    void Start() => _isMoving = true; 
 
     void Awake() => _enemy = GetComponent<Enemy>();
 
@@ -34,10 +35,15 @@ public class Patrol : MonoBehaviour {
         if (!_isMoving)
             return;
         else
-            transform.Translate(Vector2.left * _speed * Time.deltaTime);
+            transform.Translate(Vector2.left * GenerateSpeed(_minSpeed, _maxSpeed) * Time.deltaTime);
 
         // if (!_enemy._isDead)
             // SpotPlayer();
+    }
+
+    float GenerateSpeed(float _min, float _max) {
+        float _setSpeed = Random.Range(_min, _max);
+        return _setSpeed;
     }
 
     void CheckForGround() {
