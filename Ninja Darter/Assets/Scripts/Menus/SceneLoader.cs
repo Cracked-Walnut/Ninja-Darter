@@ -18,4 +18,8 @@ public class SceneLoader : MonoBehaviour {
       if (Time.timeScale == 0)
         Time.timeScale = 1;
     }
+
+    public void Quit() {
+      Application.Quit();
+    }
 }
