@@ -18,7 +18,6 @@ public class Armour : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject == _player) {
 
             if (_isShopItem)
                 return;
@@ -44,7 +43,6 @@ public class Armour : MonoBehaviour {
                     }
                 }
             }
-        }
     }
 
     // this function will be executed when the player presses the Armour button in shop

@@ -24,7 +24,6 @@ public class HealthPotion : MonoBehaviour {
     // there will be other logic when buying the item in a shop.
     // that logic will be located in player state
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject == _player) {
 
 
             if (!_isPickedUp) {
@@ -44,7 +43,6 @@ public class HealthPotion : MonoBehaviour {
                     Destroy(gameObject);
                 }
             }
-        }
     }
 
     // this function will be executed when the player presses the HP button in shop

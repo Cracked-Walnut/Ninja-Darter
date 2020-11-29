@@ -22,7 +22,6 @@ public class FirePotion : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D _collider) {
-        if (_collider.gameObject == _player) {
 
             if (!_isPickedUp) {
                 if (_inventory.GetFireBalls() == _wristBladeWeapon.GetMaxQuantity()) {
@@ -41,7 +40,6 @@ public class FirePotion : MonoBehaviour {
                     Destroy(gameObject);
                 }
             }
-        }
     }
 
     // this function will be executed when the player presses the HP button in shop

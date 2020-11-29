@@ -14,9 +14,7 @@ public class Emerald : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.name == "Player") {
-            _inventory.AddEmerald(_emeraldValue);
-            Destroy(gameObject);
-        }
+        _inventory.AddEmerald(_emeraldValue);
+        Destroy(gameObject);
     }
 }

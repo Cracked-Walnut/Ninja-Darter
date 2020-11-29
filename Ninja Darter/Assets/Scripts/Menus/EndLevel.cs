@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour {
 
-    [SerializeField] private GameObject _endLevelMenu;
+    private SceneLoader _sceneLoader;
 
-    public void ClosePanel() => _endLevelMenu.SetActive(false);
+    void Awake() {
+        _sceneLoader = GetComponent<SceneLoader>();
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.name == "Player") {
+            _sceneLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
 
 }

@@ -14,9 +14,7 @@ public class Coin : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.name == "Player") {
-            _inventory.AddCoin(_coinValue);
-            Destroy(gameObject);
-        }
+        _inventory.AddCoin(_coinValue);
+        Destroy(gameObject);
     }
 }
