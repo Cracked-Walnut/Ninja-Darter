@@ -10,6 +10,7 @@ public class UI : MonoBehaviour {
     [SerializeField] private GameObject _minutes;
 
     [SerializeField] private GameObject _player;
+    
     [SerializeField] private Text _hpCurrentValue;
     [SerializeField] private Text _hpMaxValue;
     [SerializeField] private Text _armourCurrentValue;

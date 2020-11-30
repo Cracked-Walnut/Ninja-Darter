@@ -229,7 +229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 3562486485586643535}
-  _speed: 2
   _waitTime: 1
   _groundCheckPosition: {fileID: 7997769883441075581}
   _groundCheckRadius: 0.2
@@ -254,12 +253,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _xpUponDeath: 0
+  _xpUponDeath: 10
   _startAnimation: 
   _emeraldDropAmount: 0
   _coinDropAmount: 0
   _dropPercentage: 0
   _isDead: 0
+  _animator: {fileID: 0}
 --- !u!1 &5491450653723941075
 GameObject:
   m_ObjectHideFlags: 0

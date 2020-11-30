@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinValue: 3
+  _player: {fileID: 1589513610352876243, guid: c16faa1a7866a874b81750b8878d21d8, type: 3}
 --- !u!1 &8388436346873847537
 GameObject:
   m_ObjectHideFlags: 0
