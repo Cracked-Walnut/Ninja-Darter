@@ -258,8 +258,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.05
+    functionName: Play
+    data: Bow-Pull-01
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: Play
+    data: Bow-Shot-01
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.46666667
     functionName: FireArrow
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.7
+    functionName: SetCanJumpTrue
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -270,12 +291,5 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 50
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.7
-    functionName: SetCanJumpTrue
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
     intParameter: 0
     messageOptions: 0

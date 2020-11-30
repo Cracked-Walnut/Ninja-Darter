@@ -99,6 +99,13 @@ AnimationClip:
     floatParameter: 25
     intParameter: 0
     messageOptions: 0
+  - time: 0.033333335
+    functionName: Play
+    data: Sword-Whoosh-02
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.06666667
     functionName: ScanForProjectiles
     data: 

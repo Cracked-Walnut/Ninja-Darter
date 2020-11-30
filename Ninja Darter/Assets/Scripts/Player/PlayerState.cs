@@ -22,6 +22,8 @@ public class PlayerState : MonoBehaviour {
     public State _state;
     public enum State { Idling, Running, Crouching, InAir, Wall_Sliding, Wall_Climbing, Wall_Jumping, On_Wall, Dashing, Blocking, Hurt, Dead }
 
+    private AudioManager _audioManager;
+
     [SerializeField] private CharacterController2D _characterController2D; // reference to the script that gives our player movement
     private Inventory _inventory;
     private XP _xp;
@@ -223,12 +225,17 @@ public class PlayerState : MonoBehaviour {
         _canvasMap = GetComponent<CanvasMap>();
         _cameraShake = _mainCamera.GetComponent<CameraShake>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioManager = GetComponent<AudioManager>();
     }
     
     void Update() {
 
         _verticalXboxMove = Input.GetAxisRaw("L-Stick-Vertical");
         // Debug.Log(_verticalXboxMove);
+
+        if (Input.GetButtonDown("XboxA") && _characterController2D.GetGrounded())
+            _audioManager.Play("Rocky-Ground-Jump-01");
+        
 
         if (_health < _maxHealth * 0.3)
             StartCoroutine(LowHealth());
