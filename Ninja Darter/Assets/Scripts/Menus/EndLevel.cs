@@ -13,7 +13,7 @@ public class EndLevel : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name == "Player") {
-            _sceneLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+            _sceneLoader.LoadLevel(1); // Ruins Biome Scene
         }
     }
 
