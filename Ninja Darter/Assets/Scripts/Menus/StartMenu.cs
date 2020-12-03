@@ -10,6 +10,12 @@ public class StartMenu : MonoBehaviour {
 
     void Update() {
         if (Input.GetButtonDown("Menu (Start)"))
-            _sceneLoader.LoadLevel(1);
+            StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame() {
+        FindObjectOfType<AudioManager>().Play("Start-Button-Sound");
+        yield return new WaitForSeconds(0.75f);
+        _sceneLoader.LoadLevel(1);
     }
 }

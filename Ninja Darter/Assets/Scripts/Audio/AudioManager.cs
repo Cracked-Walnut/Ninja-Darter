@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
     Sources:
@@ -10,8 +11,21 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour {
     
     public Sound[] _sounds;
+
+    public static AudioManager _instance;
     
     void Awake() {
+
+        if (SceneManager.GetActiveScene().name == "Ruins-Biome" || SceneManager.GetActiveScene().name == "Press_Start")
+            DontDestroyOnLoad(gameObject);
+        else
+            Destroy(GameObject.Find("Start-AudioManager"));
+
+        if (SceneManager.GetActiveScene().name != "End_Scene")
+            DontDestroyOnLoad(gameObject);
+        else
+            Destroy(GameObject.Find("Stage-AudioManager"));
+
         foreach(Sound _s in _sounds) {
             _s._source = gameObject.AddComponent<AudioSource>();
 
