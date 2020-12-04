@@ -11,11 +11,14 @@ using UnityEngine;
     5) B., Bardent, 'Basic Combat - 2D Platformer Player Controller - Part 9 [Unity 2019.2.0f1]', 2020. [Online]. Available: https://www.youtube.com/watch?v=YaXcwc5Evjk [Accessed: Sep-07-2020].
     6) B., Brackeys, 'MELEE COMBAT in Unity', 2019. [Online]. Available: https://www.youtube.com/watch?v=sPiVz1k-fEs [Accessed: Sep-11-2020].
     7) S.P.G., Stuart's Pixel Games, 'How To Change Sprites Colour Or Transparency – Unity C#', 2019. [Online]. Available: https://stuartspixelgames.com/2019/02/19/how-to-change-sprites-colour-or-transparency-unity-c/ [Accessed: Oct-22-2020].
+    8) P.S., Press Start, 'Dust Effect when Running & Jumping in Unity [Particle Effect]', 2019. [Online]. Available: https://www.youtube.com/watch?v=1CXVbCbqKyg [Accessed: Dec-03-2020].
 */
 
 /*A class used to control the various states the player can enter*/
 
 public class PlayerState : MonoBehaviour {
+
+    [SerializeField] private ParticleSystem _groundDust;
 
     private Rigidbody2D _rigidBody2D;
     
@@ -233,8 +236,10 @@ public class PlayerState : MonoBehaviour {
         _verticalXboxMove = Input.GetAxisRaw("L-Stick-Vertical");
         // Debug.Log(_verticalXboxMove);
 
-        if (Input.GetButtonDown("XboxA") && _characterController2D.GetGrounded())
+        if (Input.GetButtonDown("XboxA") && _characterController2D.GetGrounded()) {
             _audioManager.Play("Rocky-Ground-Jump-01");
+            _groundDust.Play();
+        }
         
 
         if (_health < _maxHealth * 0.3)
@@ -320,6 +325,7 @@ public class PlayerState : MonoBehaviour {
                 break;
             case State.Wall_Jumping:
                 _animator.SetTrigger("WallJumping");
+                // _groundDust.Play();
                 break;
             case State.On_Wall:
                 break;
@@ -690,6 +696,7 @@ public class PlayerState : MonoBehaviour {
         _runSpeed = _dashSpeed;
         _animator.SetTrigger("Dashing");
         _canDash = false;
+        _groundDust.Play();
         yield return new WaitForSeconds(_dashTime);
         _runSpeed = DEFAULT_RUN_SPEED;
         yield return new WaitForSeconds(_timeBtwDashes);
