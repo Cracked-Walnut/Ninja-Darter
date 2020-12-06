@@ -7,7 +7,7 @@ public class FirePotion : MonoBehaviour {
     [SerializeField] private bool _isShopItem; // you cannot collect an item if it's in a shop. You'll have to buy it
     [SerializeField] private int _replenishValue;
     [SerializeField] private int _shopPrice;
-    private GameObject _player;
+    [SerializeField] private GameObject _player;
     private bool _isPickedUp;
     private WristBladeWeapon _wristBladeWeapon;
     private Inventory _inventory;
@@ -16,7 +16,7 @@ public class FirePotion : MonoBehaviour {
     public int GetReplenishValue() { return _replenishValue; }
 
     void Awake() { 
-        _player = GameObject.FindWithTag("Player");
+        // _player = GameObject.FindWithTag("Player");
         _wristBladeWeapon = _player.GetComponent<WristBladeWeapon>();
         _inventory = _player.GetComponent<Inventory>();
     }

@@ -7,13 +7,13 @@ public class ArrowItem : MonoBehaviour {
     [SerializeField] private bool _isShopItem; // you cannot collect an item if it's in a shop. You'll have to buy it
     [SerializeField] private int _replenishValue; // this is the value of the arrow that is restored upon contact/purchase
     [SerializeField] private int _shopPrice;
-    private GameObject _player;
+    [SerializeField] private GameObject _player;
     private Inventory _inventory;
     private bool _isPickedUp;
 
-    void Awake() {
-        _player = GameObject.FindWithTag("Player");
-    }
+    // void Awake() {
+    //     _player = GameObject.FindWithTag("Player");
+    // }
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject == _player) {
