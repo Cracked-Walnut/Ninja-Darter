@@ -1,2 +1,2 @@
 # Ninja-Darter
-The full version of Ninja Darter, also being developed in Unity.
+The 2nd demo to my Ninja Darter series.
